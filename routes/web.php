@@ -11,6 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Admin dashboard domain
+Route::domain(env('ADMIN_PREFIX', 'staff') .'.'.env('DOMAIN', 'example.com'))->group(function () {
+    View::composer('*', function ($view) {
+        $intended_url = \Request::path();
+        View::share(['view_name' => $view->getName(), 'loggeduser' => Auth::user(), 'intended_url' => $intended_url]);
+    });
+
+    Auth::routes();
+    Route::impersonate();
+    include('hydrogen.php');
+});
+Auth::routes();
+
+Route::get('/', 'FrontendController@index')->name('frontend.index');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', 'FrontendController@home')->name('frontend.home');
+});
+Route::get('lang/{locale}', function ($locale) {
+    Session::set("lang", $locale);
+    return redirect()->back();
 });

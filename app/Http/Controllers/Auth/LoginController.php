@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+use Illuminate\Support\Facades\Route;
 
 class LoginController extends Controller
 {
@@ -35,5 +38,35 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+
+
+
     }
+
+    public function showLoginForm()
+    {
+        if(array_key_exists('domain',Route::getCurrentRoute()->action)){
+            if(str_contains(Route::getCurrentRoute()->action['domain'],env('ADMIN_PREFIX'))){
+                return view('auth.login');
+            }
+        }else{
+            return view('layouts.frontend.login');
+        }
+
+
+    }
+
+    /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function credentials(Request $request)
+    {
+        //return $request->only($this->username(), 'password');
+        return ['email' => $request->{$this->username()}, 'password' => $request->password];
+
+    }
+
 }

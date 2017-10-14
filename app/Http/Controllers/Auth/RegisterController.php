@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Route;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -58,7 +59,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return User
      */
     protected function create(array $data)
     {
@@ -68,4 +69,17 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+
+    public function showRegistrationForm()
+    {
+        if(array_key_exists('domain',Route::getCurrentRoute()->action)){
+            if(str_contains(Route::getCurrentRoute()->action['domain'],env('ADMIN_PREFIX'))){
+                return view('auth.register');
+            }
+        }else{
+            return view('layouts.frontend.register');
+        }
+    }
+
 }
