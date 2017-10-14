@@ -16,6 +16,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
+        'BaklySystems\Hydrogen\Events\CommentCreated' => [
+            'BaklySystems\Hydrogen\Listeners\NotifyUser',
+        ],
+
     ];
 
     /**

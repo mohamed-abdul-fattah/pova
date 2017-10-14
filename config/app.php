@@ -167,7 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        BaklySystems\Hydrogen\HydrogenServiceProvider::class,
         /*
          * Application Service Providers...
          */
