@@ -3,27 +3,21 @@
 <meta name="description" content="">
 <meta name="author" content="Bakly Systems">
 <meta name="keyword" content=" Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-{{--<link rel="shortcut icon" href="/logo.jpg">--}}
 <link rel="shortcut icon" href="/icon.jpg">
-<title>{{config('hydrogen.AppName')}}- @yield('page')</title>
-
+<title>@yield('page-title')</title>
 <!-- Bootstrap core CSS -->
 <link href="{{url('/hydrogen/backend/css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{url('/hydrogen/backend/css/bootstrap-reset.css')}}" rel="stylesheet">
 <!--external css-->
 <link href="{{url('/hydrogen/backend/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
-
 <!--right slidebar-->
 <link href="{{url('/hydrogen/backend/css/slidebars.css')}}" rel="stylesheet">
-
 <!-- Custom styles for this template -->
 <link href="{{url('/hydrogen/backend/css/style.css')}}" rel="stylesheet">
 <link href="{{url('/hydrogen/backend/css/style-responsive.css')}}" rel="stylesheet" />
-
 <link href="{{url('/hydrogen/backend/assets/jquery-multi-select/css/multi-select.css')}}" rel="stylesheet" />
 <link href="{{url('/hydrogen/backend/assets/select2/css/select2.min.css')}}" rel="stylesheet" />
 <link href="{{url('/hydrogen/backend/assets/toastr-master/toastr.css')}}" rel="stylesheet" />
-
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
 <!--[if lt IE 9]>
 <script src="/hydrogen/backend/js/html5shiv.js"></script>

@@ -21,7 +21,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('layouts.frontend.welcome');
+        return view('frontend.welcome');
     }
 
     public function home()
