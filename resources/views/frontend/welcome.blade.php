@@ -1,5 +1,9 @@
 @extends('layouts.frontend.app')
 
+@section('page-title')
+    POVA | HOME
+@endsection
+
 @section('content')
     <!-- Start main-content -->
     <div class="main-content">
