@@ -12,3 +12,4 @@ Route::any('/notallowed', [
 include('resources/resources.php');
 include('resources/users.php');
 include('resources/notifications.php');
+include('resources/categories.php');
