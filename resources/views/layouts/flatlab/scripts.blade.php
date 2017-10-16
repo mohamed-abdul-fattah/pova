@@ -26,7 +26,6 @@
             $.ajax({url:'/notifications/markAsRead'});
         });
 
-        $("select").select2();
         $('input[type="file"]').change(function () {
             var p_type =$(this).attr('id');
 
@@ -46,7 +45,7 @@
             $(".addfiles",master).toggle();
         });
 
-        $(".js-example-basic-multiple").select2();
+        $(".select2").select2();
 
         $('.delete-event').click(function(evnt){
             evnt.preventDefault();

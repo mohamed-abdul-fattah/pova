@@ -10,6 +10,7 @@
         columns: [
             { data: 'id', name: 'id' },
             { data: '{{ trans('category.name') }}' , name : '{{ trans('category.name') }}' },
+            { data: 'parent', name: 'parent' },
             { data: 'action' , name : 'action' }
         ]
     });

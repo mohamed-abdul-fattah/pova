@@ -16,7 +16,7 @@
                             <img src="{{$category->cover()}}" alt="">
                         </a>
                         <h1>{{$category->name}}</h1>
-                        <p>{{$category->email}}</p>
+                        <p>{{$category->parent()}}</p>
                     </div>
 
                     <ul class="nav nav-pills nav-stacked">
