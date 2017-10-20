@@ -9,8 +9,6 @@ Class Category {
     categories(); hasMany
     resources();  hasMany
     parent();     belongsTo
-    prices();     hasMany
-    basePrice();  hasOne where availability_id === 0
 }
 -----------------------------------
 
@@ -23,8 +21,10 @@ resources {
 }
 
 Class Resource {
-    category(); belongsTo
-    owner();    belongsTo
+    category();  belongsTo
+    owner();     belongsTo
+    prices();    hasMany
+    basePrice(); hasOne where availability_id === 0
 }
 -----------------------------------
 
