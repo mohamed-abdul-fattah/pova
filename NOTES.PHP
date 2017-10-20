@@ -30,7 +30,7 @@ Class Resource {
 
 features {
     # name
-    # type enum(text, email, number, boolean, selection)
+    # type enum(string, text, email, number, boolean, selection)
     # required default 1
     # selections nullable
 }

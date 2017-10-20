@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    Features
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -7,7 +11,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-xs-10"><h3 class="panel-title">All Features</h3></div>
+                            <div class="col-xs-10"><h3>All Features</h3></div>
                             <div class="col-xs-2">
                                 <a href="{{route('features.create')}}" class="btn btn-primary btn-sm pull-right">
                                     Create New Feature

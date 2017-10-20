@@ -90,3 +90,5 @@
         addBtnClick('.btn-phone', phoneField, '.phone-fields');
     });
 </script>
+
+@yield('js-scripts')

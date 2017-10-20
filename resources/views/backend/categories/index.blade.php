@@ -11,7 +11,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-xs-10"><h3 class="panel-title">All Categories</h3></div>
+                            <div class="col-xs-10"><h3>All Categories</h3></div>
                             <div class="col-xs-2">
                                 <a href="{{route('categories.create')}}" class="btn btn-primary btn-sm pull-right">
                                     Create New Category

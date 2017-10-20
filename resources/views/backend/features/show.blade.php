@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    {{ ucwords(json_decode($feature->name)->nameEn) }} Profile
+@endsection
+
 @section('overload')
     <link href="{{url('/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet"/>
     <link href="{{url('/css/acedashboard.css')}}" rel="stylesheet">
@@ -15,8 +19,8 @@
                         <a href="#">
                             <img src="{{$feature->cover()}}" alt="">
                         </a>
-                        <h1>{{$feature->name}}</h1>
-                        <p>{{$feature->email}}</p>
+                        <h1>{{ucwords(json_decode($feature->name)->nameEn)}}</h1>
+                        <p>{{ucwords($feature->type)}}</p>
                     </div>
 
                     <ul class="nav nav-pills nav-stacked">
@@ -42,16 +46,44 @@
                     <div class="panel-body bio-graph-info">
                         <h1>Info</h1>
 
-                        @foreach(array_keys($feature->toArray()) as $attribute)
-                            @if(!str_contains($attribute,'_at')&& !str_contains($attribute,'_id'))
-                                <div class='bio-row'>
-                                    <p>
-                                        <span class='bold'>{{ trans('feature.'.ucwords($attribute)) }} :</span>
-                                        {{ $feature->$attribute }}
-                                    </p>
-                                </div>
-                            @endif
-                        @endforeach
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'># :</span>
+                                {{ $feature->id }}
+                            </p>
+                        </div>
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>{{ trans('feature.NameAr') }} :</span>
+                                {{ json_decode($feature->name)->nameAr }}
+                            </p>
+                        </div>
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>{{ trans('feature.NameEn') }} :</span>
+                                {{ json_decode($feature->name)->nameEn }}
+                            </p>
+                        </div>
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>{{ trans('feature.Type') }} :</span>
+                                {{ $feature->type }}
+                            </p>
+                        </div>
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>{{ trans('feature.Required') }} :</span>
+                                {{($feature->required) ? 'Required' : 'Optional'}}
+                            </p>
+                        </div>
+                        @if ($feature->type === 'selection')
+                            <div class='bio-row'>
+                                <p>
+                                    <span class='bold'>{{ trans('feature.Selections') }} :</span>
+                                    {{ $feature->selections }}
+                                </p>
+                            </div>
+                        @endif
                     </div>
                 </section>
             </aside>

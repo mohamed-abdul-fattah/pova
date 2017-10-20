@@ -15,9 +15,9 @@ class CreateFeaturesTable extends Migration {
 		Schema::create('features', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
-			$table->enum('type');
+			$table->enum('type', ['string', 'text', 'email', 'number', 'boolean', 'selection']);
 			$table->boolean('required')->default(1);
-			$table->string('selections')->nullable();
+			$table->string('selections', 400)->nullable();
 			$table->timestamps();
 		});
 	}

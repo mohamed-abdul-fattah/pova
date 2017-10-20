@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
-@section('overload')
-    <link href="{{url('/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet"/>
-    <link href="{{url('/css/acedashboard.css')}}" rel="stylesheet">
-    <link href="{{url('/css/style-responsive.css')}}" rel="stylesheet"/>
+@section('page-title')
+    {{ ucwords(json_decode($category->name)->nameEn) }} Profile
 @stop
 
 @section('content')
@@ -15,8 +13,8 @@
                         <a href="#">
                             <img src="{{$category->cover()}}" alt="">
                         </a>
-                        <h1>{{ json_decode($category->name)->nameEn }}</h1>
-                        <p>{{ $category->parent() }}</p>
+                        <h1>{{ ucwords(json_decode($category->name)->nameEn) }}</h1>
+                        <p>{{ ucwords($category->parent()) }}</p>
                     </div>
 
                     <ul class="nav nav-pills nav-stacked">

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    Edit {{ ucwords(json_decode($category->name)->nameEn) }}
+@endsection
+
 @section('content')
     <section class="panel panel-default">
         <div class="panel-heading">

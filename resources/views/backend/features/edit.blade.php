@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    Edit {{ ucwords(json_decode($feature->name)->nameEn) }}
+@endsection
+
 @section('content')
     <section class="panel panel-default">
         <div class="panel-heading">
@@ -18,3 +22,7 @@
         </div>
     </section>
 @stop
+
+@section('js-scripts')
+    @include('backend.features.jsScripts')
+@endsection

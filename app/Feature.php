@@ -9,14 +9,15 @@ class Feature extends Model {
     use HydrogenTrait;
 
     protected $fillable = [
-        'name','type','required','selections'
+        'name', 'type', 'required', 'selections'
     ];
 
 	protected static $rules = [
-		'name' => 'required',
-		'type' => 'required',
-		'required' => 'required',
-		'selections' => 'required'
+		'nameEn'     => 'required|string|max:255',
+		'nameAr'     => 'required|string|max:255',
+		'type'       => 'required|string|in:string,text,email,number,boolean,selection',
+		'required'   => 'boolean',
+		'selections' => 'max:400'
 	];
 
     /**
@@ -32,5 +33,5 @@ class Feature extends Model {
      */
     public $detailsMethods = [];
 
-	
+
 }
