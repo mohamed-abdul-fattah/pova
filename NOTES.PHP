@@ -2,8 +2,7 @@
 
 categories {
     # parent_id default 0
-    # name_en
-    # name_ar
+    # name
 }
 
 Class Category {
@@ -18,8 +17,7 @@ Class Category {
 resources {
     # category_id
     # user_id
-    # title_en
-    # title_ar
+    # title
     # featured default 0
     # deleted_at
 }
@@ -31,8 +29,7 @@ Class Resource {
 -----------------------------------
 
 features {
-    # name_en
-    # name_ar
+    # name
     # type enum(text, email, number, boolean, selection)
     # required default 1
     # selections nullable
@@ -85,8 +82,7 @@ Class Availability {
 
 cities {
     # country_id
-    # name_en
-    # name_ar
+    # name
 }
 
 Class City {
@@ -95,8 +91,7 @@ Class City {
 -----------------------------------
 
 units {
-    # name_en
-    # name_ar
+    # name
     # type enum('day')
 }
 

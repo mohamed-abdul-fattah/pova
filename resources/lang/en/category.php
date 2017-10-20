@@ -24,5 +24,9 @@ return [
 	'parent' => 'parent',
 	'Parent' => 'Parent',
 	'name' => 'name',
-	'Name' => 'Name'
+	'Name' => 'Name',
+	'nameEn' => 'nameEn',
+	'NameEn' => 'Name in English',
+	'nameAr' => 'nameAr',
+	'NameAr' => 'Name In Arabic',
 ];

@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use Validator;
 use App\Category;
 use Illuminate\Http\Request;
-use BaklySystems\Hydrogen\Models\Photo;
 use Yajra\DataTables\Facades\DataTables;
 use BaklySystems\Hydrogen\Http\Controllers\HydrogenControllerTrait;
 
@@ -47,11 +44,11 @@ class CategoriesController extends Controller
             // Actions.
             $categories->addColumn('action', function ($category) {
                 $html = "
-                    <form  method='post' action ='categories/" . $category->id . "'>
-                        <input type='hidden' name='_method' value='DELETE'/>
-                        " . csrf_field() . "
-                        <button class='btn btn-danger' onclick='confirmDelete(event)'>Delete</button>
-                    </form>";
+                <form  method='post' action ='categories/" . $category->id . "'>
+                <input type='hidden' name='_method' value='DELETE'/>
+                " . csrf_field() . "
+                <button class='btn btn-danger' onclick='confirmDelete(event)'>Delete</button>
+                </form>";
 
                 return link_to_route('categories.edit', 'Edit', array($category->id), array('class' => 'btn btn-info')) . $html;
             });
@@ -67,6 +64,16 @@ class CategoriesController extends Controller
             $categories->editColumn('parent', function ($category) {
                 return $category->parent();
             });
+            // Arabic name.
+            $categories->editColumn('nameAr', function ($category) {
+                $name = json_decode($category->name);
+                return $name->nameAr;
+            });
+            // English name.
+            $categories->editColumn('nameEn', function ($category) {
+                $name = json_decode($category->name);
+                return $name->nameEn;
+            });
 
             return $categories->make(true);
         }
@@ -81,8 +88,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        $model = $this->category;
-        $category = new Category;
+        $model      = $this->category;
+        $category   = new Category;
         $categories = Category::whereParentId(0)->get();
 
         return view('backend.categories.create', compact('model', 'category', 'categories'));
@@ -96,9 +103,14 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         // Validations.
-        $this->validate($request, Category::$rules);
+        $this->validate($request, Category::rules());
 
-        $category = Category::create($request->input());
+        $name     = json_encode([
+            'nameEn' => $request->nameEn,
+            'nameAr' => $request->nameAr
+        ]);
+        $request  = collect($request)->put('name', $name);
+        $category = Category::create($request->all());
 
         return redirect()->route('categories.index', compact('category'));
     }
@@ -112,7 +124,7 @@ class CategoriesController extends Controller
     public function show($id)
     {
         $category = Category::findOrFail($id);
-        $model = $category;
+        $model    = $category;
 
         return view('backend.categories.show', compact('category', 'model'));
     }
@@ -125,8 +137,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
-        $model = $this->category;
+        $category   = Category::findOrFail($id);
+        $model      = $this->category;
         $categories = Category::whereParentId(0)->get();
 
         if (is_null($category)) {
@@ -145,10 +157,15 @@ class CategoriesController extends Controller
     public function update(Request $request, $id)
     {
         // Validations.
-        $this->validate($request, Category::$rules);
+        $this->validate($request, Category::rules());
 
         $category = Category::findOrFail($id);
-        $category->update($request->input());
+        $name     = json_encode([
+            'nameEn' => $request->nameEn,
+            'nameAr' => $request->nameAr
+        ]);
+        $request  = collect($request)->put('name', $name);
+        $category->update($request->all());
 
         return redirect()->route('categories.show', $id);
     }

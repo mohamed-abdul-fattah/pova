@@ -15,8 +15,8 @@
                         <a href="#">
                             <img src="{{$category->cover()}}" alt="">
                         </a>
-                        <h1>{{$category->name}}</h1>
-                        <p>{{$category->parent()}}</p>
+                        <h1>{{ json_decode($category->name)->nameEn }}</h1>
+                        <p>{{ $category->parent() }}</p>
                     </div>
 
                     <ul class="nav nav-pills nav-stacked">
@@ -42,16 +42,24 @@
                     <div class="panel-body bio-graph-info">
                         <h1>Info</h1>
 
-                        @foreach(array_keys($category->toArray()) as $attribute)
-                            @if(!str_contains($attribute,'_at')&& !str_contains($attribute,'_id'))
-                                <div class='bio-row'>
-                                    <p>
-                                        <span class='bold'>{{ trans('category.'.ucwords($attribute)) }} :</span>
-                                        {{ $category->$attribute }}
-                                    </p>
-                                </div>
-                            @endif
-                        @endforeach
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'># :</span>
+                                {{ $category->id }}
+                            </p>
+                        </div>
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>{{ trans('category.NameAr') }} :</span>
+                                {{ json_decode($category->name)->nameAr }}
+                            </p>
+                        </div>
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>{{ trans('category.NameEn') }} :</span>
+                                {{ json_decode($category->name)->nameEn }}
+                            </p>
+                        </div>
                     </div>
                 </section>
             </aside>

@@ -12,11 +12,23 @@ class Category extends Model {
         'parent_id', 'name'
     ];
 
-	public static $rules = array(
+	protected static $rules = [
 		'parent_id' => 'required|integer',
-		'name'      => 'required|string|max:255'
-	);
+		'nameEn'    => 'required|string|max:255',
+		'nameAr'    => 'required|string|max:255',
+	];
 
+    /**
+     * Rules getter.
+     */
+    public static function rules()
+    {
+        return self::$rules;
+    }
+
+    /**
+     * Relationships to be displayed in resource show page.
+     */
     public $detailsMethods = [];
 
 	public function parent()
