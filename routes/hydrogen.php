@@ -15,3 +15,4 @@ include('resources/notifications.php');
 include('resources/categories.php');
 include('resources/features.php');
 include('resources/acquiredFeatures.php');
+include('resources/cities.php');

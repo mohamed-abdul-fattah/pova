@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(FeaturesTableSeeder::class);
         // $this->call(AcquiredFeaturesTableSeeder::class);
         // $this->call(CountriesSeeder::class);
-    }
+    	$this->call(CitiesTableSeeder::class);
+	}
 }
