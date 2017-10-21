@@ -48,7 +48,7 @@ class AcquiredFeaturesTableSeeder extends Seeder {
           );
 
 		DB::table('nav_items')->insert([
-			'name' => 'AcquiredFeatures',
+			'name' => 'Acquired Features',
 			'route' => 'acquired-features',
 			'icon' => '',
 			'nav_id' => '1'

@@ -40,13 +40,14 @@ class User extends Authenticatable
     ];
 
 
-    public function superCan($ability,$model=null){
+    public function superCan($ability, $model = null)
+    {
         if (Auth::user()->hasRole('Super Admin')) {
             return true;
         } else {
-        if ($model) {
-            $ability = $ability . '_' . str_plural(strtolower(last(explode("\\", class_basename($model)))));
-        }
+            if ($model) {
+                $ability = $ability . '_' . str_plural(strtolower(last(explode("\\", class_basename($model)))));
+            }
             return $this->getAllPermissions()->pluck('name')->contains($ability);
         }
     }

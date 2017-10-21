@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Feature;
 use App\Category;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -181,5 +182,23 @@ class CategoriesController extends Controller
         Category::findOrFail($id)->delete();
 
         return redirect()->route('categories.index');
+    }
+
+    /**
+     * Create nested resource.
+     *
+     * @param  int  $id
+     * @param  string  $details
+     * @return Response
+     */
+    public function createNested($id, $details)
+    {
+        $modelId   = $id;
+        $class     = 'App\Category'; // just to support polymorphic nesting
+        $detail    = str_singular($details);
+        $Detail    = 'App\\'.studly_case($detail);
+        ${$detail} = new $Detail;
+        $features  = Feature::all();
+        return view('backend.'.$details.'.create', compact('modelId', 'class', $detail, 'features'));
     }
 }

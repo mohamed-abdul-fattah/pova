@@ -454,6 +454,7 @@ class ComposerStaticInit49d354e80a70b54c3c74d91a843b8de0
     );
 
     public static $classMap = array (
+        'AcquiredFeaturesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AcquiredFeaturesTableSeeder.php',
         'AdamWathan\\BootForms\\BasicFormBuilder' => __DIR__ . '/..' . '/adamwathan/bootforms/src/AdamWathan/BootForms/BasicFormBuilder.php',
         'AdamWathan\\BootForms\\BootForm' => __DIR__ . '/..' . '/adamwathan/bootforms/src/AdamWathan/BootForms/BootForm.php',
         'AdamWathan\\BootForms\\BootFormsServiceProvider' => __DIR__ . '/..' . '/adamwathan/bootforms/src/AdamWathan/BootForms/BootFormsServiceProvider.php',
@@ -492,11 +493,13 @@ class ComposerStaticInit49d354e80a70b54c3c74d91a843b8de0
         'AdamWathan\\Form\\OldInput\\IlluminateOldInputProvider' => __DIR__ . '/..' . '/adamwathan/form/src/AdamWathan/Form/OldInput/IlluminateOldInputProvider.php',
         'AdamWathan\\Form\\OldInput\\OldInputInterface' => __DIR__ . '/..' . '/adamwathan/form/src/AdamWathan/Form/OldInput/OldInputInterface.php',
         'AddFreshSeeds' => __DIR__ . '/..' . '/dimsav/laravel-translatable/tests/seeds/AddFreshSeeds.php',
+        'App\\AcquiredFeature' => __DIR__ . '/../..' . '/app/AcquiredFeature.php',
         'App\\Address' => __DIR__ . '/../..' . '/app/Address.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Feature' => __DIR__ . '/../..' . '/app/Feature.php',
+        'App\\Http\\Controllers\\AcquiredFeaturesController' => __DIR__ . '/../..' . '/app/Http/Controllers/AcquiredFeaturesController.php',
         'App\\Http\\Controllers\\Auth\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',

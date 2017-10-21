@@ -9,7 +9,7 @@
     <section class="panel" id="{{$details}}">
         <div class="panel-heading">
              <span class="pull-right">
-                 @if( Route::has(strtolower($details).'.create') && Auth::user()->supercan('create_'.str_singular($details)) )
+                 @if( Route::has(kebab_case($details).'.create') && Auth::user()->supercan('create_'.str_singular($details)) )
                      {{link_to_route(str_plural(strtolower(class_basename($model))).'.createNested','Add New',[$model->id,$details],['class'=>'btn btn-success'])}}
                  @endif
             </span>
@@ -64,7 +64,5 @@
             @endif
         </div>
     </section>
-
-@endif
-
+    @endif
 @endforeach

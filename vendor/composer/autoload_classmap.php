@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AcquiredFeaturesTableSeeder' => $baseDir . '/database/seeds/AcquiredFeaturesTableSeeder.php',
     'AdamWathan\\BootForms\\BasicFormBuilder' => $vendorDir . '/adamwathan/bootforms/src/AdamWathan/BootForms/BasicFormBuilder.php',
     'AdamWathan\\BootForms\\BootForm' => $vendorDir . '/adamwathan/bootforms/src/AdamWathan/BootForms/BootForm.php',
     'AdamWathan\\BootForms\\BootFormsServiceProvider' => $vendorDir . '/adamwathan/bootforms/src/AdamWathan/BootForms/BootFormsServiceProvider.php',
@@ -44,11 +45,13 @@ return array(
     'AdamWathan\\Form\\OldInput\\IlluminateOldInputProvider' => $vendorDir . '/adamwathan/form/src/AdamWathan/Form/OldInput/IlluminateOldInputProvider.php',
     'AdamWathan\\Form\\OldInput\\OldInputInterface' => $vendorDir . '/adamwathan/form/src/AdamWathan/Form/OldInput/OldInputInterface.php',
     'AddFreshSeeds' => $vendorDir . '/dimsav/laravel-translatable/tests/seeds/AddFreshSeeds.php',
+    'App\\AcquiredFeature' => $baseDir . '/app/AcquiredFeature.php',
     'App\\Address' => $baseDir . '/app/Address.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Feature' => $baseDir . '/app/Feature.php',
+    'App\\Http\\Controllers\\AcquiredFeaturesController' => $baseDir . '/app/Http/Controllers/AcquiredFeaturesController.php',
     'App\\Http\\Controllers\\Auth\\AuthController' => $baseDir . '/app/Http/Controllers/Auth/AuthController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',

@@ -29,7 +29,7 @@ class Category extends Model {
     /**
      * Relationships to be displayed in resource show page.
      */
-    public $detailsMethods = [];
+    public $detailsMethods = ['acquiredFeatures'];
 
 	public function parent()
 	{
@@ -45,6 +45,11 @@ class Category extends Model {
     public function parentObj()
     {
         return $this->belongsTo('App\Category', 'parent_id');
+    }
+
+    public function acquiredFeatures()
+    {
+        return $this->morphMany('App\AcquiredFeature', 'featureable');
     }
 
 }

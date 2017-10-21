@@ -64,8 +64,8 @@
         </div>
     </div>
 
-    @include('backend.partials.details',['model'=>$category])
-    @include('backend.partials.imagesshowall',['model'=>$category])
+    @include('backend.partials.details', ['model' => $category])
+    @include('backend.partials.imagesshowall', ['model' => $category])
 
     @foreach($category->filetypes() as $filetype)
         @include("backend.partials.filesshow",array("files"=>$category->files($filetype->id),"filetype"=>$filetype))
