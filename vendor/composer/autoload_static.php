@@ -24,6 +24,7 @@ class ComposerStaticInit49d354e80a70b54c3c74d91a843b8de0
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
         '0b47d6d4a00ca9112ba3953b49e7c9a4' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/helper.php',
         '261dc3bca2e3f05bb61ce1ea0d8bbf1a' => __DIR__ . '/..' . '/baklysystems/hydrogen/src/Http/helpers.php',
+        '6d394c3a532652dafb4dd296ba6a3f0b' => __DIR__ . '/../..' . '/app/Http/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -497,6 +498,7 @@ class ComposerStaticInit49d354e80a70b54c3c74d91a843b8de0
         'App\\AcquiredFeature' => __DIR__ . '/../..' . '/app/AcquiredFeature.php',
         'App\\Address' => __DIR__ . '/../..' . '/app/Address.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
+        'App\\City' => __DIR__ . '/../..' . '/app/City.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Feature' => __DIR__ . '/../..' . '/app/Feature.php',
@@ -507,6 +509,7 @@ class ComposerStaticInit49d354e80a70b54c3c74d91a843b8de0
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\CategoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoriesController.php',
+        'App\\Http\\Controllers\\CitiesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CitiesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\FeaturesController' => __DIR__ . '/../..' . '/app/Http/Controllers/FeaturesController.php',
         'App\\Http\\Controllers\\FrontendController' => __DIR__ . '/../..' . '/app/Http/Controllers/FrontendController.php',
@@ -670,6 +673,7 @@ class ComposerStaticInit49d354e80a70b54c3c74d91a843b8de0
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'CategoriesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CategoriesTableSeeder.php',
+        'CitiesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CitiesTableSeeder.php',
         'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
         'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
         'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',

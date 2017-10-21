@@ -9,7 +9,9 @@
 
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'name' , name : 'name' },
+            { data: 'country', name: 'country' },
+            { data: 'nameAr' , name : 'name' },
+            { data: 'nameEn' , name : 'name' },
             { data: 'action' , name : 'action' }
         ]
     });

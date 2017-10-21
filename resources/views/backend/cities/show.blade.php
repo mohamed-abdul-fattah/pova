@@ -15,8 +15,8 @@
                         <a href="#">
                             <img src="{{$city->cover()}}" alt="">
                         </a>
-                        <h1>{{$city->name}}</h1>
-                        <p>{{$city->email}}</p>
+                        <h1>{{name($city)}}</h1>
+                        <p>{{$city->country()->name}}</p>
                     </div>
 
                     <ul class="nav nav-pills nav-stacked">
@@ -42,16 +42,26 @@
                     <div class="panel-body bio-graph-info">
                         <h1>Info</h1>
 
-                        @foreach(array_keys($city->toArray()) as $attribute)
-                            @if(!str_contains($attribute,'_at')&& !str_contains($attribute,'_id'))
-                                <div class='bio-row'>
-                                    <p>
-                                        <span class='bold'>{{ trans('city.'.ucwords($attribute)) }} :</span>
-                                        {{ $city->$attribute }}
-                                    </p>
-                                </div>
-                            @endif
-                        @endforeach
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'># :</span>
+                                {{ $city->id }}
+                            </p>
+                        </div>
+
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>{{ trans('city.NameAr') }} :</span>
+                                {{ json_decode($city->name)->nameAr }}
+                            </p>
+                        </div>
+
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>{{ trans('city.NameEn') }} :</span>
+                                {{ json_decode($city->name)->nameEn }}
+                            </p>
+                        </div>
                     </div>
                 </section>
             </aside>

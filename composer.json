@@ -43,7 +43,8 @@
             "BaklySystems\\Hydrogen\\": "vendor/baklysystems/hydrogen/src/"
         },
         "files": [
-            "vendor/baklysystems/hydrogen/src/Http/helpers.php"
+            "vendor/baklysystems/hydrogen/src/Http/helpers.php",
+            "app/Http/helpers.php"
         ]
     },
     "autoload-dev": {

@@ -24,5 +24,9 @@ return [
 	'country' => 'country',
 	'Country' => 'Country',
 	'name' => 'name',
-	'Name' => 'Name'
+	'Name' => 'Name',
+	'NameAr' => 'Name in Arabic',
+	'nameAr' => 'nameAr',
+	'nameEn' => 'nameEn',
+	'NameEn' => 'Name in English',
 ];

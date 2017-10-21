@@ -23,4 +23,5 @@ return array(
     '377b22b161c09ed6e5152de788ca020a' => $vendorDir . '/spatie/laravel-permission/src/helpers.php',
     '0b47d6d4a00ca9112ba3953b49e7c9a4' => $vendorDir . '/yajra/laravel-datatables-oracle/src/helper.php',
     '261dc3bca2e3f05bb61ce1ea0d8bbf1a' => $vendorDir . '/baklysystems/hydrogen/src/Http/helpers.php',
+    '6d394c3a532652dafb4dd296ba6a3f0b' => $baseDir . '/app/Http/helpers.php',
 );
