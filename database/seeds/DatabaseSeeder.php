@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(CountriesSeeder::class);
     	// $this->call(CitiesTableSeeder::class);
 		// $this->call(UnitsTableSeeder::class);
-		$this->call(PricesTableSeeder::class);
+		// $this->call(PricesTableSeeder::class);
 	}
 }
