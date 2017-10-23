@@ -18,3 +18,4 @@ include('resources/acquiredFeatures.php');
 include('resources/cities.php');
 include('resources/units.php');
 include('resources/prices.php');
+include('resources/resources.php');
