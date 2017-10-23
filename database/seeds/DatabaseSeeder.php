@@ -19,6 +19,5 @@ class DatabaseSeeder extends Seeder
     	// $this->call(CitiesTableSeeder::class);
 		// $this->call(UnitsTableSeeder::class);
 		// $this->call(PricesTableSeeder::class);
-		$this->call(ResourcesTableSeeder::class);
 	}
 }
