@@ -13,13 +13,13 @@ class Price extends Model
         'resource_id', 'unit_id', 'availability_id', 'price', 'currency'
     ];
 
-	protected static $rules = [
-		'resource_id' => 'required',
-		'unit_id' => 'required',
-		'availability_id' => 'required',
-		'price' => 'required',
-		'currency' => 'required'
-	];
+    protected static $rules = [
+        'resource_id'     => 'required|integer',
+        'unit_id'         => 'required|integer',
+        'availability_id' => 'required|integer',
+        'price'           => 'required|numeric',
+        'currency'        => 'required|string:max:255'
+    ];
 
     /**
      * Rules getter.
@@ -34,20 +34,18 @@ class Price extends Model
      */
     public $detailsMethods = [];
 
-	
-	public function resource()
-	{
-		return $this->belongsTo('App\Resource'); 
-	}
+    public function resource()
+    {
+        return $this->belongsTo('App\Resource');
+    }
 
-	public function unit()
-	{
-		return $this->belongsTo('App\Unit'); 
-	}
+    public function unit()
+    {
+        return $this->belongsTo('App\Unit');
+    }
 
-	public function availability()
-	{
-		return $this->belongsTo('App\Availability'); 
-	}
-
+    public function availability()
+    {
+        return $this->belongsTo('App\Availability');
+    }
 }
