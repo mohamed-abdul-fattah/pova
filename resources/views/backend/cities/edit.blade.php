@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    Edit {{localName($city)}}
+@endsection
+
 @section('content')
     <section class="panel panel-default">
         <div class="panel-heading">

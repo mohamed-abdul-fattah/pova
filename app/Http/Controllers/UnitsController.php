@@ -62,11 +62,11 @@ class UnitsController extends Controller
             });
             // Arabic name.
             $units->editColumn('nameAr', function ($unit) {
-                return name($unit, 'Ar');
+                return localName($unit, 'Ar');
             });
             // English name.
             $units->editColumn('nameEn', function ($unit) {
-                return name($unit);
+                return localName($unit);
             });
 
             return $units->make(true);

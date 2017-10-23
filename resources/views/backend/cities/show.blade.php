@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
-@section('overload')
-    <link href="{{url('/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet"/>
-    <link href="{{url('/css/acedashboard.css')}}" rel="stylesheet">
-    <link href="{{url('/css/style-responsive.css')}}" rel="stylesheet"/>
+@section('page-title')
+    {{localName($city)}} Profile
 @stop
 
 @section('content')
@@ -15,7 +13,7 @@
                         <a href="#">
                             <img src="{{$city->cover()}}" alt="">
                         </a>
-                        <h1>{{name($city)}}</h1>
+                        <h1>{{localName($city)}}</h1>
                         <p>{{$city->country()->name}}</p>
                     </div>
 
@@ -52,14 +50,14 @@
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('city.NameAr') }} :</span>
-                                {{ json_decode($city->name)->nameAr }}
+                                {{ localName($city, 'Ar') }}
                             </p>
                         </div>
 
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('city.NameEn') }} :</span>
-                                {{ json_decode($city->name)->nameEn }}
+                                {{ localName($city) }}
                             </p>
                         </div>
                     </div>

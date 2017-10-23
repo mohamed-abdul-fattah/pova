@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    {{ ucwords(json_decode($feature->name)->nameEn) }} Profile
+    {{ ucwords(localName($feature)) }} Profile
 @endsection
 
 @section('overload')
@@ -55,13 +55,13 @@
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('feature.NameAr') }} :</span>
-                                {{ json_decode($feature->name)->nameAr }}
+                                {{ localName($feature, 'Ar') }}
                             </p>
                         </div>
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('feature.NameEn') }} :</span>
-                                {{ json_decode($feature->name)->nameEn }}
+                                {{ localName($feature) }}
                             </p>
                         </div>
                         <div class='bio-row'>

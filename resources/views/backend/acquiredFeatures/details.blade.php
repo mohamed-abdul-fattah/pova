@@ -20,8 +20,8 @@
             @foreach ($details as $key => $detail)
                 <tr>
                     <td>{{++$key}}</td>
-                    <td>{{json_decode($detail->feature->name)->nameAr}}</td>
-                    <td>{{json_decode($detail->feature->name)->nameEn}}</td>
+                    <td>{{localName($detail->feature, 'Ar')}}</td>
+                    <td>{{localName($detail->feature)}}</td>
                     <td>
                         {!! Form::open(['url' => "/acquired-features/{$detail['id']}", 'method' => 'DELETE']) !!}
                             <button type="submit" class="btn btn-danger" onclick="confirmDelete()">Delete</button>

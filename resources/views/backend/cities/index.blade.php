@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    Cities
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">

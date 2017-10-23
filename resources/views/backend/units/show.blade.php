@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    {{name($unit)}} Profile
+    {{localName($unit)}} Profile
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
                         <a href="#">
                             <img src="{{$unit->cover()}}" alt="">
                         </a>
-                        <h1>{{name($unit)}}</h1>
+                        <h1>{{localName($unit)}}</h1>
                         <p>{{ucwords($unit->type)}}</p>
                     </div>
 
@@ -50,14 +50,14 @@
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('unit.NameAr') }} :</span>
-                                {{ name($unit, 'Ar') }}
+                                {{ localName($unit, 'Ar') }}
                             </p>
                         </div>
 
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('unit.NameEn') }} :</span>
-                                {{ name($unit) }}
+                                {{ localName($unit) }}
                             </p>
                         </div>
                     </div>

@@ -7,7 +7,7 @@
  * @param  String  $lang
  * @return String
  */
-function name($object, $lang = 'En')
+function localName($object, $lang = 'En')
 {
     $localName = "name{$lang}";
     return optional(json_decode($object->name))->$localName;
