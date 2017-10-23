@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | main Layout Language Lines
+    | user Layout Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used by the layout template to build
@@ -13,8 +13,9 @@ return [
     |
     */
 
-	'Create' => 'Create',
-	'Edit' => 'Edit',
-	'Delete' => 'Delete',
-	'Save' => 'Save',
+	'Name' => 'Name',
+    'Email' => 'Email',
+    'Type' => 'Type',
+    'Password' => 'Password',
+    'Phone' => 'Phone',
 ];

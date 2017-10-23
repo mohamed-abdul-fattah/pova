@@ -13,6 +13,9 @@
 	{!! Form::label('category_id', trans('resource.Category')) !!}
     <select class="form-control" name="category_id" required>
         <option>Select Category</option>
+        @foreach ($categories as $key => $category)
+            <option value="{{$category->id}}">{{localName($category)}}</option>
+        @endforeach
     </select>
 
 	@if ($errors->has('category_id'))
@@ -27,7 +30,10 @@
 <div class='bio-row{{ $errors->has('user_id') ? ' has-error' : '' }}'>
 	{!! Form::label('user_id', trans('resource.Provider')) !!}
     <select class="form-control select2" name="user_id" required>
-        <optio>Select Provider</option>
+        <option>Select Provider</option>
+        @foreach ($providers as $key => $provider)
+            <option value="{{$provider->id}}">{{$provider->name}}</option>
+        @endforeach
     </select>
 
 	@if ($errors->has('user_id'))

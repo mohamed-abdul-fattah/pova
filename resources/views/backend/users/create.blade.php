@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    Create New User
+@endsection
+
 @section('content')
     {!! Form::open(array('route' => 'users.store',"files"=>true)) !!}
     <section class="panel panel-default">

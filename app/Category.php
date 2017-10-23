@@ -34,9 +34,9 @@ class Category extends Model {
 	public function parent()
 	{
         if ($this->parent_id) {
-            return $this->belongsTo('App\Category', 'parent_id')
-                ->first()
-                ->name;
+            $category = $this->belongsTo('App\Category', 'parent_id')
+                ->first();
+            return localName($category);
         } else {
             return 'Parent Category';
         }

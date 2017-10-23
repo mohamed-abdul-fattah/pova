@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Category;
 use App\Resource;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -75,10 +76,12 @@ class ResourcesController extends Controller
      */
     public function create()
     {
-        $model    = $this->resource;
-        $resource = new Resource;
+        $model      = $this->resource;
+        $resource   = new Resource;
+        $providers  = User::whereType('provider')->orderby('name')->get();
+        $categories = Category::where('parent_id', '<>', 0)->get();
 
-        return view('backend.resources.create', compact('model', 'resource'));
+        return view('backend.resources.create', compact('model', 'resource', 'providers', 'categories'));
     }
 
     /**
@@ -127,13 +130,15 @@ class ResourcesController extends Controller
      */
     public function edit($id)
     {
-        $resource = Resource::findOrFail($id);
-        $model    = $this->resource;
+        $resource   = Resource::findOrFail($id);
+        $model      = $this->resource;
+        $providers  = User::whereType('provider')->orderby('name')->get();
+        $categories = Category::where('parent_id', '<>', 0)->get();
         if (is_null($resource)) {
             return redirect()->route('resources.index');
         }
 
-        return view('backend.resources.edit', compact('model', 'resource'));
+        return view('backend.resources.edit', compact('model', 'resource', 'providers', 'categories'));
     }
 
     /**

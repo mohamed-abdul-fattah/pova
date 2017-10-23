@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    Edit {{$user->name}}
+@endsection
+
 @section('content')
     {!! Form::model($user, array('method' => 'PATCH', 'route' => array('users.update', $user->id),'files'=>true)) !!}
 

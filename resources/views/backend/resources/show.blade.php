@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('overload')
-    <link href="{{url('/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet"/>
-    <link href="{{url('/css/acedashboard.css')}}" rel="stylesheet">
-    <link href="{{url('/css/style-responsive.css')}}" rel="stylesheet"/>
+    {{localTitle($resource)}} Profile
 @stop
 
 @section('content')
@@ -15,8 +13,8 @@
                         <a href="#">
                             <img src="{{$resource->cover()}}" alt="">
                         </a>
-                        <h1>{{$resource->name}}</h1>
-                        <p>{{$resource->email}}</p>
+                        <h1>{{localTitle($resource)}}</h1>
+                        <p>{{$resource->owner->name}}</p>
                     </div>
 
                     <ul class="nav nav-pills nav-stacked">

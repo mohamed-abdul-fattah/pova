@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Auth;
 use Spatie\Permission\Traits\HasRoles;
 use BaklySystems\Hydrogen\HydrogenTrait;
 use Illuminate\Notifications\Notifiable;
@@ -22,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email','password'
+        'name', 'email','password', 'type'
     ];
 
     /**
@@ -34,15 +33,24 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public static $rules = [
+    protected static $rules = [
         'name'  => 'required|string|max:255',
-        'email' => 'email|string|max:255'
+        'email' => 'required|email|string|max:255',
+        'type'  => 'required|string|in:admin,user,provider',
+        'phone' => 'required|numeric'
     ];
 
+    /**
+     * Rules getter.
+     */
+    public static function rules()
+    {
+        return self::$rules;
+    }
 
     public function superCan($ability, $model = null)
     {
-        if (Auth::user()->hasRole('Super Admin')) {
+        if (auth()->user()->hasRole('Super Admin')) {
             return true;
         } else {
             if ($model) {
@@ -52,13 +60,8 @@ class User extends Authenticatable
         }
     }
 
-    public function phones()
+    public function phone()
     {
-        return $this->morphMany('App\Phone', 'phoneable');
-    }
-
-    public function address()
-    {
-        return $this->morphOne('App\Address', 'addressable');
+        return $this->morphOne('App\Phone', 'phoneable');
     }
 }
