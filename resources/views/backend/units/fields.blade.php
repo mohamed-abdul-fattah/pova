@@ -8,23 +8,38 @@
     </div>
 @endif
 
-{{-- Name --}}
-<div class='bio-row{{ $errors->has('name') ? ' has-error' : '' }}'>
-	{!! Form::label('name', trans('unit.Name')) !!}
-	{!! Form::text('name', null, array('class' => 'form-control', 'required' => 'required')) !!}
+{{-- NameAr --}}
+<div class='bio-row{{ $errors->has('nameAr') ? ' has-error' : '' }}'>
+	{!! Form::label('nameAr', trans('unit.NameAr')) !!}
+	{!! Form::text('nameAr', name($unit, 'Ar'), array('class' => 'form-control', 'required' => 'required')) !!}
 
-	@if ($errors->has('name'))
+	@if ($errors->has('nameAr'))
 		<span class='help-block'>
-			<strong>{{ $errors->first('name') }}</strong>
+			<strong>{{ $errors->first('nameAr') }}</strong>
 		</span>
 	@endif
 </div>
-{{-- End name --}}
+{{-- End nameAr --}}
+
+{{-- NameEn --}}
+<div class='bio-row{{ $errors->has('nameEn') ? ' has-error' : '' }}'>
+	{!! Form::label('nameEn', trans('unit.NameEn')) !!}
+	{!! Form::text('nameEn', name($unit), array('class' => 'form-control', 'required' => 'required')) !!}
+
+	@if ($errors->has('nameEn'))
+		<span class='help-block'>
+			<strong>{{ $errors->first('nameEn') }}</strong>
+		</span>
+	@endif
+</div>
+{{-- End nameEn --}}
 
 {{-- Type --}}
 <div class='bio-row{{ $errors->has('type') ? ' has-error' : '' }}'>
 	{!! Form::label('type', trans('unit.Type')) !!}
-	{!! Form::text('type', null, array('class' => 'form-control', 'required' => 'required')) !!}
+    <select class="form-control" name="type" required>
+        <option value="day">Day</option>
+    </select>
 
 	@if ($errors->has('type'))
 		<span class='help-block'>
@@ -34,118 +49,8 @@
 </div>
 {{-- End type --}}
 
-
-@foreach($unit->phototypes() as $phototype)
-    @include("backend.partials.images",array("pictures"=>$unit->photos($phototype->id),"phototype"=>$phototype))
-@endforeach
-@foreach($unit->filetypes() as $filetype)
-    @include("backend.partials.files",array("files"=>$unit->files($filetype->id),"filetype"=>$filetype))
-@endforeach
-
-{{-- Phones --}}
-@if(method_exists($unit, 'phones'))
-    <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-        <div class="bio-row">
-            <p>
-                <span>
-                    {!! Form::label('phone', trans("unit.phone")) !!}
-                </span>
-                <div id="phone-container">
-                    @if (count($unit->phones) > 0)
-                        {{-- for edit fields --}}
-                        @foreach ($unit->phones as $phone)
-                            <div class="phone-fields">
-                                {!! Form::text('phones[]', $phone->phone, ['class' => 'phones']) !!}
-                                <button class="btn btn-success btn-phone">
-                                    <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        @endforeach
-                    @else
-                        {{-- for create fields --}}
-                        <div class="phone-fields">
-                            {!! Form::text('phones[]', '', ['class' => 'phones']) !!}
-                            <button class="btn btn-success btn-phone">
-                                <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    @endif
-                </div>
-                @if ($errors->has('phones'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('phone') }}</strong>
-                    </span>
-                @endif
-            </p>
-        </div>
-    </div>
-@endif
-{{-- End phones --}}
-
-{{-- Address --}}
-@if (method_exists($unit, 'address'))
-    {{-- Longitude --}}
-    <div class='bio-row{{ $errors->has('lng') ? ' has-error' : '' }}'>
-        {!! Form::label('lng', 'Longitude') !!}
-        {!! Form::text('lng', optional($unit->address)->lng, array('id'=>'lng','class'=>'form-control')) !!}
-
-        @if ($errors->has('lng'))
-    		<span class='help-block'>
-    			<strong>{{ $errors->first('lng') }}</strong>
-    		</span>
-    	@endif
-    </div>
-    {{-- latitude --}}
-    <div class='bio-row{{ $errors->has('lat') ? ' has-error' : '' }}'>
-        {!! Form::label('lat', 'Latitude') !!}
-        {!! Form::text('lat', optional($unit->address)->lat, array('id'=>'lat','class'=>'form-control')) !!}
-
-        @if ($errors->has('lat'))
-    		<span class='help-block'>
-    			<strong>{{ $errors->first('lat') }}</strong>
-    		</span>
-    	@endif
-    </div>
-    {{-- Address --}}
-    <div class='bio-row{{ $errors->has('address') ? ' has-error' : '' }}'>
-        {!! Form::label('address', 'Address') !!}
-        {!! Form::text('address', optional($unit->address)->address, array('id'=>'address','class'=>'form-control')) !!}
-
-        @if ($errors->has('address'))
-    		<span class='help-block'>
-    			<strong>{{ $errors->first('address') }}</strong>
-    		</span>
-    	@endif
-    </div>
-    {{-- map --}}
-    <div class='col-lg-12'>
-       <div id="map-wrapper">
-          <div id="map"></div>
-       </div>
-    </div>
-@endif
-{{-- End address --}}
-
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">
         <button type="submit" class="btn btn-primary">Save</button>
     </div>
 </div>
-
-@section('scripts')
-    @if (method_exists($unit, 'address'))
-        <script type="text/javascript" src="/hydrogen/backend/js/address.js"></script>
-        <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_API')}}&callback=initMap">
-        </script>
-        <script type="text/javascript">
-          @if (isset($is_edit) && count($unit->address) > 0)
-            var isEdit = true;
-            var lat = {{$unit->address->lat}};
-            var lng = {{$unit->address->lng}};
-          @else
-            var isEdit = false;
-          @endif
-        </script>
-    @endif
-@stop

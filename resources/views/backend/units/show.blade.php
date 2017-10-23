@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
-@section('overload')
-    <link href="{{url('/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet"/>
-    <link href="{{url('/css/acedashboard.css')}}" rel="stylesheet">
-    <link href="{{url('/css/style-responsive.css')}}" rel="stylesheet"/>
+@section('page-title')
+    {{name($unit)}} Profile
 @stop
 
 @section('content')
@@ -15,8 +13,8 @@
                         <a href="#">
                             <img src="{{$unit->cover()}}" alt="">
                         </a>
-                        <h1>{{$unit->name}}</h1>
-                        <p>{{$unit->email}}</p>
+                        <h1>{{name($unit)}}</h1>
+                        <p>{{ucwords($unit->type)}}</p>
                     </div>
 
                     <ul class="nav nav-pills nav-stacked">
@@ -42,16 +40,26 @@
                     <div class="panel-body bio-graph-info">
                         <h1>Info</h1>
 
-                        @foreach(array_keys($unit->toArray()) as $attribute)
-                            @if(!str_contains($attribute,'_at')&& !str_contains($attribute,'_id'))
-                                <div class='bio-row'>
-                                    <p>
-                                        <span class='bold'>{{ trans('unit.'.ucwords($attribute)) }} :</span>
-                                        {{ $unit->$attribute }}
-                                    </p>
-                                </div>
-                            @endif
-                        @endforeach
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>{{ trans('unit.id') }} :</span>
+                                {{ $unit->id }}
+                            </p>
+                        </div>
+
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>{{ trans('unit.NameAr') }} :</span>
+                                {{ name($unit, 'Ar') }}
+                            </p>
+                        </div>
+
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>{{ trans('unit.NameEn') }} :</span>
+                                {{ name($unit) }}
+                            </p>
+                        </div>
                     </div>
                 </section>
             </aside>

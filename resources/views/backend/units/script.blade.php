@@ -9,7 +9,8 @@
 
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'name' , name : 'name' },
+            { data: 'nameAr' , name : 'nameAr' },
+            { data: 'nameEn' , name : 'nameEn' },
 			{ data: 'type' , name : 'type' },
             { data: 'action' , name : 'action' }
         ]

@@ -42,7 +42,12 @@
                     @if(Auth::user()->superCan('destroy_nav_items'))
                     <td>
                         {!! Form::open(array('method' => 'DELETE', 'route' => array('nav_items.destroy', $nav_item->id))) !!}
-                            {!! Form::submit(trans("main.Delete"), array('class' => 'btn btn-danger')) !!}
+                            {!!
+                                Form::submit(trans("main.Delete"), array(
+                                    'class'   => 'btn btn-danger',
+                                    'onclick' => 'confirmDelete()'
+                                ))
+                            !!}
                         {!! Form::close() !!}
                     </td>
                     @endif

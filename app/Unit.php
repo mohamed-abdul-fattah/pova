@@ -14,8 +14,9 @@ class Unit extends Model
     ];
 
 	protected static $rules = [
-		'name' => 'required',
-		'type' => 'required'
+		'nameAr' => 'required|string|max:255',
+		'nameEn' => 'required|string|max:255',
+		'type' => 'required|string|max:255|in:day'
 	];
 
     /**
@@ -30,6 +31,4 @@ class Unit extends Model
      * Relationships to be displayed in resource show page.
      */
     public $detailsMethods = [];
-
-	
 }

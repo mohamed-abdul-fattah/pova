@@ -22,5 +22,9 @@ return [
 	'name' => 'name',
 	'Name' => 'Name',
 	'type' => 'type',
-	'Type' => 'Type'
+	'Type' => 'Type',
+	'nameAr' => 'nameAr',
+	'NameAr' => 'Name in Arabic',
+	'nameEn' => 'nameEn',
+	'NameEn' => 'Name in English',
 ];
