@@ -27,8 +27,14 @@ return [
 	'User_id' => 'User_id',
 	'user' => 'user',
 	'User' => 'User',
+	'titleAr' => 'titleAr',
+	'TitleAr' => 'Title in Arabic',
+	'titleEn' => 'titleEn',
+	'TitleEn' => 'Title in English',
 	'title' => 'title',
 	'Title' => 'Title',
 	'feature' => 'feature',
-	'Feature' => 'Feature'
+	'Feature' => 'Feature',
+	'Owner' => 'Owner',
+	'Provider' => 'Provider'
 ];

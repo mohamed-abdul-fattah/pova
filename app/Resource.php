@@ -13,12 +13,13 @@ class Resource extends Model
         'category_id', 'user_id', 'title', 'feature'
     ];
 
-	protected static $rules = [
-		'category_id' => 'required',
-		'user_id' => 'required',
-		'title' => 'required',
-		'feature' => 'required'
-	];
+    protected static $rules = [
+        'category_id' => 'required|integer',
+        'user_id'     => 'required|integer',
+        'titleEn'     => 'required|string|max:255',
+        'titleAr'     => 'required|string|max:255',
+        'feature'     => 'boolean'
+    ];
 
     /**
      * Rules getter.
@@ -33,15 +34,18 @@ class Resource extends Model
      */
     public $detailsMethods = [];
 
-	
-	public function category()
-	{
-		return $this->belongsTo('App\Category'); 
-	}
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
 
-	public function user()
-	{
-		return $this->belongsTo('App\User'); 
-	}
+    public function owner()
+    {
+        return $this->belongsTo('App\User');
+    }
 
+    public function address()
+    {
+        return $this->morphMany('App\Address', 'addressable');
+    }
 }

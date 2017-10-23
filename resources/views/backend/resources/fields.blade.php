@@ -10,8 +10,10 @@
 
 {{-- CategoryId --}}
 <div class='bio-row{{ $errors->has('category_id') ? ' has-error' : '' }}'>
-	{!! Form::label('category_id', trans('resource.CategoryId')) !!}
-	{!! Form::text('category_id', null, array('class' => 'form-control', 'required' => 'required')) !!}
+	{!! Form::label('category_id', trans('resource.Category')) !!}
+    <select class="form-control" name="category_id" required>
+        <option>Select Category</option>
+    </select>
 
 	@if ($errors->has('category_id'))
 		<span class='help-block'>
@@ -23,8 +25,10 @@
 
 {{-- UserId --}}
 <div class='bio-row{{ $errors->has('user_id') ? ' has-error' : '' }}'>
-	{!! Form::label('user_id', trans('resource.UserId')) !!}
-	{!! Form::text('user_id', null, array('class' => 'form-control', 'required' => 'required')) !!}
+	{!! Form::label('user_id', trans('resource.Provider')) !!}
+    <select class="form-control select2" name="user_id" required>
+        <optio>Select Provider</option>
+    </select>
 
 	@if ($errors->has('user_id'))
 		<span class='help-block'>
@@ -34,18 +38,31 @@
 </div>
 {{-- End user_id --}}
 
-{{-- Title --}}
-<div class='bio-row{{ $errors->has('title') ? ' has-error' : '' }}'>
-	{!! Form::label('title', trans('resource.Title')) !!}
-	{!! Form::text('title', null, array('class' => 'form-control', 'required' => 'required')) !!}
+{{-- TitleAr --}}
+<div class='bio-row{{ $errors->has('titleAr') ? ' has-error' : '' }}'>
+	{!! Form::label('titleAr', trans('resource.TitleAr')) !!}
+	{!! Form::text('titleAr', null, array('class' => 'form-control', 'required' => 'required')) !!}
 
-	@if ($errors->has('title'))
+	@if ($errors->has('titleAr'))
 		<span class='help-block'>
-			<strong>{{ $errors->first('title') }}</strong>
+			<strong>{{ $errors->first('titleAr') }}</strong>
 		</span>
 	@endif
 </div>
-{{-- End title --}}
+{{-- End titleAr --}}
+
+{{-- TitleEn --}}
+<div class='bio-row{{ $errors->has('titleEn') ? ' has-error' : '' }}'>
+	{!! Form::label('titleEn', trans('resource.TitleEn')) !!}
+	{!! Form::text('titleEn', null, array('class' => 'form-control', 'required' => 'required')) !!}
+
+	@if ($errors->has('titleEn'))
+		<span class='help-block'>
+			<strong>{{ $errors->first('titleEn') }}</strong>
+		</span>
+	@endif
+</div>
+{{-- End titleEn --}}
 
 {{-- Feature --}}
 <div class='bio-row{{ $errors->has('feature') ? ' has-error' : '' }}'>
@@ -59,7 +76,6 @@
 </div>
 {{-- End feature --}}
 
-
 @foreach($resource->phototypes() as $phototype)
     @include("backend.partials.images",array("pictures"=>$resource->photos($phototype->id),"phototype"=>$phototype))
 @endforeach
@@ -67,52 +83,12 @@
     @include("backend.partials.files",array("files"=>$resource->files($filetype->id),"filetype"=>$filetype))
 @endforeach
 
-{{-- Phones --}}
-@if(method_exists($resource, 'phones'))
-    <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-        <div class="bio-row">
-            <p>
-                <span>
-                    {!! Form::label('phone', trans("resource.phone")) !!}
-                </span>
-                <div id="phone-container">
-                    @if (count($resource->phones) > 0)
-                        {{-- for edit fields --}}
-                        @foreach ($resource->phones as $phone)
-                            <div class="phone-fields">
-                                {!! Form::text('phones[]', $phone->phone, ['class' => 'phones']) !!}
-                                <button class="btn btn-success btn-phone">
-                                    <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        @endforeach
-                    @else
-                        {{-- for create fields --}}
-                        <div class="phone-fields">
-                            {!! Form::text('phones[]', '', ['class' => 'phones']) !!}
-                            <button class="btn btn-success btn-phone">
-                                <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    @endif
-                </div>
-                @if ($errors->has('phones'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('phone') }}</strong>
-                    </span>
-                @endif
-            </p>
-        </div>
-    </div>
-@endif
-{{-- End phones --}}
-
 {{-- Address --}}
 @if (method_exists($resource, 'address'))
     {{-- Longitude --}}
     <div class='bio-row{{ $errors->has('lng') ? ' has-error' : '' }}'>
         {!! Form::label('lng', 'Longitude') !!}
-        {!! Form::text('lng', optional($resource->address)->lng, array('id'=>'lng','class'=>'form-control')) !!}
+        {{-- {!! Form::text('lng', optional($resource->address)->lng, array('id'=>'lng','class'=>'form-control')) !!} --}}
 
         @if ($errors->has('lng'))
     		<span class='help-block'>
@@ -123,7 +99,7 @@
     {{-- latitude --}}
     <div class='bio-row{{ $errors->has('lat') ? ' has-error' : '' }}'>
         {!! Form::label('lat', 'Latitude') !!}
-        {!! Form::text('lat', optional($resource->address)->lat, array('id'=>'lat','class'=>'form-control')) !!}
+        {{-- {!! Form::text('lat', optional($resource->address)->lat, array('id'=>'lat','class'=>'form-control')) !!} --}}
 
         @if ($errors->has('lat'))
     		<span class='help-block'>
@@ -134,7 +110,7 @@
     {{-- Address --}}
     <div class='bio-row{{ $errors->has('address') ? ' has-error' : '' }}'>
         {!! Form::label('address', 'Address') !!}
-        {!! Form::text('address', optional($resource->address)->address, array('id'=>'address','class'=>'form-control')) !!}
+        {{-- {!! Form::text('address', optional($resource->address)->address, array('id'=>'address','class'=>'form-control')) !!} --}}
 
         @if ($errors->has('address'))
     		<span class='help-block'>
