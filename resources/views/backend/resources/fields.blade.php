@@ -88,7 +88,7 @@
     {{-- Longitude --}}
     <div class='bio-row{{ $errors->has('lng') ? ' has-error' : '' }}'>
         {!! Form::label('lng', 'Longitude') !!}
-        {{-- {!! Form::text('lng', optional($resource->address)->lng, array('id'=>'lng','class'=>'form-control')) !!} --}}
+        {!! Form::text('lng', optional($resource->address)->lng, array('id'=>'lng','class'=>'form-control')) !!}
 
         @if ($errors->has('lng'))
     		<span class='help-block'>
@@ -99,7 +99,7 @@
     {{-- latitude --}}
     <div class='bio-row{{ $errors->has('lat') ? ' has-error' : '' }}'>
         {!! Form::label('lat', 'Latitude') !!}
-        {{-- {!! Form::text('lat', optional($resource->address)->lat, array('id'=>'lat','class'=>'form-control')) !!} --}}
+        {!! Form::text('lat', optional($resource->address)->lat, array('id'=>'lat','class'=>'form-control')) !!}
 
         @if ($errors->has('lat'))
     		<span class='help-block'>
@@ -110,7 +110,7 @@
     {{-- Address --}}
     <div class='bio-row{{ $errors->has('address') ? ' has-error' : '' }}'>
         {!! Form::label('address', 'Address') !!}
-        {{-- {!! Form::text('address', optional($resource->address)->address, array('id'=>'address','class'=>'form-control')) !!} --}}
+        {!! Form::text('address', optional($resource->address)->address, array('id'=>'address','class'=>'form-control')) !!}
 
         @if ($errors->has('address'))
     		<span class='help-block'>

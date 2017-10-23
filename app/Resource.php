@@ -46,6 +46,6 @@ class Resource extends Model
 
     public function address()
     {
-        return $this->morphMany('App\Address', 'addressable');
+        return $this->morphOne('App\Address', 'addressable');
     }
 }
