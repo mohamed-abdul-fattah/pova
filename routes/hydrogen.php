@@ -9,7 +9,7 @@ Route::any('/notallowed', [
     'uses' => '\BaklySystems\Hydrogen\Http\Controllers\ErrorsController@notallowed'
 ]);
 
-include('resources/resources.php');
+include('resources/navItems.php');
 include('resources/users.php');
 include('resources/notifications.php');
 include('resources/categories.php');
