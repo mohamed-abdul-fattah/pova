@@ -20,3 +20,4 @@ include('resources/units.php');
 include('resources/prices.php');
 
 include('resources/resources.php');
+include('resources/availabilities.php');
