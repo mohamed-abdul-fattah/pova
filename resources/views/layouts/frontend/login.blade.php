@@ -1,73 +1,102 @@
 @extends('layouts.frontend.app')
-@section('styles')
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-@stop
+
+@section('page-title')
+    Login | Register
+@endsection
+
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2 login-logo-div">
-            <img class="login-logo" src="/images/logo.jpg"/>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <!-- Start main-content -->
+    <div class="main-content">
+      <!-- Section: inner-header -->
+      <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="images/bg/bg11.jpg">
+        <div class="container pt-120 pb-50">
+          <!-- Section Content -->
+          <div class="section-content pt-100">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="title text-white">{{__('Login/Register')}}</h3>
+              </div>
             </div>
+          </div>
         </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 mb-40">
+              <h4 class="text-gray mt-0 pt-5"> {{__('Login')}}</h4>
+              <hr>
+              <p>Lorem ipsum dolor sit amet, consectetur elit.</p>
+              <form class="clearfix" role="form" method="POST" action="/login">
+                {{ csrf_field() }}
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <label for="form_username_email">{{__('Email')}}</label>
+                    <input id="form_username_email" name="email" class="form-control" type="text">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-12">
+                    <label for="form_password">{{__('Password')}}</label>
+                    <input id="form_password" name="password" class="form-control" type="text">
+                  </div>
+                </div>
+                <div class="checkbox pull-left mt-15">
+                  <label for="form_checkbox">
+                    <input id="form_checkbox" name="form_checkbox" type="checkbox">
+                    {{__('Remember me')}} </label>
+                </div>
+                <div class="form-group pull-right mt-10">
+                  <button type="submit" class="btn btn-dark btn-sm">{{__('Login')}}</button>
+                </div>
+                <div class="clear text-center pt-10">
+                  <a class="text-theme-colored font-weight-600 font-12" href="#">{{__('Forgot password?')}}</a>
+                </div>
+                <div class="clear text-center pt-10">
+                  <a class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15" href="#" data-bg-color="#3b5998">{{__('Login with Facebook')}}</a>
+                  <a class="btn btn-dark btn-lg btn-block no-border" href="#" data-bg-color="#00acee">{{__('Login with Twitter')}}</a>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-7 col-md-offset-1">
+              <form name="reg-form" class="register-form" method="post">
+                <div class="icon-box mb-0 p-0">
+                  <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
+                    <i class="pe-7s-users"></i>
+                  </a>
+                  <h4 class="text-gray pt-10 mt-0 mb-30">{{__('Don\'t have an Account? Register Now.')}}</h4>
+                </div>
+                <hr>
+                <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias.</p>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="form_name">{{__('Name')}}</label>
+                    <input id="form_name" name="form_name" class="form-control" type="text">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>{{__('Email Address')}}</label>
+                    <input id="form_email" name="form_email" class="form-control" type="email">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="form_choose_password">{{__('Choose Password')}}</label>
+                    <input id="form_choose_password" name="form_choose_password" class="form-control" type="text">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>{{__('Re-enter Password')}}</label>
+                    <input id="form_re_enter_password" name="form_re_enter_password"  class="form-control" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-dark btn-lg btn-block mt-15" type="submit">{{__('Register Now')}}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-</div>
+    <!-- end main-content -->
 @endsection

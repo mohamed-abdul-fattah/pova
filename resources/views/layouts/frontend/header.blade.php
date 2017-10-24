@@ -9,7 +9,7 @@
       <div class="widget no-border">
         <nav>
           <ul class="nav nav-list">
-            <li><a href="/">@lang('frontend.Home')</a></li>
+            <li><a href="/">{{__('Home')}}</a></li>
             <li><a href="#">Services</a></li>
             <li><a class="tree-toggler nav-header">Pages <i class="fa fa-angle-down"></i></a>
               <ul class="nav nav-list tree">
@@ -61,7 +61,7 @@
           <div id="menuzord-right" class="menuzord red"> <a class="menuzord-brand pull-left flip font-playball text-theme-colored font-32" href="/">Happy <i class="fa fa-heart-o font-25"></i> Wedding</a>
             <div id="side-panel-trigger" class="side-panel-trigger"><a href="#"><i class="fa fa-bars font-24 text-gray-silver"></i></a></div>
             <ul class="menuzord-menu">
-              <li class="active"><a href="/">@lang('frontend.Home')</a></li>
+              <li class="active"><a href="/">{{__('Home')}}</a></li>
               @foreach ($categories->parentCategories() as $key => $category)
                   <li>
                       <a href="javascript:void(0)">
@@ -76,7 +76,14 @@
                       @endif
                   </li>
               @endforeach
-              <li><a href="/login">@lang('frontend.Login')</a></li>
+              <li>
+                  @auth
+                      <a href="/login">{{__('Login')}}</a>
+                  @endauth
+                  @guest
+                      <a href="/logout">{{__('Logout')}}</a>
+                  @endguest
+              </li>
             </ul>
           </div>
         </nav>

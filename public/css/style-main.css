@@ -47,7 +47,7 @@ This file contains the common styles of this theme.
 		* Job.less
 		* Shop.less
 		* Blog.less
-		* Shortcode.less 
+		* Shortcode.less
 			* Alerts.less
 			* Buttons.less
 			* Blockquote.less
@@ -1451,8 +1451,8 @@ section > .container-fluid {
     min-height: auto !important;
   }
 }
-/*  
- * Extra.less 
+/*
+ * Extra.less
  * -----------------------------------------------
 */
 /* -------- Heading Style ---------- */

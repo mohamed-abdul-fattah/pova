@@ -22,13 +22,19 @@ Route::domain(env('ADMIN_PREFIX', 'staff') .'.'.env('DOMAIN', 'example.com'))->g
     Route::impersonate();
     include('hydrogen.php');
 });
+
 Auth::routes();
+Route::get('register', function () {
+    abort(404);
+});
 
 Route::get('/', 'FrontendController@index')->name('frontend.index');
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'FrontendController@home')->name('frontend.home');
 });
+// change language.
 Route::get('lang/{locale}', function ($locale) {
-    Session::set("lang", $locale);
+    session()->put('appLocale', $locale);
+
     return redirect()->back();
 });

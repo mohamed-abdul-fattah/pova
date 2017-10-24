@@ -21,6 +21,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
+        // app()->setLocale('ar');
         return view('frontend.welcome');
     }
 

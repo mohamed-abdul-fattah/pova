@@ -26,11 +26,12 @@
     <link href="/css/custom-bootstrap-margin-padding.css" rel="stylesheet" type="text/css">
     <!-- CSS | Responsive media queries -->
     <link href="/css/responsive.css" rel="stylesheet" type="text/css">
-    <!-- CSS | For RTL Layout -->
-    <link href="/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/style-main-rtl.css" rel="stylesheet" type="text/css">
-
-    <link href="/css/style-main-rtl-extra.css" rel="stylesheet" type="text/css">
+    @if (app()->isLocale('ar'))
+        <!-- CSS | For RTL Layout -->
+        <link href="/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css">
+        <link href="/css/style-main-rtl.css" rel="stylesheet" type="text/css">
+        <link href="/css/style-main-rtl-extra.css" rel="stylesheet" type="text/css">
+    @endif
     <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
     <!-- <link href="/css/style.css" rel="stylesheet" type="text/css"> -->
 

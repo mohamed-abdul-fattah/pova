@@ -1,6 +1,7 @@
 <?php
 
-// TODO: categories on header.
+# 24-10-2017
+// TODO: categories on header. ✔
 // TODO: user login.
 // TODO: add resource.
 // TODO: edit resource.
