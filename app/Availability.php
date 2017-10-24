@@ -13,12 +13,12 @@ class Availability extends Model
         'resource_id', 'start', 'end', 'type'
     ];
 
-	protected static $rules = [
-		'resource_id' => 'required',
-		'start' => 'required',
-		'end' => 'required',
-		'type' => 'required'
-	];
+    protected static $rules = [
+        'resource_id' => 'required|integer',
+        'start'       => 'required|date',
+        'end'         => 'required|date',
+        'type'        => 'required|string|max:255|in:unavailable,seasonal'
+    ];
 
     /**
      * Rules getter.
@@ -33,10 +33,9 @@ class Availability extends Model
      */
     public $detailsMethods = [];
 
-	
-	public function resource()
-	{
-		return $this->belongsTo('App\Resource'); 
-	}
 
+    public function resource()
+    {
+        return $this->belongsTo('App\Resource');
+    }
 }

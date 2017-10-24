@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
 		// $this->call(UnitsTableSeeder::class);
 		// $this->call(PricesTableSeeder::class);
 		// $this->call(ResourcesTableSeeder::class);
-		$this->call(AvailabilitiesTableSeeder::class);
+		// $this->call(AvailabilitiesTableSeeder::class);
 	}
 }

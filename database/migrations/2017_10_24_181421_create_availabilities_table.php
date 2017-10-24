@@ -18,7 +18,8 @@ class CreateAvailabilitiesTable extends Migration
 			$table->unsignedInteger('resource_id');
 			$table->date('start');
 			$table->date('end');
-			$table->enum('type');
+			$table->enum('type', ['unavailable', 'seasonal']);
+			$table->foreign('resource_id')->references('id')->on('resources')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
