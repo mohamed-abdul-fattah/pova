@@ -9,6 +9,7 @@
  */
 function localName($object, $lang = 'En')
 {
+    $lang      = ucwords($lang);
     $localName = "name{$lang}";
     return optional(json_decode($object->name))->$localName;
 }
@@ -22,6 +23,7 @@ function localName($object, $lang = 'En')
  */
 function localTitle($object, $lang = 'En')
 {
+    $lang       = ucwords($lang);
     $localTitle = "title{$lang}";
     return optional(json_decode($object->title))->$localTitle;
 }

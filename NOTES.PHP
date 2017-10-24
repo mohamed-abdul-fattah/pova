@@ -1,5 +1,15 @@
 <?php
 
+// TODO: categories on header.
+// TODO: user login.
+// TODO: add resource.
+// TODO: edit resource.
+// TODO: delete resource.
+
+// TODO: add prent category on category details show page.
+// TODO: organize categories on dashboard >> parent >> children.
+// TODO: user signup.
+
 categories {
     # parent_id default 0
     # name
