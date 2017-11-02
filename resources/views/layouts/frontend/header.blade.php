@@ -77,6 +77,13 @@
                   </li>
               @endforeach
               <li>
+                  @if (app()->getLocale() === 'ar')
+                      <a href="/lang/en">En</a>
+                  @else
+                      <a href="/lang/ar">عربي</a>
+                  @endif
+              </li>
+              <li>
                   @auth
                       <a href="/logout">{{__('Logout')}}</a>
                   @endauth
