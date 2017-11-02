@@ -41,120 +41,7 @@
         </div>
       </section>
 
-      <!-- Section: Services -->
-      <section id="services" class="divider bg-img-center-bottom" data-bg-img="/images/bg/bg9.png">
-        <div class="container pt-70">
-          <div class="row">
-            <div class="col-xs-12 col-md-12">
-              <div class="services-carousel">
-                <div class="item">
-                  <div class="couple">
-                    <div class="couple-thumb">
-                      <img class="img-fullwidth" src="/images/event/event-img1.jpg" alt="">
-                    </div>
-                    <div class="couple-details">
-                      <h4 class="title"><span>Wedding Celebration</span></h4>
-                    </div>
-                  </div>
-                  <p class="mt-30 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore esse harum, magnam, dolores nisi atque ratione nulla reprehenderit perferendis beatae!</p>
-                  <a href="#" class="text-theme-colored font-13">Read more <i class="fa fa-angle-double-right"></i></a>
-                </div>
-                <div class="item">
-                  <div class="couple">
-                    <div class="couple-thumb">
-                      <img class="img-fullwidth" src="/images/event/event-img2.jpg" alt="">
-                    </div>
-                    <div class="couple-details">
-                      <h4 class="title"><span>Wedding Celebration</span></h4>
-                    </div>
-                  </div>
-                  <p class="mt-30 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore esse harum, magnam, dolores nisi atque ratione nulla reprehenderit perferendis beatae!</p>
-                  <a href="#" class="text-theme-colored font-13">Read more <i class="fa fa-angle-double-right"></i></a>
-                </div>
-                <div class="item">
-                  <div class="couple">
-                    <div class="couple-thumb">
-                      <img class="img-fullwidth" src="/images/event/event-img3.jpg" alt="">
-                    </div>
-                    <div class="couple-details">
-                      <h4 class="title"><span>Wedding Celebration</span></h4>
-                    </div>
-                  </div>
-                  <p class="mt-30 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore esse harum, magnam, dolores nisi atque ratione nulla reprehenderit perferendis beatae!</p>
-                  <a href="#" class="text-theme-colored font-13">Read more <i class="fa fa-angle-double-right"></i></a>
-                </div>
-                <div class="item">
-                  <div class="couple">
-                    <div class="couple-thumb">
-                      <img class="img-fullwidth" src="/images/event/event-img2.jpg" alt="">
-                    </div>
-                    <div class="couple-details">
-                      <h4 class="title"><span>Wedding Celebration</span></h4>
-                    </div>
-                  </div>
-                  <p class="mt-30 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore esse harum, magnam, dolores nisi atque ratione nulla reprehenderit perferendis beatae!</p>
-                  <a href="#" class="text-theme-colored font-13">Read more <i class="fa fa-angle-double-right"></i></a>
-                </div>
-                <div class="item">
-                  <div class="couple">
-                    <div class="couple-thumb">
-                      <img class="img-fullwidth" src="/images/event/event-img2.jpg" alt="">
-                    </div>
-                    <div class="couple-details">
-                      <h4 class="title"><span>Wedding Celebration</span></h4>
-                    </div>
-                  </div>
-                  <p class="mt-30 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore esse harum, magnam, dolores nisi atque ratione nulla reprehenderit perferendis beatae!</p>
-                  <a href="#" class="text-theme-colored font-13">Read more <i class="fa fa-angle-double-right"></i></a>
-                </div>
-                <div class="item">
-                  <div class="couple">
-                    <div class="couple-thumb">
-                      <img class="img-fullwidth" src="/images/event/event-img3.jpg" alt="">
-                    </div>
-                    <div class="couple-details">
-                      <h4 class="title"><span>Wedding Celebration</span></h4>
-                    </div>
-                  </div>
-                  <p class="mt-30 mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore esse harum, magnam, dolores nisi atque ratione nulla reprehenderit perferendis beatae!</p>
-                  <a href="#" class="text-theme-colored font-13">Read more <i class="fa fa-angle-double-right"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Divider: call to action -->
-      <section class="divider parallax layer-overlay overlay-light" data-stellar-background-ratio="0.5" data-bg-img="/images/bg/bg8.jpg">
-        <div class="container pb-100">
-          <div class="row">
-            <div class="col-md-4 wow fadeInUp animation-delay1">
-              <div class="text-center p-30 p-sm-15 pb-0">
-                <a href="#" class="font-48"><i class="pe-7s-plane"></i></a>
-                <h3 class="mt-0">Transport</h3>
-                <p>Lorem ipsum dolor sit amet, consec tetur adipis icing elit culpa volupt!</p>
-              </div>
-            </div>
-            <div class="col-md-4 wow fadeInUp animation-delay2">
-              <div class="text-center p-30 p-sm-15 pb-0">
-                <a href="#" class="font-48"><i class="pe-7s-umbrella"></i></a>
-                <h3 class="mt-0">Hotel &amp; Restaurant</h3>
-                <p>Lorem ipsum dolor sit amet, consec tetur adipis icing elit culpa volupt!</p>
-              </div>
-            </div>
-            <div class="col-md-4 wow fadeInUp animation-delay3">
-              <div class="text-center p-30 p-sm-15 pb-0">
-                <a href="#" class="font-48"><i class="pe-7s-diamond"></i></a>
-                <h3 class="mt-0">Facilities</h3>
-                <p>Lorem ipsum dolor sit amet, consec tetur adipis icing elit culpa volupt!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section: Event -->
+      {{-- Featured resources --}}
       <section id="events" class="divider bg-img-center-bottom" data-bg-img="/images/bg/bg9.png">
         <div class="container">
           <div class="section-title">
@@ -241,11 +128,41 @@
                           </ul>
                         </div>
                         <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi molestiae autem fugit illo ipsa numquam, quod iusto enim.</p>
-                        <a class="text-theme-colored font-13" href="#">Read more <i class="fa fa-angle-double-right"></i></a>
+                        <a class="text-theme-colored font-13" href="#">{{__('Read more')}} <i class="fa fa-angle-double-right"></i></a>
                       </div>
                     </div>
                   </article>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {{-- End featured resources --}}
+
+      <!-- Divider: call to action -->
+      <section class="divider parallax layer-overlay overlay-light" data-stellar-background-ratio="0.5" data-bg-img="/images/bg/bg8.jpg">
+        <div class="container pb-100">
+          <div class="row">
+            <div class="col-md-4 wow fadeInUp animation-delay1">
+              <div class="text-center p-30 p-sm-15 pb-0">
+                <a href="#" class="font-48"><i class="pe-7s-plane"></i></a>
+                <h3 class="mt-0">Transport</h3>
+                <p>Lorem ipsum dolor sit amet, consec tetur adipis icing elit culpa volupt!</p>
+              </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp animation-delay2">
+              <div class="text-center p-30 p-sm-15 pb-0">
+                <a href="#" class="font-48"><i class="pe-7s-umbrella"></i></a>
+                <h3 class="mt-0">Hotel &amp; Restaurant</h3>
+                <p>Lorem ipsum dolor sit amet, consec tetur adipis icing elit culpa volupt!</p>
+              </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp animation-delay3">
+              <div class="text-center p-30 p-sm-15 pb-0">
+                <a href="#" class="font-48"><i class="pe-7s-diamond"></i></a>
+                <h3 class="mt-0">Facilities</h3>
+                <p>Lorem ipsum dolor sit amet, consec tetur adipis icing elit culpa volupt!</p>
               </div>
             </div>
           </div>
