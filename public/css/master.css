@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lemonada:300');
 /*----------------------------------------------------------------*/
 
+/*Custome Font Family*/
+
 body, .menuzord a, p {
     font-family: 'Lemonada', cursive;
 }
@@ -9,9 +11,19 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: 'Lemonada', cursive;
 }
 
+/*Custome Bootstrap*/
+
+.btn {
+    border-radius: 0;
+}
+
+/*Featured Resources*/
+
 .for-sale b {
     text-decoration: line-through;
 }
+
+/*Profile Header*/
 
 .profile-header {
     background-color: #d65679;
@@ -37,6 +49,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     vertical-align: middle;
 }
 
+/*Profile Navigator*/
+
 .profile-navigation {
     background-color: #f8f8f8;
     list-style: none;
@@ -56,6 +70,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     text-decoration: none;
     padding: 15px 0;
 }
+
+span.resources {
+    font-size: larger;
+    color: #c6c6c6;
+}
+
+/*User Profile Information*/
 
 .personal-info {
     padding-left: 0;
@@ -77,6 +98,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 600;
     left: 0;
 }
+
 .personal-info li.ar {
     position: relative;
     padding-right: 150px;

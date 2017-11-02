@@ -1,7 +1,8 @@
 <?php
 
 // TODO: language switcher. ✔
-// TODO: change footer to dark footer.
+// TODO: change footer to dark footer or make sidebar like theme switcher.
+// TODO: 404 page
 
 class User {
     // TODO: user login. ✔

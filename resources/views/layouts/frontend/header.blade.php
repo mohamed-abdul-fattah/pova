@@ -89,16 +89,24 @@
                       <ul class="dropdown">
                           <li>
                               <a href="/profile">
-                                  {{__('Profile')}}
                                   <i class="fa fa-user" aria-hidden="true"></i>
+                                  {{__('Profile')}}
                               </a>
                           </li>
+                          @if (auth()->user()->type === 'provider')
+                              <li>
+                                  <a href="/resources">
+                                      <span class="pe-7s-display2"></span>
+                                      {{__('My Resources')}}
+                                  </a>
+                              </li>
+                          @endif
                           <li>
                               <a href="{{ route('logout') }}"
                                   onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
-                                    {{__('Logout')}}
                                     <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                    {{__('Logout')}}
                               </a>
 
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

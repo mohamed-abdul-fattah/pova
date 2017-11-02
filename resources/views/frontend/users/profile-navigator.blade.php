@@ -31,6 +31,20 @@
                 {{__('My Profile')}}
             </a>
         </li>
+        @if ($user->type === 'provider')
+            <li>
+                <a href="/resources">
+                    <span
+                    @if (app()->getLocale() === 'ar')
+                        class="pe-7s-display2 mr-10 ml-5 resources"
+                    @else
+                        class="pe-7s-display2 ml-10 mr-5 resources"
+                    @endif
+                    ></span>
+                    {{__('My Resources')}}
+                </a>
+            </li>
+        @endif
         <li>
             <a href="#">
                 <img src="/images/icons/icon-review.png"

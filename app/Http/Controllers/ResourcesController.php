@@ -70,6 +70,16 @@ class ResourcesController extends Controller
     }
 
     /**
+     * Display a listing of the resources (frontend).
+     *
+     * @return Response
+     */
+    public function frontIndex()
+    {
+        return view('frontend.resources.index');
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return Response
@@ -82,6 +92,16 @@ class ResourcesController extends Controller
         $categories = Category::where('parent_id', '<>', 0)->get();
 
         return view('backend.resources.create', compact('model', 'resource', 'providers', 'categories'));
+    }
+
+    /**
+     * Show the form for creating a new resource (frontend).
+     *
+     * @return Response
+     */
+    public function frontCreate()
+    {
+        return view('frontend.resources.create');
     }
 
     /**
