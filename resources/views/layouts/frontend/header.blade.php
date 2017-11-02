@@ -78,10 +78,10 @@
               @endforeach
               <li>
                   @auth
-                      <a href="/login">{{__('Login')}}</a>
+                      <a href="/logout">{{__('Logout')}}</a>
                   @endauth
                   @guest
-                      <a href="/logout">{{__('Logout')}}</a>
+                      <a href="/login">{{__('Login')}}</a>
                   @endguest
               </li>
             </ul>
