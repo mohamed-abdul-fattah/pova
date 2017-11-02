@@ -1,7 +1,7 @@
 @extends('layouts.frontend.app')
 
 @section('page-title')
-    POVA | HOME
+    {{__('HOME')}}
 @endsection
 
 @section('content')

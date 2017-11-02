@@ -1,11 +1,14 @@
 <?php
 
 // TODO: language switcher. ✔
+// TODO: change footer to dark footer.
 
 class User {
     // TODO: user login. ✔
-    // TODO: user signup.
+    // TODO: user signup. ✔
     // TODO: provider signup.
+    // TODO: user profile. ✔
+    // TODO: user phone.
 }
 -----------------------------------
 

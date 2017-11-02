@@ -10,10 +10,12 @@
 .heading-line-bottom::after{right:0;}
 .line-bottom:after{right:0;}
 .line-bottom-centered:after{right:0;margin-right:auto;margin-left:auto;left:0;}
-.ml-5{margin-right:5px !important;}
+/*.ml-5{margin-right:5px !important;}
 .mr-5{margin-left:5px !important;}
+.ml-10{margin-right:10px !important;}
+.mr-10{margin-left:10px !important;}
 .pl-5{padding-right:5px !important;}
-.pr-5{padding-left:5px !important;}
+.pr-5{padding-left:5px !important;}*/
 .border-left{border-right:1px solid #dcdcdc;}
 .border-left-2px{border-right:2px solid #dcdcdc;}
 .border-right{border-left:1px solid #dcdcdc;}
