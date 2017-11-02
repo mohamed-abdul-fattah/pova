@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2 text-center wow fadeInUp animation-delay1">
         <a class="text-white font-playball text-theme-colored font-32" href="#">Happy <i class="fa fa-heart-o font-25"></i> Wedding</a>
-        <h2>Thank you very much for booking!</h2>
+        <h2>{{__('Thank you very much for booking!')}}</h2>
         <ul class="social-icons flat medium list-inline mb-40">
           <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
           <li><a href="#"><i class="fa fa-twitter"></i></a> </li>

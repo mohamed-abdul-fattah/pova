@@ -3,6 +3,7 @@
 // TODO: categories on header. ✔
 // TODO: language switcher. ✔
 // TODO: user login. ✔
+// TODO: provider login. 
 // TODO: add resource.
 // TODO: edit resource.
 // TODO: delete resource.

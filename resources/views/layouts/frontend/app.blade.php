@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="en">
+<html
+    @if (app()->getLocale() === 'ar')
+        dir="rtl"
+    @else
+        dir="ltr"
+    @endif
+    lang="en">
 
     @include('layouts.frontend.head')
 

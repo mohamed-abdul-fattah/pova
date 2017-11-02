@@ -128,7 +128,14 @@
                           </ul>
                         </div>
                         <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi molestiae autem fugit illo ipsa numquam, quod iusto enim.</p>
-                        <a class="text-theme-colored font-13" href="#">{{__('Read more')}} <i class="fa fa-angle-double-right"></i></a>
+                        <a class="text-theme-colored font-13" href="#">
+                            {{__('Read more')}}
+                            @if (app()->getLocale() === 'ar')
+                                <i class="fa fa-angle-double-left"></i>
+                            @else
+                                <i class="fa fa-angle-double-right"></i>
+                            @endif
+                        </a>
                       </div>
                     </div>
                   </article>
