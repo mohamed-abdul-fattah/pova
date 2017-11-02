@@ -115,7 +115,7 @@
                           <img class="img-responsive img-fullwidth" alt="" src="/images/event/event-img3.jpg">
                         </div>
                         <div class="entry-date text-center">
-                          <span><b>$490 - $800 </b></span><br><span class="font-Playball font-22">03</span>
+                          <span class="for-sale"><b>$800 </b></span><br><span class="font-Playball font-22">$699</span>
                         </div>
                       </div>
                     </div>

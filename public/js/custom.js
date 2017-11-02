@@ -75,7 +75,7 @@
 
         init: function() {
             THEMEMASCOT.initialize.TM_datePicker();
-            THEMEMASCOT.initialize.TM_demoSwitcher();
+            // THEMEMASCOT.initialize.TM_demoSwitcher();
             THEMEMASCOT.initialize.TM_platformDetect();
             THEMEMASCOT.initialize.TM_customDataAttributes();
             THEMEMASCOT.initialize.TM_parallaxBgInit();
@@ -100,16 +100,16 @@
         /* ---------------------------------------------------------------------- */
         /* ------------------------------ Demo Switcher  ------------------------ */
         /* ---------------------------------------------------------------------- */
-        TM_demoSwitcher: function() {
-            var showSwitcher = true;
-            if( showSwitcher ) {
-                $.ajax({
-                    url: "color-switcher/style-switcher.html",
-                    success: function (data) { $('body').append(data); },
-                    dataType: 'html'
-                });
-            }
-        },
+        // TM_demoSwitcher: function() {
+        //     var showSwitcher = true;
+        //     if( showSwitcher ) {
+        //         $.ajax({
+        //             url: "color-switcher/style-switcher.html",
+        //             success: function (data) { $('body').append(data); },
+        //             dataType: 'html'
+        //         });
+        //     }
+        // },
 
         /* ---------------------------------------------------------------------- */
         /* ------------------------------ preloader  ---------------------------- */
@@ -217,7 +217,7 @@
         /* ----------------------------- Magnific Popup ------------------------- */
         /* ---------------------------------------------------------------------- */
         TM_magnificPopup_lightbox: function() {
-            
+
             $('.image-popup-lightbox').magnificPopup({
                 type: 'image',
                 closeOnContentClick: true,
@@ -301,9 +301,9 @@
                         return element.find('img');
                     }
                 }
-                
+
             });
-            
+
             $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
                 disableOn: 700,
                 type: 'iframe',
@@ -349,7 +349,7 @@
             $('.form-ajax-load').magnificPopup({
               type: 'ajax'
             });
-            
+
             $('.popup-with-form').magnificPopup({
                 type: 'inline',
                 preloader: false,
@@ -468,7 +468,7 @@
                 hook: 'data-rel',
                 animation_speed:'normal',
                 theme:'dark_square',
-                slideshow:3000, 
+                slideshow:3000,
                 autoplay_slideshow: false,
                 social_tools: false
             });
@@ -655,7 +655,7 @@
                 e.preventDefault();
 
                 var $anchor = $(this);
-                
+
                 var $hearder_top = $('.header .header-nav');
                 var hearder_top_offset = 0;
                 if ($hearder_top[0]){
@@ -736,7 +736,7 @@
                 indicatorFirstLevel: "",
                 indicatorSecondLevel: "<i class='fa fa-angle-right'></i>"
             });
-            
+
             $("#menuzord-verticalnav").menuzord({
                 align: "right",
                 effect: "slide",
@@ -805,7 +805,7 @@
                 THEMEMASCOT.widget.TM_jflickrfeed();
                 THEMEMASCOT.widget.TM_accordion_toggles();
                 THEMEMASCOT.widget.TM_tooltip();
-                THEMEMASCOT.widget.TM_twittie();
+                // THEMEMASCOT.widget.TM_twittie();
                 //THEMEMASCOT.widget.TM_countDownTimer();
             }, 0);
 
@@ -919,7 +919,7 @@
                     var last_child_offset = parseInt(last_child.css('top'), 10);
                     var prev_last_offset  = parseInt(prev_last.css('top'), 10);
                     var offset_icon       = last_child_offset - prev_last_offset;
-                    
+
                     var go_top_to = 0;
                     if(offset_icon){
                         if ( offset_icon <= 87 ){
@@ -929,7 +929,7 @@
                             }, 300);
                         }
                     }
-                    
+
                     if( $(this).position().left === 0 ){
                         $(this).removeClass('item-right');
                         $(this).addClass('item-left');
@@ -940,7 +940,7 @@
                 });
             }
             timeline_on_left_and_right();
-            
+
             $(window).resize(function() {
                 timeline_on_left_and_right();
             });
@@ -965,7 +965,7 @@
                     filter: "*"
                 });
             });
-            
+
             //isotope filter
             $portfolio_filter.click(function(){
                 $portfolio_filter.removeClass("active");
@@ -979,7 +979,7 @@
                 });
                 return false;
             });
-            
+
             THEMEMASCOT.slider.TM_flexslider();
 
         },
@@ -1037,7 +1037,7 @@
             });
         },
 
-        
+
         /* ---------------------------------------------------------------------- */
         /* ----------------------- pie chart / circle skill bar ----------------- */
         /* ---------------------------------------------------------------------- */
@@ -1069,7 +1069,7 @@
                 }
             });
         },
-        
+
         /* ---------------------------------------------------------------------- */
         /* ------------------- progress bar / horizontal skill bar -------------- */
         /* ---------------------------------------------------------------------- */
@@ -1083,7 +1083,7 @@
                     var barcolor = current_item.data('barcolor');
                     current_item.append('<span class="percent">' + percent + '%' + '</span>').css('background-color', barcolor).css('width', percent + '%').addClass('appeared');
                 }
-                
+
             });
         },
 
@@ -1199,36 +1199,36 @@
         /* ---------------------------------------------------------------------- */
         /* ---------------------------- Twitter Feed  --------------------------- */
         /* ---------------------------------------------------------------------- */
-        TM_twittie: function() {
-            var $twitter_feed = $('.twitter-feed');
-            var $twitter_feed_carousel = $('.twitter-feed-carousel');
-
-            $twitter_feed.twittie({
-                username: $twitter_feed.data('username'),
-                dateFormat: '%b. %d, %Y',
-                template: '{{tweet}} <div class="date">{{date}}</div>',
-                count: ( $twitter_feed.data("count") === undefined ) ? 4: $twitter_feed.data("count"),
-                loadingText: 'Loading!'
-            });
-
-            $twitter_feed_carousel.twittie({
-                username: $twitter_feed_carousel.data('username'),
-                dateFormat: '%b. %d, %Y',
-                template: '{{tweet}} <div class="date">{{date}}</div>',
-                count: ( $twitter_feed_carousel.data("count") === undefined ) ? 4: $twitter_feed_carousel.data("count"),
-                loadingText: 'Loading!'
-            }, function() {
-                $twitter_feed_carousel.find('ul').owlCarousel({
-                    rtl: THEMEMASCOT.isRTL.check(),
-                    autoplay: true,
-                    autoplayTimeout: 2000,
-                    loop: true,
-                    items: 1,
-                    dots: true,
-                    nav: false
-                });
-            });
-        }
+        // TM_twittie: function() {
+        //     var $twitter_feed = $('.twitter-feed');
+        //     var $twitter_feed_carousel = $('.twitter-feed-carousel');
+        //
+        //     $twitter_feed.twittie({
+        //         username: $twitter_feed.data('username'),
+        //         dateFormat: '%b. %d, %Y',
+        //         template: '{{tweet}} <div class="date">{{date}}</div>',
+        //         count: ( $twitter_feed.data("count") === undefined ) ? 4: $twitter_feed.data("count"),
+        //         loadingText: 'Loading!'
+        //     });
+        //
+        //     $twitter_feed_carousel.twittie({
+        //         username: $twitter_feed_carousel.data('username'),
+        //         dateFormat: '%b. %d, %Y',
+        //         template: '{{tweet}} <div class="date">{{date}}</div>',
+        //         count: ( $twitter_feed_carousel.data("count") === undefined ) ? 4: $twitter_feed_carousel.data("count"),
+        //         loadingText: 'Loading!'
+        //     }, function() {
+        //         $twitter_feed_carousel.find('ul').owlCarousel({
+        //             rtl: THEMEMASCOT.isRTL.check(),
+        //             autoplay: true,
+        //             autoplayTimeout: 2000,
+        //             loop: true,
+        //             items: 1,
+        //             dots: true,
+        //             nav: false
+        //         });
+        //     });
+        // }
     };
 
     THEMEMASCOT.slider = {
@@ -1537,7 +1537,7 @@
                 dots: true,
                 nav: false
             });
-            
+
             $(".gallery-list-carosel").owlCarousel({
                 rtl: THEMEMASCOT.isRTL.check(),
                 autoplay: false,
@@ -1600,7 +1600,7 @@
                     }
                 }
             });
-            
+
 
             $(".testimonial-carousel-2col").owlCarousel({
                 rtl: THEMEMASCOT.isRTL.check(),
@@ -1785,7 +1785,7 @@
                     }
                 }
             });
-            
+
             $(".clients-logo.carousel").owlCarousel({
                 rtl: THEMEMASCOT.isRTL.check(),
                 autoplay: true,
@@ -1867,14 +1867,14 @@
                     '<i class="pe-7s-angle-left"></i>',
                     '<i class="pe-7s-angle-right"></i>'
                 ]
-            });            
+            });
         },
 
 
         /* ---------------------------------------------------------------------- */
         /* ----------------------------- BxSlider  ------------------------------ */
         /* ---------------------------------------------------------------------- */
-        TM_bxslider: function() {  
+        TM_bxslider: function() {
             $('.bxslider').bxSlider({
                 mode: 'vertical',
                 minSlides: 3,
@@ -1882,7 +1882,7 @@
                 pager: false,
                 prevText: '<i class="fa fa-angle-left"></i>',
                 nextText: '<i class="fa fa-angle-right"></i>'
-            });   
+            });
         },
 
 
@@ -1922,7 +1922,7 @@
         init: function() {
             var t = setTimeout(function() {
                 THEMEMASCOT.initialize.TM_wow();
-                THEMEMASCOT.widget.TM_twittie();
+                // THEMEMASCOT.widget.TM_twittie();
                 THEMEMASCOT.initialize.TM_preLoaderOnLoad();
                 THEMEMASCOT.initialize.TM_hashForwarding();
                 THEMEMASCOT.initialize.TM_parallaxBgInit();
@@ -1964,7 +1964,7 @@
     $window.load(
         THEMEMASCOT.windowOnLoad.init
     );
-    $window.on('resize', 
+    $window.on('resize',
         THEMEMASCOT.windowOnResize.init
     );
 
