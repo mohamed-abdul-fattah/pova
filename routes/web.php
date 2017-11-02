@@ -23,18 +23,5 @@ Route::domain(env('ADMIN_PREFIX', 'staff') .'.'.env('DOMAIN', 'example.com'))->g
     include('hydrogen.php');
 });
 
-Auth::routes();
-Route::get('register', function () {
-    abort(404);
-});
-
-Route::get('/', 'FrontendController@index')->name('frontend.index');
-Route::middleware('front-auth')->group(function () {
-    //
-});
-// Change language.
-Route::get('lang/{locale}', function ($locale) {
-    session()->put('appLocale', $locale);
-
-    return redirect()->back();
-});
+// Frontend routes.
+include('frontend.php');
