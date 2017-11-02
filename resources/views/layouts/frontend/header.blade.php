@@ -88,6 +88,12 @@
                       <a href="/profile">{{auth()->user()->name}}</a>
                       <ul class="dropdown">
                           <li>
+                              <a href="/profile">
+                                  {{__('Profile')}}
+                                  <i class="fa fa-user" aria-hidden="true"></i>
+                              </a>
+                          </li>
+                          <li>
                               <a href="{{ route('logout') }}"
                                   onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
