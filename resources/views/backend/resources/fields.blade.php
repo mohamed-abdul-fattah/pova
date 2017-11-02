@@ -14,7 +14,7 @@
     <select class="form-control" name="category_id" required>
         <option>Select Category</option>
         @foreach ($categories as $key => $category)
-            <option value="{{$category->id}}">{{localName($category)}}</option>
+            <option value="{{$category->id}}">{{nameLocale($category)}}</option>
         @endforeach
     </select>
 

@@ -56,7 +56,7 @@ class Category extends Model
         if ($this->parent_id) {
             $category = $this->belongsTo('App\Category', 'parent_id')
                 ->first();
-            return localName($category);
+            return nameLocale($category);
         } else {
             return 'Parent Category';
         }

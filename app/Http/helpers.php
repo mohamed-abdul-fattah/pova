@@ -7,11 +7,11 @@
  * @param  String  $lang
  * @return String
  */
-function localName($object, $lang = 'En')
+function nameLocale($object, $lang = 'En')
 {
     $lang      = ucwords($lang);
-    $localName = "name{$lang}";
-    return optional(json_decode($object->name))->$localName;
+    $nameLocale = "name{$lang}";
+    return optional(json_decode($object->name))->$nameLocale;
 }
 
 /**

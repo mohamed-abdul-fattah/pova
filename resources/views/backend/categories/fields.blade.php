@@ -13,7 +13,7 @@
 	<select class="form-control" name="parent_id">
 	    <option value="0">Parent Category</option>
         @foreach ($categories as $key => $cat)
-            <option value="{{$cat->id}}">{{localName($cat)}}</option>
+            <option value="{{$cat->id}}">{{nameLocale($cat)}}</option>
         @endforeach
 	</select>
 
@@ -27,7 +27,7 @@
 <div class='bio-row{{ $errors->has('nameEN') ? ' has-error' : '' }}'>
 	{!! Form::label('nameEn', trans('category.NameEn')) !!}
 	{!!
-        Form::text('nameEn', localName($category), array(
+        Form::text('nameEn', nameLocale($category), array(
             'class' => 'form-control',
             'required' => 'required'
         ))
@@ -43,7 +43,7 @@
 <div class='bio-row{{ $errors->has('nameAr') ? ' has-error' : '' }}'>
 	{!! Form::label('nameAr', trans('category.NameAr')) !!}
 	{!!
-        Form::text('nameAr', localName($category, 'Ar'), array(
+        Form::text('nameAr', nameLocale($category, 'Ar'), array(
             'class' => 'form-control',
             'required' => 'required'
         ))

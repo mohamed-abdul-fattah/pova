@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    {{ ucwords(localName($feature)) }} Profile
+    {{ ucwords(nameLocale($feature)) }} Profile
 @endsection
 
 @section('overload')
@@ -55,13 +55,13 @@
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('feature.NameAr') }} :</span>
-                                {{ localName($feature, 'Ar') }}
+                                {{ nameLocale($feature, 'Ar') }}
                             </p>
                         </div>
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('feature.NameEn') }} :</span>
-                                {{ localName($feature) }}
+                                {{ nameLocale($feature) }}
                             </p>
                         </div>
                         <div class='bio-row'>

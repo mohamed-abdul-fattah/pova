@@ -67,11 +67,11 @@ class CategoriesController extends Controller
             });
             // Arabic name.
             $categories->editColumn('nameAr', function ($category) {
-                return localName($category, 'Ar');
+                return nameLocale($category, 'Ar');
             });
             // English name.
             $categories->editColumn('nameEn', function ($category) {
-                return localName($category);
+                return nameLocale($category);
             });
 
             return $categories->make(true);

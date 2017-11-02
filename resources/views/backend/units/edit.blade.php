@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    Edit {{localName($unit)}}
+    Edit {{nameLocale($unit)}}
 @endsection
 
 @section('content')

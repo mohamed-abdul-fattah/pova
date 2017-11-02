@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    {{localName($city)}} Profile
+    {{nameLocale($city)}} Profile
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
                         <a href="#">
                             <img src="{{$city->cover()}}" alt="">
                         </a>
-                        <h1>{{localName($city)}}</h1>
+                        <h1>{{nameLocale($city)}}</h1>
                         <p>{{$city->country()->name}}</p>
                     </div>
 
@@ -50,14 +50,14 @@
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('city.NameAr') }} :</span>
-                                {{ localName($city, 'Ar') }}
+                                {{ nameLocale($city, 'Ar') }}
                             </p>
                         </div>
 
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('city.NameEn') }} :</span>
-                                {{ localName($city) }}
+                                {{ nameLocale($city) }}
                             </p>
                         </div>
                     </div>

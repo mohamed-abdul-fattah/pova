@@ -11,7 +11,7 @@
 {{-- NameAr --}}
 <div class='bio-row{{ $errors->has('nameAr') ? ' has-error' : '' }}'>
 	{!! Form::label('nameAr', trans('unit.NameAr')) !!}
-	{!! Form::text('nameAr', localName($unit, 'Ar'), array('class' => 'form-control', 'required' => 'required')) !!}
+	{!! Form::text('nameAr', nameLocale($unit, 'Ar'), array('class' => 'form-control', 'required' => 'required')) !!}
 
 	@if ($errors->has('nameAr'))
 		<span class='help-block'>
@@ -24,7 +24,7 @@
 {{-- NameEn --}}
 <div class='bio-row{{ $errors->has('nameEn') ? ' has-error' : '' }}'>
 	{!! Form::label('nameEn', trans('unit.NameEn')) !!}
-	{!! Form::text('nameEn', localName($unit), array('class' => 'form-control', 'required' => 'required')) !!}
+	{!! Form::text('nameEn', nameLocale($unit), array('class' => 'form-control', 'required' => 'required')) !!}
 
 	@if ($errors->has('nameEn'))
 		<span class='help-block'>

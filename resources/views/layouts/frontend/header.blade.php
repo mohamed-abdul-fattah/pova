@@ -65,12 +65,12 @@
               @foreach ($categories->parentCategories() as $key => $category)
                   <li>
                       <a href="javascript:void(0)">
-                          {{localName($category, app()->getLocale())}}
+                          {{nameLocale($category, app()->getLocale())}}
                       </a>
                       @if (count($category->subCategories))
                           <ul class="dropdown">
                               @foreach ($category->subCategories as $key => $subCategory)
-                                  <li><a href="/listings/{{$subCategory->id}}">{{localName($subCategory, app()->getLocale())}}</a></li>
+                                  <li><a href="/listings/{{$subCategory->id}}">{{nameLocale($subCategory, app()->getLocale())}}</a></li>
                               @endforeach
                           </ul>
                       @endif

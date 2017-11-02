@@ -67,11 +67,11 @@ class CitiesController extends Controller
             });
             // Arabic name.
             $cities->editColumn('nameAr', function ($city) {
-                return localName($city, 'Ar');
+                return nameLocale($city, 'Ar');
             });
             // English name.
             $cities->editColumn('nameEn', function ($city) {
-                return localName($city);
+                return nameLocale($city);
             });
 
             return $cities->make(true);

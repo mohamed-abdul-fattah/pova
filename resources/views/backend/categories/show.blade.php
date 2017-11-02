@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    {{ ucwords(localName($category)) }} Profile
+    {{ ucwords(nameLocale($category)) }} Profile
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
                         <a href="#">
                             <img src="{{$category->cover()}}" alt="">
                         </a>
-                        <h1>{{ ucwords(localName($category)) }}</h1>
+                        <h1>{{ ucwords(nameLocale($category)) }}</h1>
                         <p>{{ ucwords($category->parent()) }}</p>
                     </div>
 
@@ -49,13 +49,13 @@
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('category.NameAr') }} :</span>
-                                {{ localName($category, 'Ar') }}
+                                {{ nameLocale($category, 'Ar') }}
                             </p>
                         </div>
                         <div class='bio-row'>
                             <p>
                                 <span class='bold'>{{ trans('category.NameEn') }} :</span>
-                                {{ localName($category) }}
+                                {{ nameLocale($category) }}
                             </p>
                         </div>
                     </div>

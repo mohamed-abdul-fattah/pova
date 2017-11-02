@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    Edit {{ ucwords(localName($category)) }}
+    Edit {{ ucwords(nameLocale($category)) }}
 @endsection
 
 @section('content')

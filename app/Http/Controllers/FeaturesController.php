@@ -62,11 +62,11 @@ class FeaturesController extends Controller
             });
             // Arabic Name
             $features->editColumn('nameAr', function ($feature) {
-                return localName($feature, 'Ar');
+                return nameLocale($feature, 'Ar');
             });
             // English Name
             $features->editColumn('nameEn', function ($feature) {
-                return localName($feature);
+                return nameLocale($feature);
             });
             // Required.
             $features->editColumn('required', function ($feature) {
