@@ -21,9 +21,9 @@ function nameLocale($object, $lang = 'En')
  * @param  String  $lang
  * @return String
  */
-function localTitle($object, $lang = 'En')
+function titleLocale($object, $lang = 'En')
 {
     $lang       = ucwords($lang);
-    $localTitle = "title{$lang}";
-    return optional(json_decode($object->title))->$localTitle;
+    $titleLocale = "title{$lang}";
+    return optional(json_decode($object->title))->$titleLocale;
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('overload')
-    {{localTitle($resource)}} Profile
+    {{titleLocale($resource)}} Profile
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
                         <a href="#">
                             <img src="{{$resource->cover()}}" alt="">
                         </a>
-                        <h1>{{localTitle($resource)}}</h1>
+                        <h1>{{titleLocale($resource)}}</h1>
                         <p>{{$resource->owner->name}}</p>
                     </div>
 
