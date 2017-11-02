@@ -29,10 +29,10 @@ Route::get('register', function () {
 });
 
 Route::get('/', 'FrontendController@index')->name('frontend.index');
-Route::middleware('auth')->group(function () {
-    Route::get('/home', 'FrontendController@home')->name('frontend.home');
+Route::middleware('front-auth')->group(function () {
+    //
 });
-// change language.
+// Change language.
 Route::get('lang/{locale}', function ($locale) {
     session()->put('appLocale', $locale);
 

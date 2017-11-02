@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -49,9 +49,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'type'     => 'required|string|max:255,in:user,admin,provider'
         ]);
     }
 
@@ -64,22 +65,27 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name'     => $data['name'],
+            'email'    => $data['email'],
             'password' => bcrypt($data['password']),
+            'type'     => $data['type'],
         ]);
     }
 
-
+    /**
+     * Show registeration form page (not used).
+     *
+     * @param  array  $data
+     * @return User
+     */
     public function showRegistrationForm()
     {
-        if(array_key_exists('domain',Route::getCurrentRoute()->action)){
-            if(str_contains(Route::getCurrentRoute()->action['domain'],env('ADMIN_PREFIX'))){
+        if (array_key_exists('domain', Route::getCurrentRoute()->action)) {
+            if (str_contains(Route::getCurrentRoute()->action['domain'], env('ADMIN_PREFIX'))) {
                 return view('auth.register');
             }
-        }else{
+        } else {
             return view('layouts.frontend.register');
         }
     }
-
 }

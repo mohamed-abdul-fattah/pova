@@ -14,7 +14,7 @@
             <div class="section-content pt-100">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 class="title text-theme-colored">{{__('Login/Register')}}</h3>
+                        <h3 class="title text-theme-colored">{{__('Login / Register')}}</h3>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
               <h4 class="text-gray mt-0 pt-5"> {{__('Login')}}</h4>
               <hr>
               <p>Lorem ipsum dolor sit amet, consectetur elit.</p>
-              <form class="clearfix" role="form" method="POST" action="/login">
+              <form class="clearfix" role="form" method="POST" action="{{route('login')}}">
                 {{ csrf_field() }}
                 <div class="row">
                   <div class="form-group col-md-12">
@@ -61,9 +61,26 @@
               </form>
             </div>
             <div class="col-md-7 col-md-offset-1">
-              <form name="reg-form" class="register-form" method="post">
+              @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $key => $error)
+                              <li>{{$error}}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
+              <form name="reg-form" class="register-form" method="post" action="/register">
+                {{ csrf_field() }}
+                <input type="hidden" name="type" value="user">
                 <div class="icon-box mb-0 p-0">
-                  <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
+                  <a href="#"
+                  @if (app()->getLocale() === 'ar')
+                      class="icon icon-bordered icon-rounded icon-sm pull-right mb-0 ml-10"
+                  @else
+                      class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10"
+                  @endif
+                  >
                     <i class="pe-7s-users"></i>
                   </a>
                   <h4 class="text-gray pt-10 mt-0 mb-30">{{__('Don\'t have an Account? Register Now.')}}</h4>
@@ -73,21 +90,21 @@
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="form_name">{{__('Name')}}</label>
-                    <input id="form_name" name="form_name" class="form-control" type="text">
+                    <input id="form_name" name="name" class="form-control" type="text">
                   </div>
                   <div class="form-group col-md-6">
                     <label>{{__('Email Address')}}</label>
-                    <input id="form_email" name="form_email" class="form-control" type="email">
+                    <input id="form_email" name="email" class="form-control" type="email">
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="form_choose_password">{{__('Choose Password')}}</label>
-                    <input id="form_choose_password" name="form_choose_password" class="form-control" type="text">
+                    <input id="form_choose_password" name="password" class="form-control" type="password">
                   </div>
                   <div class="form-group col-md-6">
                     <label>{{__('Re-enter Password')}}</label>
-                    <input id="form_re_enter_password" name="form_re_enter_password"  class="form-control" type="text">
+                    <input id="form_re_enter_password" name="password_confirmation"  class="form-control" type="password">
                   </div>
                 </div>
                 <div class="form-group">

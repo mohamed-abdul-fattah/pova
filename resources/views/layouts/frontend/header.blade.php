@@ -83,22 +83,28 @@
                       <a href="/lang/ar">عربي</a>
                   @endif
               </li>
-              <li>
-                  @auth
-                      <a href="{{ route('logout') }}"
-                         onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
-                          {{__('Logout')}}
-                      </a>
+              @auth
+                  <li>
+                      <a href="/profile">{{auth()->user()->name}}</a>
+                      <ul class="dropdown">
+                          <li>
+                              <a href="{{ route('logout') }}"
+                                  onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                                    {{__('Logout')}}
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                              </a>
 
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                          {{ csrf_field() }}
-                      </form>
-                  @endauth
-                  @guest
-                      <a href="/login">{{__('Login')}}</a>
-                  @endguest
-              </li>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  {{ csrf_field() }}
+                              </form>
+                          </li>
+                      </ul>
+                  </li>
+              @endauth
+              @guest
+                  <li><a href="/login">{{__('Login / Register')}}</a></li>
+              @endguest
             </ul>
           </div>
         </nav>

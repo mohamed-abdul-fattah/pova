@@ -36,7 +36,7 @@ class User extends Authenticatable
     protected static $rules = [
         'name'  => 'required|string|max:255',
         'email' => 'required|email|string|max:255',
-        'type'  => 'required|string|in:admin,user,provider',
+        'type'  => 'required|string|max:255|in:admin,user,provider',
         'phone' => 'required|numeric'
     ];
 

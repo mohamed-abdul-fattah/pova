@@ -1,110 +1,52 @@
 <?php
 
-// TODO: categories on header. ✔
 // TODO: language switcher. ✔
-// TODO: user login. ✔
-// TODO: provider login. 
-// TODO: add resource.
-// TODO: edit resource.
-// TODO: delete resource.
-// TODO: add parent category on category details methods show page.
-// TODO: organize categories on dashboard >> parent >> children.
-// TODO: user signup.
 
-categories {
-    # parent_id default 0
-    # name
+class User {
+    // TODO: user login. ✔
+    // TODO: user signup.
+    // TODO: provider signup.
 }
+-----------------------------------
 
 Class Category {
-    categories(); hasMany
-    resources();  hasMany
-    parent();     belongsTo
+    // TODO: categories on header. ✔
+    // TODO: add parent category on category details methods show page.
+    // TODO: organize categories on dashboard >> parent >> children.
 }
 -----------------------------------
-
-resources {
-    # category_id
-    # user_id
-    # title
-    # featured default 0
-    # deleted_at
-}
 
 Class Resource {
-    category();  belongsTo
-    owner();     belongsTo
-    prices();    hasMany
-    basePrice(); hasOne where availability_id === 0
+    // TODO: add resource.
+    // TODO: edit resource.
+    // TODO: delete resource.
 }
 -----------------------------------
-
-features {
-    # name
-    # type enum(string, text, email, number, boolean, selection)
-    # required default 1
-    # selections nullable
-}
 
 Class Feature {
     //
 }
 -----------------------------------
 
-acquired_features {
-    # feature_id
-    # featureable_id
-    # featureable_type
-    # value_string nullable
-    # value_number nullable
-    # value_boolean nullable
-    # value_text nullable
-}
-
 Class AcquiredFeature {
     //
 }
 -----------------------------------
-
-prices {
-    # resource_id
-    # unit_id
-    # price
-    # currency  default EGP
-    # availability_id default 0
-}
 
 Class Price {
     //
 }
 -----------------------------------
 
-availabilities {
-    # resource_id
-    # start
-    # end
-    # type enum('unavailable, season')
-}
-
 Class Availability {
     //
 }
 -----------------------------------
 
-cities {
-    # country_id
-    # name
-}
-
 Class City {
     //
 }
 -----------------------------------
-
-units {
-    # name
-    # type enum('day')
-}
 
 Class Unit {
     //
