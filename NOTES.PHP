@@ -1,7 +1,7 @@
 <?php
 
 // TODO: categories on header. ✔
-// TODO: language switcher.
+// TODO: language switcher. ✔
 // TODO: user login.
 // TODO: add resource.
 // TODO: edit resource.
