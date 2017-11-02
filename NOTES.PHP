@@ -1,13 +1,12 @@
 <?php
 
-# 24-10-2017
 // TODO: categories on header. ✔
+// TODO: language switcher.
 // TODO: user login.
 // TODO: add resource.
 // TODO: edit resource.
 // TODO: delete resource.
-
-// TODO: add prent category on category details show page.
+// TODO: add parent category on category details methods show page.
 // TODO: organize categories on dashboard >> parent >> children.
 // TODO: user signup.
 

@@ -33,7 +33,7 @@
         <link href="/css/style-main-rtl-extra.css" rel="stylesheet" type="text/css">
     @endif
     <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
-    <!-- <link href="/css/style.css" rel="stylesheet" type="text/css"> -->
+    <link href="/css/master.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,6 +43,7 @@
     <![endif]-->
 
     <!-- Page Title -->
+    <title>POVA</title>
     <title>@yield('page-title')</title>
 
     <!-- Favicon and Touch Icons -->
