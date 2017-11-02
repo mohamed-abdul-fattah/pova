@@ -43,7 +43,6 @@
     <![endif]-->
 
     <!-- Page Title -->
-    <title>POVA</title>
     <title>@yield('page-title')</title>
 
     <!-- Favicon and Touch Icons -->

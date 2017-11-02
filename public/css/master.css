@@ -4,3 +4,7 @@
 body, .menuzord a, p {
     font-family: 'Lemonada', cursive;
 }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Lemonada', cursive;
+}

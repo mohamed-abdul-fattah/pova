@@ -8,14 +8,15 @@
     <!-- Start main-content -->
     <div class="main-content">
       <!-- Section: inner-header -->
-      <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="images/bg/bg11.jpg">
-        <div class="container pt-120 pb-50">
-          <!-- Section Content -->
-          <div class="section-content pt-100">
-            <div class="row">
-              <div class="col-md-12">
-                <h3 class="title text-white">{{__('Login/Register')}}</h3>
-              </div>
+      <section class="divider parallax layer-overlay overlay-deep" data-stellar-background-ratio="0.2"  data-bg-img="images/bg/bg2.jpg">
+        <div class="container pt-120">
+          <div class="section-content text-center">
+            <div class="section-content pt-100">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="title text-theme-colored">{{__('Login/Register')}}</h3>
+                    </div>
+                </div>
             </div>
           </div>
         </div>
@@ -39,7 +40,7 @@
                 <div class="row">
                   <div class="form-group col-md-12">
                     <label for="form_password">{{__('Password')}}</label>
-                    <input id="form_password" name="password" class="form-control" type="text">
+                    <input id="form_password" name="password" class="form-control" type="password">
                   </div>
                 </div>
                 <div class="checkbox pull-left mt-15">
