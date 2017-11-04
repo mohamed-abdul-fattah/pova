@@ -48,6 +48,11 @@ Class Availability {
 }
 -----------------------------------
 
+class Country {
+    // TODO: add arabic names.
+}
+-----------------------------------
+
 Class City {
     //
 }

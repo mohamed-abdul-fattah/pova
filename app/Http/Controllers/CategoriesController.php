@@ -199,4 +199,22 @@ class CategoriesController extends Controller
         $features  = Feature::all();
         return view('backend.'.$details.'.create', compact('modelId', 'class', $detail, 'features'));
     }
+
+    /**
+     * Get aquired features for a category.
+     *
+     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
+     * @return Response
+     */
+    public function ajaxFeatures($id, Request $request)
+    {
+        if ($request->ajax()) {
+            $category = Category::findOrFail($id);
+            $features = $category->acquiredFeatures;
+            $features = array_merge($features->toArray(), $category->parentObj->acquiredFeatures->toArray());
+
+            return response()->json(['features' => $features], 200);
+        }
+    }
 }

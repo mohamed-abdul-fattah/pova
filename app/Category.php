@@ -79,11 +79,11 @@ class Category extends Model
      */
     public function acquiredFeatures()
     {
-        return $this->morphMany('App\AcquiredFeature', 'featureable');
+        return $this->morphMany('App\AcquiredFeature', 'featureable')->with('feature');
     }
 
     /**
-     * Get parent categories.
+     * Get parent categories (injected in header).
      *
      * @return collection.
      */

@@ -27,4 +27,9 @@ Route::middleware('auth')->group(function () {
     Route::get('resources', 'ResourcesController@frontIndex')->name('front-resources');
     Route::get('resources/create', 'ResourcesController@frontCreate')->name('front-resources.create');
     Route::post('resources', 'ResourcesController@frontStore')->name('front-resources.store');
+    // Ajax requests.
+    Route::prefix('ajax')->group(function () {
+        // Categories.
+        Route::get('/categories/aquired-features/{id}', 'CategoriesController@ajaxFeatures')->name('ajax.categories.aquired-features');
+    });
 });

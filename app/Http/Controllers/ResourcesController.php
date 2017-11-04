@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\City;
+use App\Unit;
+use Countries;
 use App\Category;
 use App\Resource;
 use Illuminate\Http\Request;
@@ -101,7 +104,12 @@ class ResourcesController extends Controller
      */
     public function frontCreate()
     {
-        return view('frontend.resources.create');
+        $countries  = Countries::all();
+        $cities     = City::orderby('name')->get();
+        $categories = Category::with('subCategories')->whereParentId(0)->orderby('name')->get();
+        $units      = Unit::orderby('name')->get();
+
+        return view('frontend.resources.create', compact('countries', 'cities', 'categories', 'units'));
     }
 
     /**

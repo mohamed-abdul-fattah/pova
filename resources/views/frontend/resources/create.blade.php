@@ -11,7 +11,7 @@
 @section('content')
     <!-- Start main-content -->
     <div class="main-content">
-      @include('frontend.users.profile-header', ['title' => 'Profile'])
+      @include('frontend.users.profile-header', ['title' => 'My Resources'])
 
       <section>
         <div class="container">

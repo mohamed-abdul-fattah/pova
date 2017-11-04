@@ -4,6 +4,19 @@
     {{__('My Resources')}}
 @endsection
 
+@section('css-styles')
+    <style media="screen">
+        .create-btn {
+            color: #337ab7;
+        }
+        .create-btn:hover {
+            color: #fff;
+            border-color: #204d74;
+            background-color: #286090;
+        }
+    </style>
+@endsection
+
 @section('content')
     <!-- Start main-content -->
     <div class="main-content">
@@ -16,9 +29,9 @@
             <div class="col-md-7">
                 <a href="/resources/create"
                 @if (app()->getLocale() === 'ar')
-                    class="btn btn-primary pull-left"
+                    class="btn btn-default create-btn pull-left"
                 @else
-                    class="btn btn-primary pull-right"
+                    class="btn btn-default create-btn pull-right"
                 @endif
                 >
                     {{__('Create New Resource')}}
