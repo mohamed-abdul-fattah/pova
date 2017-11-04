@@ -30,5 +30,17 @@
     "Cover Photo": "الصورة الشخصية",
     "Phone Number": "رقم الهاتف",
     "My Resources": "إعلاناتي",
-    "Create New Resource": "أنشئ إعلان جديد"
+    "Create New Resource": "أنشئ إعلان جديد",
+    "Basic Information": "معلومات أساسية",
+    "Title": "العنوان",
+    "Price": "السعر",
+    "Select a category": "إختر مجموعة",
+    "Select a unit": "إختر وحدة",
+    "Location": "الموقع",
+    "Latitude": "خط العرض",
+    "Longitude": "خط الطول",
+    "Select your country": "إختر دولتك",
+    "Select your city": "إختر مدينتك",
+    "Address": "العنوان",
+    "Please mark on the map to locate your resource and the latitude and logitude.": "من فضلك أُنقر علي الخريطة لتحديد موقع إعلانك الجغرافي و خط الطول و العرض"
 }

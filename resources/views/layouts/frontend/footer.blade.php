@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer id="footer" class="footer divider pb-0 bg-img-center-bottom" data-bg-img="images/bg/bg10.png">
+<footer id="footer" class="footer divider pb-0 bg-img-center-bottom" data-bg-img="/images/bg/bg10.png">
   <div class="container pt-70 pb-70">
     <div class="row">
       <div class="col-md-8 col-md-offset-2 text-center wow fadeInUp animation-delay1">

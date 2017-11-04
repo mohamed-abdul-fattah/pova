@@ -1,5 +1,5 @@
 <!-- Section: inner-header -->
-<section class="divider parallax layer-overlay overlay-deep" data-stellar-background-ratio="0.2"  data-bg-img="images/bg/bg2.jpg">
+<section class="divider parallax layer-overlay overlay-deep" data-stellar-background-ratio="0.2"  data-bg-img="/images/bg/bg2.jpg">
   <div class="container pt-120">
     <div class="section-content text-center">
         <div class="row">

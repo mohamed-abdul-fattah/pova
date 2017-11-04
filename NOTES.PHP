@@ -7,8 +7,8 @@
 class User {
     // TODO: user login. ✔
     // TODO: user signup. ✔
-    // TODO: provider signup.
     // TODO: user profile. ✔
+    // TODO: provider signup.
     // TODO: user phone.
 }
 -----------------------------------
@@ -21,6 +21,7 @@ Class Category {
 -----------------------------------
 
 Class Resource {
+    // TODO: resources.
     // TODO: add resource.
     // TODO: edit resource.
     // TODO: delete resource.

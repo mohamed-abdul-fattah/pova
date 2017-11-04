@@ -1,4 +1,4 @@
-<div class="col-md-4 mb-40">
+<div class="col-md-3 mb-40">
     <div class="profile-header">
         <h4 class="text-white mt-0 pt-5"> {{$user->name}}</h4>
         <span>{{__('Member Since')}} {{date('M Y', strtotime($user->created_at))}}</span>
