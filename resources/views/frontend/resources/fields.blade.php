@@ -14,11 +14,28 @@
         </select>
     </div>
     {{-- End category --}}
-    {{-- Title --}}
+    {{-- TitleAr --}}
     <div class="form-group">
-        <input type="text" name="title" placeholder="{{__('Title')}} *" class="form-control" required>
+        {!!
+            Form::text('titleAr', null, [
+                'class'       => 'form-control',
+                'placeholder' => __('Title in Arabic').' *',
+                'required'    => 'required'
+            ])
+        !!}
+        </div>
+        {{-- End titleAr --}}
+    {{-- TitleEn --}}
+    <div class="form-group">
+        {!!
+            Form::text('titleEn', null, [
+                'class'       => 'form-control',
+                'placeholder' => __('Title in English').' *',
+                'required'    => 'required'
+            ])
+        !!}
     </div>
-    {{-- End title --}}
+    {{-- End titleEn --}}
     {{-- Price --}}
     <div class="form-group">
         <input type="text" name="price" placeholder="{{__('Price')}} *" class="form-control" required>

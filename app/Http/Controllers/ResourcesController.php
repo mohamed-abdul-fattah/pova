@@ -124,16 +124,34 @@ class ResourcesController extends Controller
 
         $resource = Resource::create($request->input());
 
-        // Create polymorphic address if relation exists.
-        if (method_exists($resource, 'address')) {
-            $resource->address()->create([
-                'address' => $request->address,
-                'lat'     => $request->lat,
-                'lng'     => $request->lng
-            ]);
-        }
+        // Address.
+        $resource->address()->create([
+            'address' => $request->address,
+            'lat'     => $request->lat,
+            'lng'     => $request->lng
+        ]);
 
         return redirect()->route('resources.index', compact('resource'));
+    }
+
+    /**
+     * Store a newly created resource in storage (frontend).
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return Response
+     */
+    public function frontStore(Request $request)
+    {
+        $this->validate($request, Resource::rules());
+
+        $resource = Resource::create($request->input());
+
+        // Address.
+        $resource->address()->create([
+            'address' => $request->address,
+            'lat'     => $request->lat,
+            'lng'     => $request->lng
+        ]);
     }
 
     /**

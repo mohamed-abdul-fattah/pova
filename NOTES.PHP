@@ -1,5 +1,5 @@
 <?php
-
+WIP pa migrate
 // TODO: language switcher. ✔
 // TODO: change footer to dark footer or make sidebar like theme switcher.
 // TODO: 404 page
