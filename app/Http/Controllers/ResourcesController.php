@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\City;
 use App\Unit;
+use App\Price;
 use Countries;
 use App\Category;
 use App\Resource;
@@ -144,14 +145,31 @@ class ResourcesController extends Controller
     {
         $this->validate($request, Resource::rules());
 
-        $resource = Resource::create($request->input());
+        $title    = json_encode(['titleAr' => $request->titleAr, 'titleEn' => $request->titleEn]);
+        $request  = collect($request)->put('user_id', auth()->id())
+            ->put('title', $title)
+            ->put('currency', 'EGP');
+        $resource = Resource::create($request->all());
 
         // Address.
         $resource->address()->create([
-            'address' => $request->address,
-            'lat'     => $request->lat,
-            'lng'     => $request->lng
+            'address'    => $request->get('address'),
+            'lat'        => $request->get('lat'),
+            'lng'        => $request->get('lng'),
+            'country_id' => $request->get('country_id'),
+            'city_id'    => $request->get('city_id')
         ]);
+
+        // Base price.
+        Price::create([
+            'resource_id'     => $resource->id,
+            'unit_id'         => $request->get('unit_id'),
+            'availability_id' => 0,
+            'price'           => $request->get('price'),
+            'currency'        => $request->get('currency')
+        ]);
+
+        return redirect('/resources');
     }
 
     /**

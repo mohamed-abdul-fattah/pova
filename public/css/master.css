@@ -17,6 +17,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border-radius: 0;
 }
 
+.help-block {
+    color: #ac4a58;
+}
+
 /*Featured Resources*/
 
 .for-sale b {
@@ -111,4 +115,10 @@ span.resources {
     color: #999999;
     font-weight: 600;
     right: 0;
+}
+
+/*Errors*/
+
+.has-error {
+    border: 2px solid #ac4a58;
 }

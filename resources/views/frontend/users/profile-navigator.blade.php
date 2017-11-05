@@ -20,7 +20,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/profile">
                 <img src="/images/icons/icon-user.png"
                 @if (app()->getLocale() === 'ar')
                     class="mr-10 ml-5"

@@ -43,5 +43,8 @@
     "Select your country": "إختر دولتك",
     "Select your city": "إختر مدينتك",
     "Address": "العنوان",
-    "Please mark on the map to locate your resource and the latitude and logitude.": "من فضلك أُنقر علي الخريطة لتحديد موقع إعلانك الجغرافي و خط الطول و العرض"
+    "Features": "الخصائص",
+    "Please mark on the map to locate your resource and the latitude and logitude.": "من فضلك أُنقر علي الخريطة لتحديد موقع إعلانك الجغرافي و خط الطول و العرض",
+    "Save": "حفظ",
+    "Cancel": "إلغاء"
 }

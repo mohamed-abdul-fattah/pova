@@ -10,22 +10,21 @@ class Resource extends Model
     use HydrogenTrait;
 
     protected $fillable = [
-        'category_id', 'user_id', 'title', 'feature'
+        'category_id', 'user_id', 'title', 'featured'
     ];
 
     protected static $rules = [
         'category_id' => 'required|integer',
-        'user_id'     => 'required|integer',
         'titleEn'     => 'required|string|max:255',
         'titleAr'     => 'required|string|max:255',
-        'feature'     => 'boolean',
+        'featured'    => 'boolean',
         'price'       => 'required|numeric',
         'unit_id'     => 'required|integer',
         'country_id'  => 'required|integer',
-        'city_id'     => 'requried|integer',
+        'city_id'     => 'required|integer',
         'lat'         => 'required|numeric',
         'lng'         => 'required|numeric',
-        'address'     => 'requried|string|max:255'
+        'address'     => 'required|string|max:255'
     ];
 
     /**
