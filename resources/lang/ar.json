@@ -46,5 +46,10 @@
     "Features": "الخصائص",
     "Please mark on the map to locate your resource and the latitude and logitude.": "من فضلك أُنقر علي الخريطة لتحديد موقع إعلانك الجغرافي و خط الطول و العرض",
     "Save": "حفظ",
-    "Cancel": "إلغاء"
+    "Cancel": "إلغاء",
+    "Edit": "تعديل",
+    "Delete": "حذف",
+    "Details": "أظهار التفاصيل",
+    "No description provided!": "لا يوجد وصف!",
+    "Created at": "أُنشئ في"
 }

@@ -20,28 +20,28 @@
                 if (feature.feature.type === 'email' || feature.feature.type === 'number') {
                     fields += '\
                         <div class="form-group">\
-                            <input type="' + feature.feature.type + '" class="form-control"\
+                            <input name="features['+ feature.feature.id +']" type="' + feature.feature.type + '" class="form-control"\
                             placeholder="'+ names[nameLocale] +'" ' + required + '>\
                         </div>\
                     ';
                 } else if (feature.feature.type === 'string') { // string input type.
                     fields += '\
                         <div class="form-group">\
-                            <input type="text" class="form-control"\
+                            <input name="features['+ feature.feature.id +']" type="text" class="form-control"\
                             placeholder="'+ names[nameLocale] +'" ' + required + '>\
                         </div>\
                     ';
                 } else if (feature.feature.type === 'text') { // textareas.
                     fields += '\
                         <div class="form-group">\
-                            <textarea type="text" class="form-control" rows="4"\
+                            <textarea name="features['+ feature.feature.id +']" type="text" class="form-control" rows="4"\
                             placeholder="'+ names[nameLocale] +'" ' + required + '></textarea>\
                         </div>\
                     ';
                 } else if (feature.feature.type === 'boolean') { // checkboxs.
                     fields += '\
                         <div class="form-group">\
-                            <input type="checkbox" id="feature-'+ feature.id +'"\
+                            <input name="features['+ feature.feature.id +']" type="checkbox" id="feature-'+ feature.id +'"\
                             ' + required + '>\
                             <label for="feature-'+ feature.id +'">'+ names[nameLocale] +'</label>\
                         </div>\
@@ -55,7 +55,7 @@
                     });
                     fields += '\
                         <div class="form-group">\
-                            <select name="" class="form-control" '+ required +'>\
+                            <select name="features['+ feature.feature.id +']" class="form-control" '+ required +'>\
                                 <option selected disabled>'+ names[nameLocale] +'</option>\
                                 '+ options +'\
                             </select>\

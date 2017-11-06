@@ -38,6 +38,9 @@ class AcquiredFeature extends Model
      */
     public $detailsMethods = [];
 
+    /**
+     * Get parent feature of acquired feature.
+     */
     public function feature()
     {
         return $this->belongsTo('App\Feature');
@@ -46,5 +49,21 @@ class AcquiredFeature extends Model
     public function featureable()
     {
         return $this->morphTo();
+    }
+
+    /**
+     * Get the value of acquired feature.
+     */
+    public function value()
+    {
+        if ($this->feature->type === 'string' || $this->feature->type === 'email' || $this->feature->type === 'selection') {
+            return $this->value_string;
+        } elseif ($this->feature->type === 'text') {
+            return $this->value_text;
+        } elseif ($this->feature->type === 'number') {
+            return $this->value_number;
+        } elseif ($this->feature->type === 'boolean') {
+            return $this->value_boolean;
+        }
     }
 }

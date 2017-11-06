@@ -7,6 +7,7 @@ use App\City;
 use App\Unit;
 use App\Price;
 use Countries;
+use App\Feature;
 use App\Category;
 use App\Resource;
 use Illuminate\Http\Request;
@@ -33,6 +34,33 @@ class ResourcesController extends Controller
         $this->middleware('can:index,App\User,App\Resource', ['only'=>['index']]);
         $this->middleware('can:show,App\User,App\Resource', ['only'=>['show']]);
         $this->middleware('can:delete,App\User,App\Resource', ['only'=>['delete']]);
+    }
+
+    /**
+     * Store acquired features for a resource.
+     *
+     * @param  object  $resource
+     * @param  array  $features
+     * @return void
+     */
+    protected function addFeatures($resource, $features)
+    {
+        foreach ($features as $featureId => $featureVal) {
+            $feature = Feature::findOrFail($featureId);
+            if ($feature->type === 'string' || $feature->type === 'email' || $feature->type === 'selection') {
+                $value = 'string';
+            } elseif ($feature->type === 'number') {
+                $value = 'number';
+            } elseif ($feature->type === 'boolean') {
+                $value = 'boolean';
+            } elseif ($feature->type === 'text') {
+                $value = 'text';
+            }
+            $resource->acquiredFeatures()->create([
+                'feature_id'   => $featureId,
+                "value_$value" => $featureVal
+            ]);
+        }
     }
 
     /**
@@ -80,7 +108,12 @@ class ResourcesController extends Controller
      */
     public function frontIndex()
     {
-        return view('frontend.resources.index');
+        $resources = Resource::whereUserId(auth()->id())
+            ->orderby('updated_at', 'DESC')
+            ->get();
+        $desc      = Feature::whereName(json_encode(['nameEn' => 'Description','nameAr' => 'الوصف']))->first();
+
+        return view('frontend.resources.index', compact('resources', 'desc'));
     }
 
     /**
@@ -168,6 +201,11 @@ class ResourcesController extends Controller
             'price'           => $request->get('price'),
             'currency'        => $request->get('currency')
         ]);
+
+        // Store features.
+        if ($request->has('features')) {
+            $this->addFeatures($resource, $request->get('features'));
+        }
 
         return redirect('/resources');
     }

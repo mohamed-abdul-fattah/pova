@@ -21,7 +21,7 @@ Class Category {
 -----------------------------------
 
 Class Resource {
-    // TODO: resources.
+    // TODO: resources. ✔
     // TODO: add resource.
     // TODO: edit resource.
     // TODO: delete resource.

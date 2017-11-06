@@ -40,16 +40,25 @@ class Resource extends Model
      */
     public $detailsMethods = [];
 
+    /**
+     * Get the category of a resource.
+     */
     public function category()
     {
         return $this->belongsTo('App\Category');
     }
 
+    /**
+     * Get the owner of a resource.
+     */
     public function owner()
     {
         return $this->belongsTo('App\User');
     }
 
+    /**
+     * Get the address of a resource.
+     */
     public function address()
     {
         return $this->morphOne('App\Address', 'addressable');
@@ -61,5 +70,13 @@ class Resource extends Model
     public function basePrice()
     {
         return $this->hasMany('App\Price')->where('availability_id', 0);
+    }
+
+    /**
+     * Get acquired featurers for a resource.
+     */
+    public function acquiredFeatures()
+    {
+        return $this->morphMany('App\AcquiredFeature', 'featureable');
     }
 }
