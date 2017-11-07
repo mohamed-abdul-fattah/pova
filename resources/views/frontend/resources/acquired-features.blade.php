@@ -18,6 +18,11 @@
             <input type="checkbox" name="features[{{$feature->feature->id}}]"
                 value="{{$feature->value()}}">
             {{nameLocale($feature->feature, app()->getLocale())}}
+        {{-- numbers --}}
+        @elseif ($feature->feature->type === 'number')
+            <input type="number" name="features[{{$feature->feature->id}}]"
+                placeholder="{{nameLocale($feature->feature, app()->getLocale())}}"
+                value="{{$feature->value()}}" class="form-control">
         {{-- selections --}}
         @elseif ($feature->feature->type === 'selection')
             <select class="form-control" name="features[{{$feature->feature->id}}]">

@@ -34,7 +34,7 @@
                 <div class="row">
                   <div class="form-group col-md-12">
                     <label for="form_username_email">{{__('Email')}}</label>
-                    <input id="form_username_email" name="email" class="form-control" type="text">
+                    <input id="form_username_email" name="email" class="form-control" type="text" autofocus>
                   </div>
                 </div>
                 <div class="row">
