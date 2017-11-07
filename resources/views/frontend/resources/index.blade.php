@@ -53,11 +53,11 @@
                     <div class="upcoming-events media bg-light mb-20">
                       <div class="row equal-height">
                         <div class="col-sm-4 cover">
-                            <img class="img-fullwidth" src="{{$resource->cover()}}" alt="{{titleLocale($resource, app()->getLocale())}}">
+                            <img class="img-fullwidth" src="{{$resource->cover()}}" alt="{{$resource->title}}">
                         </div>
                         <div class="col-sm-8 border-right pl-0 pl-sm-15">
                           <div class="event-details p-15 mt-20">
-                            <h3 class="media-heading font-weight-500">{{titleLocale($resource, app()->getLocale())}}</h3>
+                            <h3 class="media-heading font-weight-500">{{$resource->title}}</h3>
                             <h5>{{nameLocale($resource->category, app()->getLocale())}}</h5>
                             <h6>{{__('Created at')}} {{date('Y-m-d D', strtotime($resource->created_at))}}</h6>
                             <p>
@@ -68,7 +68,7 @@
                                 @endif
                             </p>
                             <a href="#" class="btn btn-flat btn-dark btn-theme-colored btn-sm">{{__('Details')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i></a>
-                            <a href="#" class="btn btn-warning btn-sm">{{__('Edit')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i></a>
+                            <a href="/resources/{{$resource->id}}/edit" class="btn btn-warning btn-sm">{{__('Edit')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i></a>
                             <a href="#" class="btn btn-danger btn-sm">{{__('Delete')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i></a>
                           </div>
                         </div>

@@ -12,12 +12,17 @@
     <h4>{{__('Basic Information')}}</h4>
     {{-- Category --}}
     <div class="form-group">
+        <label for="category" class="form-label">{{__('Category')}}</label>
         <select id="category" class="form-control{{$errors->has('category_id') ? ' has-error' : ''}}" name="category_id" required>
             <option selected disabled>{{__('Select a category')}}</option>
             @foreach ($categories as $key => $category)
                 <optgroup label="{{nameLocale($category, app()->getLocale())}}">
                     @foreach ($category->subCategories as $key => $cat)
-                        <option value="{{$cat->id}}">{{nameLocale($cat, app()->getLocale())}}</option>
+                        <option value="{{$cat->id}}"
+                        @if (optional(optional($resource)->category)->id === $cat->id)
+                            selected
+                        @endif
+                        >{{nameLocale($cat, app()->getLocale())}}</option>
                     @endforeach
                 </optgroup>
             @endforeach
@@ -29,42 +34,30 @@
         @endif
     </div>
     {{-- End category --}}
-    {{-- TitleAr --}}
+    {{-- Title --}}
     <div class="form-group">
+        <label for="title" class="form-label">{{__('Title')}}</label>
         {!!
-            Form::text('titleAr', null, [
-                'class'       => 'form-control'.($errors->has('titleAr') ? ' has-error' : ''),
-                'placeholder' => __('Title in Arabic').' *',
+            Form::text('title', optional($resource)->title, [
+                'id'          => 'title',
+                'class'       => 'form-control'.($errors->has('title') ? ' has-error' : ''),
+                'placeholder' => __('Title').' *',
                 'required'    => 'required'
             ])
         !!}
-        @if ($errors->has('titleAr'))
+        @if ($errors->has('title'))
             <span class="help-block">
-                <strong>{{ $errors->first('titleAr') }}</strong>
+                <strong>{{ $errors->first('title') }}</strong>
             </span>
         @endif
     </div>
-    {{-- End titleAr --}}
-    {{-- TitleEn --}}
-    <div class="form-group">
-        {!!
-            Form::text('titleEn', null, [
-                'class'       => 'form-control'.($errors->has('titleEn') ? ' has-error' : ''),
-                'placeholder' => __('Title in English').' *',
-                'required'    => 'required'
-            ])
-        !!}
-        @if ($errors->has('titleEn'))
-            <span class="help-block">
-                <strong>{{ $errors->first('titleEn') }}</strong>
-            </span>
-        @endif
-    </div>
-    {{-- End titleEn --}}
+    {{-- End title --}}
     {{-- Price --}}
     <div class="form-group">
+        <label for="price" class="form-label">{{__('Price')}}</label>
         {!!
-            Form::text('price', null, [
+            Form::text('price', optional(optional(optional($resource)->basePrice)->first())->price, [
+                'id'          => 'price',
                 'class'       => 'form-control'.($errors->has('price') ? ' has-error' : ''),
                 'placeholder' => __('Price').' *',
                 'required'    => 'required'
@@ -79,7 +72,8 @@
     {{-- End price --}}
     {{-- Unit --}}
     <div class="form-group">
-        <select class="form-control{{$errors->has('unit_id') ? ' has-error' : ''}}" name="unit_id" required>
+        <label for="unit" class="form-label">{{__('Unit')}}</label>
+        <select id="unit" class="form-control{{$errors->has('unit_id') ? ' has-error' : ''}}" name="unit_id" required>
             <option selected disabled>{{__('Select a unit')}}</option>
             @foreach ($units as $key => $unit)
                 <option value="{{$unit->id}}">{{nameLocale($unit, app()->getLocale())}}</option>
@@ -103,7 +97,11 @@
     {{-- Acquired features --}}
     <h4>{{__('Features')}}</h4>
     <div id="acquired-features">
-        <h5>{{__('Select a category')}}</h5>
+        @if (count(optional($resource)->acquiredFeatures))
+            @include('frontend.resources.acquired-features')
+        @else
+            <h5>{{__('Select a category')}}</h5>
+        @endif
     </div>
     {{-- End acquired features --}}
     <h4>{{__('Location')}}</h4>
@@ -112,10 +110,15 @@
     </div>
     {{-- Country --}}
     <div class="form-group">
-        <select class="form-control{{$errors->has('country_id') ? ' has-error' : ''}}" name="country_id" required>
+        <label for="country" class="form-label">{{__('Country')}}</label>
+        <select id="country" class="form-control{{$errors->has('country_id') ? ' has-error' : ''}}" name="country_id" required>
             <option selected disabled>{{__('Select your country')}}</option>
             @foreach ($countries as $key => $country)
-                <option value="{{$country->id}}">{{$country->name}}</option>
+                <option value="{{$country->id}}"
+                @if (optional(optional($resource)->address)->country_id === $country->id)
+                    selected
+                @endif
+                >{{$country->name}}</option>
             @endforeach
         </select>
         @if ($errors->has('country_id'))
@@ -127,10 +130,15 @@
     {{-- End Country --}}
     {{-- City --}}
     <div class="form-group">
-        <select class="form-control{{$errors->has('city_id') ? ' has-error' : ''}}" name="city_id" required>
+        <label for="city" class="form-lable">{{__('City')}}</label>
+        <select id="city" class="form-control{{$errors->has('city_id') ? ' has-error' : ''}}" name="city_id" required>
             <option selected disabled>{{__('Select your city')}}</option>
             @foreach ($cities as $key => $city)
-                <option value="{{$city->id}}">{{nameLocale($city, app()->getLocale())}}</option>
+                <option value="{{$city->id}}"
+                @if (optional(optional($resource)->address)->city_id === $city->id)
+                    selected
+                @endif
+                >{{nameLocale($city, app()->getLocale())}}</option>
             @endforeach
         </select>
         @if ($errors->has('city_id'))
@@ -142,8 +150,9 @@
     {{-- End city --}}
     {{-- Latitude --}}
     <div class="form-group">
+        <label for="lat" class="form-lable">{{__('Latitude')}}</label>
         {!!
-            Form::text('lat', null, [
+            Form::text('lat', optional(optional($resource)->address)->lat, [
                 'id'          => 'lat'.($errors->has('lat') ? ' has-error' : ''),
                 'class'       => 'form-control',
                 'placeholder' => __('Latitude').' *',
@@ -159,8 +168,9 @@
     {{-- End latitude --}}
     {{-- Longitude --}}
     <div class="form-group">
+        <label for="lng" class="form-label">{{__('Longitude')}}</label>
         {!!
-            Form::text('lng', null, [
+            Form::text('lng', optional(optional($resource)->address)->lng, [
                 'id'          => 'lng'.($errors->has('lng') ? ' has-error' : ''),
                 'class'       => 'form-control',
                 'placeholder' => __('Longitude').' *',
@@ -176,8 +186,10 @@
     {{-- End longitude --}}
     {{-- Address --}}
     <div class="form-group">
+        <label for="address" class="form-label">{{__('Address')}}</label>
         {!!
-            Form::text('address', null, [
+            Form::text('address', optional(optional($resource)->address)->address, [
+                'id'          => 'address',
                 'class'       => 'form-control'.($errors->has('address') ? ' has-error' : ''),
                 'placeholder' => __('Address').' *',
                 'required'    => 'required'

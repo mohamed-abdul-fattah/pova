@@ -32,8 +32,7 @@
     "My Resources": "إعلاناتي",
     "Create New Resource": "أنشئ إعلان جديد",
     "Basic Information": "معلومات أساسية",
-    "Title in English": "العنوان بالانجليزية",
-    "Title in Arabic": "العنوان بالعربية",
+    "Title": "اسم الإعلان",
     "Price": "السعر",
     "Select a category": "إختر مجموعة",
     "Select a unit": "إختر وحدة",
@@ -51,5 +50,9 @@
     "Delete": "حذف",
     "Details": "أظهار التفاصيل",
     "No description provided!": "لا يوجد وصف!",
-    "Created at": "أُنشئ في"
+    "Created at": "أُنشئ في",
+    "Category": "المجموعة",
+    "Country": "الدولة",
+    "City": "المدينة",
+    "Unit": "الوحدة"
 }

@@ -138,12 +138,15 @@ class ResourcesController extends Controller
      */
     public function frontCreate()
     {
+        $resource   = new Resource;
         $countries  = Countries::all();
         $cities     = City::orderby('name')->get();
         $categories = Category::with('subCategories')->whereParentId(0)->orderby('name')->get();
         $units      = Unit::orderby('name')->get();
 
-        return view('frontend.resources.create', compact('countries', 'cities', 'categories', 'units'));
+        return view('frontend.resources.create', compact(
+            'resource', 'countries', 'cities', 'categories', 'units'
+        ));
     }
 
     /**
@@ -178,9 +181,7 @@ class ResourcesController extends Controller
     {
         $this->validate($request, Resource::rules());
 
-        $title    = json_encode(['titleAr' => $request->titleAr, 'titleEn' => $request->titleEn]);
         $request  = collect($request)->put('user_id', auth()->id())
-            ->put('title', $title)
             ->put('currency', 'EGP');
         $resource = Resource::create($request->all());
 
@@ -244,6 +245,26 @@ class ResourcesController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource (frontend).
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function frontEdit($id)
+    {
+        $resource   = Resource::findOrFail($id);
+        $countries  = Countries::all();
+        $cities     = City::orderby('name')->get();
+        $categories = Category::with('subCategories')->whereParentId(0)->orderby('name')->get();
+        $units      = Unit::orderby('name')->get();
+        $isEdit     = true;
+
+        return view('frontend.resources.edit', compact(
+            'resource', 'countries', 'cities', 'categories', 'units', 'isEdit'
+        ));
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  int  $id
@@ -257,16 +278,32 @@ class ResourcesController extends Controller
         $resource = Resource::findOrFail($id);
         $resource->update($request->input());
 
-        // Update polymorphic address if relation exists.
-        if (method_exists($resource, 'address')) {
-            $resource->address()->update([
-                'address' => $request->address,
-                'lat'     => $request->lat,
-                'lng'     => $request->lng
-            ]);
-        }
+        $resource->address()->update([
+            'address' => $request->address,
+            'lat'     => $request->lat,
+            'lng'     => $request->lng
+        ]);
 
         return redirect()->route('resources.show', $id);
+    }
+
+    /**
+     * Update the specified resource in storage (frontend).
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function frontUpdate($id)
+    {
+        $this->validate($request, Resource::rules());
+
+        $resource = Resource::findOrFail($id);
+        $resource->update($request->all());
+
+        return redirect('/resources')->with([
+            'success' => true,
+            'message' => 'The resource was updated successfully.'
+        ]);
     }
 
     /**

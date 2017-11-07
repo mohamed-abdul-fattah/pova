@@ -20,6 +20,7 @@
                 if (feature.feature.type === 'email' || feature.feature.type === 'number') {
                     fields += '\
                         <div class="form-group">\
+                            <label class="form-lable">'+ names[nameLocale] + '</label>\
                             <input name="features['+ feature.feature.id +']" type="' + feature.feature.type + '" class="form-control"\
                             placeholder="'+ names[nameLocale] +'" ' + required + '>\
                         </div>\
@@ -27,6 +28,7 @@
                 } else if (feature.feature.type === 'string') { // string input type.
                     fields += '\
                         <div class="form-group">\
+                            <label class="form-lable">'+ names[nameLocale] + '</label>\
                             <input name="features['+ feature.feature.id +']" type="text" class="form-control"\
                             placeholder="'+ names[nameLocale] +'" ' + required + '>\
                         </div>\
@@ -34,6 +36,7 @@
                 } else if (feature.feature.type === 'text') { // textareas.
                     fields += '\
                         <div class="form-group">\
+                            <label class="form-lable">'+ names[nameLocale] + '</label>\
                             <textarea name="features['+ feature.feature.id +']" type="text" class="form-control" rows="4"\
                             placeholder="'+ names[nameLocale] +'" ' + required + '></textarea>\
                         </div>\
@@ -55,6 +58,7 @@
                     });
                     fields += '\
                         <div class="form-group">\
+                            <label class="form-lable">'+ names[nameLocale] + '</label>\
                             <select name="features['+ feature.feature.id +']" class="form-control" '+ required +'>\
                                 <option selected disabled>'+ names[nameLocale] +'</option>\
                                 '+ options +'\

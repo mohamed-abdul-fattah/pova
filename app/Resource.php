@@ -15,8 +15,7 @@ class Resource extends Model
 
     protected static $rules = [
         'category_id' => 'required|integer',
-        'titleEn'     => 'required|string|max:255',
-        'titleAr'     => 'required|string|max:255',
+        'title'       => 'required|string|max:255',
         'featured'    => 'boolean',
         'price'       => 'required|numeric',
         'unit_id'     => 'required|integer',

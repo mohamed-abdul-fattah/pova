@@ -9,4 +9,9 @@
     @else
         var nameLocale = 'nameEn';
     @endif
+
+    @isset($isEdit)
+        var lat = {{$resource->address->lat}},
+            lng = {{$resource->address->lng}}
+    @endisset
 </script>

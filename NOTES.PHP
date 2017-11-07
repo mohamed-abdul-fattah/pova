@@ -1,5 +1,8 @@
 <?php
-WIP pa migrate
+
+WIP
+// TODO: not acquired features, edit and update resource.
+
 // TODO: language switcher. ✔
 // TODO: change footer to dark footer or make sidebar like theme switcher.
 // TODO: 404 page
@@ -22,9 +25,12 @@ Class Category {
 
 Class Resource {
     // TODO: resources. ✔
-    // TODO: add resource.
+    // TODO: add resource. ✔
     // TODO: edit resource.
     // TODO: delete resource.
+    // TODO: photos and cover.
+    // TODO: availabilities.
+    // TODO: multiple prices and optional price.
 }
 -----------------------------------
 
