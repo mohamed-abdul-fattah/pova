@@ -76,7 +76,11 @@
         <select id="unit" class="form-control{{$errors->has('unit_id') ? ' has-error' : ''}}" name="unit_id" required>
             <option selected disabled>{{__('Select a unit')}}</option>
             @foreach ($units as $key => $unit)
-                <option value="{{$unit->id}}">{{nameLocale($unit, app()->getLocale())}}</option>
+                <option value="{{$unit->id}}"
+                @if ($unit->id === optional(optional(optional($resource)->basePrice->first())->unit)->id)
+                    selected
+                @endif
+                >{{nameLocale($unit, app()->getLocale())}}</option>
             @endforeach
         </select>
         @if ($errors->has('unit_id'))
@@ -116,8 +120,13 @@
             @endforeach
             {{-- End not acquired features --}}
         @else
-            {{-- Create --}}
-            <h5>{{__('Select a category')}}</h5>
+            @if (isset($isEdit))
+                {{-- No features for this category --}}
+                <h5>{{__('No features supported for this category')}}</h5>
+            @else
+                {{-- Create --}}
+                <h5>{{__('Select a category')}}</h5>
+            @endif
         @endif
     </div>
     {{-- End acquired features --}}

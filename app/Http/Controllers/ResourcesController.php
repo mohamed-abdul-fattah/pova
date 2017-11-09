@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\User;
 use App\City;
 use App\Unit;
-use App\Price;
 use Countries;
 use App\Feature;
 use App\Category;
@@ -186,22 +185,10 @@ class ResourcesController extends Controller
         $resource = Resource::create($request->all());
 
         // Address.
-        $resource->address()->create([
-            'address'    => $request->get('address'),
-            'lat'        => $request->get('lat'),
-            'lng'        => $request->get('lng'),
-            'country_id' => $request->get('country_id'),
-            'city_id'    => $request->get('city_id')
-        ]);
+        $resource->address()->create($request->all());
 
         // Base price.
-        Price::create([
-            'resource_id'     => $resource->id,
-            'unit_id'         => $request->get('unit_id'),
-            'availability_id' => 0,
-            'price'           => $request->get('price'),
-            'currency'        => $request->get('currency')
-        ]);
+        $resource->basePrice()->create($request->all());
 
         // Store features.
         if ($request->has('features')) {
@@ -291,18 +278,37 @@ class ResourcesController extends Controller
      * Update the specified resource in storage (frontend).
      *
      * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return Response
      */
-    public function frontUpdate($id)
+    public function frontUpdate($id, Request $request)
     {
         $this->validate($request, Resource::rules());
 
         $resource = Resource::findOrFail($id);
-        $resource->update($request->all());
+        $resource->update($request->only('category_id', 'title'));
+
+        // Address.
+        $resource->address()->update($request->only(
+            'lat',
+            'lng',
+            'address',
+            'country_id',
+            'city_id'
+        ));
+
+        // Base price.
+        $resource->basePrice()->update($request->only('unit_id', 'price', 'currency'));
+
+        // Update features.
+        if ($request->has('features')) {
+            $resource->acquiredFeatures()->delete();
+            $this->addFeatures($resource, $request->get('features'));
+        }
 
         return redirect('/resources')->with([
             'success' => true,
-            'message' => 'The resource was updated successfully.'
+            'message' => 'Resource updated successfully'
         ]);
     }
 
@@ -335,7 +341,10 @@ class ResourcesController extends Controller
         // availabilities
         $resource->delete();
 
-        return redirect('/resources')->with(['success' => true, 'message' => 'Resource deleted successfully']);
+        return redirect('/resources')->with([
+            'success' => true,
+            'message' => 'Resource deleted successfully'
+        ]);
     }
 
     /**

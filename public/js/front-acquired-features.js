@@ -45,7 +45,7 @@
                     fields += '\
                         <div class="form-group">\
                             <input name="features['+ feature.feature.id +']" type="checkbox" id="feature-'+ feature.id +'"\
-                            ' + required + '>\
+                            ' + required + ' value="1">\
                             <label for="feature-'+ feature.id +'">'+ names[nameLocale] +'</label>\
                         </div>\
                     ';
