@@ -29,5 +29,17 @@
     #acquired-features h5 {
         color: #ddd;
     }
+    .feature {
+        position: relative;
+    }
+    .fa-times-circle {
+        position: absolute;
+        left: 0;
+        color: #ef6161;
+        cursor: pointer;
+    }
+    .fa-times-circle:hover {
+        font-size: 20px;
+    }
     /*End Acquired Features*/
 </style>

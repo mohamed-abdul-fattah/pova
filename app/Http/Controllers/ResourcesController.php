@@ -45,20 +45,22 @@ class ResourcesController extends Controller
     protected function addFeatures($resource, $features)
     {
         foreach ($features as $featureId => $featureVal) {
-            $feature = Feature::findOrFail($featureId);
-            if ($feature->type === 'string' || $feature->type === 'email' || $feature->type === 'selection') {
-                $value = 'string';
-            } elseif ($feature->type === 'number') {
-                $value = 'number';
-            } elseif ($feature->type === 'boolean') {
-                $value = 'boolean';
-            } elseif ($feature->type === 'text') {
-                $value = 'text';
+            if ($featureVal) {
+                $feature = Feature::findOrFail($featureId);
+                if ($feature->type === 'string' || $feature->type === 'email' || $feature->type === 'selection') {
+                    $value = 'string';
+                } elseif ($feature->type === 'number') {
+                    $value = 'number';
+                } elseif ($feature->type === 'boolean') {
+                    $value = 'boolean';
+                } elseif ($feature->type === 'text') {
+                    $value = 'text';
+                }
+                $resource->acquiredFeatures()->create([
+                    'feature_id'   => $featureId,
+                    "value_$value" => $featureVal
+                ]);
             }
-            $resource->acquiredFeatures()->create([
-                'feature_id'   => $featureId,
-                "value_$value" => $featureVal
-            ]);
         }
     }
 

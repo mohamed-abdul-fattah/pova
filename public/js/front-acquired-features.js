@@ -73,4 +73,14 @@
             $('#acquired-features').show('fast');
         });
     });
+
+    /**
+     * Delete acquired feature
+     */
+    $(document).on('click', '.fa-times-circle', function (e) {
+        var formGroup = $(this).parent();
+
+        formGroup.slideUp('fast');
+        formGroup.find('[name]').attr('disabled', 'disabled');
+    });
 }());
