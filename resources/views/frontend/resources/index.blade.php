@@ -20,6 +20,9 @@
         .alert p {
             text-align: center;
         }
+        .img-fullwidth {
+            border: 2px solid #ffc0cb;
+        }
     </style>
 @endsection
 

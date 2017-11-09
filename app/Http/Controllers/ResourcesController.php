@@ -79,6 +79,18 @@ class ResourcesController extends Controller
     }
 
     /**
+     * Store cover photo for a resource.
+     *
+     * @param  object  $resource
+     * @param  file  $file
+     * @return void
+     */
+    public function addCover($resource, $file)
+    {
+        $resource->uploadPhoto($file, 0, 'images/resources', 1);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return Response
@@ -211,6 +223,12 @@ class ResourcesController extends Controller
             $this->addFeatures($resource, $request->get('features'));
         }
 
+        // Add cover photo.
+        if ($request->has('cover')) {
+            $this->addCover($resource, $request->get('cover'));
+        }
+
+        // Add photos.
         if ($request->has('photos')) {
             $this->addPhotos($resource, $request->get('photos'));
         }
@@ -324,6 +342,14 @@ class ResourcesController extends Controller
         if ($request->has('features')) {
             $resource->acquiredFeatures()->delete();
             $this->addFeatures($resource, $request->get('features'));
+        }
+
+        // Add cover photo.
+        if ($request->hasFile('cover')) {
+            if ($resource->photos()->whereCover(1)->first()) {
+                $resource->photos()->whereCover(1)->first()->update(['cover' => 0]);
+            }
+            $this->addCover($resource, $request->file('cover'));
         }
 
         // Upload photos.

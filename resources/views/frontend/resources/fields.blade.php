@@ -14,6 +14,9 @@
         @foreach ($resource->photos as $key => $photo)
             <a data-fancybox="gallery" href="{{$photo->link}}" class="gallery">
                 <i class="fa fa-times-circle delete-photo" aria-hidden="true" data-id="{{$photo->id}}"></i>
+                @if ($photo->cover)
+                    <span class="cover">{{__('COVER')}}</span>
+                @endif
                 <img src="{{$photo->link}}" alt="{{$resource->title}}" class="single-photo">
             </a>
         @endforeach

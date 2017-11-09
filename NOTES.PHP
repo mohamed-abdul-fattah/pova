@@ -26,11 +26,12 @@ Class Category {
 Class Resource {
     // TODO: resources. ✔
     // TODO: add resource. ✔
-    // TODO: edit resource.
-    // TODO: delete resource.
-    // TODO: photos and cover.
+    // TODO: edit resource. ✔
+    // TODO: delete resource. ✔
+    // TODO: photos and cover. ✔
     // TODO: availabilities.
-    // TODO: multiple prices and optional price.
+    // TODO: multiple prices
+    // TODO: resources listings.
 }
 -----------------------------------
 

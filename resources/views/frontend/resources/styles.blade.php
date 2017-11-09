@@ -52,6 +52,8 @@
     }
     .gallery {
         position: relative;
+        display: inline-block;
+        overflow: hidden;
     }
     .single-photo {
         max-height: 100px;
@@ -59,9 +61,21 @@
         border: 2px solid #ffc0cb;
     }
     .delete-photo {
-        left: 10px;
-        bottom: 45px;
+        left: 5px;
+        top: 10px;
         position: absolute;
+    }
+    .gallery .cover {
+        position: absolute;
+        right: -20px;
+        top: 15px;
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        padding: 0 25px;
+        background-color: #008000;
+        color: #fff;
+        font-size: 0.7em;
     }
     /*End Photos*/
 </style>
