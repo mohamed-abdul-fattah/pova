@@ -7,6 +7,7 @@
     <meta name="description" content="Happy Wedding - Wedding Event & Planner Website" />
     <meta name="keywords" content="wedding,holes rentals" />
     <meta name="author" content="POVA" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Stylesheet -->
     <link href="/css/font-awesome.min.css" rel="stylesheet">

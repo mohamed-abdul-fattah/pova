@@ -7,5 +7,12 @@
 <script src="/js/jquery-plugin-collection.js"></script>
 <!-- JS | Custom script for all pages -->
 <script src="/js/custom.js"></script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 
 @yield('js-scripts')

@@ -65,6 +65,20 @@ class ResourcesController extends Controller
     }
 
     /**
+     * Store photos for a resource.
+     *
+     * @param  object  $resource
+     * @param  array  $photos
+     * @return void
+     */
+    protected function addPhotos($resource, $photos)
+    {
+        foreach ($photos as $key => $photo) {
+            $resource->uploadPhoto($photo, 0, 'images/resources');
+        }
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return Response
@@ -197,6 +211,10 @@ class ResourcesController extends Controller
             $this->addFeatures($resource, $request->get('features'));
         }
 
+        if ($request->has('photos')) {
+            $this->addPhotos($resource, $request->get('photos'));
+        }
+
         return redirect('/resources');
     }
 
@@ -308,6 +326,11 @@ class ResourcesController extends Controller
             $this->addFeatures($resource, $request->get('features'));
         }
 
+        // Upload photos.
+        if ($request->has('photos')) {
+            $this->addPhotos($resource, $request->photos);
+        }
+
         return redirect('/resources')->with([
             'success' => true,
             'message' => 'Resource updated successfully'
@@ -339,7 +362,9 @@ class ResourcesController extends Controller
         $resource->acquiredFeatures()->delete();
         $resource->address()->delete();
         $resource->prices()->delete();
-        // photos
+        foreach ($resource->photos as $key => $photo) {
+            $resource->deletePhoto('images/resources', $photo);
+        }
         // availabilities
         $resource->delete();
 
@@ -347,6 +372,22 @@ class ResourcesController extends Controller
             'success' => true,
             'message' => 'Resource deleted successfully'
         ]);
+    }
+
+    /**
+     * Delete resource photo.
+     *
+     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
+     * @return Response
+     */
+    public function deletePhoto($id, Request $request)
+    {
+        $resource = Resource::findOrFail($request->resourceId);
+        $photo    = $resource->photos()->find($id);
+        $resource->deletePhoto('images/resources', $photo);
+
+        return response()->json(['success' => true], 200);
     }
 
     /**

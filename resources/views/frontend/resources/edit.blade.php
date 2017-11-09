@@ -20,7 +20,13 @@
             <div class="col-md-8">
               <h3 class="text-gray pt-10 mt-0 mb-30">{{__('Edit')}} {{$resource->title}}</h3>
               <hr>
-              {!! Form::open(['action' => ['ResourcesController@frontUpdate', $resource->id], 'method' => 'PUT']) !!}
+              {!!
+                  Form::open([
+                      'action'  => ['ResourcesController@frontUpdate', $resource->id],
+                      'method'  => 'PUT',
+                      'enctype' => 'multipart/form-data'
+                  ])
+              !!}
                 @include('frontend.resources.fields')
               {!! Form::close() !!}
             </div>

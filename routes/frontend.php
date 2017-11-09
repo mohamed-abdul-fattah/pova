@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     // Ajax requests.
     Route::prefix('ajax')->group(function () {
         // Categories.
-        Route::get('/categories/aquired-features/{id}', 'CategoriesController@ajaxFeatures')->name('ajax.categories.aquired-features');
+        Route::get('categories/aquired-features/{id}', 'CategoriesController@ajaxFeatures')->name('ajax.categories.aquired-features');
+        // Resources.
+        Route::delete('resources/delete-photo/{id}', 'ResourcesController@deletePhoto')->name('ajax.front-resources.delete-photo');
     });
 });

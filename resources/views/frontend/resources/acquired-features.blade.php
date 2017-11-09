@@ -1,6 +1,6 @@
 <div class="form-group feature">
     @if (!$feature->feature->required)
-        <i class="fa fa-times-circle" aria-hidden="true"></i>
+        <i class="fa fa-times-circle delete-feature" aria-hidden="true"></i>
     @endif
     @if ($feature->feature->type !== 'boolean')
         <label class="form-label">{{nameLocale($feature->feature, app()->getLocale())}}</label>

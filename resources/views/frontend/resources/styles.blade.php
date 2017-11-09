@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/css/component.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css" />
 <style media="screen">
     /*Map*/
     #map {
@@ -32,9 +34,11 @@
     .feature {
         position: relative;
     }
-    .fa-times-circle {
+    .delete-feature {
         position: absolute;
         left: 0;
+    }
+    .fa-times-circle {
         color: #ef6161;
         cursor: pointer;
     }
@@ -42,4 +46,22 @@
         font-size: 20px;
     }
     /*End Acquired Features*/
+    /*Photos*/
+    .photos {
+        text-align: center;
+    }
+    .gallery {
+        position: relative;
+    }
+    .single-photo {
+        max-height: 100px;
+        margin: 5px 0;
+        border: 2px solid #ffc0cb;
+    }
+    .delete-photo {
+        left: 10px;
+        bottom: 45px;
+        position: absolute;
+    }
+    /*End Photos*/
 </style>

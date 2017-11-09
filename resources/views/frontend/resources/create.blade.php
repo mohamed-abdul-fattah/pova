@@ -20,7 +20,13 @@
             <div class="col-md-8">
               <h3 class="text-gray pt-10 mt-0 mb-30">{{__('Create New Resource')}}</h3>
               <hr>
-              {!! Form::open(['action' => 'ResourcesController@frontStore', 'method' => 'POST']) !!}
+              {!!
+                  Form::open([
+                      'action'  => 'ResourcesController@frontStore',
+                      'method'  => 'POST',
+                      'enctype' => 'multipart/form-data'
+                  ])
+              !!}
                 @include('frontend.resources.fields')
               {!! Form::close() !!}
             </div>

@@ -77,7 +77,7 @@
     /**
      * Delete acquired feature
      */
-    $(document).on('click', '.fa-times-circle', function (e) {
+    $(document).on('click', '.delete-feature', function (e) {
         var formGroup = $(this).parent();
 
         formGroup.slideUp('fast');

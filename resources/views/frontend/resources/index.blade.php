@@ -69,8 +69,15 @@
                             <h5>{{nameLocale($resource->category, app()->getLocale())}}</h5>
                             <h6>{{__('Created at')}} {{date('Y-m-d D', strtotime($resource->created_at))}}</h6>
                             <p>
-                                @if ($resource->acquiredFeatures()->where('feature_id', $desc->id)->first())
-                                    {{$resource->acquiredFeatures()->where('feature_id', $desc->id)->first()->value()}}
+                                @php
+                                    $description = $resource->acquiredFeatures()->where('feature_id', $desc->id)->first();
+                                @endphp
+                                @if ($description)
+                                    @if (strlen($description->value()) > 200)
+                                        {{substr($description->value(), 0, 200)}}...
+                                    @else
+                                        {{$description->value()}}
+                                    @endif
                                 @else
                                     {{__('No description provided!')}}
                                 @endif
