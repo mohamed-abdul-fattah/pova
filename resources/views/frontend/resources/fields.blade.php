@@ -98,8 +98,25 @@
     <h4>{{__('Features')}}</h4>
     <div id="acquired-features">
         @if (count(optional($resource)->acquiredFeatures))
-            @include('frontend.resources.acquired-features')
+            {{-- Edit --}}
+            {{-- Acquired features --}}
+            @foreach ($resource->acquiredFeatures as $key => $feature)
+                @include('frontend.resources.acquired-features')
+            @endforeach
+            {{-- End filled acquired features --}}
+            {{-- Not acquired features --}}
+            @php
+                $acquiredFeaturesIds = $resource->acquiredFeatures()->select('feature_id')->get();
+            @endphp
+            @foreach ($resource->category->acquiredFeatures()->whereNotIn('feature_id', $acquiredFeaturesIds)->get() as $key => $feature)
+                @include('frontend.resources.acquired-features')
+            @endforeach
+            @foreach ($resource->category->parentObj->acquiredFeatures()->whereNotIn('feature_id', $acquiredFeaturesIds)->get() as $key => $feature)
+                @include('frontend.resources.acquired-features')
+            @endforeach
+            {{-- End not acquired features --}}
         @else
+            {{-- Create --}}
             <h5>{{__('Select a category')}}</h5>
         @endif
     </div>
