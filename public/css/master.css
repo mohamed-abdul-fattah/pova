@@ -21,6 +21,36 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: #ac4a58;
 }
 
+.btn-primary {
+    color: #286090;
+    background-color: #fff;
+    border-color: #286090;
+}
+
+.btn-warning {
+    color: #f0ad4e;
+    background-color: #fff;
+    border-color: #eea236;
+}
+
+.btn-danger {
+    color: #d9534f;
+    background-color: #fff;
+    border-color: #d43f3a;
+}
+
+.btn-success {
+    color: #449d44;
+    background-color: #fff;
+    border-color: #449d44;
+}
+
+.btn-dark.btn-theme-colored {
+    color: #d65679;
+    background-color: #fff;
+    border-color: #d65679;
+}
+
 /*Featured Resources*/
 
 .for-sale b {

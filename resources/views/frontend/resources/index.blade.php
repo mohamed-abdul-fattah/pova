@@ -6,14 +6,6 @@
 
 @section('css-styles')
     <style media="screen">
-        .create-btn {
-            color: #337ab7;
-        }
-        .create-btn:hover {
-            color: #fff;
-            border-color: #204d74;
-            background-color: #286090;
-        }
         .cover {
             background-color: #fff;
         }
@@ -38,9 +30,9 @@
             <div class="col-md-7">
                 <a href="/resources/create"
                 @if (app()->getLocale() === 'ar')
-                    class="btn btn-default create-btn pull-left"
+                    class="btn btn-primary pull-left"
                 @else
-                    class="btn btn-default create-btn pull-right"
+                    class="btn btn-primary pull-right"
                 @endif
                 >
                     {{__('Create New Resource')}}
@@ -53,13 +45,6 @@
                   </div>
               @endif
               <div class="col-sm-12 col-md-12 blog-pull-right">
-                @php
-                    if (app()->getLocale() === 'ar') {
-                        $angleLocale = 'left';
-                    } else {
-                        $angleLocale = 'right';
-                    }
-                @endphp
                 @foreach ($resources as $key => $resource)
                     <div class="upcoming-events media bg-light mb-20">
                       <div class="row equal-height">
@@ -86,10 +71,10 @@
                                 @endif
                             </p>
                             {!! Form::open(['action' => ['ResourcesController@frontDestroy', $resource->id], 'method' => 'DELETE']) !!}
-                            <a href="/resources/{{$resource->id}}" class="btn btn-flat btn-dark btn-theme-colored btn-sm">{{__('Details')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i></a>
-                            <a href="/resources/{{$resource->id}}/edit" class="btn btn-warning btn-sm">{{__('Edit')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i></a>
+                            <a href="/resources/{{$resource->id}}" class="btn btn-flat btn-dark btn-theme-colored btn-sm">{{__('Details')}} <i class="fa fa-info-circle"></i></a>
+                            <a href="/resources/{{$resource->id}}/edit" class="btn btn-warning btn-sm">{{__('Edit')}} <i class="fa fa-pencil"></i></a>
                             <button class="btn btn-danger btn-sm" onclick="return confirmDelete()">
-                                {{__('Delete')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i>
+                                {{__('Delete')}} <i class="fa fa-trash"></i>
                             </button>
                             {!! Form::close() !!}
                           </div>

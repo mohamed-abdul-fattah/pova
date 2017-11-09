@@ -116,8 +116,8 @@
     {{-- End cover --}}
     {{-- Save and cancel --}}
     <div class="form-group">
-        <button type="submit" class="btn btn-default save-btn">{{__('Save')}}</button>
-        <a href="/resources" class="btn btn-default cancel-btn">{{__('Cancel')}}</a>
+        <button type="submit" class="btn btn-success">{{__('Save')}}</button>
+        <a href="/resources" class="btn btn-danger">{{__('Cancel')}}</a>
     </div>
     {{-- End save and cancel --}}
 </div>
