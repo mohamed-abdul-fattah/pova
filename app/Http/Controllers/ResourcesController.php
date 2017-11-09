@@ -320,6 +320,25 @@ class ResourcesController extends Controller
     }
 
     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function frontDestroy($id)
+    {
+        $resource = Resource::findOrFail($id);
+        $resource->acquiredFeatures()->delete();
+        $resource->address()->delete();
+        $resource->prices()->delete();
+        // photos
+        // availabilities
+        $resource->delete();
+
+        return redirect('/resources')->with(['success' => true, 'message' => 'Resource deleted successfully']);
+    }
+
+    /**
      * Create nested resource.
      *
      * @param  int  $id

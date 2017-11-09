@@ -78,4 +78,9 @@ class Resource extends Model
     {
         return $this->morphMany('App\AcquiredFeature', 'featureable');
     }
+
+    public function prices()
+    {
+        return $this->hasMany('App\Price');
+    }
 }

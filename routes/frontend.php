@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('resources/{id}/edit', 'ResourcesController@frontEdit')->name('front-resources.edit');
     Route::post('resources', 'ResourcesController@frontStore')->name('front-resources.store');
     Route::put('resources/{id}', 'ResourcesController@frontUpdate')->name('front-resources.update');
+    Route::delete('resources/{id}', 'ResourcesController@frontDestroy')->name('front-resources.destroy');
     // Ajax requests.
     Route::prefix('ajax')->group(function () {
         // Categories.

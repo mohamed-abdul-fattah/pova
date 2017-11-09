@@ -54,5 +54,7 @@
     "Category": "المجموعة",
     "Country": "الدولة",
     "City": "المدينة",
-    "Unit": "الوحدة"
+    "Unit": "الوحدة",
+    "Are your sure you want to delete this resource?": "هل أنت متأكد من حذف هذا الإعلان؟",
+    "Resource deleted successfully": "تم حذف الإعلان بنجاح"
 }

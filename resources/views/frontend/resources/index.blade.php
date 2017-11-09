@@ -17,6 +17,9 @@
         .cover {
             background-color: #fff;
         }
+        .alert p {
+            text-align: center;
+        }
     </style>
 @endsection
 
@@ -41,6 +44,11 @@
                 </a>
               <h4 class="text-gray pt-10 mt-0 mb-30">{{__('My Resources')}}</h4>
               <hr>
+              @if (session('success'))
+                  <div class="alert alert-success">
+                      <p>{{__(session('message'))}} <i class="fa fa-check-circle" aria-hidden="true"></i></p>
+                  </div>
+              @endif
               <div class="col-sm-12 col-md-12 blog-pull-right">
                 @php
                     if (app()->getLocale() === 'ar') {
@@ -67,9 +75,13 @@
                                     {{__('No description provided!')}}
                                 @endif
                             </p>
-                            <a href="#" class="btn btn-flat btn-dark btn-theme-colored btn-sm">{{__('Details')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i></a>
+                            {!! Form::open(['action' => ['ResourcesController@frontDestroy', $resource->id], 'method' => 'DELETE']) !!}
+                            <a href="/resources/{{$resource->id}}" class="btn btn-flat btn-dark btn-theme-colored btn-sm">{{__('Details')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i></a>
                             <a href="/resources/{{$resource->id}}/edit" class="btn btn-warning btn-sm">{{__('Edit')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm">{{__('Delete')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i></a>
+                            <button class="btn btn-danger btn-sm" onclick="return confirmDelete()">
+                                {{__('Delete')}} <i class="fa fa-angle-double-{{$angleLocale}}"></i>
+                            </button>
+                            {!! Form::close() !!}
                           </div>
                         </div>
                       </div>
@@ -82,4 +94,12 @@
       </section>
     </div>
     <!-- end main-content -->
+@endsection
+
+@section('js-scripts')
+    <script type="text/javascript">
+        function confirmDelete() {
+            return confirm('{{__('Are your sure you want to delete this resource?')}}');
+        }
+    </script>
 @endsection
