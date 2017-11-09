@@ -15,27 +15,26 @@
     @isset($isEdit)
         var lat = {{$resource->address->lat}},
             lng = {{$resource->address->lng}}
-    @endisset
 
-    /**
-     * Delete photo.
-     */
-    $(document).on('click', '.delete-photo', function (e) {
-        e.preventDefault();
-        var photoId = $(this).attr('data-id'),
-            photo   = $(this).parent();
+            /**
+             * Delete photo.
+             */
+            $(document).on('click', '.delete-photo', function (e) {
+                e.preventDefault();
+                var photoId = $(this).attr('data-id'),
+                    photo   = $(this).parent();
 
-        $.ajax({
-            url: '/ajax/resources/delete-photo/' + photoId,
-            method: 'DELETE',
-            data: {resourceId: {{$resource->id}}}
-        }).done(function (res) {
-            console.log(res);
-            if (res.success) {
-                photo.hide('fast', function () {
-                    photo.remove();
+                $.ajax({
+                    url: '/ajax/resources/delete-photo/' + photoId,
+                    method: 'DELETE',
+                    data: {resourceId: {{$resource->id}}}
+                }).done(function (res) {
+                    if (res.success) {
+                        photo.hide('fast', function () {
+                            photo.remove();
+                        });
+                    }
                 });
-            }
-        });
-    });
+            });
+    @endisset
 </script>

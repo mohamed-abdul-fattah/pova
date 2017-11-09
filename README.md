@@ -1,2 +1,0 @@
-# pova
-Wedding resort
