@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Lemonada:300');
+/*----------------------------------------------------------------*/
+
+/*Custome Font Family*/
+
+body, .menuzord a, p {
+    font-family: 'Lemonada', cursive;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Lemonada', cursive;
+}
+
+/*Custome Bootstrap*/
+
+.btn {
+    border-radius: 0;
+}
+
+.help-block {
+    color: #ac4a58;
+}
+
+.btn-primary {
+    color: #286090;
+    background-color: #fff;
+    border-color: #286090;
+}
+
+.btn-warning {
+    color: #f0ad4e;
+    background-color: #fff;
+    border-color: #eea236;
+}
+
+.btn-danger {
+    color: #d9534f;
+    background-color: #fff;
+    border-color: #d43f3a;
+}
+
+.btn-success {
+    color: #449d44;
+    background-color: #fff;
+    border-color: #449d44;
+}
+
+.btn-dark.btn-theme-colored {
+    color: #d65679;
+    background-color: #fff;
+    border-color: #d65679;
+}
+
+/*Featured Resources*/
+
+.for-sale b {
+    text-decoration: line-through;
+}
+
+/*Profile Header*/
+
+.profile-header {
+    background-color: #d65679;
+    color: #fff;
+    text-align: center;
+    font-weight: 300;
+    position: relative;
+    padding: 10px 10px 45px 10px;
+}
+
+.profile-header p {
+    max-width: 90px;
+    border-radius: 50%;
+    margin: auto;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.profile-header p img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+/*Profile Navigator*/
+
+.profile-navigation {
+    background-color: #f8f8f8;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    padding-top: 60px;
+}
+
+.profile-navigation li:hover {
+    background-color: #fff;
+}
+
+.profile-navigation li a {
+    font-size: 16px;
+    color: #333333;
+    display: block;
+    text-decoration: none;
+    padding: 15px 0;
+}
+
+span.resources {
+    font-size: larger;
+    color: #c6c6c6;
+}
+
+/*User Profile Information*/
+
+.personal-info {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    margin-top: 5px;
+}
+
+.personal-info li.en {
+    position: relative;
+    padding-left: 150px;
+    padding-top: 15px;
+    color: #333333;
+}
+
+.personal-info li span.en {
+    position: absolute;
+    color: #999999;
+    font-weight: 600;
+    left: 0;
+}
+
+.personal-info li.ar {
+    position: relative;
+    padding-right: 150px;
+    padding-top: 15px;
+    color: #333333;
+}
+
+.personal-info li span.ar {
+    position: absolute;
+    color: #999999;
+    font-weight: 600;
+    right: 0;
+}
+
+/*Errors*/
+
+.has-error {
+    border: 2px solid #ac4a58;
+}

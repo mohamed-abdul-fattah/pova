@@ -1,0 +1,269 @@
+#container{
+	position:relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+body {
+	background:#fff;
+	font:11px 'Trebuchet MS';
+	color:#3a3a3a;
+	text-align: center;
+}
+select{
+	width:349px;
+}
+input{
+border-radius:5px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"] ::-webkit-file-upload-button, button {
+/*background: url(images/right.png) no-repeat;*/
+color: black;
+height: 30px;
+
+}
+textarea{
+	margin-left: -1px;
+}
+
+th{
+	text-align:center;
+	padding-right:10px;
+}
+td{
+text-align:left;
+}
+h3
+{
+	font:11px 'Trebuchet MS';
+	color:#3a3a3a;
+	font-size:14px;
+	font-weight:bold;
+	padding-bottom:20px;
+	text-align: center;
+}
+div#menu {
+  
+   margin-top: 40px
+}
+div#copyright {
+    margin-top:10px;
+    width:80%;
+    font:11px 'Trebuchet MS';
+    color:#3a3a3a;
+    text-indent:20px;
+    padding:40px 0 0 0;
+}
+div#copyright a { 
+	color:#696969;
+	text-decoration:initial; 
+}
+div#copyright a:hover { 
+	color:#3a3a3a; 
+}
+.errmsg{
+	
+	color:red;
+	}
+
+	/*form{
+		
+		text-align:center;}*/
+		
+#onlineuserscontainer{
+display:none;
+background-color:white;
+color:black;
+width:20%;
+}
+	
+	div.extras-div {
+display: inline-table;
+text-align: left;
+padding: 10px;}
+
+	h5{
+		width:50%;
+	}
+	.span3 {
+		margin-top:68px;
+	}
+	.row{
+		margin-left:0px;
+	}
+	#result{
+		display:none;
+	}
+	.ui-widget input{
+		text-align: right;			
+	}
+	.ui-menu .ui-menu-item a {
+		text-align: right;
+	}
+	label{
+		width: 202px;
+		left: -68px;
+		position: relative;
+		font-weight: bold;
+	}
+	
+	body{
+	
+		font-size:12px;
+	}
+	#ordersheet{
+		margin-top:15px;
+		width:850px;
+	}
+	.prescript td, .frames td{
+		text-align:center;
+	}
+	#prescription{
+		/*border:1px solid gray;
+		border-radius:5px;*/
+		text-align:left;
+		
+	}
+		#necklace,#prescriptions, #frames,#lenses,#combining{
+		border:1px solid gray;
+		margin:10px;
+		text-align:left;
+		padding:10px;
+	}
+	.prescript input{
+		width: 50px;
+	}
+	select{
+
+		width:100px;
+	}
+	#sales{
+	
+		width:200px;
+		margin-left:600px;
+		position:relative;
+	}
+	
+	.button{
+		cursor: pointer;
+		
+		border: 1px solid black;
+		padding: 5px;
+		border-radius: 2px;
+		background-color: darkGray;
+		font-weight: bold;
+		width: 125px;
+		display:inline-block;
+		text-align:center;
+	}
+	#invoice{
+		border:1px solid black;
+		margin-top:20px;
+		-webkit-box-shadow: 3px 3px 16px 3px;
+		padding: 10px 3px 10px 3px;
+	}
+	.brcodecont {
+		display: inline-block;
+	}
+	#oldscripts h3{
+	display:none;
+	}
+	.lens select{
+	width:80px;
+	}
+	.prescriptbr, .prescriptbrr{
+	border:1px solid;
+	padding: 5px;
+	}
+	.prescriptbrr{
+	 display:none;
+	}
+
+select{
+	width:195px;
+	}
+	
+	#ppleasewait{
+	display:none;
+	}
+	#lenses{
+	display:none;
+	}
+	#combining{
+	display:none;
+	}
+	#prescriptions{
+	display:none;
+	}
+	#clientdetails{
+	margin-top:-60px;
+	}
+
+	#sumtable th{
+		text-align: right !important;
+	}
+
+	.more{
+		background:#F55E5E !important;
+	}
+	#printonly{
+		display:none;
+	}
+
+	.deliveryslip{
+		border:1px dashed grey;
+		padding: 10px
+	}
+	.deliveryslip p{
+		font-weight: bold;
+		text-align: left;
+	}
+	.deliveryslip p span{
+		font-weight: normal;
+	}
+	.transferid{
+		display:none;
+	}
+
+	#promodetails{
+color:#ccc;
+font-size:10px;}
+
+#framesales-query .title{
+    text-align: left;
+}
+.filterrel{
+    width:63px;
+}
+img.frameimg {
+    min-width: 120px;
+}
+
+#framesales-query {
+    width: 60%;
+    text-align: left;
+}
+
+.combine{
+    font-size: 10px !important;
+}
+
+.combine input{
+    width:30px;
+}
+.wrong{
+    color:red;
+}
+#superReport td,#superReport th{
+    text-align: center;
+}
+.superReport-bottom td{
+    border-bottom: 1px solid black;
+}
+#superReportchart{
+    width:600px;
+    height:300px;
+}
