@@ -4,6 +4,7 @@
 // TODO: change footer to dark footer or make sidebar like theme switcher.
 // TODO: 404 page
 // TODO: abandon hydrogen.
+// TODO: convert all inline styles to css sheets.
 
 class User {
     // TODO: user login. ✔

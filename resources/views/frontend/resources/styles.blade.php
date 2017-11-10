@@ -66,4 +66,13 @@
         font-size: 0.7em;
     }
     /*End Photos*/
+    /*Availablilities*/
+    .single-availability {
+        position: relative;
+    }
+    .delete-avail {
+        position: absolute;
+        left: 0;
+    }
+    /*End Availablilities*/
 </style>
