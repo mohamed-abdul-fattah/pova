@@ -20,7 +20,11 @@
     var $portfolio_filter_first_child = $(".portfolio-filter a:eq(0)");
     var $portfolio_flex_slider = $(".portfolio-slider");
 
-
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
     THEMEMASCOT.isMobile = {
         Android: function() {
@@ -95,10 +99,14 @@
         /* ---------------------------------------------------------------------- */
         TM_datePicker: function() {
             $( ".date-picker" ).datepicker({
+                format: 'dd/mm/yyyy',
                 clearBtn: true,
                 disableTouchKeyboard: true,
                 startDate: '11/11/2017',
-                todayHighlight: true
+                todayHighlight: true,
+                weekStart: 6,
+                zIndexOffset: 9999,
+                autoclose: true
             });
         },
 
