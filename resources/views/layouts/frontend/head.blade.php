@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Stylesheet -->
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    {{-- <link href="/css/font-awesome.min.css" rel="stylesheet"> --}}
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="/css/animate.css" rel="stylesheet" type="text/css">
