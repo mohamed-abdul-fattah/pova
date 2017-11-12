@@ -2,10 +2,11 @@
 
 // TODO: language switcher. ✔
 // TODO: change footer to dark footer or make sidebar like theme switcher.
-// TODO: 404 page
+// TODO: 404 page.
 // TODO: abandon hydrogen.
 // TODO: convert all inline styles to css sheets.
 // TODO: use CDNs for all JS and CSS external files.
+// TODO: fix all absolute elements position.
 
 class User {
     // TODO: user login. ✔
@@ -32,6 +33,7 @@ Class Resource {
     // TODO: availabilities.
     // TODO: multiple prices
     // TODO: resources listings.
+    // TODO: write custome arabic validation messages.
 }
 -----------------------------------
 

@@ -194,13 +194,15 @@
 
 .inputfile-6 + label {
     border: 1px solid #d3394c;
-    background-color: #f1e5e6;
+    background-color: #f1e5e666;
     padding: 0;
 }
 
 .inputfile-6:focus + label,
 .inputfile-6.has-focus + label,
 .inputfile-6 + label:hover {
+    color: #fff;
+    background-color: #d3394c;
     border-color: #722040;
 }
 

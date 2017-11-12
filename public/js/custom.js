@@ -1,4 +1,4 @@
-(function($) {
+;(function($) {
     "use strict";
 
     var THEMEMASCOT = {};
@@ -98,15 +98,19 @@
         /* ------------------------------ Date Picker  -------------------------- */
         /* ---------------------------------------------------------------------- */
         TM_datePicker: function() {
-            $( ".date-picker" ).datepicker({
-                format: 'D dd/mm/yyyy',
-                clearBtn: true,
-                disableTouchKeyboard: true,
-                startDate: new Date(),
-                todayHighlight: true,
-                weekStart: 6, // saturday
-                zIndexOffset: 9999,
-                autoclose: true
+            // Support dynamically generated elements.
+            $('body').on('focus', '.date-picker', function (e) {
+                $( ".date-picker" ).datepicker({
+                    format: 'D dd/mm/yyyy',
+                    clearBtn: true,
+                    disableTouchKeyboard: true,
+                    startDate: new Date(),
+                    todayHighlight: true,
+                    language: 'ar',
+                    weekStart: 6, // saturday
+                    zIndexOffset: 9999,
+                    autoclose: true
+                });
             });
         },
 

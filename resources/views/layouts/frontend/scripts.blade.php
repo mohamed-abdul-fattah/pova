@@ -6,6 +6,9 @@
 <!-- JS | jquery plugin collection for this theme -->
 <script src="/js/jquery-plugin-collection.js"></script>
 <!-- JS | Custom script for all pages -->
+@if (app()->getLocale() === 'ar')
+    <script src="/js/locales/bootstrap-datepicker.ar.js" charset="utf-8"></script>
+@endif
 <script src="/js/custom.js"></script>
 
 @yield('js-scripts')

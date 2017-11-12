@@ -69,6 +69,7 @@
     /*Availablilities*/
     .single-availability {
         position: relative;
+        display: none;
     }
     .delete-avail {
         position: absolute;
