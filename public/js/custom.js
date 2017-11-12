@@ -94,7 +94,12 @@
         /* ------------------------------ Date Picker  -------------------------- */
         /* ---------------------------------------------------------------------- */
         TM_datePicker: function() {
-            $( ".date-picker" ).datepicker();
+            $( ".date-picker" ).datepicker({
+                clearBtn: true,
+                disableTouchKeyboard: true,
+                startDate: '11/11/2017',
+                todayHighlight: true
+            });
         },
 
         /* ---------------------------------------------------------------------- */

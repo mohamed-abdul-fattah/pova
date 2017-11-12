@@ -5,6 +5,7 @@
 // TODO: 404 page
 // TODO: abandon hydrogen.
 // TODO: convert all inline styles to css sheets.
+// TODO: use CDNs for all JS and CSS external files.
 
 class User {
     // TODO: user login. ✔
