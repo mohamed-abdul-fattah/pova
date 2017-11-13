@@ -76,5 +76,9 @@
     "All fields followed by": "كل الخانات المتبوعة بعلامة",
     "are required": "هي خانات مطلوبة",
     "You can hover on": "يمكنك تمرير المؤشر علي علامة",
-    "to get more details about the field": "لمزيد من التفاصيل حول الخانة"
+    "to get more details about the field": "لمزيد من التفاصيل حول الخانة",
+    "Base Price": "السعر الأساسي",
+    "Base Price Description": "وصف السعر الأساسي",
+    "Extra Price": "السعر الإضافي",
+    "Extra Price Description": "وصف السعر الإضافي"
 }

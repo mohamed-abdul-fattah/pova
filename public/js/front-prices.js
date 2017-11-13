@@ -1,10 +1,10 @@
 ;(function () {
     if (nameLocale === 'nameAr') {
-        var descLabel  = 'وصف السعر',
-            priceLabel = 'السعر';
+        var descLabel  = 'وصف السعر الإضافي',
+            priceLabel = 'السعر الإضافي';
     } else {
-        var descLabel  = 'Price Description',
-            priceLabel = 'Price';
+        var descLabel  = 'Extra Price Description',
+            priceLabel = 'Extra Price';
     }
 
     const $pricesField = $('.prices'),

@@ -124,7 +124,7 @@ class ResourcesController extends Controller
     }
 
     /**
-     * Create prices for a resource.
+     * Create extra prices for a resource.
      *
      * @param  object  $resource
      * @param  int  $unitId
@@ -133,7 +133,7 @@ class ResourcesController extends Controller
      * @param  int  $availabilityId (optional)
      * @return void
      */
-    protected function addPrices($resource, $unitId, $prices, $descriptions, $availabilityId = 0)
+    protected function addExtras($resource, $unitId, $prices, $descriptions, $availabilityId = 0)
     {
         foreach ($prices as $key => $price) {
             if ($price) {
@@ -142,7 +142,8 @@ class ResourcesController extends Controller
                     'availability_id' => $availabilityId,
                     'price'           => $price,
                     'currency'        => 'EGP',
-                    'description'     => $descriptions[$key]
+                    'description'     => $descriptions[$key],
+                    'extra'           => 1
                 ]);
             }
         }
@@ -275,7 +276,10 @@ class ResourcesController extends Controller
         $resource->address()->create($request->all());
 
         // Base price.
-        $this->addPrices($resource, $unit->id, $request->get('prices'), $request->get('descriptions'));
+        $resource->basePrice()->create($request->all());
+
+        // Extra prices.
+        $this->addExtras($resource, $unit->id, $request->get('prices'), $request->get('descriptions'));
 
         // Store features.
         if ($request->has('features')) {
@@ -406,9 +410,12 @@ class ResourcesController extends Controller
             'city_id'
         ));
 
-        // Update base prices.
-        $resource->basePrices()->delete();
-        $this->addPrices($resource, $unit->id, $request->prices, $request->descriptions);
+        // Update base price.
+        $resource->basePrice()->update($request->only('price', 'description'));
+
+        // Create extra prices.
+        $resource->extras()->delete();
+        $this->addExtras($resource, $unit->id, $request->prices, $request->descriptions);
 
         // Update features.
         if ($request->has('features')) {

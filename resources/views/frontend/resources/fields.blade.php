@@ -81,18 +81,18 @@
             <i class="fa fa-info-circle" aria-hidden="true"></i>
             <div class="form-group">
                 {!!
-                    Form::text('descriptions[]', optional(optional(optional($resource)->basePrices)->first())->description, [
+                    Form::text('description', optional(optional(optional($resource)->basePrice))->description, [
                         'class'       => 'form-control'.($errors->has('priceDesc') ? ' has-error' : ''),
-                        'placeholder' => __('Price Description')
+                        'placeholder' => __('Base Price Description')
                     ])
                 !!}
             </div>
             <div class="form-group">
                 {!!
-                    Form::text('prices[]', optional(optional(optional($resource)->basePrices)->first())->price, [
+                    Form::text('price', optional(optional(optional($resource)->basePrice))->price, [
                         'id'          => 'price',
                         'class'       => 'form-control'.($errors->has('price') ? ' has-error' : ''),
-                        'placeholder' => __('Price').' *',
+                        'placeholder' => __('Base Price').' *',
                         'required'    => 'required'
                     ])
                 !!}
@@ -103,17 +103,16 @@
                 @endif
             </div>
         </div>
-        @if (count($resource->basePrices) > 1)
-            @foreach ($resource->basePrices as $key => $price)
-                @continue($key === 0)
+        @if (count($resource->extras))
+            @foreach ($resource->extras as $key => $price)
                 <div class="single-price" style="display:block">
                     <i class="fa fa-times-circle delete-price" aria-hidden="true"></i>
                     <hr />
                     <div class="form-group">
-                      <input type="text" class="form-control" name="descriptions[]" value="{{$price->description}}" placeholder="{{__('Price Description')}}" />
+                      <input type="text" class="form-control" name="descriptions[]" value="{{$price->description}}" placeholder="{{__('Extra Price Description')}}" />
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control" name="prices[]" value="{{$price->price}}" placeholder="{{__('Price')}}" />
+                      <input type="text" class="form-control" name="prices[]" value="{{$price->price}}" placeholder="{{__('Extra Price')}}" />
                     </div>
                 </div>
             @endforeach
