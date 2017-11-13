@@ -42,6 +42,11 @@ Class Resource {
 }
 -----------------------------------
 
+class Listings {
+    // TODO: middleware to prevent search for parent categories.
+}
+-----------------------------------
+
 Class Feature {
     //
 }

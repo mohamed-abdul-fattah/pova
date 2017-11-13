@@ -279,7 +279,9 @@ class ResourcesController extends Controller
         $resource->basePrice()->create($request->all());
 
         // Extra prices.
-        $this->addExtras($resource, $unit->id, $request->get('prices'), $request->get('descriptions'));
+        if ($request->get('prices')) {
+            $this->addExtras($resource, $unit->id, $request->get('prices'), $request->get('descriptions'));
+        }
 
         // Store features.
         if ($request->has('features')) {
