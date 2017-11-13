@@ -34,6 +34,7 @@ Class Resource {
     // TODO: multiple prices
     // TODO: resources listings.
     // TODO: write custome arabic validation messages.
+    // TODO: JQuery validate for resources/create and set availabilities.
 }
 -----------------------------------
 

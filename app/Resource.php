@@ -18,7 +18,7 @@ class Resource extends Model
         'title'       => 'required|string|max:255',
         'featured'    => 'boolean',
         'price'       => 'required|numeric',
-        'unit_id'     => 'required|integer',
+        'unit_id'     => 'integer',
         'country_id'  => 'required|integer',
         'city_id'     => 'required|integer',
         'lat'         => 'required|numeric',
@@ -79,8 +79,19 @@ class Resource extends Model
         return $this->morphMany('App\AcquiredFeature', 'featureable');
     }
 
+    /**
+     * Get acquired prices for a resource.
+     */
     public function prices()
     {
         return $this->hasMany('App\Price');
+    }
+
+    /**
+     * Get availabilities for a resource.
+     */
+    public function availabilities()
+    {
+        return $this->hasMany('App\Availability');
     }
 }

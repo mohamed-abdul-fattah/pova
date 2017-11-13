@@ -101,7 +101,6 @@
             // Support dynamically generated elements.
             $('body').on('focus', '.date-picker', function (e) {
                 $( ".date-picker" ).datepicker({
-                    format: 'D dd/mm/yyyy',
                     clearBtn: true,
                     disableTouchKeyboard: true,
                     startDate: new Date(),

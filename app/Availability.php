@@ -33,9 +33,19 @@ class Availability extends Model
      */
     public $detailsMethods = [];
 
-
+    /**
+     * Get parent resource.
+     */
     public function resource()
     {
         return $this->belongsTo('App\Resource');
+    }
+
+    /**
+     * Get seasonal price.
+     */
+    public function seasonalPrice()
+    {
+        return $this->hasOne('App\Price');
     }
 }

@@ -63,5 +63,13 @@
     "Upload cover photo": "أضف صورة الخلفية",
     "files selected": "ملفات مختارة",
     "COVER": "الخلفية",
-    "Set availabilities": "أضف أوقات إتاحة"
+    "Set availabilities": "أضف أوقات إتاحة",
+    "From": "من",
+    "To": "إلي",
+    "Choose Type": "إختر نوع وقت الإتاحة",
+    "Unavailable": "غير متاح",
+    "Seasonal": "موسم",
+    "Seasonal Price": "سعر الموسم",
+    "Start Date": "تاريخ البداية",
+    "End Date": "تاريخ النهاية"
 }

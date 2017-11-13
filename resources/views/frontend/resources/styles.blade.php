@@ -75,5 +75,8 @@
         position: absolute;
         left: 0;
     }
+    .seasonal {
+        display: none;
+    }
     /*End Availablilities*/
 </style>

@@ -87,7 +87,7 @@
     </div>
     {{-- End price --}}
     {{-- Unit --}}
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="unit" class="form-label">{{__('Unit')}}</label>
         <select id="unit" class="form-control{{$errors->has('unit_id') ? ' has-error' : ''}}" name="unit_id" required>
             <option selected disabled>{{__('Select a unit')}}</option>
@@ -104,7 +104,7 @@
                 <strong>{{ $errors->first('unit_id') }}</strong>
             </span>
         @endif
-    </div>
+    </div> --}}
     {{-- End unit --}}
     {{-- Photos --}}
     <div class="form-group">
@@ -117,7 +117,41 @@
     </div>
     {{-- End cover --}}
     {{-- Availabilities --}}
-    <div id="availabilities"></div>
+    <div id="availabilities">
+        @isset($isEdit)
+            @foreach ($resource->availabilities as $key => $avail)
+                <div class="single-availability" style="display:block">
+                    <hr />
+                    <i class="fa fa-times-circle delete-avail" aria-hidden="true"></i>
+                    <div class="form-group">
+                        <label class="form-label">{{__('From')}}</label>
+                        <input type="text" class="date-picker form-control" name="from[]"
+                            placeholder="{{__('Start Date')}}" value="{{date('m/d/Y', strtotime($avail->start))}}" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">{{__('To')}}</label>
+                        <input type="text" class="date-picker form-control" name="to[]"
+                            placeholder="{{__('End Date')}}" value="{{date('m/d/Y', strtotime($avail->end))}}" />
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option disabled selected>{{__('Choose Type')}}</option>
+                            <option value="unavailable" @if ($avail->type === 'unavailable') selected @endif>{{__('Unavailable')}}</option>
+                            <option value="seasonal" @if ($avail->type === 'seasonal') selected @endif>{{__('Seasonal')}}</option>
+                        </select>
+                    </div>
+                    @if ($avail->type === 'seasonal')
+                        <div class="form-group seasonal" style="display:block">
+                            <label class="form-label">{{__('Seasonal Price')}}</label>
+                            <input type="text" class="form-control" name="seasonalPrice[]"
+                            placeholder="{{__('Seasonal Price')}}" value="{{optional($avail->seasonalPrice)->price}}" />
+                        </div>
+                    @endif
+                    <input type="hidden" name="type[]"  value="{{$avail->type}}"/>
+                </div>
+            @endforeach
+        @endisset
+    </div>
     <div class="form-group">
         <button type="button" class="btn btn-primary" id="set-availabilities">
             <i class="fa fa-calendar" aria-hidden="true"></i>
