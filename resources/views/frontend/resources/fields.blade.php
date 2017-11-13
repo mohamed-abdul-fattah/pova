@@ -140,13 +140,14 @@
                             <option value="seasonal" @if ($avail->type === 'seasonal') selected @endif>{{__('Seasonal')}}</option>
                         </select>
                     </div>
-                    @if ($avail->type === 'seasonal')
-                        <div class="form-group seasonal" style="display:block">
+                        <div class="form-group seasonal"
+                        @if ($avail->type === 'seasonal')
+                            style="display:block"
+                        @endif>
                             <label class="form-label">{{__('Seasonal Price')}}</label>
                             <input type="text" class="form-control" name="seasonalPrice[]"
                             placeholder="{{__('Seasonal Price')}}" value="{{optional($avail->seasonalPrice)->price}}" />
                         </div>
-                    @endif
                     <input type="hidden" name="type[]"  value="{{$avail->type}}"/>
                 </div>
             @endforeach

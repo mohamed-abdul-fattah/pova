@@ -62,7 +62,7 @@ ul.list li:before{margin-left:10px;}
 .menu-full-page .fullpage-nav-toggle span:before,.menu-full-page .fullpage-nav-toggle span:after{right:0;}
 .boxed-layout .container{padding-right:30px;padding-left:30px;}
 .boxed-layout .header .navbar-default .navbar-collapse{margin-left:30px;}
-.form-control:focus,form input[type="text"]:focus,form input[type="email"]:focus,form input[type="number"]:focus,form input[type="url"]:focus,form input[type="search"]:focus,form input[type="tel"]:focus,form input[type="password"]:focus,form input[type="date"]:focus,form input[type="color"]:focus,form select:focus,form textarea:focus{border-color:rgba(0, 0.3) 0, 0,;}
+.form-control:focus,form input[type="text"]:focus,form input[type="email"]:focus,form input[type="number"]:focus,form input[type="url"]:focus,form input[type="search"]:focus,form input[type="tel"]:focus,form input[type="password"]:focus,form input[type="date"]:focus,form input[type="color"]:focus,form select:focus,form textarea:focus{border-color:rgba(0, 0.3) 0, 0;}
 .form-transparent.form-line .form-control{padding-right:0;}
 .booking-form .styled-select::after{border-radius:36px 0 0 36px;left:0px;}
 .booking-form.form-blue .styled-select::after{border-radius:36px 0 0 36px;left:0px;}

@@ -104,7 +104,7 @@ class ResourcesController extends Controller
     protected function setAvailabilities($resource, $froms, $tos, $types, $seasonalPrices, $unitId)
     {
         foreach ($froms as $key => $from) {
-            if ($types[$key]) { // only if type is set.
+            if ($types[$key] && $from && $tos[$key]) { // only if type, from and end are set.
                 $availability = $resource->availabilities()->create([
                     'start' => date('Y-m-d', strtotime($from)),
                     'end'   => date('Y-m-d', strtotime($tos[$key])),
@@ -268,14 +268,16 @@ class ResourcesController extends Controller
         }
 
         // Set availabilities.
-        $this->setAvailabilities(
-            $resource,
-            $request->get('from'),
-            $request->get('to'),
-            $request->get('type'),
-            $request->get('seasonalPrice'),
-            $unit->id
-        );
+        if (count($request->get('from'))) {
+            $this->setAvailabilities(
+                $resource,
+                $request->get('from'),
+                $request->get('to'),
+                $request->get('type'),
+                $request->get('seasonalPrice'),
+                $unit->id
+            );
+        }
 
         return redirect('/resources');
     }
@@ -366,6 +368,7 @@ class ResourcesController extends Controller
     {
         $this->validate($request, Resource::rules());
 
+        $unit     = Unit::first();
         $resource = Resource::findOrFail($id);
         $resource->update($request->only('category_id', 'title'));
 
@@ -398,6 +401,22 @@ class ResourcesController extends Controller
         // Upload photos.
         if ($request->has('photos')) {
             $this->addPhotos($resource, $request->photos);
+        }
+
+        // Update availabilities.
+        foreach ($resource->availabilities as $key => $avail) {
+            $avail->seasonalPrice()->delete();
+            $avail->delete();
+        }
+        if (count($request->get('from'))) {
+            $this->setAvailabilities(
+                $resource,
+                $request->get('from'),
+                $request->get('to'),
+                $request->get('type'),
+                $request->get('seasonalPrice'),
+                $unit->id
+            );
         }
 
         return redirect('/resources')->with([

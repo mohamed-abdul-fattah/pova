@@ -74,9 +74,9 @@
 
         // Record type value.
         $(this).parent().parent().find('input[type=hidden]').val($(this).val());
+        seasonalField.find('input').val('');
 
         if ($(this).val() === 'seasonal') {
-            seasonalField.find('input').val('');
             seasonalField.slideDown('fast');
         } else {
             seasonalField.slideUp('fast');

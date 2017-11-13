@@ -30,7 +30,7 @@ Class Resource {
     // TODO: edit resource. ✔
     // TODO: delete resource. ✔
     // TODO: photos and cover. ✔
-    // TODO: availabilities.
+    // TODO: availabilities. ✔
     // TODO: multiple prices
     // TODO: resources listings.
     // TODO: write custome arabic validation messages.
