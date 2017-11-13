@@ -1,19 +1,21 @@
 <?php
 
 // TODO: language switcher. ✔
-// TODO: change footer to dark footer or make sidebar like theme switcher.
 // TODO: 404 page.
 // TODO: abandon hydrogen.
+// TODO: fix all absolute elements position.
+// TODO: change footer to dark footer or make sidebar like theme switcher.
+
 // TODO: convert all inline styles to css sheets.
 // TODO: use CDNs for all JS and CSS external files.
-// TODO: fix all absolute elements position.
+// TODO: remove JQuery migrate and upgrade functions to JQuery 3.
 
 class User {
     // TODO: user login. ✔
     // TODO: user signup. ✔
     // TODO: user profile. ✔
-    // TODO: provider signup.
     // TODO: user phone.
+    // TODO: provider signup.
 }
 -----------------------------------
 
@@ -28,9 +30,9 @@ Class Resource {
     // TODO: resources. ✔
     // TODO: add resource. ✔
     // TODO: edit resource. ✔
+    // TODO: availabilities. ✔
     // TODO: delete resource. ✔
     // TODO: photos and cover. ✔
-    // TODO: availabilities. ✔
     // TODO: multiple prices.
     // TODO: resources listings.
     // TODO: write custome arabic validation messages.

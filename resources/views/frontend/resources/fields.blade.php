@@ -8,6 +8,11 @@
     </div>
 @endif
 
+<div class="alert alert-info">
+    {{__('All fields followed by')}} <span class="required">*</span> {{__('are required')}}. <br>
+    {{__('You can hover on')}} <i class="fa fa-info-circle" aria-hidden="true"></i> {{__('to get more details about the field')}}.
+</div>
+
 {{-- Photos --}}
 @if (count($resource->photos))
     <div class="photos">
@@ -71,14 +76,25 @@
     {{-- Price --}}
     <div class="form-group">
         <label for="price" class="form-label">{{__('Price')}} <span class="required">*</span></label>
-        {!!
-            Form::text('price', optional(optional(optional($resource)->basePrice)->first())->price, [
-                'id'          => 'price',
-                'class'       => 'form-control'.($errors->has('price') ? ' has-error' : ''),
-                'placeholder' => __('Price').' *',
-                'required'    => 'required'
-            ])
-        !!}
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+        <div class="form-group">
+            {!!
+                Form::text('description', optional(optional(optional($resource)->basePrice)->first())->description, [
+                    'class'       => 'form-control'.($errors->has('priceDesc') ? ' has-error' : ''),
+                    'placeholder' => __('Price Description')
+                ])
+            !!}
+        </div>
+        <div class="form-group">
+            {!!
+                Form::text('price', optional(optional(optional($resource)->basePrice)->first())->price, [
+                    'id'          => 'price',
+                    'class'       => 'form-control'.($errors->has('price') ? ' has-error' : ''),
+                    'placeholder' => __('Price').' *',
+                    'required'    => 'required'
+                ])
+            !!}
+        </div>
         @if ($errors->has('price'))
             <span class="help-block">
                 <strong>{{ $errors->first('price') }}</strong>

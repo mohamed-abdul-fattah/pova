@@ -10,7 +10,7 @@ class Price extends Model
     use HydrogenTrait;
 
     protected $fillable = [
-        'resource_id', 'unit_id', 'availability_id', 'price', 'currency'
+        'resource_id', 'unit_id', 'availability_id', 'price', 'currency', 'description'
     ];
 
     protected static $rules = [

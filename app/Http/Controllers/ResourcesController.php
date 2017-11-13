@@ -382,7 +382,7 @@ class ResourcesController extends Controller
         ));
 
         // Base price.
-        $resource->basePrice()->update($request->only('unit_id', 'price', 'currency'));
+        $resource->basePrice()->update($request->only('unit_id', 'price', 'currency', 'description'));
 
         // Update features.
         if ($request->has('features')) {

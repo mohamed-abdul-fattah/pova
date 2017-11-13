@@ -71,5 +71,10 @@
     "Seasonal": "موسم",
     "Seasonal Price": "سعر الموسم",
     "Start Date": "تاريخ البداية",
-    "End Date": "تاريخ النهاية"
+    "End Date": "تاريخ النهاية",
+    "Price Description": "وصف السعر",
+    "All fields followed by": "كل الخانات المتبوعة بعلامة",
+    "are required": "هي خانات مطلوبة",
+    "You can hover on": "يمكنك تمرير المؤشر علي علامة",
+    "to get more details about the field": "لمزيد من التفاصيل حول الخانة"
 }
