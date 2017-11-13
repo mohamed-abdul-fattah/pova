@@ -1,6 +1,10 @@
 <link rel="stylesheet" href="/css/component.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css" />
 <style media="screen">
+    .required {
+        color: #f76060;
+        font-size: 12px;
+    }
     /*Map*/
     #map {
       width: 100%;

@@ -31,9 +31,10 @@ Class Resource {
     // TODO: delete resource. ✔
     // TODO: photos and cover. ✔
     // TODO: availabilities. ✔
-    // TODO: multiple prices
+    // TODO: multiple prices.
     // TODO: resources listings.
     // TODO: write custome arabic validation messages.
+    // TODO: validate availabilities backend.
     // TODO: JQuery validate for resources/create and set availabilities.
 }
 -----------------------------------

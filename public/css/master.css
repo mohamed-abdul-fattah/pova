@@ -51,14 +51,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border-color: #d65679;
 }
 
+.datepicker>div {
+    display: block;
+}
+
 /*For RTL support*/
 
 div.datepicker.datepicker-dropdown.dropdown-menu {
     right: unset;
-}
-
-.datepicker>div {
-    display: block;
 }
 
 .datepicker table tr td.disabled,

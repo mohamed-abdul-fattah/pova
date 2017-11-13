@@ -28,7 +28,7 @@
     <h4>{{__('Basic Information')}}</h4>
     {{-- Category --}}
     <div class="form-group">
-        <label for="category" class="form-label">{{__('Category')}}</label>
+        <label for="category" class="form-label">{{__('Category')}} <span class="required">*</span></label>
         <select id="category" class="form-control{{$errors->has('category_id') ? ' has-error' : ''}}" name="category_id" required>
             <option selected disabled>{{__('Select a category')}}</option>
             @foreach ($categories as $key => $category)
@@ -52,7 +52,7 @@
     {{-- End category --}}
     {{-- Title --}}
     <div class="form-group">
-        <label for="title" class="form-label">{{__('Title')}}</label>
+        <label for="title" class="form-label">{{__('Title')}} <span class="required">*</span></label>
         {!!
             Form::text('title', optional($resource)->title, [
                 'id'          => 'title',
@@ -70,7 +70,7 @@
     {{-- End title --}}
     {{-- Price --}}
     <div class="form-group">
-        <label for="price" class="form-label">{{__('Price')}}</label>
+        <label for="price" class="form-label">{{__('Price')}} <span class="required">*</span></label>
         {!!
             Form::text('price', optional(optional(optional($resource)->basePrice)->first())->price, [
                 'id'          => 'price',
@@ -208,7 +208,7 @@
     </div>
     {{-- Country --}}
     <div class="form-group">
-        <label for="country" class="form-label">{{__('Country')}}</label>
+        <label for="country" class="form-label">{{__('Country')}} <span class="required">*</span></label>
         <select id="country" class="form-control{{$errors->has('country_id') ? ' has-error' : ''}}" name="country_id" required>
             <option selected disabled>{{__('Select your country')}}</option>
             @foreach ($countries as $key => $country)
@@ -228,7 +228,7 @@
     {{-- End Country --}}
     {{-- City --}}
     <div class="form-group">
-        <label for="city" class="form-lable">{{__('City')}}</label>
+        <label for="city" class="form-lable">{{__('City')}} <span class="required">*</span></label>
         <select id="city" class="form-control{{$errors->has('city_id') ? ' has-error' : ''}}" name="city_id" required>
             <option selected disabled>{{__('Select your city')}}</option>
             @foreach ($cities as $key => $city)
@@ -248,7 +248,7 @@
     {{-- End city --}}
     {{-- Latitude --}}
     <div class="form-group">
-        <label for="lat" class="form-lable">{{__('Latitude')}}</label>
+        <label for="lat" class="form-lable">{{__('Latitude')}} <span class="required">*</span></label>
         {!!
             Form::text('lat', optional(optional($resource)->address)->lat, [
                 'id'          => 'lat'.($errors->has('lat') ? ' has-error' : ''),
@@ -266,7 +266,7 @@
     {{-- End latitude --}}
     {{-- Longitude --}}
     <div class="form-group">
-        <label for="lng" class="form-label">{{__('Longitude')}}</label>
+        <label for="lng" class="form-label">{{__('Longitude')}} <span class="required">*</span></label>
         {!!
             Form::text('lng', optional(optional($resource)->address)->lng, [
                 'id'          => 'lng'.($errors->has('lng') ? ' has-error' : ''),
@@ -284,7 +284,7 @@
     {{-- End longitude --}}
     {{-- Address --}}
     <div class="form-group">
-        <label for="address" class="form-label">{{__('Address')}}</label>
+        <label for="address" class="form-label">{{__('Address')}} <span class="required">*</span></label>
         {!!
             Form::text('address', optional(optional($resource)->address)->address, [
                 'id'          => 'address',
