@@ -17,7 +17,7 @@ class Resource extends Model
         'category_id' => 'required|integer',
         'title'       => 'required|string|max:255',
         'featured'    => 'boolean',
-        'price'       => 'required|numeric',
+        'prices'      => 'required',
         'unit_id'     => 'integer',
         'country_id'  => 'required|integer',
         'city_id'     => 'required|integer',
@@ -66,7 +66,7 @@ class Resource extends Model
     /**
      * Get base price for a resource.
      */
-    public function basePrice()
+    public function basePrices()
     {
         return $this->hasMany('App\Price')->where('availability_id', 0);
     }

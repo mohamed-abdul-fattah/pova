@@ -9,6 +9,7 @@
 // TODO: convert all inline styles to css sheets.
 // TODO: use CDNs for all JS and CSS external files.
 // TODO: remove JQuery migrate and upgrade functions to JQuery 3.
+// TODO: update prices and availabilities by id to save ids from overflow.
 
 class User {
     // TODO: user login. ✔
@@ -33,7 +34,7 @@ Class Resource {
     // TODO: availabilities. ✔
     // TODO: delete resource. ✔
     // TODO: photos and cover. ✔
-    // TODO: multiple prices.
+    // TODO: multiple prices. ✔
     // TODO: resources listings.
     // TODO: write custome arabic validation messages.
     // TODO: validate availabilities backend.

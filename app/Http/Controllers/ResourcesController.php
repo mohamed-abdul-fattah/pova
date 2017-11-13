@@ -124,6 +124,31 @@ class ResourcesController extends Controller
     }
 
     /**
+     * Create prices for a resource.
+     *
+     * @param  object  $resource
+     * @param  int  $unitId
+     * @param  array  $prices
+     * @param  array  $descriptions
+     * @param  int  $availabilityId (optional)
+     * @return void
+     */
+    protected function addPrices($resource, $unitId, $prices, $descriptions, $availabilityId = 0)
+    {
+        foreach ($prices as $key => $price) {
+            if ($price) {
+                $resource->prices()->create([
+                    'unit_id'         => $unitId,
+                    'availability_id' => $availabilityId,
+                    'price'           => $price,
+                    'currency'        => 'EGP',
+                    'description'     => $descriptions[$key]
+                ]);
+            }
+        }
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return Response
@@ -250,7 +275,7 @@ class ResourcesController extends Controller
         $resource->address()->create($request->all());
 
         // Base price.
-        $resource->basePrice()->create($request->all());
+        $this->addPrices($resource, $unit->id, $request->get('prices'), $request->get('descriptions'));
 
         // Store features.
         if ($request->has('features')) {
@@ -381,8 +406,9 @@ class ResourcesController extends Controller
             'city_id'
         ));
 
-        // Update base price.
-        $resource->basePrice()->update($request->only('unit_id', 'price', 'currency', 'description'));
+        // Update base prices.
+        $resource->basePrices()->delete();
+        $this->addPrices($resource, $unit->id, $request->prices, $request->descriptions);
 
         // Update features.
         if ($request->has('features')) {
