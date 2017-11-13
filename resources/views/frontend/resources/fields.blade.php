@@ -73,35 +73,38 @@
         @endif
     </div>
     {{-- End title --}}
-    {{-- Price --}}
-    <div class="form-group">
-        <label for="price" class="form-label">{{__('Price')}} <span class="required">*</span></label>
-        <i class="fa fa-info-circle" aria-hidden="true"></i>
-        <div class="form-group">
-            {!!
-                Form::text('description', optional(optional(optional($resource)->basePrice)->first())->description, [
-                    'class'       => 'form-control'.($errors->has('priceDesc') ? ' has-error' : ''),
-                    'placeholder' => __('Price Description')
-                ])
-            !!}
+    {{-- Prices --}}
+    <div class="prices">
+        <button type="button" class="btn btn-primary add-price"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <div>
+            <label for="price" class="form-label">{{__('Price')}} <span class="required">*</span></label>
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+            <div class="form-group">
+                {!!
+                    Form::text('descriptions[]', optional(optional(optional($resource)->basePrice)->first())->description, [
+                        'class'       => 'form-control'.($errors->has('priceDesc') ? ' has-error' : ''),
+                        'placeholder' => __('Price Description')
+                    ])
+                !!}
+            </div>
+            <div class="form-group">
+                {!!
+                    Form::text('prices[]', optional(optional(optional($resource)->basePrice)->first())->price, [
+                        'id'          => 'price',
+                        'class'       => 'form-control'.($errors->has('price') ? ' has-error' : ''),
+                        'placeholder' => __('Price').' *',
+                        'required'    => 'required'
+                    ])
+                !!}
+                @if ($errors->has('price'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('price') }}</strong>
+                    </span>
+                @endif
+            </div>
         </div>
-        <div class="form-group">
-            {!!
-                Form::text('price', optional(optional(optional($resource)->basePrice)->first())->price, [
-                    'id'          => 'price',
-                    'class'       => 'form-control'.($errors->has('price') ? ' has-error' : ''),
-                    'placeholder' => __('Price').' *',
-                    'required'    => 'required'
-                ])
-            !!}
-        </div>
-        @if ($errors->has('price'))
-            <span class="help-block">
-                <strong>{{ $errors->first('price') }}</strong>
-            </span>
-        @endif
     </div>
-    {{-- End price --}}
+    {{-- End prices --}}
     {{-- Unit --}}
     {{-- <div class="form-group">
         <label for="unit" class="form-label">{{__('Unit')}}</label>

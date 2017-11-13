@@ -381,7 +381,7 @@ class ResourcesController extends Controller
             'city_id'
         ));
 
-        // Base price.
+        // Update base price.
         $resource->basePrice()->update($request->only('unit_id', 'price', 'currency', 'description'));
 
         // Update features.
@@ -390,7 +390,7 @@ class ResourcesController extends Controller
             $this->addFeatures($resource, $request->get('features'));
         }
 
-        // Add cover photo.
+        // Update cover photo.
         if ($request->hasFile('cover')) {
             if ($resource->photos()->whereCover(1)->first()) {
                 $resource->photos()->whereCover(1)->first()->update(['cover' => 0]);
