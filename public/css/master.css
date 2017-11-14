@@ -51,6 +51,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border-color: #d65679;
 }
 
+.btn-dark {
+    color: #222;
+    background-color: #fff;
+    border-color: #444;
+}
+
 .datepicker>div {
     display: block;
 }

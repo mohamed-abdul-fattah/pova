@@ -26,4 +26,20 @@ class Address extends Model
 	{
 		return $this->morphTo();
 	}
+
+    /**
+     * Get address city.
+     */
+    public function city()
+    {
+        return $this->belongsTo('App\City');
+    }
+
+    /**
+     * Get address country.
+     */
+    public function country()
+    {
+        return $this->belongsTo('Webpatser\Countries\Countries');
+    }
 }

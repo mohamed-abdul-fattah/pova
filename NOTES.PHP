@@ -44,6 +44,7 @@ Class Resource {
 
 class Listings {
     // TODO: middleware to prevent search for parent categories.
+    // TODO: listings list view from events-list-right-sidebar.html demo page.
 }
 -----------------------------------
 

@@ -48,7 +48,7 @@
     "Cancel": "إلغاء",
     "Edit": "تعديل",
     "Delete": "حذف",
-    "Details": "أظهار التفاصيل",
+    "Details": "إظهار التفاصيل",
     "No description provided!": "لا يوجد وصف!",
     "Created at": "أُنشئ في",
     "Category": "المجموعة",
@@ -80,5 +80,7 @@
     "Base Price": "السعر الأساسي",
     "Base Price Description": "وصف السعر الأساسي",
     "Extra Price": "السعر الإضافي",
-    "Extra Price Description": "وصف السعر الإضافي"
+    "Extra Price Description": "وصف السعر الإضافي",
+    "Listings": "إعلانات",
+    "Book Now": "إحجز الآن"
 }

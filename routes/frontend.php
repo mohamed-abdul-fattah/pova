@@ -18,7 +18,10 @@ Route::get('lang/{locale}', function ($locale) {
 });
 
 // Unauthenticated routes.
+// Home.
 Route::get('/', 'FrontendController@index')->name('frontend.index');
+// Listings.
+Route::get('listings/{id}', 'ListingsController')->name('listings.show');
 
 // Authenticated routes.
 Route::middleware('auth')->group(function () {
@@ -31,8 +34,6 @@ Route::middleware('auth')->group(function () {
     Route::post('resources', 'ResourcesController@frontStore')->name('front-resources.store');
     Route::put('resources/{id}', 'ResourcesController@frontUpdate')->name('front-resources.update');
     Route::delete('resources/{id}', 'ResourcesController@frontDestroy')->name('front-resources.destroy');
-    // Listings.
-    Route::get('listings/{id}', 'ListingsController@show')->name('listings.show');
     // Ajax requests.
     Route::prefix('ajax')->group(function () {
         // Categories.
