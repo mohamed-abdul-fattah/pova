@@ -17,13 +17,6 @@ Route::get('lang/{locale}', function ($locale) {
     return redirect()->back();
 });
 
-// Unauthenticated routes.
-// Home.
-Route::get('/', 'FrontendController@index')->name('frontend.index');
-// Listings.
-Route::get('listings/{id}', 'ListingsController')->name('listings.show');
-Route::get('resources/{id}', 'ResourcesController@frontShow')->name('front-resources.show');
-
 // Authenticated routes.
 Route::middleware('auth')->group(function () {
     // Users.
@@ -43,3 +36,10 @@ Route::middleware('auth')->group(function () {
         Route::delete('resources/delete-photo/{id}', 'ResourcesController@deletePhoto')->name('ajax.front-resources.delete-photo');
     });
 });
+
+// Unauthenticated routes.
+// Home.
+Route::get('/', 'FrontendController@index')->name('frontend.index');
+// Listings.
+Route::get('listings/{id}', 'ListingsController')->name('listings.show');
+Route::get('resources/{id}', 'ResourcesController@frontShow')->name('front-resources.show');

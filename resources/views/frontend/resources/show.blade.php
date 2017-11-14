@@ -18,6 +18,20 @@
             color: #c0c0c0;
             font-size: 16px;
         }
+        /*Map*/
+        #map {
+          width: 100%;
+          height: 400px;
+        }
+        /*End map*/
+        .about-location {
+            background-color: #555;
+            color: #fff;
+            padding: 1em;
+        }
+        span.map-marker {
+            color: #47b448;
+        }
     </style>
 @endsection
 
@@ -65,8 +79,7 @@
                             <p>
                                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
                                 {{$extra->price}} {{$extra->currency}}
-                            </p>
-                            <p>
+                                &nbsp;&nbsp;
                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                 {{$extra->description}}
                             </p>
@@ -107,7 +120,7 @@
               </div>
             </div>
           </div>
-          <div class="row mt-60">
+          <div class="row mt-10">
             <div class="col-md-6">
               <h4 class="mt-0">{{__('Description')}}</h4>
               <p>
@@ -131,9 +144,69 @@
               @endforeach
             </div>
           </div>
-          <a href="#" class="btn btn-dark btn-theme-colored btn-flat btn-xl">{{__('Book Now')}}</a>
         </div>
+      </section>
+      <section>
+          <div class="container mt-0 pt-0">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class='detail-map'>
+                          <div id="map-wrapper">
+                              <div id="map"></div>
+                              <p class="about-location">
+                                  <span class="map-marker">
+                                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                  </span>
+                                  {{$resource->address->address}},
+                                  {{nameLocale($resource->address->city, app()->getLocale())}},
+                                  {{$resource->address->country->name}}
+                              </p>
+                          </div>
+                      </div>
+                      <a href="#" class="btn btn-dark btn-theme-colored btn-flat btn-xl">{{__('Book Now')}}</a>
+                  </div>
+              </div>
+          </div>
       </section>
     </div>
     <!-- end main-content -->
+@endsection
+
+@section('js-scripts')
+    <script type="text/javascript">
+        // Address
+        var marker;
+        var lat = {{$resource->address->lat}};
+        var lng = {{$resource->address->lng}};
+
+        // Create initial map.
+        function initMap() {
+          var uluru = {lat: lat, lng: lng};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: uluru
+          });
+          // Draw marker.
+          var location = {
+              lat: lat, lng: lng
+          }
+          placeMarker(map, location);
+        }
+
+        // Add marker on map.
+        function placeMarker(map, location) {
+          // Add marker.
+          if (marker) {
+            marker.setPosition(location);
+          } else {
+            marker = new google.maps.Marker({
+              position: location,
+              map: map
+            });
+          }
+      }
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_API')}}&callback=initMap">
+    </script>
 @endsection

@@ -37,7 +37,7 @@ Class Resource {
     // TODO: delete resource. ✔                                             10-2017
     // TODO: photos and cover. ✔                                            10-2017
     // TODO: resources listings. ✔                                          14-10-2017
-    // TODO: resources show page.
+    // TODO: resources show page. ✔                                         14-10-2017
     // TODO: write custome arabic validation messages.
     // TODO: validate availabilities backend.
     // TODO: JQuery validate for resources/create and set availabilities.
