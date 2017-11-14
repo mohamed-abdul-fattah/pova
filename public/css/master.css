@@ -45,10 +45,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border-color: #449d44;
 }
 
-.btn-dark.btn-theme-colored {
-    color: #d65679;
-    background-color: #fff;
-    border-color: #d65679;
+.btn-border {
+    border-width: 1px;
 }
 
 .btn-dark {
@@ -67,10 +65,7 @@ div.datepicker.datepicker-dropdown.dropdown-menu {
     right: unset;
 }
 
-.datepicker table tr td.disabled,
-.datepicker table tr td.disabled:hover,
-.datepicker table tr td span.disabled,
-.datepicker table tr td span.disabled:hover {
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover, .datepicker table tr td span.disabled, .datepicker table tr td span.disabled:hover {
     color: #d3d3d3;
 }
 

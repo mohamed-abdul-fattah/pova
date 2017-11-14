@@ -26,7 +26,7 @@ class ResourcesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('frontShow');
         $this->resource = 'Resource';
         $this->middleware('can:create,App\User,App\Resource', ['only'=>['create','store']]);
         $this->middleware('can:update,App\User,App\Resource', ['only'=>['edit','update']]);
@@ -335,9 +335,10 @@ class ResourcesController extends Controller
      */
     public function frontShow($id)
     {
-        return $resource = Resource::with('acquiredFeatures')->findOrFail($id);
+        $resource = Resource::with('acquiredFeatures')->findOrFail($id);
+        $desc     = Feature::whereName(json_encode(['nameEn' => 'Description','nameAr' => 'الوصف']))->first();
 
-        return view('frontend.resources.show', compact('resource'));
+        return view('frontend.resources.show', compact('resource', 'desc'));
     }
 
     /**

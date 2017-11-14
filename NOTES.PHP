@@ -1,6 +1,6 @@
 <?php
 
-// TODO: language switcher. ✔
+// TODO: language switcher. ✔                                               10-2017
 // TODO: 404 page.
 // TODO: abandon hydrogen.
 // TODO: fix all absolute elements position.
@@ -13,30 +13,30 @@
 // TODO: validate images sizes on production and constrain php.ini upload_max_filesize and memory_limit.
 
 class User {
-    // TODO: user login. ✔
-    // TODO: user signup. ✔
-    // TODO: user profile. ✔
+    // TODO: user login. ✔                                                  10-2017
+    // TODO: user signup. ✔                                                 10-2017
+    // TODO: user profile. ✔                                                10-2017
     // TODO: user phone.
     // TODO: provider signup.
 }
 -----------------------------------
 
 Class Category {
-    // TODO: categories on header. ✔
+    // TODO: categories on header. ✔                                        10-2017
     // TODO: add parent category on category details methods show page.
     // TODO: organize categories on dashboard >> parent >> children.
 }
 -----------------------------------
 
 Class Resource {
-    // TODO: resources. ✔
-    // TODO: add resource. ✔
-    // TODO: edit resource. ✔
-    // TODO: availabilities. ✔
-    // TODO: multiple prices. ✔
-    // TODO: delete resource. ✔
-    // TODO: photos and cover. ✔
-    // TODO: resources listings. ✔
+    // TODO: resources. ✔                                                   10-2017
+    // TODO: add resource. ✔                                                10-2017
+    // TODO: edit resource. ✔                                               10-2017
+    // TODO: availabilities. ✔                                              10-2017
+    // TODO: multiple prices. ✔                                             10-2017
+    // TODO: delete resource. ✔                                             10-2017
+    // TODO: photos and cover. ✔                                            10-2017
+    // TODO: resources listings. ✔                                          14-10-2017
     // TODO: resources show page.
     // TODO: write custome arabic validation messages.
     // TODO: validate availabilities backend.

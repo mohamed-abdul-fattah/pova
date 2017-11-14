@@ -71,7 +71,7 @@
                                 @endif
                             </p>
                             {!! Form::open(['action' => ['ResourcesController@frontDestroy', $resource->id], 'method' => 'DELETE']) !!}
-                            <a href="/resources/{{$resource->id}}" class="btn btn-flat btn-dark btn-theme-colored btn-sm">{{__('Details')}} <i class="fa fa-info-circle"></i></a>
+                            <a href="/resources/{{$resource->id}}" class="btn btn-flat btn-border btn-theme-colored btn-sm">{{__('Details')}} <i class="fa fa-info-circle"></i></a>
                             <a href="/resources/{{$resource->id}}/edit" class="btn btn-warning btn-sm">{{__('Edit')}} <i class="fa fa-pencil"></i></a>
                             <button class="btn btn-danger btn-sm" onclick="return confirmDelete()">
                                 {{__('Delete')}} <i class="fa fa-trash"></i>
