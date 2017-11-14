@@ -170,6 +170,7 @@ return [
         BaklySystems\Hydrogen\HydrogenServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Webpatser\Countries\CountriesServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -229,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Countries' => Webpatser\Countries\CountriesFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

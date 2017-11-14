@@ -74,7 +74,7 @@ class ResourcesController extends Controller
     protected function addPhotos($resource, $photos)
     {
         foreach ($photos as $key => $photo) {
-            $resource->uploadPhoto($photo, 0, 'images/resources');
+            $resource->uploadPhoto($photo, 0, 'images/resources', 0, "$resource->title Photo");
         }
     }
 
@@ -87,7 +87,7 @@ class ResourcesController extends Controller
      */
     public function addCover($resource, $file)
     {
-        $resource->uploadPhoto($file, 0, 'images/resources', 1);
+        $resource->uploadPhoto($file, 0, 'images/resources', 1, "$resource->title Cover Photo");
     }
 
     /**
@@ -328,6 +328,19 @@ class ResourcesController extends Controller
     }
 
     /**
+     * Display the specified resource (frontend).
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function frontShow($id)
+    {
+        return $resource = Resource::with('acquiredFeatures')->findOrFail($id);
+
+        return view('frontend.resources.show', compact('resource'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -416,8 +429,10 @@ class ResourcesController extends Controller
         $resource->basePrice()->update($request->only('price', 'description'));
 
         // Create extra prices.
-        $resource->extras()->delete();
-        $this->addExtras($resource, $unit->id, $request->prices, $request->descriptions);
+        if ($request->has('prices')) {
+            $resource->extras()->delete();
+            $this->addExtras($resource, $unit->id, $request->prices, $request->descriptions);
+        }
 
         // Update features.
         if ($request->has('features')) {

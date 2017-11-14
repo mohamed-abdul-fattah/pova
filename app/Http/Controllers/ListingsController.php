@@ -17,13 +17,15 @@ class ListingsController extends Controller
      */
     public function __invoke($id)
     {
-        $category  = Category::findOrFail($id);
-        $desc      = Feature::whereName(json_encode(['nameEn' => 'Description','nameAr' => 'الوصف']))->first();
-        $resources = Resource::with('category', 'basePrice', 'acquiredFeatures', 'address')
+        $category       = Category::findOrFail($id);
+        $features       = $category->acquiredFeatures;
+        $parentFeatures = $category->parentObj->acquiredFeatures;
+        $desc           = Feature::whereName(json_encode(['nameEn' => 'Description','nameAr' => 'الوصف']))->first();
+        $resources      = Resource::with('category', 'basePrice', 'acquiredFeatures', 'address')
             ->whereCategoryId($id)
             ->orderby('created_at', 'desc')
-            ->paginate(9);
+            ->paginate(10);
 
-        return view('frontend.listings.grid', compact('resources', 'category', 'desc'));
+        return view('frontend.listings.grid', compact('resources', 'category', 'desc', 'features', 'parentFeatures'));
     }
 }
