@@ -55,91 +55,64 @@
           <div class="section-content">
             <div class="row multi-row-clearfix">
               <div class="events">
-                <div class="col-xs-12 col-sm-12 col-md-4 wow fadeInUp animation-delay1">
-                  <article class="event clearfix maxwidth500 mb-30">
-                    <div class="col-xs-12 p-0">
-                      <div class="entry-header">
-                        <div class="event-thumb">
-                          <img class="img-responsive img-fullwidth" alt="" src="/images/event/event-img1.jpg">
-                        </div>
-                        <div class="entry-date text-center">
-                          <span><b>$490 - $800 </b></span><br><span class="font-Playball font-22">01</span>
-                        </div>
+                  @foreach ($resources as $key => $resource)
+                      <div class="col-xs-12 col-sm-12 col-md-4 wow fadeInUp animation-delay3">
+                          <article class="event clearfix maxwidth500 mb-30">
+                              <div class="col-xs-12 p-0">
+                                  <div class="entry-header">
+                                      <div class="event-thumb">
+                                          <img class="img-responsive img-fullwidth" alt="" src="{{$resource->cover()}}">
+                                      </div>
+                                      <div class="entry-date text-center">
+                                          {{-- <span class="for-sale"><b>$800 </b></span>
+                                          <br> --}}
+                                          <span class="font-Playball font-22">
+                                              {{$resource->basePrice->price}}
+                                              {{$resource->basePrice->currency}}
+                                          </span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-xs-12 p-0">
+                                  <div class="entry-content p-30 pl-xs-15 pr-xs-15">
+                                      <h4 class="entry-title sm-inline-block mt-0 mt-sm-30 pt-0"><a href="/resources/{{$resource->id}}">{{$resource->title}}</a></h4>
+                                      <div class="entry-meta mt-10 mb-10">
+                                          <ul class="list-inline font-13">
+                                              <li>
+                                                  <i class="fa fa-map-marker mr-5"></i>
+                                                  {{$resource->address->address}},
+                                                  {{nameLocale($resource->address->city, app()->getLocale())}},
+                                                  {{$resource->address->country->name}}
+                                              </li>
+                                          </ul>
+                                      </div>
+                                      <p class="mb-20">
+                                          @php
+                                              $description = $resource->acquiredFeatures()->where('feature_id', $desc->id)->first();
+                                          @endphp
+                                          @if ($description)
+                                              @if (strlen($description->value()) > 200)
+                                                  {{mb_substr($description->value(), 0, 200, 'utf-8')}}...
+                                              @else
+                                                  {{$description->value()}}
+                                              @endif
+                                          @else
+                                              {{__('No description provided!')}}
+                                          @endif
+                                      </p>
+                                      <a class="text-theme-colored font-13" href="/resources/{{$resource->id}}">
+                                          {{__('Details')}}
+                                          @if (app()->getLocale() === 'ar')
+                                              <i class="fa fa-angle-double-left"></i>
+                                          @else
+                                              <i class="fa fa-angle-double-right"></i>
+                                          @endif
+                                      </a>
+                                  </div>
+                              </div>
+                          </article>
                       </div>
-                    </div>
-                    <div class="col-xs-12 p-0">
-                      <div class="entry-content p-30 pl-xs-15 pr-xs-15">
-                        <h4 class="entry-title sm-inline-block mt-0 mt-sm-30 pt-0"><a href="#">The Celebration</a></h4>
-                        <div class="entry-meta mt-10 mb-10">
-                          <ul class="list-inline font-13">
-                            <li><i class="fa fa-map-marker mr-5"></i> 121 King Street, Melbourne Victoria 3000 Australia</li>
-                          </ul>
-                        </div>
-                        <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi molestiae autem fugit illo ipsa numquam, quod iusto enim.</p>
-                        <a class="text-theme-colored font-13" href="#">Read more <i class="fa fa-angle-double-right"></i></a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-4 wow fadeInUp animation-delay2">
-                  <article class="event clearfix maxwidth500 mb-30">
-                    <div class="col-xs-12 p-0">
-                      <div class="entry-header">
-                        <div class="event-thumb">
-                          <img class="img-responsive img-fullwidth" alt="" src="/images/event/event-img2.jpg">
-                        </div>
-                        <div class="entry-date text-center">
-                          <span><b>$490 - $800 </b></span><br><span class="font-Playball font-22">02</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-12 p-0">
-                      <div class="entry-content p-30 pl-xs-15 pr-xs-15">
-                        <h4 class="entry-title mt-0 pt-0"><a href="#">Wedding Ceremony</a></h4>
-                        <div class="entry-meta mt-10 mb-10">
-                          <ul class="list-inline font-13">
-                            <li><i class="fa fa-map-marker mr-5"></i> 121 King Street, Melbourne Victoria 3000 Australia</li>
-                          </ul>
-                        </div>
-                        <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi molestiae autem fugit illo ipsa numquam, quod iusto enim.</p>
-                        <a class="text-theme-colored font-13" href="#">Read more <i class="fa fa-angle-double-right"></i></a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-4 wow fadeInUp animation-delay3">
-                  <article class="event clearfix maxwidth500 mb-30">
-                    <div class="col-xs-12 p-0">
-                      <div class="entry-header">
-                        <div class="event-thumb">
-                          <img class="img-responsive img-fullwidth" alt="" src="/images/event/event-img3.jpg">
-                        </div>
-                        <div class="entry-date text-center">
-                          <span class="for-sale"><b>$800 </b></span><br><span class="font-Playball font-22">$699</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-12 p-0">
-                      <div class="entry-content p-30 pl-xs-15 pr-xs-15">
-                        <h4 class="entry-title sm-inline-block mt-0 mt-sm-30 pt-0"><a href="#">The Greeting</a></h4>
-                        <div class="entry-meta mt-10 mb-10">
-                          <ul class="list-inline font-13">
-                            <li><i class="fa fa-map-marker mr-5"></i> 121 King Street, Melbourne Victoria 3000 Australia</li>
-                          </ul>
-                        </div>
-                        <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi molestiae autem fugit illo ipsa numquam, quod iusto enim.</p>
-                        <a class="text-theme-colored font-13" href="#">
-                            {{__('Read more')}}
-                            @if (app()->getLocale() === 'ar')
-                                <i class="fa fa-angle-double-left"></i>
-                            @else
-                                <i class="fa fa-angle-double-right"></i>
-                            @endif
-                        </a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
+                  @endforeach
               </div>
             </div>
           </div>

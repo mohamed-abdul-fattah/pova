@@ -157,7 +157,7 @@ class ResourcesController extends Controller
     public function index(Request $request)
     {
         $resources = Resource::all();
-        $model = $this->resource;
+        $model     = $this->resource;
 
         if ($request->ajax()) {
             $resources = Datatables::of($resources);
@@ -179,6 +179,26 @@ class ResourcesController extends Controller
                 $resource->id,
                 $resource->id
               );
+            });
+            // Route to profile.
+            $resources->editColumn('title', function ($resource) {
+                return link_to_route(
+                    'resources.show',
+                    $resource->title,
+                    $resource->id
+                );
+            });
+            // Category.
+            $resources->editColumn('category', function ($resource) {
+                return nameLocale($resource->category, 'En');
+            });
+            // Owner.
+            $resources->editColumn('owner', function ($resource) {
+                return $resource->owner->name;
+            });
+            // Featured.
+            $resources->editColumn('featured', function ($resource) {
+                return ($resource->featured) ? 'True' : 'False';
             });
 
             return $resources->make(true);
@@ -212,7 +232,7 @@ class ResourcesController extends Controller
         $model      = $this->resource;
         $resource   = new Resource;
         $providers  = User::whereType('provider')->orderby('name')->get();
-        $categories = Category::where('parent_id', '<>', 0)->get();
+        $categories = Category::where('parent_id', 0)->get();
 
         return view('backend.resources.create', compact('model', 'resource', 'providers', 'categories'));
     }
@@ -352,12 +372,13 @@ class ResourcesController extends Controller
         $resource   = Resource::findOrFail($id);
         $model      = $this->resource;
         $providers  = User::whereType('provider')->orderby('name')->get();
-        $categories = Category::where('parent_id', '<>', 0)->get();
+        $categories = Category::where('parent_id', 0)->get();
+        $isEdit     = true;
         if (is_null($resource)) {
             return redirect()->route('resources.index');
         }
 
-        return view('backend.resources.edit', compact('model', 'resource', 'providers', 'categories'));
+        return view('backend.resources.edit', compact('model', 'resource', 'providers', 'categories', 'isEdit'));
     }
 
     /**
@@ -387,8 +408,20 @@ class ResourcesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!$request->has('featured')) { // unfeature resource.
+            $request['featured'] = false;
+        }
         // Validations.
-        $this->validate($request, Resource::rules());
+        // $this->validate($request, Resource::rules()); // tobe back when we add full functionality.
+        $this->validate($request, [
+            'category_id' => 'required|integer',
+            'user_id'     => 'required|integer',
+            'title'       => 'required|string|max:255',
+            'featured'    => 'boolean',
+            'address'     => 'required|string|max:255',
+            'lat'         => 'required|numeric',
+            'lng'         => 'required|numeric'
+        ]);
 
         $resource = Resource::findOrFail($id);
         $resource->update($request->input());

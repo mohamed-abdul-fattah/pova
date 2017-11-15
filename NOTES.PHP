@@ -5,6 +5,7 @@
 // TODO: abandon hydrogen.
 // TODO: fix all absolute elements position.
 // TODO: change footer to dark footer or make sidebar like theme switcher.
+// TODO: change $request from Collection ins back to Request in Controllers.
 
 // TODO: convert all inline styles to css sheets.
 // TODO: use CDNs for all JS and CSS external files.
@@ -38,9 +39,11 @@ Class Resource {
     // TODO: photos and cover. ✔                                            10-2017
     // TODO: resources listings. ✔                                          14-10-2017
     // TODO: resources show page. ✔                                         14-10-2017
-    // TODO: write custome arabic validation messages.
+    // TODO: featured resources dashboard.
     // TODO: validate availabilities backend.
+    // TODO: write custome arabic validation messages.
     // TODO: JQuery validate for resources/create and set availabilities.
+    // TODO: add full functionality for dashboard resources, then update validation rules.
 }
 -----------------------------------
 

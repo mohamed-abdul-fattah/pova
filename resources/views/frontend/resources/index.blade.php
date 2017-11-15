@@ -62,7 +62,7 @@
                                 @endphp
                                 @if ($description)
                                     @if (strlen($description->value()) > 200)
-                                        {{substr($description->value(), 0, 200)}}...
+                                        {{mb_substr($description->value(), 0, 200, 'utf-8')}}...
                                     @else
                                         {{$description->value()}}
                                     @endif

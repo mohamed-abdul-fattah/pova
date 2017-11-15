@@ -59,7 +59,7 @@
       <div class="container">
         <nav>
           <div id="menuzord-right" class="menuzord red"> <a class="menuzord-brand pull-left flip font-playball text-theme-colored font-32" href="/">Happy <i class="fa fa-heart-o font-25"></i> Wedding</a>
-            <div id="side-panel-trigger" class="side-panel-trigger"><a href="#"><i class="fa fa-bars font-24 text-gray-silver"></i></a></div>
+            {{-- <div id="side-panel-trigger" class="side-panel-trigger"><a href="#"><i class="fa fa-bars font-24 text-gray-silver"></i></a></div> --}}
             <ul class="menuzord-menu">
               <li class="active"><a href="/">{{__('Home')}}</a></li>
               @foreach ($categories->parentCategories() as $key => $category)

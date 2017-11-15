@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page-title')
-    Edit {{titleLocale($resource)}}
+    Edit {{$resource->title}}
 @endsection
 
 @section('content')
