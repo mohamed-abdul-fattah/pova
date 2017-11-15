@@ -134,15 +134,17 @@
                   @endif
               </p>
             </div>
-            <div class="col-md-6">
-              <h4 class="mt-0">{{__('Features')}}</h4>
-              @foreach ($resource->acquiredFeatures()->where('id', '<>', $description->id)->get() as $key => $feature)
-                  <p>
-                      <span class="feature-title">{{nameLocale($feature->feature, app()->getLocale())}}</span>
-                      {{$feature->value()}}
-                  </p>
-              @endforeach
-            </div>
+            @if (count($resource->acquiredFeatures))
+                <div class="col-md-6">
+                    <h4 class="mt-0">{{__('Features')}}</h4>
+                    @foreach ($resource->acquiredFeatures()->where('id', '<>', $description->id)->get() as $key => $feature)
+                        <p>
+                            <span class="feature-title">{{nameLocale($feature->feature, app()->getLocale())}}</span>
+                            {{$feature->value()}}
+                        </p>
+                    @endforeach
+                </div>
+            @endif
           </div>
         </div>
       </section>

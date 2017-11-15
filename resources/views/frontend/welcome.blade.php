@@ -61,7 +61,9 @@
                               <div class="col-xs-12 p-0">
                                   <div class="entry-header">
                                       <div class="event-thumb">
-                                          <img class="img-responsive img-fullwidth" alt="" src="{{$resource->cover()}}">
+                                          <a href="/resources/{{$resource->id}}">
+                                              <img class="img-responsive img-fullwidth" alt="" src="{{$resource->cover()}}">
+                                          </a>
                                       </div>
                                       <div class="entry-date text-center">
                                           {{-- <span class="for-sale"><b>$800 </b></span>
@@ -91,8 +93,8 @@
                                               $description = $resource->acquiredFeatures()->where('feature_id', $desc->id)->first();
                                           @endphp
                                           @if ($description)
-                                              @if (strlen($description->value()) > 200)
-                                                  {{mb_substr($description->value(), 0, 200, 'utf-8')}}...
+                                              @if (strlen($description->value()) > 60)
+                                                  {{mb_substr($description->value(), 0, 60, 'utf-8')}}...
                                               @else
                                                   {{$description->value()}}
                                               @endif
