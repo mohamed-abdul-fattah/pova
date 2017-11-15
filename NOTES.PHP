@@ -3,7 +3,6 @@
 // TODO: language switcher. ✔                                               10-2017
 // TODO: 404 page.
 // TODO: abandon hydrogen.
-// TODO: fix all absolute elements position.
 // TODO: change footer to dark footer or make sidebar like theme switcher.
 // TODO: change $request from Collection ins back to Request in Controllers.
 // TODO: fix styling in English.
@@ -13,6 +12,7 @@
 // TODO: remove JQuery migrate and upgrade functions to JQuery 3.
 // TODO: update prices and availabilities by id to save ids from overflow.
 // TODO: validate images sizes on production and constrain php.ini upload_max_filesize and memory_limit.
+// TODO: make sure that revolution slider library fits for slow devices.
 
 class User {
     // TODO: user login. ✔                                                  10-2017
@@ -23,14 +23,14 @@ class User {
 }
 -----------------------------------
 
-Class Category {
+class Category {
     // TODO: categories on header. ✔                                        10-2017
     // TODO: add parent category on category details methods show page.
     // TODO: organize categories on dashboard >> parent >> children.
 }
 -----------------------------------
 
-Class Resource {
+class Resource {
     // TODO: resources. ✔                                                   10-2017
     // TODO: add resource. ✔                                                10-2017
     // TODO: edit resource. ✔                                               10-2017
@@ -40,7 +40,7 @@ Class Resource {
     // TODO: photos and cover. ✔                                            10-2017
     // TODO: resources listings. ✔                                          14-10-2017
     // TODO: resources show page. ✔                                         14-10-2017
-    // TODO: featured resources dashboard.
+    // TODO: featured resources dashboard. ✔                                15-10-2017
     // TODO: validate availabilities backend.
     // TODO: write custome arabic validation messages.
     // TODO: JQuery validate for resources/create and set availabilities.
@@ -55,22 +55,22 @@ class Listings {
 }
 -----------------------------------
 
-Class Feature {
+class Feature {
     //
 }
 -----------------------------------
 
-Class AcquiredFeature {
+class AcquiredFeature {
     //
 }
 -----------------------------------
 
-Class Price {
+class Price {
     //
 }
 -----------------------------------
 
-Class Availability {
+class Availability {
     //
 }
 -----------------------------------
@@ -80,17 +80,17 @@ class Country {
 }
 -----------------------------------
 
-Class City {
+class City {
     //
 }
 -----------------------------------
 
-Class Unit {
+class Unit {
     //
 }
 -----------------------------------
 
-Class Photo {
+class Photo {
     // TODO: optimize database columns.
 }
 -----------------------------------

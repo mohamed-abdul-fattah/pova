@@ -7,39 +7,7 @@
 @section('content')
     <!-- Start main-content -->
     <div class="main-content">
-      <!-- Section: home -->
-      <section id="home" class="divider no-bg">
-        <div class="maximage-slider">
-          <div id="maximage">
-            <img src="/images/bg/bg15.jpg" alt=""/>
-            <img src="/images/bg/bg16.jpg" alt=""/>
-            <img src="/images/bg/bg3.jpg" alt=""/>
-          </div>
-          <div class="fullscreen-controls"> <a class="img-prev"><i class="pe-7s-angle-left"></i></a> <a class="img-next"><i class="pe-7s-angle-right"></i></a> </div>
-        </div>
-        <div class="display-table">
-          <div class="display-table-cell">
-            <div class="container pt-200 pb-200">
-              <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center pt-20 pb-50">
-                  <h2 class="text-white font-playball">We Are Celebrating</h2>
-                  <h1 class="text-white font-playfair text-uppercase font-weight-800 mt-0">Jenny & Jon Doe's</h1>
-                  <h2 class="text-white font-playfair mt-0">Wedding Party</h2>
-                  <div class="countdown-timer">
-                    <div class="soon text-white" id="countdown-timer-soon-rev"
-                      data-separator="/"
-                      data-format="d,h,m,s"
-                      data-due="2016-06-01"
-                      data-layout="group label-uppercase label-above spacey"
-                      data-face="slot slide left">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      @include('frontend.partials.slider')
 
       {{-- Featured resources --}}
       <section id="events" class="divider bg-img-center-bottom" data-bg-img="/images/bg/bg9.png">
@@ -540,7 +508,7 @@
           <div class="section-title">
             <div class="row">
               <div class="col-md-6 col-md-offset-3 text-center wow fadeInUp animation-delay1">
-                <h2 class="title pattern-bottom">Testimonials</h2>
+                <h2 class="title pattern-bottom">{{__('Testimonials')}}</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi molestiae autem fugit illo ipsa numquam, quod iusto enim.</p>
               </div>
             </div>
