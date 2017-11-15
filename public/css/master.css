@@ -55,6 +55,33 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border-color: #444;
 }
 
+.btn-darker {
+    color: #fff;
+    background-color: #444;
+    border-color: #222;
+}
+
+.btn-darker:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+.btn-fb {
+    background-color: #3b5998;
+}
+
+.btn-tw {
+    background-color: #00acee;
+}
+
+.btn-tw:hover {
+    background-color: #0d8cbd;
+}
+
+.btn-fb:hover {
+    background-color: #25427d;
+}
+
 .datepicker>div {
     display: block;
 }

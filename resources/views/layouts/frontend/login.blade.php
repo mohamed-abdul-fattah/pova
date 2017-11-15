@@ -49,14 +49,14 @@
                     {{__('Remember me')}} </label>
                 </div>
                 <div class="form-group pull-right mt-10">
-                  <button type="submit" class="btn btn-dark btn-sm">{{__('Login')}}</button>
+                  <button type="submit" class="btn btn-darker btn-sm">{{__('Login')}}</button>
                 </div>
                 <div class="clear text-center pt-10">
                   <a class="text-theme-colored font-weight-600 font-12" href="#">{{__('Forgot password?')}}</a>
                 </div>
                 <div class="clear text-center pt-10">
-                  <a class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15" href="#" data-bg-color="#3b5998">{{__('Login with Facebook')}}</a>
-                  <a class="btn btn-dark btn-lg btn-block no-border" href="#" data-bg-color="#00acee">{{__('Login with Twitter')}}</a>
+                  <a class="btn btn-darker btn-fb btn-lg btn-block no-border mt-15 mb-15" href="#">{{__('Login with Facebook')}}</a>
+                  <a class="btn btn-darker btn-tw btn-lg btn-block no-border" href="#">{{__('Login with Twitter')}}</a>
                 </div>
               </form>
             </div>
@@ -108,7 +108,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-dark btn-lg btn-block mt-15" type="submit">{{__('Register Now')}}</button>
+                  <button class="btn btn-darker btn-lg btn-block mt-15" type="submit">{{__('Register Now')}}</button>
                 </div>
               </form>
             </div>
