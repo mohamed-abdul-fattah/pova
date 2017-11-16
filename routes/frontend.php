@@ -43,3 +43,5 @@ Route::get('/', 'FrontendController@index')->name('frontend.index');
 // Listings.
 Route::get('listings/{id}', 'ListingsController')->name('listings.show');
 Route::get('resources/{id}', 'ResourcesController@frontShow')->name('front-resources.show');
+// Provider signup.
+Route::get('provider-signup', 'Auth\LoginController@showProviderForm')->name('provider.signup');

@@ -13,6 +13,7 @@
 // TODO: update prices and availabilities by id to save ids from overflow.
 // TODO: validate images sizes on production and constrain php.ini upload_max_filesize and memory_limit.
 // TODO: make sure that revolution slider library fits for slow devices.
+// TODO: move hydrogen config and hydrogen env variables to a config file.
 
 class User {
     // TODO: user login. ✔                                                  10-2017

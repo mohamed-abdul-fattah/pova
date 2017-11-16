@@ -39,6 +39,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * Show login form, for admin dashboard and frontend.
+     *
+     * @return Response
+     */
     public function showLoginForm()
     {
         if (array_key_exists('domain', Route::getCurrentRoute()->action)) {
@@ -46,8 +51,18 @@ class LoginController extends Controller
                 return view('auth.login');
             }
         } else {
-            return view('layouts.frontend.login');
+            return view('frontend.auth.login');
         }
+    }
+
+    /**
+     * Show provider registration form.
+     *
+     * @return Response
+     */
+    public function showProviderForm()
+    {
+        return view('frontend.auth.provider-signup');
     }
 
     /**
