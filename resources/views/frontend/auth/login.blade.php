@@ -28,7 +28,7 @@
             <div class="col-md-4 mb-40">
               <h4 class="text-gray mt-0 pt-5"> {{__('Login')}}</h4>
               <hr>
-              <p>Lorem ipsum dolor sit amet, consectetur elit.</p>
+              <p></p>
               <form class="clearfix" role="form" method="POST" action="{{route('login')}}">
                 {{ csrf_field() }}
                 <div class="row">
@@ -86,7 +86,7 @@
                   <h4 class="text-gray pt-10 mt-0 mb-30">{{__('Don\'t have an Account? Register Now.')}}</h4>
                 </div>
                 <hr>
-                <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias.</p>
+                <p class="text-gray"></p>
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="form_name">{{__('Name')}}</label>

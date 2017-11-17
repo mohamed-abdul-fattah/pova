@@ -6,6 +6,7 @@
 // TODO: change footer to dark footer or make sidebar like theme switcher.
 // TODO: change $request from Collection ins back to Request in Controllers.
 // TODO: fix styling in English.
+// TODO: add placeholders to logins.
 
 // TODO: convert all inline styles to css sheets.
 // TODO: use CDNs for all JS and CSS external files.

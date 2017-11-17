@@ -28,7 +28,7 @@
             <div class="col-md-4 mb-40">
               <h4 class="text-gray mt-0 pt-5"> {{__('How it works')}}</h4>
               <hr>
-              <p>Lorem ipsum dolor sit amet, consectetur elit.</p>
+              <p></p>
             </div>
             <div class="col-md-7 col-md-offset-1">
               @if ($errors->any())
@@ -56,15 +56,15 @@
                   <h4 class="text-gray pt-10 mt-0 mb-30">{{__('Become a provider')}}</h4>
                 </div>
                 <hr>
-                <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias.</p>
+                <p class="text-gray"></p>
                 <div class="row">
                     <div class="col-md-6">
                         <label for="entity">{{__('Entity')}}</label>
                         <div class="form-group">
-                            <input type="checkbox" name="individual" value="individual">
+                            <input type="radio" name="entity" value="individual">
                             <label for="individual">{{__('Individual')}}</label>
                             <br>
-                            <input type="checkbox" name="company" value="individual">
+                            <input type="radio" name="entity" value="individual">
                             <label for="company">{{__('Company')}}</label>
                         </div>
                     </div>
