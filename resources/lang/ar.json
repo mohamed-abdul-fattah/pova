@@ -9,7 +9,7 @@
     "Login with Facebook": "تسجيل دخول عبر فيسبوك",
     "Login with Twitter": "تسجيل دخول عبر تويتر",
     "Forgot password?": "نسيت كلمة المرور؟",
-    "Name": "الاسم",
+    "Name": "الإسم",
     "Choose Password": "اختر كلمة مرور",
     "Re-enter Password": "أعد كتابة كلمة المرور",
     "Register Now": "سجل الآن",
@@ -32,7 +32,7 @@
     "My Resources": "إعلاناتي",
     "Create New Resource": "أنشئ إعلان جديد",
     "Basic Information": "معلومات أساسية",
-    "Title": "اسم الإعلان",
+    "Title": "إسم الإعلان",
     "Price": "السعر",
     "Select a category": "إختر مجموعة",
     "Select a unit": "إختر وحدة",
@@ -83,7 +83,7 @@
     "Extra Price Description": "وصف السعر الإضافي",
     "Listings": "إعلانات",
     "Book Now": "إحجز الآن",
-    "Search by name": "بحث بالاسم",
+    "Search by name": "بحث بالإسم",
     "Description": "الوصف",
     "Share": "شارك",
     "Additional Prices": "أسعار إضافية",
@@ -93,5 +93,7 @@
     "How it works": "خطوات التسجيل",
     "Entity": "كيان الشركة",
     "Individual": "فردية",
-    "Company": "شركة"
+    "Company": "شركة",
+    "Business Owner Name": "إسم صاحب العمل",
+    "Company Name": "إسم الشركة"
 }

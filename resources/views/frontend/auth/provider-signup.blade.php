@@ -1,7 +1,15 @@
 @extends('layouts.frontend.app')
 
 @section('page-title')
-    {{__('Bacome a Provider')}}
+    {{__('Become a Provider')}}
+@endsection
+
+@section('css-styles')
+    <style media="screen">
+        .company-name {
+            display: none;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -61,32 +69,42 @@
                     <div class="col-md-6">
                         <label for="entity">{{__('Entity')}}</label>
                         <div class="form-group">
-                            <input type="radio" name="entity" value="individual">
+                            <input type="radio" name="entity" value="individual" checked>
                             <label for="individual">{{__('Individual')}}</label>
                             <br>
-                            <input type="radio" name="entity" value="individual">
+                            <input type="radio" name="entity" value="company">
                             <label for="company">{{__('Company')}}</label>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <label for="form_name">{{__('Name')}}</label>
-                    <input id="form_name" name="name" class="form-control" type="text">
+                    <label for="form-name">{{__('Business Owner Name')}}</label>
+                    <input id="form-name" name="name" class="form-control" type="text" required>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label>{{__('Email Address')}}</label>
-                    <input id="form_email" name="email" class="form-control" type="email">
+                  <div class="form-group col-md-6 company-name">
+                    <label for="form-company-name">{{__('Company Name')}}</label>
+                    <input id="form-company-name" name="company" class="form-control" type="text" required>
                   </div>
                 </div>
                 <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>{{__('Email Address')}}</label>
+                        <input id="form-email" name="email" class="form-control" type="email" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="form-phone">{{__('Phone Number')}}</label>
+                        <input id="form-phone" name="number" class="form-control" type="phone" required>
+                    </div>
+                </div>
+                <div class="row">
                   <div class="form-group col-md-6">
-                    <label for="form_choose_password">{{__('Choose Password')}}</label>
-                    <input id="form_choose_password" name="password" class="form-control" type="password">
+                    <label for="form-choose-password">{{__('Choose Password')}}</label>
+                    <input id="form-choose-password" name="password" class="form-control" type="password" required>
                   </div>
                   <div class="form-group col-md-6">
-                    <label>{{__('Re-enter Password')}}</label>
-                    <input id="form_re_enter_password" name="password_confirmation"  class="form-control" type="password">
+                    <label for="form-re-enter-password">{{__('Re-enter Password')}}</label>
+                    <input id="form-re-enter-password" name="password_confirmation"  class="form-control" type="password" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -99,4 +117,21 @@
       </section>
     </div>
     <!-- end main-content -->
+@endsection
+
+@section('js-scripts')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            const $company = $('.company-name'),
+                  $entity  = $('input[name=entity]');
+
+            $entity.click(function (e) {
+                if ($(this).val() === 'company') {
+                    $company.slideDown('fast');
+                } else {
+                    $company.slideUp('fast');
+                }
+            });
+        });
+    </script>
 @endsection
