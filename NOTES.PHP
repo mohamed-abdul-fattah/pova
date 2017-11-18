@@ -1,5 +1,12 @@
 <?php
 
+WORK
+// TODO: provider signup. ✔
+// TODO: calendar.
+// TODO: make order.
+// TODO: email and gender in user.
+// TODO: profile settings/edit.
+
 // TODO: language switcher. ✔                                               10-2017
 // TODO: 404 page.
 // TODO: abandon hydrogen.
@@ -23,8 +30,10 @@ class User {
     // TODO: user signup. ✔                                                 10-2017
     // TODO: user profile. ✔                                                10-2017
     // TODO: provider signup. ✔                                             18-10-2017
+    // TODO: provider details. ✔                                            18-10-2017
     // TODO: change name to fname and lname, and add gender to users.
     // TODO: email is not required.
+    // TODO: profile settings/edit.
 }
 -----------------------------------
 
@@ -50,6 +59,7 @@ class Resource {
     // TODO: write custome arabic validation messages.
     // TODO: JQuery validate for resources/create and set availabilities.
     // TODO: add full functionality for dashboard resources, then update validation rules.
+    // TODO: set max chars to inputs for title.
 }
 -----------------------------------
 

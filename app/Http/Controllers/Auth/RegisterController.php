@@ -79,6 +79,14 @@ class RegisterController extends Controller
             'phone' => $data['phone']
         ]);
 
+        // Provider details.
+        if ($data['type'] === 'provider') {
+            $user->provider()->create([
+                'entity'       => $data['entity'],
+                'company_name' => $data['company']
+            ]);
+        }
+
         return $user;
     }
 

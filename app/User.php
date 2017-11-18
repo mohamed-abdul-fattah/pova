@@ -63,10 +63,18 @@ class User extends Authenticatable
     }
 
     /**
-     * Ger user phone.
+     * Get user phone.
      */
     public function phone()
     {
         return $this->morphOne('App\Phone', 'phoneable');
+    }
+
+    /**
+     * Get provider details.
+     */
+    public function provider()
+    {
+        return $this->hasOne('App\Provider');
     }
 }
