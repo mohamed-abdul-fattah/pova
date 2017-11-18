@@ -52,7 +52,10 @@ class RegisterController extends Controller
             'name'     => 'required|string|max:255',
             'email'    => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'type'     => 'required|string|max:255,in:user,admin,provider'
+            'type'     => 'required|string|max:255,in:user,admin,provider',
+            'phone'    => 'required|numeric',
+            'company'  => 'string|nullable',
+            'entity'   => 'string|in:individual,company'
         ]);
     }
 
@@ -64,12 +67,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
             'type'     => $data['type'],
         ]);
+
+        // Phone.
+        $user->phone()->create([
+            'phone' => $data['phone']
+        ]);
+
+        return $user;
     }
 
     /**

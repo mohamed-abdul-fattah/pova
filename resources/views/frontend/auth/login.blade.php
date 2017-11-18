@@ -33,19 +33,19 @@
                 {{ csrf_field() }}
                 <div class="row">
                   <div class="form-group col-md-12">
-                    <label for="form_username_email">{{__('Email')}}</label>
-                    <input id="form_username_email" name="email" class="form-control" type="text" autofocus>
+                    <label for="form-login-email">{{__('Email')}}</label>
+                    <input id="form-login-email" name="email" class="form-control" type="text" autofocus>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-12">
-                    <label for="form_password">{{__('Password')}}</label>
-                    <input id="form_password" name="password" class="form-control" type="password">
+                    <label for="form-password">{{__('Password')}}</label>
+                    <input id="form-password" name="password" class="form-control" type="password">
                   </div>
                 </div>
                 <div class="checkbox pull-left mt-15">
-                  <label for="form_checkbox">
-                    <input id="form_checkbox" name="form_checkbox" type="checkbox">
+                  <label for="form-checkbox">
+                    <input id="form-checkbox" name="form-checkbox" type="checkbox">
                     {{__('Remember me')}} </label>
                 </div>
                 <div class="form-group pull-right mt-10">
@@ -74,7 +74,7 @@
                 {{ csrf_field() }}
                 <input type="hidden" name="type" value="user">
                 <div class="icon-box mb-0 p-0">
-                  <a href="#"
+                  <a href="javascript:void(0)"
                   @if (app()->getLocale() === 'ar')
                       class="icon icon-bordered icon-rounded icon-sm pull-right mb-0 ml-10"
                   @else
@@ -83,28 +83,32 @@
                   >
                     <i class="pe-7s-users"></i>
                   </a>
-                  <h4 class="text-gray pt-10 mt-0 mb-30">{{__('Don\'t have an Account? Register Now.')}}</h4>
+                  <h4 class="text-gray pt-10 mt-0 mb-30">{{__('Don\'t have an account? Register Now.')}}</h4>
                 </div>
                 <hr>
                 <p class="text-gray"></p>
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <label for="form_name">{{__('Name')}}</label>
-                    <input id="form_name" name="name" class="form-control" type="text">
+                    <label for="form-name">{{__('Name')}}</label>
+                    <input id="form-name" name="name" class="form-control" type="text" required>
                   </div>
                   <div class="form-group col-md-6">
-                    <label>{{__('Email Address')}}</label>
-                    <input id="form_email" name="email" class="form-control" type="email">
+                    <label for="form-email">{{__('Email Address')}}</label>
+                    <input id="form-email" name="email" class="form-control" type="email">
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="form-phone">{{__('Phone Number')}}</label>
+                      <input id="form-phone" type="number" name="phone" class="form-control" required>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <label for="form_choose_password">{{__('Choose Password')}}</label>
-                    <input id="form_choose_password" name="password" class="form-control" type="password">
+                    <label for="form-choose-password">{{__('Choose Password')}}</label>
+                    <input id="form-choose-password" name="password" class="form-control" type="password" required>
                   </div>
                   <div class="form-group col-md-6">
-                    <label>{{__('Re-enter Password')}}</label>
-                    <input id="form_re_enter_password" name="password_confirmation"  class="form-control" type="password">
+                    <label for="form-re-enter-password">{{__('Re-enter Password')}}</label>
+                    <input id="form-re-enter-password" name="password_confirmation"  class="form-control" type="password" required>
                   </div>
                 </div>
                 <div class="form-group">

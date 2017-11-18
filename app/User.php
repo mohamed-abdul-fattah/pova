@@ -34,10 +34,12 @@ class User extends Authenticatable
     ];
 
     protected static $rules = [
-        'name'  => 'required|string|max:255',
-        'email' => 'required|email|string|max:255',
-        'type'  => 'required|string|max:255|in:admin,user,provider',
-        'phone' => 'required|numeric'
+        'name'     => 'required|string|max:255',
+        'email'    => 'required|email|string|max:255',
+        'password' => 'required|string|min:6',
+        'type'     => 'required|string|max:255|in:admin,user,provider',
+        'phone'    => 'required|numeric',
+        'entity'   => 'string|in:individual,company'
     ];
 
     /**
@@ -60,6 +62,9 @@ class User extends Authenticatable
         }
     }
 
+    /**
+     * Ger user phone.
+     */
     public function phone()
     {
         return $this->morphOne('App\Phone', 'phoneable');

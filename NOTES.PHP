@@ -1,12 +1,16 @@
 <?php
 
+WIP
+# convert all inputs in login and register to Form::class.
+# show errors under input not in title bar.
+
 // TODO: language switcher. ✔                                               10-2017
 // TODO: 404 page.
 // TODO: abandon hydrogen.
 // TODO: change footer to dark footer or make sidebar like theme switcher.
 // TODO: change $request from Collection ins back to Request in Controllers.
 // TODO: fix styling in English.
-// TODO: add placeholders to logins.
+// TODO: add placeholders to login/register /provider inputs.
 
 // TODO: convert all inline styles to css sheets.
 // TODO: use CDNs for all JS and CSS external files.
@@ -20,8 +24,10 @@ class User {
     // TODO: user login. ✔                                                  10-2017
     // TODO: user signup. ✔                                                 10-2017
     // TODO: user profile. ✔                                                10-2017
-    // TODO: user phone.
-    // TODO: provider signup.
+    // TODO: user phone. ✔                                                  18-10-2017
+    // TODO: provider signup. ✔                                             18-10-2017
+    // TODO: change name to fname and lname, and add gender to users.
+    // TODO: email is not required.
 }
 -----------------------------------
 

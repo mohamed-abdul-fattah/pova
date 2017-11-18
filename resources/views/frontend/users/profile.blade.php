@@ -17,9 +17,15 @@
               <h4 class="text-gray pt-10 mt-0 mb-30">{{__('Personal Information')}}</h4>
               <hr>
               <ul class="personal-info">
-                  <li class="{{app()->getLocale()}}"><span class="{{app()->getLocale()}}">{{__('Name')}}</span>{{$user->name}}</li>
-                  <li class="{{app()->getLocale()}}"><span class="{{app()->getLocale()}}">{{__('Email')}}</span>{{$user->email}}</li>
-                  <li class="{{app()->getLocale()}}"><span class="{{app()->getLocale()}}">{{__('Phone Number')}}</span>01274206535</li>
+                  <li class="{{app()->getLocale()}}"><span class="{{app()->getLocale()}}">
+                      {{__('Name')}}</span>{{$user->name}}
+                  </li>
+                  <li class="{{app()->getLocale()}}"><span class="{{app()->getLocale()}}">
+                      {{__('Email')}}</span>{{$user->email}}
+                  </li>
+                  <li class="{{app()->getLocale()}}"><span class="{{app()->getLocale()}}">
+                      {{__('Phone Number')}}</span>{{$user->phone->phone}}
+                  </li>
               </ul>
             </div>
           </div>

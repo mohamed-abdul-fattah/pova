@@ -50,7 +50,7 @@
               @endif
               <form name="reg-form" class="register-form" method="post" action="/register">
                 {{ csrf_field() }}
-                <input type="hidden" name="type" value="user">
+                <input type="hidden" name="type" value="provider">
                 <div class="icon-box mb-0 p-0">
                   <a href="#"
                   @if (app()->getLocale() === 'ar')
@@ -84,7 +84,7 @@
                   </div>
                   <div class="form-group col-md-6 company-name">
                     <label for="form-company-name">{{__('Company Name')}}</label>
-                    <input id="form-company-name" name="company" class="form-control" type="text" required>
+                    <input id="form-company-name" name="company" class="form-control" type="text">
                   </div>
                 </div>
                 <div class="row">
