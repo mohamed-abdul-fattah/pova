@@ -50,7 +50,7 @@
               @endif
               <form name="reg-form" class="register-form" method="post" action="/register">
                 {{ csrf_field() }}
-                <input type="hidden" name="type" value="provider">
+                {!! Form::hidden('type', 'provider') !!}
                 <div class="icon-box mb-0 p-0">
                   <a href="#"
                   @if (app()->getLocale() === 'ar')
@@ -69,10 +69,10 @@
                     <div class="col-md-6">
                         <label for="entity">{{__('Entity')}}</label>
                         <div class="form-group">
-                            <input type="radio" name="entity" value="individual" checked>
+                            {!! Form::radio('entity', 'individual', true) !!}
                             <label for="individual">{{__('Individual')}}</label>
                             <br>
-                            <input type="radio" name="entity" value="company">
+                            {!! Form::radio('entity', 'company', false) !!}
                             <label for="company">{{__('Company')}}</label>
                         </div>
                     </div>
@@ -80,31 +80,102 @@
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="form-name">{{__('Business Owner Name')}}</label>
-                    <input id="form-name" name="name" class="form-control" type="text" required>
+                    {!!
+                        Form::text('name', null, [
+                            'id'       => 'form-name',
+                            'class'    => 'form-control'.($errors->has('name') ? ' has-error' : ''),
+                            'required' => 'required'
+                        ])
+                    !!}
+
+                    @if ($errors->has('name'))
+                        <span class='help-block'>
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                    @endif
                   </div>
                   <div class="form-group col-md-6 company-name">
                     <label for="form-company-name">{{__('Company Name')}}</label>
-                    <input id="form-company-name" name="company" class="form-control" type="text">
+                    {!!
+                        Form::text('company', null, [
+                            'id'       => 'form-company-name',
+                            'class'    => 'form-control'.($errors->has('company') ? ' has-error' : '')
+                        ])
+                    !!}
+
+                    @if ($errors->has('company'))
+                        <span class='help-block'>
+                            <strong>{{ $errors->first('company') }}</strong>
+                        </span>
+                    @endif
                   </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label>{{__('Email Address')}}</label>
-                        <input id="form-email" name="email" class="form-control" type="email" required>
+                        {!!
+                            Form::email('email', null, [
+                                'id'       => 'form-email',
+                                'class'    => 'form-control'.($errors->has('email') ? ' has-error' : ''),
+                                'required' => 'required'
+                            ])
+                        !!}
+
+                        @if ($errors->has('email'))
+                            <span class='help-block'>
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="form-group col-md-6">
                         <label for="form-phone">{{__('Phone Number')}}</label>
-                        <input id="form-phone" name="number" class="form-control" type="phone" required>
+                        {!!
+                            Form::number('phone', null, [
+                                'id'       => 'form-phone',
+                                'class'    => 'form-control'.($errors->has('phone') ? ' has-error' : ''),
+                                'required' => 'required'
+                            ])
+                        !!}
+
+                        @if ($errors->has('phone'))
+                            <span class='help-block'>
+                                <strong>{{ $errors->first('phone') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="form-choose-password">{{__('Choose Password')}}</label>
-                    <input id="form-choose-password" name="password" class="form-control" type="password" required>
+                    {!!
+                        Form::password('password', [
+                            'id'       => 'form-choose-password',
+                            'class'    => 'form-control'.($errors->has('password') ? ' has-error' : ''),
+                            'required' => 'required'
+                        ])
+                    !!}
+
+                    @if ($errors->has('password'))
+                        <span class='help-block'>
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                   </div>
                   <div class="form-group col-md-6">
                     <label for="form-re-enter-password">{{__('Re-enter Password')}}</label>
-                    <input id="form-re-enter-password" name="password_confirmation"  class="form-control" type="password" required>
+                    {!!
+                        Form::password('password_confirmation', [
+                            'id'       => 'form-re-enter-password',
+                            'class'    => 'form-control'.($errors->has('password_confirmation') ? ' has-error' : ''),
+                            'required' => 'required'
+                        ])
+                    !!}
+
+                    @if ($errors->has('password_confirmation'))
+                        <span class='help-block'>
+                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                        </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group">
@@ -125,6 +196,16 @@
             const $company = $('.company-name'),
                   $entity  = $('input[name=entity]');
 
+            /**
+             * Show company name if it is filled in and validation failed and redirected back.
+             */
+            if ($('input[name=entity][value=company]').attr('checked')) {
+                $company.slideDown();
+            }
+
+            /**
+             * Show company name field on selecting company entity.
+             */
             $entity.click(function (e) {
                 if ($(this).val() === 'company') {
                     $company.slideDown('fast');

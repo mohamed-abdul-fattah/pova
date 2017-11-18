@@ -1,16 +1,12 @@
 <?php
 
-WIP
-# convert all inputs in login and register to Form::class.
-# show errors under input not in title bar.
-
 // TODO: language switcher. ✔                                               10-2017
 // TODO: 404 page.
 // TODO: abandon hydrogen.
 // TODO: change footer to dark footer or make sidebar like theme switcher.
 // TODO: change $request from Collection ins back to Request in Controllers.
 // TODO: fix styling in English.
-// TODO: add placeholders to login/register /provider inputs.
+// TODO: add placeholders to login/register/provider inputs.
 
 // TODO: convert all inline styles to css sheets.
 // TODO: use CDNs for all JS and CSS external files.
