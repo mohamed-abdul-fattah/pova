@@ -19,12 +19,13 @@ WIP
 // TODO: validate images sizes on production and constrain php.ini upload_max_filesize and memory_limit.
 // TODO: make sure that revolution slider library fits for slow devices.
 // TODO: move hydrogen config and hydrogen env variables to a config file.
+// TODO: enhance Route::domain from Laravel docs (follow standards).
 
 class User {
     // TODO: user login. ✔                                                  10-2017
+    // TODO: user phone. ✔                                                  18-10-2017
     // TODO: user signup. ✔                                                 10-2017
     // TODO: user profile. ✔                                                10-2017
-    // TODO: user phone. ✔                                                  18-10-2017
     // TODO: provider signup. ✔                                             18-10-2017
     // TODO: change name to fname and lname, and add gender to users.
     // TODO: email is not required.

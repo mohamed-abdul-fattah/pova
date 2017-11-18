@@ -40,6 +40,30 @@ class LoginController extends Controller
     }
 
     /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'loginEmail';
+    }
+
+    /**
+     * Validate the user login request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->username() => 'required|string|email',
+            'loginPassword'   => 'required|string',
+        ]);
+    }
+
+    /**
      * Show login form, for admin dashboard and frontend.
      *
      * @return Response
@@ -73,6 +97,6 @@ class LoginController extends Controller
      */
     protected function credentials(Request $request)
     {
-        return ['email' => $request->{$this->username()}, 'password' => $request->password];
+        return ['email' => $request->{$this->username()}, 'password' => $request->loginPassword];
     }
 }

@@ -34,13 +34,38 @@
                 <div class="row">
                   <div class="form-group col-md-12">
                     <label for="form-login-email">{{__('Email')}}</label>
-                    <input id="form-login-email" name="email" class="form-control" type="text" autofocus>
+                    {!!
+                        Form::email('loginEmail', null, [
+                            'id'        => 'form-login-email',
+                            'class'     => 'form-control'.($errors->has('loginEmail') ? ' has-error' : ''),
+                            'autofocus' => 'autofocus',
+                            'required'  => 'required'
+                        ])
+                    !!}
+
+                    @if ($errors->has('loginEmail'))
+                        <span class='help-block'>
+                            <strong>{{ $errors->first('loginEmail') }}</strong>
+                        </span>
+                    @endif
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-12">
                     <label for="form-password">{{__('Password')}}</label>
-                    <input id="form-password" name="password" class="form-control" type="password">
+                    {!!
+                        Form::password('loginPassword', [
+                            'id'        => 'form-password',
+                            'class'     => 'form-control'.($errors->has('loginPassword') ? ' has-error' : ''),
+                            'required'  => 'required'
+                        ])
+                    !!}
+
+                    @if ($errors->has('loginPassword'))
+                        <span class='help-block'>
+                            <strong>{{ $errors->first('loginPassword') }}</strong>
+                        </span>
+                    @endif
                   </div>
                 </div>
                 <div class="checkbox pull-left mt-15">
@@ -61,7 +86,8 @@
               </form>
             </div>
             <div class="col-md-7 col-md-offset-1">
-              @if ($errors->any())
+              {{-- commented because login errors are displayed in registeration area. --}}
+              {{-- @if ($errors->any())
                   <div class="alert alert-danger">
                       <ul>
                           @foreach ($errors->all() as $key => $error)
@@ -69,7 +95,7 @@
                           @endforeach
                       </ul>
                   </div>
-              @endif
+              @endif --}}
               <form name="reg-form" class="register-form" method="post" action="/register">
                 {{ csrf_field() }}
                 <input type="hidden" name="type" value="user">
@@ -90,25 +116,85 @@
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="form-name">{{__('Name')}}</label>
-                    <input id="form-name" name="name" class="form-control" type="text" required>
+                    {!!
+                        Form::text('name', null, [
+                            'id'       => 'form-name',
+                            'class'    => 'form-control'.($errors->has('name') ? ' has-error' : ''),
+                            'required' => 'required'
+                        ])
+                    !!}
+
+                    @if ($errors->has('name'))
+                        <span class='help-block'>
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                    @endif
                   </div>
                   <div class="form-group col-md-6">
                     <label for="form-email">{{__('Email Address')}}</label>
-                    <input id="form-email" name="email" class="form-control" type="email">
+                    {!!
+                        Form::email('email', null, [
+                            'id'       => 'form-email',
+                            'class'    => 'form-control'.($errors->has('email') ? ' has-error' : ''),
+                            'required' => 'required'
+                        ])
+                    !!}
+
+                    @if ($errors->has('email'))
+                        <span class='help-block'>
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                   </div>
                   <div class="form-group col-md-6">
                       <label for="form-phone">{{__('Phone Number')}}</label>
-                      <input id="form-phone" type="number" name="phone" class="form-control" required>
+                      {!!
+                          Form::number('phone', null, [
+                              'id'       => 'form-phone',
+                              'class'    => 'form-control'.($errors->has('phone') ? ' has-error' : ''),
+                              'required' => 'required'
+                          ])
+                      !!}
+
+                      @if ($errors->has('phone'))
+                          <span class='help-block'>
+                              <strong>{{ $errors->first('phone') }}</strong>
+                          </span>
+                      @endif
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="form-choose-password">{{__('Choose Password')}}</label>
-                    <input id="form-choose-password" name="password" class="form-control" type="password" required>
+                    {!!
+                        Form::password('password', [
+                            'id'       => 'form-choose-password',
+                            'class'    => 'form-control'.($errors->has('password') ? ' has-error' : ''),
+                            'required' => 'required'
+                        ])
+                    !!}
+
+                    @if ($errors->has('password'))
+                        <span class='help-block'>
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                   </div>
                   <div class="form-group col-md-6">
                     <label for="form-re-enter-password">{{__('Re-enter Password')}}</label>
-                    <input id="form-re-enter-password" name="password_confirmation"  class="form-control" type="password" required>
+                    {!!
+                        Form::password('password_confirmation', [
+                            'id'       => 'form-re-enter-password',
+                            'class'    => 'form-control'.($errors->has('password_confirmation') ? ' has-error' : ''),
+                            'required' => 'required'
+                        ])
+                    !!}
+
+                    @if ($errors->has('password_confirmation'))
+                        <span class='help-block'>
+                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                        </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group">
