@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use BaklySystems\Hydrogen\Http\Controllers\UsersController as BaklyUsersController;
 
@@ -68,6 +69,32 @@ class UsersController extends BaklyUsersController
             $user->deletePhoto('images/users', $user->profilePhoto);
             $user->uploadPhoto($request->file('profile'), $phototypeId = 0, $path = 'images/users/', $cover = 1, 300, 300);
         }
+
+        return redirect('/profile');
+    }
+
+    /**
+     * Update user's password.
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return Response
+     */
+    public function updatePassword(Request $request)
+    {
+        $this->validate($request, [
+            'oldPassword' => 'required|string|min:6',
+            'password'    => 'required|string|min:6|confirmed'
+        ]);
+
+        $user  = auth()->user();
+        $check = Hash::check($request->oldPassword, $user->password);
+
+        if (!$check) {
+            return redirect()->back()->withErrors(['oldPassword' => 'The current password is wrong!.']);
+        }
+        $user->update([
+            'password' => bcrypt($request->password)
+        ]);
 
         return redirect('/profile');
     }

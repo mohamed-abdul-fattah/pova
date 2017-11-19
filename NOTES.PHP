@@ -1,13 +1,10 @@
 <?php
 
 WORK
-// TODO: provider signup. ✔
-// TODO: calendar. ✔
-// TODO: make order.
 // TODO: email and gender in user.
-// TODO: profile settings/edit.
 
-// TODO: language switcher. ✔                                               10-2017
+// TODO: MDP calendar. ✔                                                    19-11-2017
+// TODO: language switcher. ✔                                               11-2017
 // TODO: 404 page.
 // TODO: abandon hydrogen.
 // TODO: change footer to dark footer or make sidebar like theme switcher.
@@ -27,36 +24,36 @@ WORK
 // TODO: slideUp and down faster.
 
 class User {
-    // TODO: user login. ✔                                                  10-2017
-    // TODO: user phone. ✔                                                  18-10-2017
-    // TODO: user signup. ✔                                                 10-2017
-    // TODO: user profile. ✔                                                10-2017
-    // TODO: provider signup. ✔                                             18-10-2017
-    // TODO: provider details. ✔                                            18-10-2017
+    // TODO: user login. ✔                                                  11-2017
+    // TODO: user phone. ✔                                                  18-11-2017
+    // TODO: user signup. ✔                                                 11-2017
+    // TODO: user profile. ✔                                                11-2017
+    // TODO: provider signup. ✔                                             18-11-2017
+    // TODO: provider details. ✔                                            18-11-2017
+    // TODO: profile settings/edit. ✔                                       18-11-2017
     // TODO: change name to fname and lname, and add gender to users.
     // TODO: email is not required.
-    // TODO: profile settings/edit.
 }
 -----------------------------------
 
 class Category {
-    // TODO: categories on header. ✔                                        10-2017
+    // TODO: categories on header. ✔                                        11-2017
     // TODO: add parent category on category details methods show page.
     // TODO: organize categories on dashboard >> parent >> children.
 }
 -----------------------------------
 
 class Resource {
-    // TODO: resources. ✔                                                   10-2017
-    // TODO: add resource. ✔                                                10-2017
-    // TODO: edit resource. ✔                                               10-2017
-    // TODO: availabilities. ✔                                              10-2017
-    // TODO: multiple prices. ✔                                             10-2017
-    // TODO: delete resource. ✔                                             10-2017
-    // TODO: photos and cover. ✔                                            10-2017
-    // TODO: resources listings. ✔                                          14-10-2017
-    // TODO: resources show page. ✔                                         14-10-2017
-    // TODO: featured resources dashboard. ✔                                15-10-2017
+    // TODO: resources. ✔                                                   11-2017
+    // TODO: add resource. ✔                                                11-2017
+    // TODO: edit resource. ✔                                               11-2017
+    // TODO: availabilities. ✔                                              11-2017
+    // TODO: multiple prices. ✔                                             11-2017
+    // TODO: delete resource. ✔                                             11-2017
+    // TODO: photos and cover. ✔                                            11-2017
+    // TODO: resources listings. ✔                                          14-11-2017
+    // TODO: resources show page. ✔                                         14-11-2017
+    // TODO: featured resources dashboard. ✔                                15-11-2017
     // TODO: validate availabilities backend.
     // TODO: write custome arabic validation messages.
     // TODO: JQuery validate for resources/create and set availabilities.

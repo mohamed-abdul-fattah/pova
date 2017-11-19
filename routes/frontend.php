@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('profile', 'UsersController@profile')->name('users.profile');
     Route::get('settings', 'UsersController@settings')->name('users.settings');
     Route::put('settings', 'UsersController@updateSettings')->name('users.update-settings');
+    Route::put('update-password', 'UsersController@updatePassword')->name('users.update-password');
     // Resources.
     Route::get('resources', 'ResourcesController@frontIndex')->name('front-resources');
     Route::get('resources/create', 'ResourcesController@frontCreate')->name('front-resources.create');
