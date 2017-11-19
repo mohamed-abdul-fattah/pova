@@ -16,13 +16,14 @@
             if (data.features.length > 0) {
                 $.each(data.features, function (index, feature) {
                     var names    = JSON.parse(feature.feature.name),
-                        required = (feature.feature.required) ? 'required' : '';
+                        required = (feature.feature.required) ? 'required' : '',
+                        reqSpan  = (feature.feature.required) ? ' <span class="required">*</span>' : '';
 
                     // Features for email and number input types.
                     if (feature.feature.type === 'email' || feature.feature.type === 'number') {
                         fields += '\
                             <div class="form-group">\
-                                <label class="form-lable">'+ names[nameLocale] + '</label>\
+                                <label class="form-lable">'+ names[nameLocale] + reqSpan + '</label>\
                                 <input name="features['+ feature.feature.id +']" type="' + feature.feature.type + '" class="form-control"\
                                 placeholder="'+ names[nameLocale] +'" ' + required + '>\
                             </div>\
@@ -30,7 +31,7 @@
                     } else if (feature.feature.type === 'string') { // string input type.
                         fields += '\
                             <div class="form-group">\
-                                <label class="form-lable">'+ names[nameLocale] + '</label>\
+                                <label class="form-lable">'+ names[nameLocale] + reqSpan + '</label>\
                                 <input name="features['+ feature.feature.id +']" type="text" class="form-control"\
                                 placeholder="'+ names[nameLocale] +'" ' + required + '>\
                             </div>\
@@ -38,7 +39,7 @@
                     } else if (feature.feature.type === 'text') { // textareas.
                         fields += '\
                             <div class="form-group">\
-                                <label class="form-lable">'+ names[nameLocale] + '</label>\
+                                <label class="form-lable">'+ names[nameLocale] + reqSpan + '</label>\
                                 <textarea name="features['+ feature.feature.id +']" type="text" class="form-control" rows="4"\
                                 placeholder="'+ names[nameLocale] +'" ' + required + '></textarea>\
                             </div>\
@@ -48,7 +49,7 @@
                             <div class="form-group">\
                                 <input name="features['+ feature.feature.id +']" type="checkbox" id="feature-'+ feature.id +'"\
                                 ' + required + ' value="1">\
-                                <label for="feature-'+ feature.id +'">'+ names[nameLocale] +'</label>\
+                                <label for="feature-'+ feature.id +'">'+ names[nameLocale] + reqSpan +'</label>\
                             </div>\
                         ';
                     } else if (feature.feature.type === 'selection') { // selections type.
@@ -60,7 +61,7 @@
                         });
                         fields += '\
                             <div class="form-group">\
-                                <label class="form-lable">'+ names[nameLocale] + '</label>\
+                                <label class="form-lable">'+ names[nameLocale] + reqSpan + '</label>\
                                 <select name="features['+ feature.feature.id +']" class="form-control" '+ required +'>\
                                     <option selected disabled>'+ names[nameLocale] +'</option>\
                                     '+ options +'\

@@ -242,9 +242,6 @@
     </div>
     {{-- End acquired features --}}
     <h4>{{__('Location')}}</h4>
-    <div class="alert alert-info">
-        {{__('Please mark on the map to locate your resource and the latitude and logitude.')}}
-    </div>
     {{-- Country --}}
     <div class="form-group">
         <label for="country" class="form-label">{{__('Country')}} <span class="required">*</span></label>
@@ -285,42 +282,6 @@
         @endif
     </div>
     {{-- End city --}}
-    {{-- Latitude --}}
-    <div class="form-group">
-        <label for="lat" class="form-lable">{{__('Latitude')}} <span class="required">*</span></label>
-        {!!
-            Form::text('lat', optional(optional($resource)->address)->lat, [
-                'id'          => 'lat'.($errors->has('lat') ? ' has-error' : ''),
-                'class'       => 'form-control',
-                'placeholder' => __('Latitude').' *',
-                'required'    => 'required'
-            ])
-        !!}
-        @if ($errors->has('lat'))
-            <span class="help-block">
-                <strong>{{ $errors->first('lat') }}</strong>
-            </span>
-        @endif
-    </div>
-    {{-- End latitude --}}
-    {{-- Longitude --}}
-    <div class="form-group">
-        <label for="lng" class="form-label">{{__('Longitude')}} <span class="required">*</span></label>
-        {!!
-            Form::text('lng', optional(optional($resource)->address)->lng, [
-                'id'          => 'lng'.($errors->has('lng') ? ' has-error' : ''),
-                'class'       => 'form-control',
-                'placeholder' => __('Longitude').' *',
-                'required'    => 'required'
-            ])
-        !!}
-        @if ($errors->has('lng'))
-            <span class="help-block">
-                <strong>{{ $errors->first('lng') }}</strong>
-            </span>
-        @endif
-    </div>
-    {{-- End longitude --}}
     {{-- Address --}}
     <div class="form-group">
         <label for="address" class="form-label">{{__('Address')}} <span class="required">*</span></label>
@@ -339,6 +300,45 @@
         @endif
     </div>
     {{-- End address --}}
+    <div class="alert alert-info">
+        {{__('Please mark on the map to locate your resource and the latitude and logitude.')}}
+    </div>
+    {{-- Longitude --}}
+    <div class="form-group">
+        <label for="lng" class="form-label">{{__('Longitude')}} <span class="required">*</span></label>
+        {!!
+            Form::text('lng', optional(optional($resource)->address)->lng, [
+                'id'          => 'lng'.($errors->has('lng') ? ' has-error' : ''),
+                'class'       => 'form-control',
+                'placeholder' => __('Longitude').' *',
+                'required'    => 'required'
+            ])
+        !!}
+        @if ($errors->has('lng'))
+            <span class="help-block">
+                <strong>{{ $errors->first('lng') }}</strong>
+            </span>
+        @endif
+    </div>
+    {{-- End longitude --}}
+    {{-- Latitude --}}
+    <div class="form-group">
+        <label for="lat" class="form-lable">{{__('Latitude')}} <span class="required">*</span></label>
+        {!!
+            Form::text('lat', optional(optional($resource)->address)->lat, [
+                'id'          => 'lat'.($errors->has('lat') ? ' has-error' : ''),
+                'class'       => 'form-control',
+                'placeholder' => __('Latitude').' *',
+                'required'    => 'required'
+            ])
+        !!}
+        @if ($errors->has('lat'))
+            <span class="help-block">
+                <strong>{{ $errors->first('lat') }}</strong>
+            </span>
+        @endif
+    </div>
+    {{-- End latitude --}}
     {{-- Map --}}
     <div class="form-group">
         <div id="map"></div>
