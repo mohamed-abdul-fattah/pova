@@ -2,7 +2,7 @@
 
 WORK
 // TODO: provider signup. ✔
-// TODO: calendar.
+// TODO: calendar. ✔
 // TODO: make order.
 // TODO: email and gender in user.
 // TODO: profile settings/edit.
@@ -87,7 +87,7 @@ class Price {
 -----------------------------------
 
 class Availability {
-    //
+    // TODO: require seasonal fields.
 }
 -----------------------------------
 

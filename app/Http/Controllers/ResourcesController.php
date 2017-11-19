@@ -96,19 +96,18 @@ class ResourcesController extends Controller
      * @param  object  $resource
      * @param  array  $froms
      * @param  array  $tos
-     * @param  array  $types
      * @param  array  $seasonalPrices
      * @param  int  $unitId
      * @return void
      */
-    protected function setAvailabilities($resource, $froms, $tos, $types, $seasonalPrices, $unitId)
+    protected function setAvailabilities($resource, $froms, $tos, $seasonalPrices, $unitId)
     {
         foreach ($froms as $key => $from) {
-            if ($types[$key] && $from && $tos[$key]) { // only if type, from and end are set.
+            if ($from && $tos[$key]) { // only if type, from and end are set.
                 $availability = $resource->availabilities()->create([
                     'start' => date('Y-m-d', strtotime($from)),
                     'end'   => date('Y-m-d', strtotime($tos[$key])),
-                    'type'  => $types[$key]
+                    'type'  => 'seasonal'
                 ]);
 
                 if ($seasonalPrices[$key]) { // if seasonal price is set.
@@ -347,7 +346,6 @@ class ResourcesController extends Controller
                 $resource,
                 $request->get('from'),
                 $request->get('to'),
-                $request->get('type'),
                 $request->get('seasonalPrice'),
                 $unit->id
             );
@@ -511,16 +509,21 @@ class ResourcesController extends Controller
         }
 
         // Update availabilities.
-        foreach ($resource->availabilities as $key => $avail) {
-            $avail->seasonalPrice()->delete();
-            $avail->delete();
+        // Unavailable dates.
+        if ($request->has('unavailableDates')) {
+            $resource->availabilities()->whereType('unavailable')->delete();
+            $this->setUnavailableDates($resource, $request->unavailableDates);
         }
+        // Seasonal dates.
         if (count($request->get('from'))) {
+            foreach ($resource->availabilities()->whereType('seasonal')->get() as $key => $avail) {
+                $avail->seasonalPrice()->delete();
+                $avail->delete();
+            }
             $this->setAvailabilities(
                 $resource,
                 $request->get('from'),
                 $request->get('to'),
-                $request->get('type'),
                 $request->get('seasonalPrice'),
                 $unit->id
             );

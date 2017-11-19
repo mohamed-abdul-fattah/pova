@@ -1,5 +1,6 @@
 <script src="/js/jquery-ui.multidatespicker.js" charset="utf-8"></script>
 <script type="text/javascript">
+    var unavailableDates = null;
     @if (app()->getLocale() === 'ar')
         var nameLocale = 'nameAr';
     @else
@@ -8,46 +9,49 @@
 
     @isset($isEdit)
         var lat = {{$resource->address->lat}},
-            lng = {{$resource->address->lng}},
-            unavailableDates = JSON.parse('{!! $resource->availabilities()
-                ->whereType('unavailable')
-                ->pluck('start')
-                ->toJson() !!}'
-            );
+            lng = {{$resource->address->lng}};
 
+        unavailableDates = JSON.parse('{!! $resource->availabilities()
+            ->whereType('unavailable')
+            ->pluck('start')
+            ->toJson() !!}'
+        );
+
+        if (unavailableDates.length) { // reformat dates.
             $.each(unavailableDates, function (key, item) {
                 const date = new Date(item),
-                      formatted = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+                formatted = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
                 unavailableDates[key] = formatted;
             });
+        } else {
+            unavailableDates = null;
+        }
 
-            /**
-             * Delete photo.
-             */
-            $(document).on('click', '.delete-photo', function (e) {
-                e.preventDefault();
-                var photoId = $(this).attr('data-id'),
-                    photo   = $(this).parent();
+        /**
+         * Delete photo.
+         */
+        $(document).on('click', '.delete-photo', function (e) {
+            e.preventDefault();
+            var photoId = $(this).attr('data-id'),
+                photo   = $(this).parent();
 
-                $.ajax({
-                    url: '/ajax/resources/delete-photo/' + photoId,
-                    method: 'DELETE',
-                    data: {resourceId: {{$resource->id}}}
-                }).done(function (res) {
-                    if (res.success) {
-                        photo.hide('fast', function () {
-                            photo.remove();
-                        });
-                    }
-                });
+            $.ajax({
+                url: '/ajax/resources/delete-photo/' + photoId,
+                method: 'DELETE',
+                data: {resourceId: {{$resource->id}}}
+            }).done(function (res) {
+                if (res.success) {
+                    photo.hide('fast', function () {
+                        photo.remove();
+                    });
+                }
             });
+        });
     @endisset
-
-    console.log(unavailableDates);
 
     // Multi datepicker.
     $( '.mdp' ).multiDatesPicker({
-        dateFormat: 'dd/mm/yy',
+        dateFormat: 'mm/dd/yy',
         altField: '#unavailable-dates',
         altFormat: 'mm/dd/yy',
         beforeShowDay: function (date) {

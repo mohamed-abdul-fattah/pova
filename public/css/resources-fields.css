@@ -101,10 +101,6 @@
     left: 0;
 }
 
-.seasonal {
-    display: none;
-}
-
 /*End Availablilities*/
 
 /*Prices*/
@@ -138,6 +134,11 @@
     visibility: hidden;
     height: 0;
     width: 0;
+}
+
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary {
+    opacity: 0.9;
+    font-weight: bold;
 }
 
 /*End Datepicker*/

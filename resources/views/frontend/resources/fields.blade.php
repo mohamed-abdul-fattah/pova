@@ -160,7 +160,13 @@
     {{-- Availabilities --}}
     <div id="availabilities">
         @isset($isEdit)
-            @foreach ($resource->availabilities as $key => $avail)
+            @php
+                $seasonals = $resource->availabilities()->whereType('seasonal')->get();
+            @endphp
+            @if (count($seasonals))
+                <label class="form-label">{{__('Seasonal Prices')}}</label>
+            @endif
+            @foreach ($seasonals as $key => $avail)
                 <div class="single-availability" style="display:block">
                     <hr />
                     <i class="fa fa-times-circle delete-avail" aria-hidden="true"></i>
@@ -174,22 +180,14 @@
                         <input type="text" class="date-picker form-control" name="to[]"
                             placeholder="{{__('End Date')}}" value="{{date('m/d/Y', strtotime($avail->end))}}" />
                     </div>
-                    <div class="form-group">
-                        <select class="form-control">
-                            <option disabled selected>{{__('Choose Type')}}</option>
-                            <option value="unavailable" @if ($avail->type === 'unavailable') selected @endif>{{__('Unavailable')}}</option>
-                            <option value="seasonal" @if ($avail->type === 'seasonal') selected @endif>{{__('Seasonal')}}</option>
-                        </select>
+                    <div class="form-group seasonal"
+                    @if ($avail->type === 'seasonal')
+                        style="display:block"
+                    @endif>
+                        <label class="form-label">{{__('Seasonal Price')}}</label>
+                        <input type="text" class="form-control" name="seasonalPrice[]"
+                        placeholder="{{__('Seasonal Price')}}" value="{{optional($avail->seasonalPrice)->price}}" />
                     </div>
-                        <div class="form-group seasonal"
-                        @if ($avail->type === 'seasonal')
-                            style="display:block"
-                        @endif>
-                            <label class="form-label">{{__('Seasonal Price')}}</label>
-                            <input type="text" class="form-control" name="seasonalPrice[]"
-                            placeholder="{{__('Seasonal Price')}}" value="{{optional($avail->seasonalPrice)->price}}" />
-                        </div>
-                    <input type="hidden" name="type[]"  value="{{$avail->type}}"/>
                 </div>
             @endforeach
         @endisset
@@ -197,7 +195,7 @@
     <div class="form-group">
         <button type="button" class="btn btn-primary" id="set-availabilities">
             <i class="fa fa-calendar" aria-hidden="true"></i>
-            {{__('Set availabilities')}}
+            {{__('Add Seasonal Prices')}}
         </button>
     </div>
     {{-- End availabilities --}}

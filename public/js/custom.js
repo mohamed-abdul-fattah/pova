@@ -101,9 +101,8 @@
             // Support dynamically generated elements.
             $('body').on('focus', '.date-picker', function (e) {
                 $( '.date-picker' ).datepicker({
-                    dateFormat: 'dd/mm/yy',
+                    dateFormat: 'mm/dd/yy',
                     showButtonPanel: true,
-                    gotoCurrent: true,
                     beforeShowDay: function (date) {
                         const today = new Date();
 
