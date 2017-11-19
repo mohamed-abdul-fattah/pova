@@ -203,3 +203,15 @@ span.resources {
 .has-error {
     border: 2px solid #ac4a58;
 }
+
+/*Listings*/
+
+.thumb {
+    text-align: center;
+    background: #fff;
+}
+
+.grid-listing-cover {
+    width: initial;
+    height: 200px;
+}

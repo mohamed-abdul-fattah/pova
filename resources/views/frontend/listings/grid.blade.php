@@ -86,7 +86,7 @@
                   <div class="col-sm-6 col-md-6 col-lg-6">
                       <div class="schedule-box maxwidth500 bg-light mb-30">
                           <div class="thumb">
-                              <img class="img-fullwidth" alt="" src="{{$resource->cover()}}">
+                              <img class="img-fullwidth grid-listing-cover" alt="" src="{{$resource->cover()}}">
                               <a href="/resources/{{$resource->id}}">
                                   <div class="overlay"></div>
                               </a>
