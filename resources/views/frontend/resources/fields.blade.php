@@ -78,7 +78,9 @@
         <button type="button" class="btn btn-primary add-price"><i class="fa fa-plus" aria-hidden="true"></i></button>
         <div>
             <label for="price" class="form-label">{{__('Price')}} <span class="required">*</span></label>
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
+            <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="
+                {{__('The base price is required, and you can additional prices by pressing on the button + to the right.')}}
+            "></i>
             <div class="form-group">
                 {!!
                     Form::text('description', optional(optional(optional($resource)->basePrice))->description, [
@@ -152,7 +154,9 @@
     {{-- Unavailable dates --}}
     <div class="form-group">
         <label class="form-lable">{{__('Add unavailable days')}}</label>
-        <i class="fa fa-info-circle" aria-hidden="true"></i>
+        <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="
+            {{__('Click on days on calendar to set those day as unavailable.')}}
+        "></i>
         <div class="mdp"></div>
         <textarea id="unavailable-dates" name="unavailableDates"></textarea>
     </div>
@@ -180,10 +184,7 @@
                         <input type="text" class="date-picker form-control" name="to[]"
                             placeholder="{{__('End Date')}}" value="{{date('m/d/Y', strtotime($avail->end))}}" />
                     </div>
-                    <div class="form-group seasonal"
-                    @if ($avail->type === 'seasonal')
-                        style="display:block"
-                    @endif>
+                    <div class="form-group">
                         <label class="form-label">{{__('Seasonal Price')}}</label>
                         <input type="text" class="form-control" name="seasonalPrice[]"
                         placeholder="{{__('Seasonal Price')}}" value="{{optional($avail->seasonalPrice)->price}}" />

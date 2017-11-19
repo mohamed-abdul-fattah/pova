@@ -84,6 +84,8 @@
     "Base Price Description": "وصف السعر الأساسي",
     "Extra Price": "السعر الإضافي",
     "Extra Price Description": "وصف السعر الإضافي",
+    "The base price is required, and you can additional prices by pressing on the button + to the right.": "السعر الأساسي مطلوب، و يمكنك إضافة اسعار إضافية عن طريق الضغط علي الزر + إلي اليسار.",
+    "Click on days on calendar to set those day as unavailable.": "أَنقر علي الأيام المراد تحديدها كأيام غير متاحة علي التقويم.",
     "Listings": "إعلانات",
     "Book Now": "إحجز الآن",
     "Search by name": "بحث بالإسم",

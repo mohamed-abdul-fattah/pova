@@ -3,7 +3,7 @@
 
 /*Custome Font Family*/
 
-body, .menuzord a, p {
+body, .menuzord a, p, .ui-tooltip {
     font-family: 'Lemonada', cursive;
 }
 

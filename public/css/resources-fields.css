@@ -142,3 +142,15 @@
 }
 
 /*End Datepicker*/
+
+/*Tooltipls*/
+
+.fa-info-circle {
+    cursor: pointer;
+}
+
+.fa-info-circle:hover {
+    color: #d65679;
+}
+
+/*End Tooltipls*/
