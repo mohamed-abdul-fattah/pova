@@ -14,6 +14,7 @@ WORK
 // TODO: change $request from Collection ins back to Request in Controllers.
 // TODO: fix styling in English.
 // TODO: add placeholders to login/register/provider inputs.
+// TODO: switch to bootstrap tooltips to get arrow and more features.
 
 // TODO: convert all inline styles to css sheets.
 // TODO: use CDNs for all JS and CSS external files.

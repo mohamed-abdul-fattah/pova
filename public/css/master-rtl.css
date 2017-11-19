@@ -6,3 +6,11 @@
     right: 47%;
     left: 0;
 }
+
+.menuzord-menu.menuzord-indented.scrollable {
+    float: none;
+}
+
+html[dir="rtl"] .menuzord-menu>li {
+    float: none;
+}
