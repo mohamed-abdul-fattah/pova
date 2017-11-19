@@ -5,11 +5,11 @@ WORK
 
 // TODO: MDP calendar. ✔                                                    19-11-2017
 // TODO: language switcher. ✔                                               11-2017
+// TODO: fix styling in English. ✔                                          19-11-2017
 // TODO: 404 page.
 // TODO: abandon hydrogen.
 // TODO: change footer to dark footer or make sidebar like theme switcher.
 // TODO: change $request from Collection ins back to Request in Controllers.
-// TODO: fix styling in English.
 // TODO: add placeholders to login/register/provider inputs.
 // TODO: switch to bootstrap tooltips to get arrow and more features.
 
@@ -54,7 +54,7 @@ class Resource {
     // TODO: resources listings. ✔                                          14-11-2017
     // TODO: resources show page. ✔                                         14-11-2017
     // TODO: featured resources dashboard. ✔                                15-11-2017
-    // TODO: validate availabilities backend.
+    // TODO: validate seasonal availabilities backend.
     // TODO: write custome arabic validation messages.
     // TODO: JQuery validate for resources/create and set availabilities.
     // TODO: add full functionality for dashboard resources, then update validation rules.

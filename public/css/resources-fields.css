@@ -36,7 +36,7 @@
 
 .delete-feature {
     position: absolute;
-    left: 0;
+    right: 0;
 }
 
 .fa-times-circle {
@@ -98,7 +98,7 @@
 
 .delete-avail {
     position: absolute;
-    left: 0;
+    right: 0;
 }
 
 /*End Availablilities*/
@@ -107,7 +107,7 @@
 
 .add-price {
     padding: 5px 15px;
-    float: left;
+    float: right;
     margin-bottom: 5px;
 }
 
@@ -118,7 +118,7 @@
 
 .delete-price {
     position: absolute;
-    left: 0;
+    right: 0;
     top: 4px;
 }
 
