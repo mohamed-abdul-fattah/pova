@@ -284,6 +284,7 @@ class ResourcesController extends Controller
      */
     public function frontStore(Request $request)
     {
+        return $request->all();
         $this->validate($request, Resource::rules());
 
         $unit     = Unit::first();

@@ -127,3 +127,17 @@
 }
 
 /*End Prices*/
+
+/*Datepicker*/
+
+.mdp .ui-datepicker {
+    width: 100%;
+}
+
+#unavailable-dates {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+
+/*End Datepicker*/

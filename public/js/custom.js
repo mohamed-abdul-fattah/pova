@@ -100,15 +100,35 @@
         TM_datePicker: function() {
             // Support dynamically generated elements.
             $('body').on('focus', '.date-picker', function (e) {
-                $( ".date-picker" ).datepicker({
-                    clearBtn: true,
-                    disableTouchKeyboard: true,
-                    startDate: new Date(),
-                    todayHighlight: true,
-                    language: 'ar',
-                    weekStart: 6, // saturday
-                    zIndexOffset: 9999,
-                    autoclose: true
+                $( '.date-picker' ).datepicker({
+                    dateFormat: 'dd/mm/yy',
+                    showButtonPanel: true,
+                    gotoCurrent: true,
+                    beforeShowDay: function (date) {
+                        const today = new Date();
+
+                        today.setHours(0);
+                        today.setMinutes(0);
+                        today.setSeconds(0);
+                        today.setMilliseconds(0);
+
+                        if ( // disable date before today.
+                            date < today
+                        ) {
+                            return [false, '', ''];
+                        }
+                        // Enable dates after today.
+                        return [true, '', ''];
+                    }
+                    /* Bootstrap datepiker options. */
+                    // clearBtn: true,
+                    // disableTouchKeyboard: true,
+                    // startDate: new Date(),
+                    // todayHighlight: true,
+                    // language: 'ar',
+                    // weekStart: 6, // saturday
+                    // zIndexOffset: 9999,
+                    // autoclose: true
                 });
             });
         },

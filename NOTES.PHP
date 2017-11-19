@@ -23,6 +23,7 @@ WORK
 // TODO: make sure that revolution slider library fits for slow devices.
 // TODO: move hydrogen config and hydrogen env variables to a config file.
 // TODO: enhance Route::domain from Laravel docs (follow standards).
+// TODO: slideUp and down faster.
 
 class User {
     // TODO: user login. ✔                                                  10-2017

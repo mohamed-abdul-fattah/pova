@@ -1,13 +1,13 @@
 <!-- external javascripts -->
 <script src="/js/jquery-migrate.js" charset="utf-8"></script>
-<script src="/js/jquery-ui.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <!-- JS | jquery plugin collection for this theme -->
 <script src="/js/jquery-plugin-collection.js"></script>
-<!-- JS | Custom script for all pages -->
+<script src="/js/jquery-ui.min.js"></script>
 @if (app()->getLocale() === 'ar')
-    <script src="/js/locales/bootstrap-datepicker.ar.js" charset="utf-8"></script>
+    <script src="/js/locales/jquery-datepicker.ar.js" charset="utf-8"></script>
 @endif
+<!-- JS | Custom script for all pages -->
 <script src="/js/custom.js"></script>
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS
       (Load Extensions only on Local File Systems !

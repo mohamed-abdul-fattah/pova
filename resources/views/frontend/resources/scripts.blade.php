@@ -1,3 +1,4 @@
+<script src="/js/jquery-ui.multidatespicker.js" charset="utf-8"></script>
 <script type="text/javascript">
     @if (app()->getLocale() === 'ar')
         var nameLocale = 'nameAr';
@@ -30,6 +31,30 @@
                 });
             });
     @endisset
+
+    // Multi datepicker.
+    $( '.mdp' ).multiDatesPicker({
+        dateFormat: 'dd/mm/yy',
+        altField: '#unavailable-dates',
+        altFormat: 'mm/dd/yy',
+        beforeShowDay: function (date) {
+            const today = new Date();
+
+            today.setHours(0);
+            today.setMinutes(0);
+            today.setSeconds(0);
+            today.setMilliseconds(0);
+
+            if ( // disable date before today.
+                date < today
+            ) {
+                return [false, '', ''];
+            }
+            // Enable dates after today.
+            return [true, '', ''];
+        },
+        // addDates: ['21/11/2017','11/11/2017']
+    });
 </script>
 <script src="/hydrogen/backend/js/address.js" charset="utf-8"></script>
 <script src="/js/front-acquired-features.js" charset="utf-8"></script>
