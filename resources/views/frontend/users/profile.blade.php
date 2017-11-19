@@ -7,7 +7,7 @@
 @section('css-styles')
     <style media="screen">
         .btn-warning {
-            margin: 2em 0;
+            margin: 3em 0;
         }
     </style>
 @endsection
@@ -57,7 +57,7 @@
                 <h4 class="text-gray pt-10 mt-0 mb-30">{{__('Profile Photo')}}</h4>
                 <hr>
                 <div class="profile-photo">
-                    <img src="{{$user->cover()}}" alt="{{__('Profile Photo')}}">
+                    <img src="{{$user->coverLink()}}" alt="{{__('Profile Photo')}}">
                 </div>
             </div>
           </div>

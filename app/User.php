@@ -77,4 +77,13 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Provider');
     }
+
+    /**
+     * User's profile photo.
+     */
+    public function profilePhoto()
+    {
+        return $this->morphOne('BaklySystems\Hydrogen\Models\Photo', 'imagable')
+            ->where('cover', 1);
+    }
 }

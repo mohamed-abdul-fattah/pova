@@ -99,7 +99,8 @@
                     {!!
                         Form::text('company', null, [
                             'id'       => 'form-company-name',
-                            'class'    => 'form-control'.($errors->has('company') ? ' has-error' : '')
+                            'class'    => 'form-control company-input'.($errors->has('company') ? ' has-error' : ''),
+                            'disabled' => 'disabled'
                         ])
                     !!}
 
