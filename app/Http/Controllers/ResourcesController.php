@@ -124,6 +124,24 @@ class ResourcesController extends Controller
     }
 
     /**
+     * Set unavailable dates.
+     *
+     * @param  object  $resource
+     * @param  string  $dates
+     * @return void
+     */
+    protected function setUnavailableDates($resource, $dates)
+    {
+        $datesArr = explode(',', $dates);
+        foreach ($datesArr as $key => $date) {
+            $resource->availabilities()->create([
+                'start' => date('Y-m-d H:i:s', strtotime($date)),
+                'type'  => 'unavailable'
+            ]);
+        }
+    }
+
+    /**
      * Create extra prices for a resource.
      *
      * @param  object  $resource
@@ -284,7 +302,6 @@ class ResourcesController extends Controller
      */
     public function frontStore(Request $request)
     {
-        return $request->all();
         $this->validate($request, Resource::rules());
 
         $unit     = Unit::first();
@@ -320,6 +337,11 @@ class ResourcesController extends Controller
         }
 
         // Set availabilities.
+        // Unavailable dates.
+        if ($request->has('unavailableDates')) {
+            $this->setUnavailableDates($resource, $request->get('unavailableDates'));
+        }
+        // Seasonal dates.
         if (count($request->get('from'))) {
             $this->setAvailabilities(
                 $resource,

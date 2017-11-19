@@ -8,7 +8,18 @@
 
     @isset($isEdit)
         var lat = {{$resource->address->lat}},
-            lng = {{$resource->address->lng}}
+            lng = {{$resource->address->lng}},
+            unavailableDates = JSON.parse('{!! $resource->availabilities()
+                ->whereType('unavailable')
+                ->pluck('start')
+                ->toJson() !!}'
+            );
+
+            $.each(unavailableDates, function (key, item) {
+                const date = new Date(item),
+                      formatted = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+                unavailableDates[key] = formatted;
+            });
 
             /**
              * Delete photo.
@@ -32,6 +43,8 @@
             });
     @endisset
 
+    console.log(unavailableDates);
+
     // Multi datepicker.
     $( '.mdp' ).multiDatesPicker({
         dateFormat: 'dd/mm/yy',
@@ -53,7 +66,7 @@
             // Enable dates after today.
             return [true, '', ''];
         },
-        // addDates: ['21/11/2017','11/11/2017']
+        addDates: unavailableDates
     });
 </script>
 <script src="/hydrogen/backend/js/address.js" charset="utf-8"></script>
