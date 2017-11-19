@@ -215,3 +215,9 @@ span.resources {
     width: initial;
     height: 200px;
 }
+
+/*Header*/
+
+.flag-icon {
+    width: 20px;
+}

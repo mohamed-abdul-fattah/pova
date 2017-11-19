@@ -76,13 +76,6 @@
                       @endif
                   </li>
               @endforeach
-              <li>
-                  @if (app()->getLocale() === 'ar')
-                      <a href="/lang/en">En</a>
-                  @else
-                      <a href="/lang/ar">عربي</a>
-                  @endif
-              </li>
               @auth
                   <li>
                       <a href="/profile">{{auth()->user()->name}}</a>
@@ -119,6 +112,13 @@
               @guest
                   <li><a href="/login">{{__('Login / Register')}}</a></li>
               @endguest
+              <li>
+                  @if (app()->getLocale() === 'ar')
+                      <a href="/lang/en"><img src="/images/icons/en.png" alt="" class="flag-icon"></a>
+                  @else
+                      <a href="/lang/ar"><img src="/images/icons/ar.png" alt="" class="flag-icon"></a>
+                  @endif
+              </li>
             </ul>
           </div>
         </nav>
