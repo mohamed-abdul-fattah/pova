@@ -163,39 +163,43 @@ span.resources {
 
 /*User Profile Information*/
 
-.personal-info {
+.user-info {
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
     margin-top: 5px;
 }
 
-.personal-info li.en {
+.user-info li.en {
     position: relative;
     padding-left: 150px;
     padding-top: 15px;
     color: #333333;
 }
 
-.personal-info li span.en {
+.user-info li span.en {
     position: absolute;
     color: #999999;
     font-weight: 600;
     left: 0;
 }
 
-.personal-info li.ar {
+.user-info li.ar {
     position: relative;
     padding-right: 150px;
     padding-top: 15px;
     color: #333333;
 }
 
-.personal-info li span.ar {
+.user-info li span.ar {
     position: absolute;
     color: #999999;
     font-weight: 600;
     right: 0;
+}
+
+.profile-photo > img {
+    border: 2px solid pink;
 }
 
 /*Errors*/

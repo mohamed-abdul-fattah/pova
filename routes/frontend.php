@@ -20,7 +20,8 @@ Route::get('lang/{locale}', function ($locale) {
 // Authenticated routes.
 Route::middleware('auth')->group(function () {
     // Users.
-    Route::get('profile', 'UsersController@profile')->name('user.profile');
+    Route::get('profile', 'UsersController@profile')->name('users.profile');
+    Route::get('settings', 'UsersController@settings')->name('users.settings');
     // Resources.
     Route::get('resources', 'ResourcesController@frontIndex')->name('front-resources');
     Route::get('resources/create', 'ResourcesController@frontCreate')->name('front-resources.create');

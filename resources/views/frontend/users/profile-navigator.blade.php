@@ -58,7 +58,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/settings">
                 <img src="/images/icons/icon-setting.png"
                 @if (app()->getLocale() === 'ar')
                     class="mr-10 ml-5"

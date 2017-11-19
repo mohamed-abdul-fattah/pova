@@ -18,4 +18,16 @@ class UsersController extends BaklyUsersController
 
         return view('frontend.users.profile', compact('user'));
     }
+
+    /**
+     * Show user's settings page.
+     *
+     * @return Response
+     */
+    public function settings()
+    {
+        $user = auth()->user();
+
+        return view('frontend.users.edit', compact('user'));
+    }
 }
