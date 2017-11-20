@@ -107,5 +107,8 @@
     "Individual": "فردي",
     "Company": "شركة",
     "Business Owner Name": "إسم صاحب العمل",
-    "Company Name": "إسم الشركة"
+    "Company Name": "إسم الشركة",
+    "Copyright": "حقوق النشر",
+    "All Rights Reserved.": "جميع الحقوق محفوظة",
+    ",": "،"
 }

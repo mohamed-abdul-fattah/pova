@@ -1,12 +1,11 @@
 <?php
 
-WORK
-// TODO: email and gender in user.
 
 // TODO: MDP calendar. ✔                                                    19-11-2017
 // TODO: language switcher. ✔                                               11-2017
 // TODO: fix styling in English. ✔                                          19-11-2017
-// TODO: 404 page.
+// TODO: 404 page. ✔                                                        20-11-2017
+// TODO: email and gender in user.
 // TODO: abandon hydrogen.
 // TODO: change footer to dark footer or make sidebar like theme switcher.
 // TODO: change $request from Collection ins back to Request in Controllers.
