@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use BaklySystems\Hydrogen\Http\Controllers\UsersController as BaklyUsersController;
 
 class UsersController extends BaklyUsersController
@@ -44,7 +43,7 @@ class UsersController extends BaklyUsersController
     {
         $this->validate($request, [
             'name'         => 'required|string|max:255',
-            'email'        => 'required|string|email|max:255',
+            'email'        => 'string|nullable|email|max:255',
             'email'        =>  Rule::unique('users')->ignore(auth()->id()),
             'phone'        => 'required|numeric',
             'company_name' => 'string|nullable',

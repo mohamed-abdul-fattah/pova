@@ -115,7 +115,7 @@
                 <p class="text-gray"></p>
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <label for="form-name">{{__('Name')}}</label>
+                    <label for="form-name">{{__('Name')}} <span class="required">*</span></label>
                     {!!
                         Form::text('name', null, [
                             'id'       => 'form-name',
@@ -130,24 +130,9 @@
                         </span>
                     @endif
                   </div>
+                  {{-- Phone --}}
                   <div class="form-group col-md-6">
-                    <label for="form-email">{{__('Email Address')}}</label>
-                    {!!
-                        Form::email('email', null, [
-                            'id'       => 'form-email',
-                            'class'    => 'form-control'.($errors->has('email') ? ' has-error' : ''),
-                            'required' => 'required'
-                        ])
-                    !!}
-
-                    @if ($errors->has('email'))
-                        <span class='help-block'>
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label for="form-phone">{{__('Phone Number')}}</label>
+                      <label for="form-phone">{{__('Phone Number')}} <span class="required">*</span></label>
                       {!!
                           Form::number('phone', null, [
                               'id'       => 'form-phone',
@@ -162,10 +147,28 @@
                           </span>
                       @endif
                   </div>
+                  {{-- End Phone --}}
+                  {{-- Email --}}
+                  <div class="form-group col-md-6">
+                    <label for="form-email">{{__('Email Address')}}</label>
+                    {!!
+                        Form::email('email', null, [
+                            'id'       => 'form-email',
+                            'class'    => 'form-control'.($errors->has('email') ? ' has-error' : '')
+                        ])
+                    !!}
+
+                    @if ($errors->has('email'))
+                        <span class='help-block'>
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                  </div>
+                  {{-- End Email --}}
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <label for="form-choose-password">{{__('Choose Password')}}</label>
+                    <label for="form-choose-password">{{__('Choose Password')}} <span class="required">*</span></label>
                     {!!
                         Form::password('password', [
                             'id'       => 'form-choose-password',
@@ -181,7 +184,7 @@
                     @endif
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="form-re-enter-password">{{__('Re-enter Password')}}</label>
+                    <label for="form-re-enter-password">{{__('Re-enter Password')}} <span class="required">*</span></label>
                     {!!
                         Form::password('password_confirmation', [
                             'id'       => 'form-re-enter-password',
