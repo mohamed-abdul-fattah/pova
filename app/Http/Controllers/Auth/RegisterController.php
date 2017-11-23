@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
-use Route;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -72,11 +72,7 @@ class RegisterController extends Controller
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
             'type'     => $data['type'],
-        ]);
-
-        // Phone.
-        $user->phone()->create([
-            'phone' => $data['phone']
+            'phone'    => $data['phone']
         ]);
 
         // Provider details.
@@ -96,14 +92,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    public function showRegistrationForm()
-    {
-        if (array_key_exists('domain', Route::getCurrentRoute()->action)) {
-            if (str_contains(Route::getCurrentRoute()->action['domain'], env('ADMIN_PREFIX'))) {
-                return view('auth.register');
-            }
-        } else {
-            return view('layouts.frontend.register');
-        }
-    }
+    // public function showRegistrationForm()
+    // {
+    //     if (array_key_exists('domain', Route::getCurrentRoute()->action)) {
+    //         if (str_contains(Route::getCurrentRoute()->action['domain'], env('ADMIN_PREFIX'))) {
+    //             return view('auth.register');
+    //         }
+    //     } else {
+    //         return view('layouts.frontend.register');
+    //     }
+    // }
 }
