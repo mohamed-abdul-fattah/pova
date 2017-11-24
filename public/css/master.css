@@ -124,7 +124,7 @@ div.datepicker.datepicker-dropdown.dropdown-menu {
     font-weight: 300;
     position: relative;
     padding: 10px 10px 45px 10px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.08);
 }
 
 .profile-header p {

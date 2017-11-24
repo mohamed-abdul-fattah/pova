@@ -1,9 +1,9 @@
 <?php namespace BaklySystems\Hydrogen\Database\Seeds;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Model;
 
 class AddFirstRole extends Seeder
 {
@@ -15,68 +15,67 @@ class AddFirstRole extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name'=>'Admin',
-            'email'=>'admin@example.com',
-            'password'=> Hash::make('password')
+            'name'     =>'Admin',
+            'email'    =>'admin@example.com',
+            'phone'    => '0',
+            'password' => Hash::make('secret')
         ]);
+
         DB::table('roles')->insert([
-            'name' => 'Super Admin',
+            'name'       => 'Super Admin',
             'guard_name' =>'web',
         ]);
 
-        $role_id = DB::table('roles')
+        $roleId = DB::table('roles')
             ->select('id')
             ->where('name', 'Super Admin')
             ->first()
             ->id;
         
         DB::table('model_has_roles')->insert([
-            'role_id' => $role_id,
-            'model_id' => 1,
+            'role_id'    => $roleId,
+            'model_id'   => 1,
             'model_type' => 'App\User',
         ]);
 
-
-
-
         DB::table('permissions')->insert([
-            'name' => 'use_roles',
+            'name'       => 'use_roles',
             'guard_name' =>'web',
         ]);
         DB::table('permissions')->insert([
-            'name' => 'use_permissions',
+            'name'       => 'use_permissions',
             'guard_name' =>'web',
         ]);
         DB::table('permissions')->insert([
-            'name' => 'use_phototypes',
+            'name'       => 'use_phototypes',
             'guard_name' =>'web',
         ]);
         DB::table('permissions')->insert([
-            'name' => 'use_filetypes',
+            'name'       => 'use_filetypes',
             'guard_name' =>'web',
         ]);
         DB::table('permissions')->insert([
-            'name' => 'use_impersonate',
+            'name'       => 'use_impersonate',
             'guard_name' =>'web',
         ]);
 
         DB::table('permissions')->insert([
-            'name' => 'use_users',
+            'name'       => 'use_users',
             'guard_name' =>'web',
         ]);
 
         DB::table('permissions')->insert([
-            'name' => 'use_comments',
+            'name'       => 'use_comments',
             'guard_name' =>'web',
         ]);
 
         DB::table('permissions')->insert([
-            'name' => 'destroy_partners',
+            'name'       => 'destroy_partners',
             'guard_name' =>'web',
         ]);
 
         DB::table('permissions')->insert([
-            'name' => 'use_delete',
+            'name'       => 'use_delete',
             'guard_name' =>'web',
         ]);
 
@@ -99,6 +98,7 @@ class AddFirstRole extends Seeder
             'nav_id'        => '1',
             'icon'          => '',
         ]);
+
         DB::table('nav_items')->insert([
             'name'          => 'Users',
             'route'         => 'users',
@@ -106,6 +106,7 @@ class AddFirstRole extends Seeder
             'nav_item_id'   => '2',
             'icon'          => '',
         ]);
+
         DB::table('nav_items')->insert([
             'name'          => 'Roles',
             'route'         => 'roles',
@@ -113,6 +114,7 @@ class AddFirstRole extends Seeder
             'nav_item_id'   => '2',
             'icon'          => '',
         ]);
+
         DB::table('nav_items')->insert([
             'name'          => 'Permissions',
             'route'         => 'permissions',
@@ -120,12 +122,14 @@ class AddFirstRole extends Seeder
             'nav_item_id'   => '2',
             'icon'          => '',
         ]);
+
         DB::table('nav_items')->insert([
             'name'          => 'Config',
             'route'         => 'phototypes',
             'nav_id'        => '1',
             'icon'          => '',
         ]);
+
         DB::table('nav_items')->insert([
             'name'          => 'Phototypes',
             'route'         => 'phototypes',
@@ -133,6 +137,7 @@ class AddFirstRole extends Seeder
             'nav_item_id'   => '6',
             'icon'          => '',
         ]);
+
         DB::table('nav_items')->insert([
             'name'          => 'Filetypes',
             'route'         => 'filetypes',
@@ -148,6 +153,5 @@ class AddFirstRole extends Seeder
             'nav_item_id'   => '6',
             'icon'          => '',
         ]);
-
     }
 }

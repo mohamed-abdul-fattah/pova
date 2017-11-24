@@ -2,8 +2,6 @@
 
 WIP
 # make phone unique.
-# validate profile photo.
-# upload 1.9 MB photo for Amir.
 
 // TODO: MDP calendar. ✔                                                    19-11-2017
 // TODO: language switcher. ✔                                               11-2017

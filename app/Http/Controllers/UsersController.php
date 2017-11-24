@@ -64,7 +64,9 @@ class UsersController extends BaklyUsersController
 
         // Update profile photo.
         if ($request->hasFile('profile')) {
-            $user->deletePhoto('images/users', $user->profilePhoto);
+            if ($user->profilePhoto) {
+                $user->deletePhoto('images/users', $user->profilePhoto);
+            }
             $user->uploadPhoto($request->file('profile'), $phototypeId = 0, $path = 'images/users/', $cover = 1, 300, 300);
         }
 
