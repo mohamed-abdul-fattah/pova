@@ -7,78 +7,49 @@
         </p>
     </div>
     <ul class="profile-navigation">
-        <li>
+        @php
+            if (app()->getLocale() === 'ar') {
+                $class = 'mr-10 ml-5';
+            } else {
+                $class = 'ml-10 mr-5';
+            }
+        @endphp
+        {{--  <li>
             <a href="#">
-                <img src="/images/icons/icon-cart.png"
-                @if (app()->getLocale() === 'ar')
-                    class="mr-10 ml-5"
-                @else
-                    class="ml-10 mr-5"
-                @endif
-                alt="">
+                <img src="/images/icons/icon-cart.png" class="{{$class}}" alt="">
                 {{__('My Bookings')}}
             </a>
-        </li>
+        </li>  --}}
         <li>
             <a href="/profile">
-                <img src="/images/icons/icon-user.png"
-                @if (app()->getLocale() === 'ar')
-                    class="mr-10 ml-5"
-                @else
-                    class="ml-10 mr-5"
-                @endif
-                alt="">
+                <img src="/images/icons/icon-user.png" class="{{$class}}" alt="">
                 {{__('My Profile')}}
             </a>
         </li>
         @if ($user->type === 'provider')
             <li>
                 <a href="/resources">
-                    <span
-                    @if (app()->getLocale() === 'ar')
-                        class="pe-7s-display2 mr-10 ml-5 resources"
-                    @else
-                        class="pe-7s-display2 ml-10 mr-5 resources"
-                    @endif
-                    ></span>
+                    <span class="pe-7s-display2 {{$class}} resources"></span>
                     {{__('My Resources')}}
                 </a>
             </li>
         @endif
-        <li>
+        {{--  <li>
             <a href="#">
-                <img src="/images/icons/icon-review.png"
-                @if (app()->getLocale() === 'ar')
-                    class="mr-10 ml-5"
-                @else
-                    class="ml-10 mr-5"
-                @endif
-                alt="">
+                <img src="/images/icons/icon-review.png" class="{{$class}}" alt="">
                 {{__('My Reviews')}}
             </a>
-        </li>
+        </li>  --}}
         <li>
             <a href="/settings">
-                <img src="/images/icons/icon-setting.png"
-                @if (app()->getLocale() === 'ar')
-                    class="mr-10 ml-5"
-                @else
-                    class="ml-10 mr-5"
-                @endif
-                alt="">
+                <img src="/images/icons/icon-setting.png" class="{{$class}}" alt="">
                 {{__('Settings')}}
             </a>
         </li>
         <li>
             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
-                <img src="/images/icons/icon-back.png"
-                @if (app()->getLocale() === 'ar')
-                    class="mr-10 ml-5"
-                @else
-                    class="ml-10 mr-5"
-                @endif
-                alt="">
+                <img src="/images/icons/icon-back.png" class="{{$class}}" alt="">
                 {{__('Logout')}}
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
