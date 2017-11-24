@@ -112,12 +112,10 @@
                   @endauth
                   @guest
                       <li><a href="/login">{{__('Login / Register')}}</a></li>
-                  @endguest
-                  @if (optional(auth()->user())->type !== 'provider')
                       <li>
                           <a href="/provider-signup">{{__('Become a Provider')}}</a>
                       </li>
-                  @endif
+                  @endguest
                   <li>
                       @if (app()->getLocale() === 'ar')
                           <a href="/lang/en"><img src="/images/icons/en.png" alt="" class="flag-icon"></a>

@@ -1,12 +1,9 @@
 <?php
 
-WIP
-# make phone unique.
-
+// TODO: 404 page. ✔                                                        20-11-2017
 // TODO: MDP calendar. ✔                                                    19-11-2017
 // TODO: language switcher. ✔                                               11-2017
 // TODO: fix styling in English. ✔                                          19-11-2017
-// TODO: 404 page. ✔                                                        20-11-2017
 // TODO: email and gender in user.
 // TODO: abandon hydrogen.
 // TODO: change footer to dark footer or make sidebar like theme switcher.

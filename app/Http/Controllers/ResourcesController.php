@@ -74,7 +74,7 @@ class ResourcesController extends Controller
     protected function addPhotos($resource, $photos)
     {
         foreach ($photos as $key => $photo) {
-            $resource->uploadPhoto($photo, 0, 'images/resources', 0, "$resource->title Photo");
+            $resource->uploadPhoto($photo, 0, 'images/resources', 0, 395, 200, "$resource->title Photo");
         }
     }
 

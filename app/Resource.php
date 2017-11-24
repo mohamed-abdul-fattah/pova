@@ -23,7 +23,9 @@ class Resource extends Model
         'city_id'     => 'required|integer',
         'lat'         => 'required|numeric',
         'lng'         => 'required|numeric',
-        'address'     => 'required|string|max:255'
+        'address'     => 'required|string|max:255',
+        'photos.*'    => 'image',
+        'cover'       => 'image'
     ];
 
     /**
