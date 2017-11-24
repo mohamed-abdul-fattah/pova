@@ -46,7 +46,7 @@ class LoginController extends Controller
      */
     public function username()
     {
-        return 'loginEmail';
+        return 'login';
     }
 
     /**
@@ -59,7 +59,7 @@ class LoginController extends Controller
     {
         $this->validate($request, [
             $this->username() => 'required',
-            'loginPassword'   => 'required|string',
+            'loginPassword'   => 'required|string|min:6|max:255',
         ]);
     }
 

@@ -62,7 +62,7 @@
               <div class="form-group">
                   <label for="form-phone" class="form-label">{{__('Phone Number')}}</label>
                   {!!
-                      Form::number('phone', $user->phone->phone, [
+                      Form::number('phone', $user->phone, [
                           'id'          => 'form-phone',
                           'class'       => 'form-control'.($errors->has('phone') ? ' has-error' : ''),
                           'required'    => 'required',

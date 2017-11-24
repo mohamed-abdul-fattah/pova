@@ -52,8 +52,7 @@ class UsersController extends BaklyUsersController
         ]);
 
         $user = auth()->user();
-        $user->update($request->only('name', 'email'));
-        $user->phone()->update($request->only('phone'));
+        $user->update($request->only('name', 'email', 'phone'));
 
         // Update user porvider details.
         if ($user->provider) {

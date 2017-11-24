@@ -2,8 +2,8 @@
 
 WIP
 # make phone unique.
-# login with email or phone number.
-# make email not required in html.
+# validate profile photo.
+# upload 1.9 MB photo for Amir.
 
 // TODO: MDP calendar. ✔                                                    19-11-2017
 // TODO: language switcher. ✔                                               11-2017

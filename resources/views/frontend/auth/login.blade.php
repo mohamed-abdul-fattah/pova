@@ -33,13 +33,14 @@
                 {{ csrf_field() }}
                 <div class="row">
                   <div class="form-group col-md-12">
-                    <label for="form-login-email">{{__('Email')}}</label>
+                    <label for="form-login-email">{{__('Email or Phone')}}</label>
                     {!!
-                        Form::email('loginEmail', null, [
-                            'id'        => 'form-login-email',
-                            'class'     => 'form-control'.($errors->has('loginEmail') ? ' has-error' : ''),
-                            'autofocus' => 'autofocus',
-                            'required'  => 'required'
+                        Form::text('login', null, [
+                            'id'          => 'form-login-email',
+                            'class'       => 'form-control'.($errors->has('loginEmail') ? ' has-error' : ''),
+                            'autofocus'   => 'autofocus',
+                            'placeholder' => __('Email or Phone'),
+                            'required'    => 'required'
                         ])
                     !!}
 
@@ -55,10 +56,11 @@
                     <label for="form-password">{{__('Password')}}</label>
                     {!!
                         Form::password('loginPassword', [
-                            'id'        => 'form-password',
-                            'class'     => 'form-control'.($errors->has('loginPassword') ? ' has-error' : ''),
-                            'required'  => 'required'
-                        ])
+                            'id'          => 'form-password',
+                            'class'       => 'form-control'.($errors->has('loginPassword') ? ' has-error' : ''),
+                            'placeholder' => __('Password'),
+                            'required'    => 'required'
+                        ]) 
                     !!}
 
                     @if ($errors->has('loginPassword'))

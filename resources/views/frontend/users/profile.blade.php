@@ -32,7 +32,7 @@
                       {{__('Email')}}</span>{{$user->email}}
                   </li>
                   <li class="{{app()->getLocale()}}"><span class="{{app()->getLocale()}}">
-                      {{__('Phone Number')}}</span>{{$user->phone->phone}}
+                      {{__('Phone Number')}}</span>{{$user->phone}}
                   </li>
                   @if ($user->provider)
                       <br>

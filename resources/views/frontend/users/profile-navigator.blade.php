@@ -3,7 +3,7 @@
         <h4 class="text-white mt-0 pt-5"> {{$user->name}}</h4>
         <span>{{__('Member Since')}} {{date('M Y', strtotime($user->created_at))}}</span>
         <p>
-            <img src="/hydrogen/backend/images/no_image.png" alt="">
+            <img src="{{$user->cover()}}" alt="">
         </p>
     </div>
     <ul class="profile-navigation">

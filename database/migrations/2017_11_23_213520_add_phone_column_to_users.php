@@ -14,7 +14,7 @@ class AddPhoneColumnToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('phone')->after('email')->default(0);
+            $table->string('phone')->after('email');
         });
     }
 
