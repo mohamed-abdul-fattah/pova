@@ -48,7 +48,6 @@
                       Form::email('email', $user->email, [
                           'id'          => 'form-email',
                           'class'       => 'form-control'.($errors->has('email') ? ' has-error' : ''),
-                          'required'    => 'required',
                           'placeholder' => __('Email')
                       ])
                   !!}
