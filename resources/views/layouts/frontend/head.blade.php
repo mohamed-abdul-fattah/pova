@@ -27,14 +27,19 @@
     <link href="/css/custom-bootstrap-margin-padding.css" rel="stylesheet" type="text/css">
     <!-- CSS | Responsive media queries -->
     <link href="/css/responsive.css" rel="stylesheet" type="text/css">
+    <!-- Revolution Slider 5.x CSS settings -->
+    <link  href="/js/revolution-slider/css/settings.css" rel="stylesheet" type="text/css"/>
+    <link  href="/js/revolution-slider/css/layers.css" rel="stylesheet" type="text/css"/>
+    <link  href="/js/revolution-slider/css/navigation.css" rel="stylesheet" type="text/css"/>
+    <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
+    <link href="/css/master.css" rel="stylesheet" type="text/css">
     @if (app()->isLocale('ar'))
         <!-- CSS | For RTL Layout -->
         <link href="/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css">
         <link href="/css/style-main-rtl.css" rel="stylesheet" type="text/css">
         <link href="/css/style-main-rtl-extra.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/css/master-rtl.css">
     @endif
-    <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
-    <link href="/css/master.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,4 +59,10 @@
     <link href="/images/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
 
     @yield('css-styles')
+
+    {{-- JS external libraries. --}}
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <!-- Revolution Slider 5.x SCRIPTS -->
+    <script src="/js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
+    <script src="/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
 </head>

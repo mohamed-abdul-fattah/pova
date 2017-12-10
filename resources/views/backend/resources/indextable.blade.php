@@ -2,11 +2,10 @@
     <thead>
         <tr>
             <th>#</th>
-			<th>{{trans("resource.TitleAr")}}</th>
-			<th>{{trans("resource.TitleEn")}}</th>
-            <th>{{trans("resource.Owner")}}</th>
+			<th>{{trans("resource.Title")}}</th>
             <th>{{trans("resource.Category")}}</th>
-			<th>{{trans("resource.Feature")}}</th>
+            <th>{{trans("resource.Owner")}}</th>
+			<th>{{trans("resource.Featured")}}</th>
 			<th></th>
         </tr>
     </thead>

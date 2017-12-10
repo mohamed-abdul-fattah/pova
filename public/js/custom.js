@@ -1,4 +1,4 @@
-(function($) {
+;(function($) {
     "use strict";
 
     var THEMEMASCOT = {};
@@ -20,7 +20,11 @@
     var $portfolio_filter_first_child = $(".portfolio-filter a:eq(0)");
     var $portfolio_flex_slider = $(".portfolio-slider");
 
-
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
     THEMEMASCOT.isMobile = {
         Android: function() {
@@ -94,7 +98,38 @@
         /* ------------------------------ Date Picker  -------------------------- */
         /* ---------------------------------------------------------------------- */
         TM_datePicker: function() {
-            $( ".date-picker" ).datepicker();
+            // Support dynamically generated elements.
+            $('body').on('focus', '.date-picker', function (e) {
+                $( '.date-picker' ).datepicker({
+                    dateFormat: 'mm/dd/yy',
+                    showButtonPanel: true,
+                    beforeShowDay: function (date) {
+                        const today = new Date();
+
+                        today.setHours(0);
+                        today.setMinutes(0);
+                        today.setSeconds(0);
+                        today.setMilliseconds(0);
+
+                        if ( // disable date before today.
+                            date < today
+                        ) {
+                            return [false, '', ''];
+                        }
+                        // Enable dates after today.
+                        return [true, '', ''];
+                    }
+                    /* Bootstrap datepiker options. */
+                    // clearBtn: true,
+                    // disableTouchKeyboard: true,
+                    // startDate: new Date(),
+                    // todayHighlight: true,
+                    // language: 'ar',
+                    // weekStart: 6, // saturday
+                    // zIndexOffset: 9999,
+                    // autoclose: true
+                });
+            });
         },
 
         /* ---------------------------------------------------------------------- */
@@ -1193,7 +1228,11 @@
         /* ------------------------------- tooltip  ----------------------------- */
         /* ---------------------------------------------------------------------- */
         TM_tooltip: function() {
-            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="tooltip"]').tooltip({
+                hide: 0,
+                show: 0,
+                container: 'body'
+            });
         },
 
         /* ---------------------------------------------------------------------- */

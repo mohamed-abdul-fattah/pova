@@ -10,7 +10,7 @@ class Price extends Model
     use HydrogenTrait;
 
     protected $fillable = [
-        'resource_id', 'unit_id', 'availability_id', 'price', 'currency'
+        'resource_id', 'unit_id', 'availability_id', 'price', 'currency', 'description', 'extra'
     ];
 
     protected static $rules = [
@@ -18,7 +18,8 @@ class Price extends Model
         'unit_id'         => 'required|integer',
         'availability_id' => 'required|integer',
         'price'           => 'required|numeric',
-        'currency'        => 'required|string:max:255'
+        'currency'        => 'required|string:max:255',
+        'extra'           => 'boolean'
     ];
 
     /**

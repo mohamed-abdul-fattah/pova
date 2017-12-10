@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
-use Route;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -50,9 +50,12 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name'     => 'required|string|max:255',
-            'email'    => 'required|string|email|max:255|unique:users',
+            'email'    => 'string|nullable|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'type'     => 'required|string|max:255,in:user,admin,provider'
+            'type'     => 'required|string|max:255,in:user,admin,provider',
+            'phone'    => 'required|numeric',
+            'company'  => 'string|nullable',
+            'entity'   => 'string|in:individual,company'
         ]);
     }
 
@@ -64,12 +67,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
             'type'     => $data['type'],
+            'phone'    => $data['phone']
         ]);
+
+        // Provider details.
+        if ($data['type'] === 'provider') {
+            $user->provider()->create([
+                'entity'       => $data['entity'],
+                'company_name' => $data['company']
+            ]);
+        }
+
+        return $user;
     }
 
     /**
@@ -78,14 +92,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    public function showRegistrationForm()
-    {
-        if (array_key_exists('domain', Route::getCurrentRoute()->action)) {
-            if (str_contains(Route::getCurrentRoute()->action['domain'], env('ADMIN_PREFIX'))) {
-                return view('auth.register');
-            }
-        } else {
-            return view('layouts.frontend.register');
-        }
-    }
+    // public function showRegistrationForm()
+    // {
+    //     if (array_key_exists('domain', Route::getCurrentRoute()->action)) {
+    //         if (str_contains(Route::getCurrentRoute()->action['domain'], env('ADMIN_PREFIX'))) {
+    //             return view('auth.register');
+    //         }
+    //     } else {
+    //         return view('layouts.frontend.register');
+    //     }
+    // }
 }

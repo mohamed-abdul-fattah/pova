@@ -9,11 +9,10 @@
 
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'titleAr' , name : 'titleAr' },
-            { data: 'titleEn' , name : 'titleEn' },
-            { data: 'user' , name : 'user' },
+            { data: 'title' , name : 'title' },
             { data: 'category' , name : 'category' },
-			{ data: 'feature' , name : 'feature' },
+            { data: 'owner' , name : 'owner' },
+			{ data: 'featured' , name : 'featured' },
             { data: 'action' , name : 'action' }
         ]
     });

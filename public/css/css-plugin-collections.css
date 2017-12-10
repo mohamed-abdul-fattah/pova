@@ -7,7 +7,7 @@ Necessary CSS Collection
 
 /**
  * Table of Contents:
- *	
+ *
  *  Owl carousel
  *  FlexSlider
  *  isotope
@@ -30,9 +30,9 @@ Necessary CSS Collection
  *  jquery-timepicker
  *  bootstrap-datetimejs
  *  custom-checkboxes-radio-buttons-and-select-boxes
- *  
- *  
- *  
+ *
+ *
+ *
  * ===============================================
 */
 
@@ -83,19 +83,19 @@ body:after {content: url(lightbox/close.png) url(lightbox/loading.gif) url(light
  * 	ytplayer
  * -----------------------------------------------
 */
-/*____________________________________________________________________________________________________________________________________________________ 
-jquery.mb.components                     __                __ 
-file: mb.YTPlayer.css                    __ 
-last modified: 19/08/14 19.57            __                __ 
-Open Lab s.r.l., Florence - Italy        __                __ 
-email: matteo@open-lab.com               __ 
-site: http://pupunzi.com                 __       
-http://open-lab.com                __ 
-blog: http://pupunzi.open-lab.com        __ 
-Q&A:  http://jquery.pupunzi.com          __                __ 
-Licences: MIT, GPL                       __    
-http://www.opensource.org/licenses/mit-license.php              __    
-http://www.gnu.org/licenses/gpl.html  __                __ 
+/*____________________________________________________________________________________________________________________________________________________
+jquery.mb.components                     __                __
+file: mb.YTPlayer.css                    __
+last modified: 19/08/14 19.57            __                __
+Open Lab s.r.l., Florence - Italy        __                __
+email: matteo@open-lab.com               __
+site: http://pupunzi.com                 __
+http://open-lab.com                __
+blog: http://pupunzi.open-lab.com        __
+Q&A:  http://jquery.pupunzi.com          __                __
+Licences: MIT, GPL                       __
+http://www.opensource.org/licenses/mit-license.php              __
+http://www.gnu.org/licenses/gpl.html  __                __
 Copyright (c) 2001-2014. Matteo Bicocchi (Pupunzi);                ____________________________________________________________________
 ________________________________________________________________________________*/
 @charset"UTF-8";
@@ -126,7 +126,7 @@ ________________________________________________________________________________
  * 	Menuzord-Responsive-Megamenu
  * -----------------------------------------------
 */
-/*Item name: Menuzord - Responsive 
+/*Item name: Menuzord - Responsive
 MegamenuAuthor: marcoarib - marco.arib@gmail.com
 License: http://codecanyon.net/licenses
 */

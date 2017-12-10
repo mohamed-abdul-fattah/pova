@@ -1,0 +1,19 @@
+.delete-feature {
+    right: unset;
+    left: 0;
+}
+
+.delete-avail {
+    right: unset;
+    left: 0;
+}
+
+.delete-price {
+    right: unset;
+    left: 0;
+    top: 4px;
+}
+
+.add-price {
+    float: left;
+}

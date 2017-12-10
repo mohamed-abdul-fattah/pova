@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email','password', 'type'
+        'name', 'email', 'phone', 'password', 'type'
     ];
 
     /**
@@ -34,10 +34,12 @@ class User extends Authenticatable
     ];
 
     protected static $rules = [
-        'name'  => 'required|string|max:255',
-        'email' => 'required|email|string|max:255',
-        'type'  => 'required|string|max:255|in:admin,user,provider',
-        'phone' => 'required|numeric'
+        'name'     => 'required|string|max:255',
+        'email'    => 'email|string|nullable|max:255',
+        'password' => 'required|string|min:6',
+        'type'     => 'required|string|max:255|in:admin,user,provider',
+        'phone'    => 'required|numeric',
+        'entity'   => 'string|in:individual,company'
     ];
 
     /**
@@ -60,8 +62,20 @@ class User extends Authenticatable
         }
     }
 
-    public function phone()
+    /**
+     * Get provider details.
+     */
+    public function provider()
     {
-        return $this->morphOne('App\Phone', 'phoneable');
+        return $this->hasOne('App\Provider');
+    }
+
+    /**
+     * User's profile photo.
+     */
+    public function profilePhoto()
+    {
+        return $this->morphOne('BaklySystems\Hydrogen\Models\Photo', 'imagable')
+            ->where('cover', 1);
     }
 }

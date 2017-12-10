@@ -1,9 +1,11 @@
-/node_modules
-/public/hot
-/public/storage
-/public/images/resources
-/storage/*.key
-/vendor
+node_modules
+public/hot
+public/storage
+public/images/resources
+public/images/users
+public/images/thumbs
+storage/*.key
+vendor/
 /.idea
 /.vagrant
 Homestead.json
@@ -13,3 +15,4 @@ yarn-error.log
 .env
 .tags
 .tags1
+.tags2

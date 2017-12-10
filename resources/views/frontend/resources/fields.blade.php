@@ -8,6 +8,11 @@
     </div>
 @endif
 
+<div class="alert alert-info">
+    {{__('All fields followed by')}} <span class="required">*</span> {{__('are required')}}. <br>
+    {{__('You can hover on')}} <i class="fa fa-info-circle" aria-hidden="true"></i> {{__('to get more details about the field')}}.
+</div>
+
 {{-- Photos --}}
 @if (count($resource->photos))
     <div class="photos">
@@ -28,7 +33,7 @@
     <h4>{{__('Basic Information')}}</h4>
     {{-- Category --}}
     <div class="form-group">
-        <label for="category" class="form-label">{{__('Category')}}</label>
+        <label for="category" class="form-label">{{__('Category')}} <span class="required">*</span></label>
         <select id="category" class="form-control{{$errors->has('category_id') ? ' has-error' : ''}}" name="category_id" required>
             <option selected disabled>{{__('Select a category')}}</option>
             @foreach ($categories as $key => $category)
@@ -52,7 +57,7 @@
     {{-- End category --}}
     {{-- Title --}}
     <div class="form-group">
-        <label for="title" class="form-label">{{__('Title')}}</label>
+        <label for="title" class="form-label">{{__('Title')}} <span class="required">*</span></label>
         {!!
             Form::text('title', optional($resource)->title, [
                 'id'          => 'title',
@@ -68,26 +73,56 @@
         @endif
     </div>
     {{-- End title --}}
-    {{-- Price --}}
-    <div class="form-group">
-        <label for="price" class="form-label">{{__('Price')}}</label>
-        {!!
-            Form::text('price', optional(optional(optional($resource)->basePrice)->first())->price, [
-                'id'          => 'price',
-                'class'       => 'form-control'.($errors->has('price') ? ' has-error' : ''),
-                'placeholder' => __('Price').' *',
-                'required'    => 'required'
-            ])
-        !!}
-        @if ($errors->has('price'))
-            <span class="help-block">
-                <strong>{{ $errors->first('price') }}</strong>
-            </span>
+    {{-- Prices --}}
+    <div class="prices">
+        <button type="button" class="btn btn-primary add-price"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <div>
+            <label for="price" class="form-label">{{__('Price')}} <span class="required">*</span></label>
+            <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="
+                {{__('The base price is required, and you can additional prices by pressing on the button + to the right.')}}
+            "></i>
+            <div class="form-group">
+                {!!
+                    Form::text('description', optional(optional(optional($resource)->basePrice))->description, [
+                        'class'       => 'form-control'.($errors->has('priceDesc') ? ' has-error' : ''),
+                        'placeholder' => __('Base Price Description')
+                    ])
+                !!}
+            </div>
+            <div class="form-group">
+                {!!
+                    Form::text('price', optional(optional(optional($resource)->basePrice))->price, [
+                        'id'          => 'price',
+                        'class'       => 'form-control'.($errors->has('price') ? ' has-error' : ''),
+                        'placeholder' => __('Base Price').' *',
+                        'required'    => 'required'
+                    ])
+                !!}
+                @if ($errors->has('prices'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('prices') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+        @if (count($resource->extras))
+            @foreach ($resource->extras as $key => $price)
+                <div class="single-price" style="display:block">
+                    <i class="fa fa-times-circle delete-price" aria-hidden="true"></i>
+                    <hr />
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="descriptions[]" value="{{$price->description}}" placeholder="{{__('Extra Price Description')}}" />
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="prices[]" value="{{$price->price}}" placeholder="{{__('Extra Price')}}" />
+                    </div>
+                </div>
+            @endforeach
         @endif
     </div>
-    {{-- End price --}}
+    {{-- End prices --}}
     {{-- Unit --}}
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="unit" class="form-label">{{__('Unit')}}</label>
         <select id="unit" class="form-control{{$errors->has('unit_id') ? ' has-error' : ''}}" name="unit_id" required>
             <option selected disabled>{{__('Select a unit')}}</option>
@@ -104,16 +139,68 @@
                 <strong>{{ $errors->first('unit_id') }}</strong>
             </span>
         @endif
-    </div>
+    </div> --}}
     {{-- End unit --}}
     {{-- Photos --}}
-    <input type="file" name="photos[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} {{__('files selected')}}" multiple />
-    <label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>{{__('Upload photos')}}&hellip;</span></label>
-    {{-- End photos --}}
-    {{-- Cover --}}
-    <input type="file" name="cover" id="file-3" class="inputfile inputfile-2" />
-    <label for="file-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>{{__('Upload cover photo')}}&hellip;</span></label>
+    <div class="form-group">
+        <input type="file" name="photos[]" id="file-2" class="inputfile inputfile-6" data-multiple-caption="{count} {{__('files selected')}}" multiple />
+        <label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>{{__('Upload photos')}}</span></label>
+        {{-- End photos --}}
+        {{-- Cover --}}
+        <input type="file" name="cover" id="file-3" class="inputfile inputfile-6" />
+        <label for="file-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>{{__('Upload cover photo')}}</span></label>
+    </div>
     {{-- End cover --}}
+    {{-- Unavailable dates --}}
+    <div class="form-group">
+        <label class="form-lable">{{__('Add unavailable days')}}</label>
+        <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="
+            {{__('Click on days on calendar to set those day as unavailable.')}}
+        "></i>
+        <div class="mdp"></div>
+        <textarea id="unavailable-dates" name="unavailableDates"></textarea>
+    </div>
+    {{-- End unavailable dates --}}
+    {{-- Availabilities --}}
+    <div id="availabilities">
+        @isset($isEdit)
+            @php
+                $seasonals = $resource->availabilities()->whereType('seasonal')->get();
+            @endphp
+            @if (count($seasonals))
+                <label class="form-label">{{__('Seasonal Prices')}}</label>
+            @endif
+            @foreach ($seasonals as $key => $avail)
+                <div class="single-availability" style="display:block">
+                    <hr />
+                    <i class="fa fa-times-circle delete-avail" aria-hidden="true"></i>
+                    <div class="form-group">
+                        <label class="form-label">{{__('From')}}</label>
+                        <input type="text" class="date-picker form-control" name="from[]"
+                            placeholder="{{__('Start Date')}}" value="{{date('m/d/Y', strtotime($avail->start))}}" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">{{__('To')}}</label>
+                        <input type="text" class="date-picker form-control" name="to[]"
+                            placeholder="{{__('End Date')}}" value="{{date('m/d/Y', strtotime($avail->end))}}" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">{{__('Seasonal Price')}}</label>
+                        <input type="text" class="form-control" name="seasonalPrice[]"
+                        placeholder="{{__('Seasonal Price')}}" value="{{optional($avail->seasonalPrice)->price}}" />
+                    </div>
+                </div>
+            @endforeach
+        @endisset
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" id="set-availabilities">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            {{__('Add Seasonal Prices')}}
+        </button>
+    </div>
+    {{-- End availabilities --}}
+    <hr>
     {{-- Save and cancel --}}
     <div class="form-group">
         <button type="submit" class="btn btn-success">{{__('Save')}}</button>
@@ -156,12 +243,9 @@
     </div>
     {{-- End acquired features --}}
     <h4>{{__('Location')}}</h4>
-    <div class="alert alert-info">
-        {{__('Please mark on the map to locate your resource and the latitude and logitude.')}}
-    </div>
     {{-- Country --}}
     <div class="form-group">
-        <label for="country" class="form-label">{{__('Country')}}</label>
+        <label for="country" class="form-label">{{__('Country')}} <span class="required">*</span></label>
         <select id="country" class="form-control{{$errors->has('country_id') ? ' has-error' : ''}}" name="country_id" required>
             <option selected disabled>{{__('Select your country')}}</option>
             @foreach ($countries as $key => $country)
@@ -181,7 +265,7 @@
     {{-- End Country --}}
     {{-- City --}}
     <div class="form-group">
-        <label for="city" class="form-lable">{{__('City')}}</label>
+        <label for="city" class="form-lable">{{__('City')}} <span class="required">*</span></label>
         <select id="city" class="form-control{{$errors->has('city_id') ? ' has-error' : ''}}" name="city_id" required>
             <option selected disabled>{{__('Select your city')}}</option>
             @foreach ($cities as $key => $city)
@@ -199,45 +283,9 @@
         @endif
     </div>
     {{-- End city --}}
-    {{-- Latitude --}}
-    <div class="form-group">
-        <label for="lat" class="form-lable">{{__('Latitude')}}</label>
-        {!!
-            Form::text('lat', optional(optional($resource)->address)->lat, [
-                'id'          => 'lat'.($errors->has('lat') ? ' has-error' : ''),
-                'class'       => 'form-control',
-                'placeholder' => __('Latitude').' *',
-                'required'    => 'required'
-            ])
-        !!}
-        @if ($errors->has('lat'))
-            <span class="help-block">
-                <strong>{{ $errors->first('lat') }}</strong>
-            </span>
-        @endif
-    </div>
-    {{-- End latitude --}}
-    {{-- Longitude --}}
-    <div class="form-group">
-        <label for="lng" class="form-label">{{__('Longitude')}}</label>
-        {!!
-            Form::text('lng', optional(optional($resource)->address)->lng, [
-                'id'          => 'lng'.($errors->has('lng') ? ' has-error' : ''),
-                'class'       => 'form-control',
-                'placeholder' => __('Longitude').' *',
-                'required'    => 'required'
-            ])
-        !!}
-        @if ($errors->has('lng'))
-            <span class="help-block">
-                <strong>{{ $errors->first('lng') }}</strong>
-            </span>
-        @endif
-    </div>
-    {{-- End longitude --}}
     {{-- Address --}}
     <div class="form-group">
-        <label for="address" class="form-label">{{__('Address')}}</label>
+        <label for="address" class="form-label">{{__('Address')}} <span class="required">*</span></label>
         {!!
             Form::text('address', optional(optional($resource)->address)->address, [
                 'id'          => 'address',
@@ -253,6 +301,45 @@
         @endif
     </div>
     {{-- End address --}}
+    <div class="alert alert-info">
+        {{__('Please mark on the map to locate your resource and the latitude and logitude.')}}
+    </div>
+    {{-- Longitude --}}
+    <div class="form-group">
+        <label for="lng" class="form-label">{{__('Longitude')}} <span class="required">*</span></label>
+        {!!
+            Form::text('lng', optional(optional($resource)->address)->lng, [
+                'id'          => 'lng'.($errors->has('lng') ? ' has-error' : ''),
+                'class'       => 'form-control',
+                'placeholder' => __('Longitude').' *',
+                'required'    => 'required'
+            ])
+        !!}
+        @if ($errors->has('lng'))
+            <span class="help-block">
+                <strong>{{ $errors->first('lng') }}</strong>
+            </span>
+        @endif
+    </div>
+    {{-- End longitude --}}
+    {{-- Latitude --}}
+    <div class="form-group">
+        <label for="lat" class="form-lable">{{__('Latitude')}} <span class="required">*</span></label>
+        {!!
+            Form::text('lat', optional(optional($resource)->address)->lat, [
+                'id'          => 'lat'.($errors->has('lat') ? ' has-error' : ''),
+                'class'       => 'form-control',
+                'placeholder' => __('Latitude').' *',
+                'required'    => 'required'
+            ])
+        !!}
+        @if ($errors->has('lat'))
+            <span class="help-block">
+                <strong>{{ $errors->first('lat') }}</strong>
+            </span>
+        @endif
+    </div>
+    {{-- End latitude --}}
     {{-- Map --}}
     <div class="form-group">
         <div id="map"></div>

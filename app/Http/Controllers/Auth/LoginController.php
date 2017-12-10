@@ -39,6 +39,35 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'login';
+    }
+
+    /**
+     * Validate the user login request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->username() => 'required',
+            'loginPassword'   => 'required|string|min:6|max:255',
+        ]);
+    }
+
+    /**
+     * Show login form, for admin dashboard and frontend.
+     *
+     * @return Response
+     */
     public function showLoginForm()
     {
         if (array_key_exists('domain', Route::getCurrentRoute()->action)) {
@@ -46,8 +75,18 @@ class LoginController extends Controller
                 return view('auth.login');
             }
         } else {
-            return view('layouts.frontend.login');
+            return view('frontend.auth.login');
         }
+    }
+
+    /**
+     * Show provider registration form.
+     *
+     * @return Response
+     */
+    public function showProviderForm()
+    {
+        return view('frontend.auth.provider-signup');
     }
 
     /**
@@ -58,6 +97,11 @@ class LoginController extends Controller
      */
     protected function credentials(Request $request)
     {
-        return ['email' => $request->{$this->username()}, 'password' => $request->password];
+        if (is_numeric($request->{$this->username()})) {
+            $field = 'phone';
+        } else if (filter_var($request->{$this->username()}, FILTER_VALIDATE_EMAIL)) {
+            $field = 'email';
+        }
+        return [$field => $request->{$this->username()}, 'password' => $request->loginPassword];
     }
 }

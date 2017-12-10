@@ -11,8 +11,6 @@ Route::get('register', function () {
     abort(404);
 });
 
-Route::get('/', 'FrontendController@index')->name('frontend.index');
-
 // Change language.
 Route::get('lang/{locale}', function ($locale) {
     session()->put('appLocale', $locale);
@@ -22,7 +20,10 @@ Route::get('lang/{locale}', function ($locale) {
 // Authenticated routes.
 Route::middleware('auth')->group(function () {
     // Users.
-    Route::get('profile', 'UsersController@profile')->name('user.profile');
+    Route::get('profile', 'UsersController@profile')->name('users.profile');
+    Route::get('settings', 'UsersController@settings')->name('users.settings');
+    Route::put('settings', 'UsersController@updateSettings')->name('users.update-settings');
+    Route::put('update-password', 'UsersController@updatePassword')->name('users.update-password');
     // Resources.
     Route::get('resources', 'ResourcesController@frontIndex')->name('front-resources');
     Route::get('resources/create', 'ResourcesController@frontCreate')->name('front-resources.create');
@@ -38,3 +39,12 @@ Route::middleware('auth')->group(function () {
         Route::delete('resources/delete-photo/{id}', 'ResourcesController@deletePhoto')->name('ajax.front-resources.delete-photo');
     });
 });
+
+// Unauthenticated routes.
+// Home.
+Route::get('/', 'FrontendController@index')->name('frontend.index');
+// Listings.
+Route::get('listings/{id}', 'ListingsController')->name('listings.show');
+Route::get('resources/{id}', 'ResourcesController@frontShow')->name('front-resources.show');
+// Provider signup.
+Route::get('provider-signup', 'Auth\LoginController@showProviderForm')->name('provider.signup');

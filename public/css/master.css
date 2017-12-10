@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Lemonada:300');
 /*----------------------------------------------------------------*/
 
+/*General*/
+
+.required {
+    color: #ff0000;
+    font-size: 10px;
+}
+
 /*Custome Font Family*/
 
-body, .menuzord a, p {
+body, .menuzord a, p, .ui-tooltip {
     font-family: 'Lemonada', cursive;
 }
 
@@ -45,10 +52,61 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border-color: #449d44;
 }
 
-.btn-dark.btn-theme-colored {
-    color: #d65679;
+.btn-border {
+    border-width: 1px;
+}
+
+.btn-dark {
+    color: #222;
     background-color: #fff;
-    border-color: #d65679;
+    border-color: #444;
+}
+
+.btn-darker {
+    color: #fff;
+    background-color: #444;
+    border-color: #222;
+}
+
+.btn-darker:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+.btn-fb {
+    background-color: #3b5998;
+}
+
+.btn-tw {
+    background-color: #00acee;
+}
+
+.btn-tw:hover {
+    background-color: #0d8cbd;
+}
+
+.btn-fb:hover {
+    background-color: #25427d;
+}
+
+.datepicker>div {
+    display: block;
+}
+
+/*For RTL support*/
+
+div.datepicker.datepicker-dropdown.dropdown-menu {
+    right: unset;
+}
+
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover, .datepicker table tr td span.disabled, .datepicker table tr td span.disabled:hover {
+    color: #d3d3d3;
+}
+
+/*Revolution Slider*/
+
+#home {
+    direction: initial;
 }
 
 /*Featured Resources*/
@@ -66,6 +124,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 300;
     position: relative;
     padding: 10px 10px 45px 10px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.08);
 }
 
 .profile-header p {
@@ -76,6 +135,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     position: absolute;
     left: 0;
     right: 0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);
 }
 
 .profile-header p img {
@@ -112,43 +172,67 @@ span.resources {
 
 /*User Profile Information*/
 
-.personal-info {
+.user-info {
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
     margin-top: 5px;
 }
 
-.personal-info li.en {
+.user-info li.en {
     position: relative;
     padding-left: 150px;
     padding-top: 15px;
     color: #333333;
+    margin: 10px 0;
 }
 
-.personal-info li span.en {
+.user-info li span.en {
     position: absolute;
     color: #999999;
     font-weight: 600;
     left: 0;
 }
 
-.personal-info li.ar {
+.user-info li.ar {
     position: relative;
     padding-right: 150px;
     padding-top: 15px;
     color: #333333;
+    margin: 10px 0;
 }
 
-.personal-info li span.ar {
+.user-info li span.ar {
     position: absolute;
     color: #999999;
     font-weight: 600;
     right: 0;
 }
 
+.profile-photo>img {
+    border: 2px solid pink;
+}
+
 /*Errors*/
 
 .has-error {
     border: 2px solid #ac4a58;
+}
+
+/*Listings*/
+
+.thumb {
+    text-align: center;
+    background: #fff;
+}
+
+.grid-listing-cover {
+    width: initial;
+    height: 200px;
+}
+
+/*Header*/
+
+.flag-icon {
+    width: 20px;
 }

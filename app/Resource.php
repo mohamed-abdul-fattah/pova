@@ -18,12 +18,14 @@ class Resource extends Model
         'title'       => 'required|string|max:255',
         'featured'    => 'boolean',
         'price'       => 'required|numeric',
-        'unit_id'     => 'required|integer',
+        'unit_id'     => 'integer',
         'country_id'  => 'required|integer',
         'city_id'     => 'required|integer',
         'lat'         => 'required|numeric',
         'lng'         => 'required|numeric',
-        'address'     => 'required|string|max:255'
+        'address'     => 'required|string|max:255',
+        'photos.*'    => 'image',
+        'cover'       => 'image'
     ];
 
     /**
@@ -52,7 +54,7 @@ class Resource extends Model
      */
     public function owner()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     /**
@@ -68,7 +70,9 @@ class Resource extends Model
      */
     public function basePrice()
     {
-        return $this->hasMany('App\Price')->where('availability_id', 0);
+        return $this->hasOne('App\Price')
+            ->where('availability_id', 0)
+            ->where('extra', 0);
     }
 
     /**
@@ -79,8 +83,29 @@ class Resource extends Model
         return $this->morphMany('App\AcquiredFeature', 'featureable');
     }
 
+    /**
+     * Get acquired prices for a resource.
+     */
     public function prices()
     {
         return $this->hasMany('App\Price');
+    }
+
+    /**
+     * Get extra prices for a resource.
+     */
+    public function extras()
+    {
+        return $this->hasMany('App\Price')
+            ->where('availability_id', 0)
+            ->where('extra', 1);
+    }
+
+    /**
+     * Get availabilities for a resource.
+     */
+    public function availabilities()
+    {
+        return $this->hasMany('App\Availability');
     }
 }

@@ -3,7 +3,12 @@
         <i class="fa fa-times-circle delete-feature" aria-hidden="true"></i>
     @endif
     @if ($feature->feature->type !== 'boolean')
-        <label class="form-label">{{nameLocale($feature->feature, app()->getLocale())}}</label>
+        <label class="form-label">
+            {{nameLocale($feature->feature, app()->getLocale())}}
+            @if ($feature->feature->required)
+                <span class="required">*</span>
+            @endif
+        </label>
     @endif
     {{-- text input --}}
     @if ($feature->feature->type === 'string' || $feature->feature->type === 'email')

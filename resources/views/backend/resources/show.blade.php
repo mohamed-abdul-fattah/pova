@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('overload')
-    {{titleLocale($resource)}} Profile
+    {{$resource->title}} Profile
 @stop
 
 @section('content')
@@ -13,8 +13,8 @@
                         <a href="#">
                             <img src="{{$resource->cover()}}" alt="">
                         </a>
-                        <h1>{{titleLocale($resource)}}</h1>
-                        <p>{{$resource->owner->name}}</p>
+                        <h1>{{$resource->title}}</h1>
+                        <p>{{nameLocale($resource->category, 'En')}}</p>
                     </div>
 
                     <ul class="nav nav-pills nav-stacked">
@@ -40,16 +40,36 @@
                     <div class="panel-body bio-graph-info">
                         <h1>Info</h1>
 
-                        @foreach(array_keys($resource->toArray()) as $attribute)
-                            @if(!str_contains($attribute,'_at')&& !str_contains($attribute,'_id'))
-                                <div class='bio-row'>
-                                    <p>
-                                        <span class='bold'>{{ trans('resource.'.ucwords($attribute)) }} :</span>
-                                        {{ $resource->$attribute }}
-                                    </p>
-                                </div>
-                            @endif
-                        @endforeach
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'># :</span>
+                                {{ $resource->id }}
+                            </p>
+                        </div>
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>@lang('resource.Title') :</span>
+                                {{ $resource->title }}
+                            </p>
+                        </div>
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>@lang('resource.Category') :</span>
+                                {{ nameLocale($resource->category, 'En') }}
+                            </p>
+                        </div>
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>@lang('resource.Owner') :</span>
+                                {{ $resource->owner->name }}
+                            </p>
+                        </div>
+                        <div class='bio-row'>
+                            <p>
+                                <span class='bold'>@lang('resource.Featured') :</span>
+                                {{ ($resource->featured) ? 'True' : 'False' }}
+                            </p>
+                        </div>
                     </div>
                 </section>
             </aside>

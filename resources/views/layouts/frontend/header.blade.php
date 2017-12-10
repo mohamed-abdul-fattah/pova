@@ -57,69 +57,74 @@
   <div class="header-nav navbar-fixed-top header-dark navbar-white navbar-transparent transparent-dark navbar-sticky-animated animated-active">
     <div class="header-nav-wrapper">
       <div class="container">
+        <div class="text-center"><a class="font-playball text-theme-colored font-32" href="/">Happy <i class="fa fa-heart-o font-25"></i> Wedding</a>
         <nav>
-          <div id="menuzord-right" class="menuzord red"> <a class="menuzord-brand pull-left flip font-playball text-theme-colored font-32" href="/">Happy <i class="fa fa-heart-o font-25"></i> Wedding</a>
-            <div id="side-panel-trigger" class="side-panel-trigger"><a href="#"><i class="fa fa-bars font-24 text-gray-silver"></i></a></div>
-            <ul class="menuzord-menu">
-              <li class="active"><a href="/">{{__('Home')}}</a></li>
-              @foreach ($categories->parentCategories() as $key => $category)
-                  <li>
-                      <a href="javascript:void(0)">
-                          {{nameLocale($category, app()->getLocale())}}
-                      </a>
-                      @if (count($category->subCategories))
+            {{-- <div id="side-panel-trigger" class="side-panel-trigger"><a href="#"><i class="fa fa-bars font-24 text-gray-silver"></i></a></div> --}}
+            <div id="menuzord" class="menuzord red menuzord-center">
+                <ul class="menuzord-menu">
+                  <li class="active"><a href="/">{{__('Home')}}</a></li>
+                  @foreach ($categories->parentCategories() as $key => $category)
+                      <li>
+                          <a href="javascript:void(0)">
+                              {{nameLocale($category, app()->getLocale())}}
+                          </a>
+                          @if (count($category->subCategories))
+                              <ul class="dropdown">
+                                  @foreach ($category->subCategories as $key => $subCategory)
+                                      <li><a href="/listings/{{$subCategory->id}}">{{nameLocale($subCategory, app()->getLocale())}}</a></li>
+                                  @endforeach
+                              </ul>
+                          @endif
+                      </li>
+                  @endforeach
+                  @auth
+                      <li>
+                          <a href="/profile">{{auth()->user()->name}}</a>
                           <ul class="dropdown">
-                              @foreach ($category->subCategories as $key => $subCategory)
-                                  <li><a href="/listings/{{$subCategory->id}}">{{nameLocale($subCategory, app()->getLocale())}}</a></li>
-                              @endforeach
-                          </ul>
-                      @endif
-                  </li>
-              @endforeach
-              <li>
-                  @if (app()->getLocale() === 'ar')
-                      <a href="/lang/en">En</a>
-                  @else
-                      <a href="/lang/ar">عربي</a>
-                  @endif
-              </li>
-              @auth
-                  <li>
-                      <a href="/profile">{{auth()->user()->name}}</a>
-                      <ul class="dropdown">
-                          <li>
-                              <a href="/profile">
-                                  <i class="fa fa-user" aria-hidden="true"></i>
-                                  {{__('Profile')}}
-                              </a>
-                          </li>
-                          @if (auth()->user()->type === 'provider')
                               <li>
-                                  <a href="/resources">
-                                      <span class="pe-7s-display2"></span>
-                                      {{__('My Resources')}}
+                                  <a href="/profile">
+                                      <i class="fa fa-user" aria-hidden="true"></i>
+                                      {{__('Profile')}}
                                   </a>
                               </li>
-                          @endif
-                          <li>
-                              <a href="{{ route('logout') }}"
-                                  onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                    {{__('Logout')}}
-                              </a>
+                              @if (auth()->user()->type === 'provider')
+                                  <li>
+                                      <a href="/resources">
+                                          <span class="pe-7s-display2"></span>
+                                          {{__('My Resources')}}
+                                      </a>
+                                  </li>
+                              @endif
+                              <li>
+                                  <a href="{{ route('logout') }}"
+                                      onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        {{__('Logout')}}
+                                  </a>
 
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                  {{ csrf_field() }}
-                              </form>
-                          </li>
-                      </ul>
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                      {{ csrf_field() }}
+                                  </form>
+                              </li>
+                          </ul>
+                      </li>
+                  @endauth
+                  @guest
+                      <li><a href="/login">{{__('Login / Register')}}</a></li>
+                      <li>
+                          <a href="/provider-signup">{{__('Become a Provider')}}</a>
+                      </li>
+                  @endguest
+                  <li>
+                      @if (app()->getLocale() === 'ar')
+                          <a href="/lang/en"><img src="/images/icons/en.png" alt="" class="flag-icon"></a>
+                      @else
+                          <a href="/lang/ar"><img src="/images/icons/ar.png" alt="" class="flag-icon"></a>
+                      @endif
                   </li>
-              @endauth
-              @guest
-                  <li><a href="/login">{{__('Login / Register')}}</a></li>
-              @endguest
-            </ul>
+                </ul>
+            </div>
           </div>
         </nav>
       </div>

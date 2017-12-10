@@ -26,7 +26,7 @@ class ResourcesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('frontShow');
         $this->resource = 'Resource';
         $this->middleware('can:create,App\User,App\Resource', ['only'=>['create','store']]);
         $this->middleware('can:update,App\User,App\Resource', ['only'=>['edit','update']]);
@@ -74,7 +74,7 @@ class ResourcesController extends Controller
     protected function addPhotos($resource, $photos)
     {
         foreach ($photos as $key => $photo) {
-            $resource->uploadPhoto($photo, 0, 'images/resources');
+            $resource->uploadPhoto($photo, 0, 'images/resources', 0, 395, 200, "$resource->title Photo");
         }
     }
 
@@ -87,7 +87,83 @@ class ResourcesController extends Controller
      */
     public function addCover($resource, $file)
     {
-        $resource->uploadPhoto($file, 0, 'images/resources', 1);
+        $resource->uploadPhoto($file, 0, 'images/resources', 1, "$resource->title Cover Photo");
+    }
+
+    /**
+     * Set availabilities for a resource.
+     *
+     * @param  object  $resource
+     * @param  array  $froms
+     * @param  array  $tos
+     * @param  array  $seasonalPrices
+     * @param  int  $unitId
+     * @return void
+     */
+    protected function setAvailabilities($resource, $froms, $tos, $seasonalPrices, $unitId)
+    {
+        foreach ($froms as $key => $from) {
+            if ($from && $tos[$key]) { // only if type, from and end are set.
+                $availability = $resource->availabilities()->create([
+                    'start' => date('Y-m-d', strtotime($from)),
+                    'end'   => date('Y-m-d', strtotime($tos[$key])),
+                    'type'  => 'seasonal'
+                ]);
+
+                if ($seasonalPrices[$key]) { // if seasonal price is set.
+                    $resource->prices()->create([
+                        'unit_id'         => $unitId,
+                        'availability_id' => $availability->id,
+                        'price'           => $seasonalPrices[$key],
+                        'currency'        => 'EGP'
+                    ]);
+                }
+            }
+        }
+    }
+
+    /**
+     * Set unavailable dates.
+     *
+     * @param  object  $resource
+     * @param  string  $dates
+     * @return void
+     */
+    protected function setUnavailableDates($resource, $dates)
+    {
+        $datesArr = explode(',', $dates);
+        foreach ($datesArr as $key => $date) {
+            $resource->availabilities()->create([
+                'start' => date('Y-m-d H:i:s', strtotime($date)),
+                'type'  => 'unavailable'
+            ]);
+        }
+    }
+
+    /**
+     * Create extra prices for a resource.
+     *
+     * @param  object  $resource
+     * @param  int  $unitId
+     * @param  array  $prices
+     * @param  array  $descriptions
+     * @param  int  $availabilityId (optional)
+     * @return void
+     */
+    protected function addExtras($resource, $unitId, $prices, $descriptions, $availabilityId = 0)
+    {
+        foreach ($prices as $key => $price) {
+            if ($price) {
+                $resource->prices()->create([
+                    'unit_id'         => $unitId,
+                    'availability_id' => $availabilityId,
+                    'price'           => $price,
+                    'currency'        => 'EGP',
+                    'description'     => $descriptions[$key],
+                    'extra'           => 1
+                ]);
+            }
+        }
     }
 
     /**
@@ -98,7 +174,7 @@ class ResourcesController extends Controller
     public function index(Request $request)
     {
         $resources = Resource::all();
-        $model = $this->resource;
+        $model     = $this->resource;
 
         if ($request->ajax()) {
             $resources = Datatables::of($resources);
@@ -120,6 +196,26 @@ class ResourcesController extends Controller
                 $resource->id,
                 $resource->id
               );
+            });
+            // Route to profile.
+            $resources->editColumn('title', function ($resource) {
+                return link_to_route(
+                    'resources.show',
+                    $resource->title,
+                    $resource->id
+                );
+            });
+            // Category.
+            $resources->editColumn('category', function ($resource) {
+                return nameLocale($resource->category, 'En');
+            });
+            // Owner.
+            $resources->editColumn('owner', function ($resource) {
+                return $resource->owner->name;
+            });
+            // Featured.
+            $resources->editColumn('featured', function ($resource) {
+                return ($resource->featured) ? 'True' : 'False';
             });
 
             return $resources->make(true);
@@ -153,7 +249,7 @@ class ResourcesController extends Controller
         $model      = $this->resource;
         $resource   = new Resource;
         $providers  = User::whereType('provider')->orderby('name')->get();
-        $categories = Category::where('parent_id', '<>', 0)->get();
+        $categories = Category::where('parent_id', 0)->get();
 
         return view('backend.resources.create', compact('model', 'resource', 'providers', 'categories'));
     }
@@ -169,10 +265,9 @@ class ResourcesController extends Controller
         $countries  = Countries::all();
         $cities     = City::orderby('name')->get();
         $categories = Category::with('subCategories')->whereParentId(0)->orderby('name')->get();
-        $units      = Unit::orderby('name')->get();
 
         return view('frontend.resources.create', compact(
-            'resource', 'countries', 'cities', 'categories', 'units'
+            'resource', 'countries', 'cities', 'categories'
         ));
     }
 
@@ -208,7 +303,9 @@ class ResourcesController extends Controller
     {
         $this->validate($request, Resource::rules());
 
+        $unit     = Unit::first();
         $request  = collect($request)->put('user_id', auth()->id())
+            ->put('unit_id', $unit->id)
             ->put('currency', 'EGP');
         $resource = Resource::create($request->all());
 
@@ -217,6 +314,11 @@ class ResourcesController extends Controller
 
         // Base price.
         $resource->basePrice()->create($request->all());
+
+        // Extra prices.
+        if ($request->get('prices')) {
+            $this->addExtras($resource, $unit->id, $request->get('prices'), $request->get('descriptions'));
+        }
 
         // Store features.
         if ($request->has('features')) {
@@ -231,6 +333,22 @@ class ResourcesController extends Controller
         // Add photos.
         if ($request->has('photos')) {
             $this->addPhotos($resource, $request->get('photos'));
+        }
+
+        // Set availabilities.
+        // Unavailable dates.
+        if ($request->has('unavailableDates')) {
+            $this->setUnavailableDates($resource, $request->get('unavailableDates'));
+        }
+        // Seasonal dates.
+        if (count($request->get('from'))) {
+            $this->setAvailabilities(
+                $resource,
+                $request->get('from'),
+                $request->get('to'),
+                $request->get('seasonalPrice'),
+                $unit->id
+            );
         }
 
         return redirect('/resources');
@@ -251,6 +369,20 @@ class ResourcesController extends Controller
     }
 
     /**
+     * Display the specified resource (frontend).
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function frontShow($id)
+    {
+        $resource = Resource::with('acquiredFeatures')->findOrFail($id);
+        $desc     = Feature::whereName(json_encode(['nameEn' => 'Description','nameAr' => 'الوصف']))->first();
+
+        return view('frontend.resources.show', compact('resource', 'desc'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -261,12 +393,13 @@ class ResourcesController extends Controller
         $resource   = Resource::findOrFail($id);
         $model      = $this->resource;
         $providers  = User::whereType('provider')->orderby('name')->get();
-        $categories = Category::where('parent_id', '<>', 0)->get();
+        $categories = Category::where('parent_id', 0)->get();
+        $isEdit     = true;
         if (is_null($resource)) {
             return redirect()->route('resources.index');
         }
 
-        return view('backend.resources.edit', compact('model', 'resource', 'providers', 'categories'));
+        return view('backend.resources.edit', compact('model', 'resource', 'providers', 'categories', 'isEdit'));
     }
 
     /**
@@ -281,11 +414,10 @@ class ResourcesController extends Controller
         $countries  = Countries::all();
         $cities     = City::orderby('name')->get();
         $categories = Category::with('subCategories')->whereParentId(0)->orderby('name')->get();
-        $units      = Unit::orderby('name')->get();
         $isEdit     = true;
 
         return view('frontend.resources.edit', compact(
-            'resource', 'countries', 'cities', 'categories', 'units', 'isEdit'
+            'resource', 'countries', 'cities', 'categories', 'isEdit'
         ));
     }
 
@@ -297,8 +429,20 @@ class ResourcesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!$request->has('featured')) { // unfeature resource.
+            $request['featured'] = false;
+        }
         // Validations.
-        $this->validate($request, Resource::rules());
+        // $this->validate($request, Resource::rules()); // tobe back when we add full functionality.
+        $this->validate($request, [
+            'category_id' => 'required|integer',
+            'user_id'     => 'required|integer',
+            'title'       => 'required|string|max:255',
+            'featured'    => 'boolean',
+            'address'     => 'required|string|max:255',
+            'lat'         => 'required|numeric',
+            'lng'         => 'required|numeric'
+        ]);
 
         $resource = Resource::findOrFail($id);
         $resource->update($request->input());
@@ -323,6 +467,7 @@ class ResourcesController extends Controller
     {
         $this->validate($request, Resource::rules());
 
+        $unit     = Unit::first();
         $resource = Resource::findOrFail($id);
         $resource->update($request->only('category_id', 'title'));
 
@@ -335,8 +480,14 @@ class ResourcesController extends Controller
             'city_id'
         ));
 
-        // Base price.
-        $resource->basePrice()->update($request->only('unit_id', 'price', 'currency'));
+        // Update base price.
+        $resource->basePrice()->update($request->only('price', 'description'));
+
+        // Create extra prices.
+        if ($request->has('prices')) {
+            $resource->extras()->delete();
+            $this->addExtras($resource, $unit->id, $request->prices, $request->descriptions);
+        }
 
         // Update features.
         if ($request->has('features')) {
@@ -344,7 +495,7 @@ class ResourcesController extends Controller
             $this->addFeatures($resource, $request->get('features'));
         }
 
-        // Add cover photo.
+        // Update cover photo.
         if ($request->hasFile('cover')) {
             if ($resource->photos()->whereCover(1)->first()) {
                 $resource->photos()->whereCover(1)->first()->update(['cover' => 0]);
@@ -355,6 +506,27 @@ class ResourcesController extends Controller
         // Upload photos.
         if ($request->has('photos')) {
             $this->addPhotos($resource, $request->photos);
+        }
+
+        // Update availabilities.
+        // Unavailable dates.
+        if ($request->has('unavailableDates')) {
+            $resource->availabilities()->whereType('unavailable')->delete();
+            $this->setUnavailableDates($resource, $request->unavailableDates);
+        }
+        // Seasonal dates.
+        if (count($request->get('from'))) {
+            foreach ($resource->availabilities()->whereType('seasonal')->get() as $key => $avail) {
+                $avail->seasonalPrice()->delete();
+                $avail->delete();
+            }
+            $this->setAvailabilities(
+                $resource,
+                $request->get('from'),
+                $request->get('to'),
+                $request->get('seasonalPrice'),
+                $unit->id
+            );
         }
 
         return redirect('/resources')->with([
@@ -391,7 +563,7 @@ class ResourcesController extends Controller
         foreach ($resource->photos as $key => $photo) {
             $resource->deletePhoto('images/resources', $photo);
         }
-        // availabilities
+        $resource->availabilities()->delete();
         $resource->delete();
 
         return redirect('/resources')->with([
