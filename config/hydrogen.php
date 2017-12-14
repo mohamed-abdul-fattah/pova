@@ -16,5 +16,5 @@ return [
     ],
     'template' => 'flatlab',
     'AppName' => env('APP_NAME', 'Hydrogen'),
-    'CompanyName' => env('COMPANY_NAME', 'Bakly Systems'),
+    'CompanyName' => env('COMPANY_NAME', 'EGYPOVA'),
 ];
