@@ -28,9 +28,9 @@ class User {
     // TODO: user profile. ✔                                                11-2017
     // TODO: provider signup. ✔                                             18-11-2017
     // TODO: provider details. ✔                                            18-11-2017
+    // TODO: email is not required. ✔                                       12-2017
     // TODO: profile settings/edit. ✔                                       18-11-2017
     // TODO: change name to fname and lname, and add gender to users.
-    // TODO: email is not required.
 }
 -----------------------------------
 

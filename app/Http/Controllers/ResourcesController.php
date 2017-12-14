@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Closure;
 use App\User;
 use App\City;
 use App\Unit;
@@ -33,6 +34,13 @@ class ResourcesController extends Controller
         $this->middleware('can:index,App\User,App\Resource', ['only'=>['index']]);
         $this->middleware('can:show,App\User,App\Resource', ['only'=>['show']]);
         $this->middleware('can:delete,App\User,App\Resource', ['only'=>['delete']]);
+        $this->middleware(function(Request $request, Closure $next) {
+            $resource = Resource::find($request->id);
+            if (auth()->id() === $resource->user_id) {
+                return $next($request);
+            }
+            return redirect()->back();
+        })->only('frontEdit', 'frontUpdate', 'frontDestroy');
     }
 
     /**
