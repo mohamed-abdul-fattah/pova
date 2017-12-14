@@ -36,7 +36,7 @@ class User {
 
 class Category {
     // TODO: categories on header. ✔                                        11-2017
-    // TODO: add parent category on category details methods show page. ✔   14-12-2017
+    // TODO: add parent category on category details methods show page.
     // TODO: organize categories on dashboard >> parent >> children.
 }
 -----------------------------------
@@ -62,7 +62,7 @@ class Resource {
 -----------------------------------
 
 class Listings {
-    // TODO: middleware to prevent search for parent categories.
+    // TODO: middleware to prevent search for parent categories. ✔          14-12-2017
     // TODO: listings list view from events-list-right-sidebar.html demo page.
     // TODO: paginate with JS to load more in the same page not to load with php.
 }

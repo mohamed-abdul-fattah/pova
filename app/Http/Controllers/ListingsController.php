@@ -12,6 +12,9 @@ class ListingsController extends Controller
 {
     public function __construct()
     {
+        /**
+         * Prevent navigation to parent categories.
+         */
         $this->middleware(function(Request $request, Closure $next) {
             $category = Category::findOrFail($request->id);
             if ($category->parent_id) {
