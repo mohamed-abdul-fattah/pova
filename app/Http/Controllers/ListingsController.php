@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Closure;
 use App\Feature;
 use App\Category;
 use App\Resource;
@@ -9,6 +10,16 @@ use Illuminate\Http\Request;
 
 class ListingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function(Request $request, Closure $next) {
+            $category = Category::findOrFail($request->id);
+            if ($category->parent_id) {
+                return $next($request);
+            }
+            return redirect()->back();
+        });
+    }
     /**
      * Get category listings/resources.
      *

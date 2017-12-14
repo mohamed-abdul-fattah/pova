@@ -36,7 +36,7 @@ class User {
 
 class Category {
     // TODO: categories on header. ✔                                        11-2017
-    // TODO: add parent category on category details methods show page.
+    // TODO: add parent category on category details methods show page. ✔   14-12-2017
     // TODO: organize categories on dashboard >> parent >> children.
 }
 -----------------------------------
@@ -52,6 +52,7 @@ class Resource {
     // TODO: resources listings. ✔                                          14-11-2017
     // TODO: resources show page. ✔                                         14-11-2017
     // TODO: featured resources dashboard. ✔                                15-11-2017
+    // TODO: middleware for resources CRUD. ✔                               14-12-2017
     // TODO: validate seasonal availabilities backend.
     // TODO: write custome arabic validation messages.
     // TODO: JQuery validate for resources/create and set availabilities.
