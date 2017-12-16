@@ -49,6 +49,7 @@ class Resource
 # resources show page. ✔                                              14-11-2017
 # featured resources dashboard. ✔                                     15-11-2017
 # middleware for resources CRUD. ✔                                    14-12-2017
+# upload videos from device or a link from youtube or vimeo.
 # validate seasonal availabilities backend.
 # write custome arabic validation messages.
 # JQuery validate for resources/create and set availabilities.
@@ -84,3 +85,4 @@ class Unit
 class Photo
 # optimize database columns.
 # maximize photo file size.
+# show slider small photos in resources profile.

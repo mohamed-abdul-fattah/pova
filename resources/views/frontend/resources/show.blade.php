@@ -140,7 +140,11 @@
                     @foreach ($resource->acquiredFeatures()->where('id', '<>', $description->id)->get() as $key => $feature)
                         <p>
                             <span class="feature-title">{{nameLocale($feature->feature, app()->getLocale())}}</span>
-                            {{$feature->value()}}
+                            @if($feature->feature->type === 'boolean')
+                                {{($feature->value()) ? __('Yes') : __('No')}}
+                            @else
+                                {{$feature->value()}}
+                            @endif
                         </p>
                     @endforeach
                 </div>
