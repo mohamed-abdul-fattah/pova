@@ -6,7 +6,7 @@
             margin-bottom: 50px;
         }
         .specs li p:hover {
-            cursor: pointer;
+            cursor: default;
             color: #d65679;
             -o-transition:.3s;
             -ms-transition:.3s;

@@ -1,63 +1,64 @@
 
-# TODO: 404 page. ✔                                                         20-11-2017
-# TODO: MDP calendar. ✔                                                     19-11-2017
-# TODO: language switcher. ✔                                                11-2017
-# TODO: fix styling in English. ✔                                           19-11-2017
-# TODO: email and gender in user.
-# TODO: abandon hydrogen.
-# TODO: change footer to dark footer or make sidebar like theme switcher.
-# TODO: change $request from Collection ins back to Request in Controllers.
-# TODO: add placeholders to login/register/provider inputs.
-# TODO: switch to bootstrap tooltips to get arrow and more features.
+# 404 page. ✔                                                         20-11-2017
+# MDP calendar. ✔                                                     19-11-2017
+# language switcher. ✔                                                11-2017
+# fix styling in English. ✔                                           19-11-2017
+# gender in user.
+# abandon hydrogen.
+# change footer to dark footer or make sidebar like theme switcher.
+# change $request from Collection ins back to Request in Controllers.
+# add placeholders to login/register/provider inputs.
+# switch to bootstrap tooltips to get arrow and more features.
 
-# TODO: convert all inline styles to css sheets.
-# TODO: use CDNs for all JS and CSS external files.
-# TODO: remove JQuery migrate and upgrade functions to JQuery 3.
-# TODO: update prices and availabilities by id to save ids from overflow.
-# TODO: validate images sizes on production and constrain php.ini upload_max_filesize and memory_limit.
-# TODO: make sure that revolution slider library fits for slow devices.
-# TODO: move hydrogen config and hydrogen env variables to a config file.
-# TODO: enhance Route::domain from Laravel docs (follow standards).
-# TODO: slideUp and down faster.
+# fix responsive menu dropdowns.
+# convert all inline styles to css sheets.
+# use CDNs for all JS and CSS external files.
+# remove JQuery migrate and upgrade functions to JQuery 3.
+# update prices and availabilities by id to save ids from overflow.
+# validate images sizes on production and constrain php.ini upload_max_filesize and memory_limit.
+# make sure that revolution slider library fits for slow devices.
+# move hydrogen config and hydrogen env variables to a config file.
+# enhance Route::domain from Laravel docs (follow standards).
+# slideUp and down faster.
 
 class User
-# TODO: user login. ✔                                                       11-2017
-# TODO: user phone. ✔                                                       18-11-2017
-# TODO: user signup. ✔                                                      11-2017
-# TODO: user profile. ✔                                                     11-2017
-# TODO: provider signup. ✔                                                  18-11-2017
-# TODO: provider details. ✔                                                 18-11-2017
-# TODO: email is not required. ✔                                            12-2017
-# TODO: profile settings/edit. ✔                                            18-11-2017
-# TODO: change name to fname and lname, and add gender to users.
+# user login. ✔                                                       11-2017
+# user phone. ✔                                                       18-11-2017
+# user signup. ✔                                                      11-2017
+# user profile. ✔                                                     11-2017
+# provider signup. ✔                                                  18-11-2017
+# provider details. ✔                                                 18-11-2017
+# email is not required. ✔                                            12-2017
+# profile settings/edit. ✔                                            18-11-2017
+# change name to fname and lname, and add gender to users.
 
 class Category 
-# TODO: categories on header. ✔                                             11-2017
-# TODO: add parent category on category details methods show page.
-# TODO: organize categories on dashboard >> parent >> children.
+# categories on header. ✔                                             11-2017
+# add parent category on category details methods show page.
+# organize categories on dashboard >> parent >> children.
 
 class Resource
-# TODO: resources. ✔                                                        11-2017
-# TODO: add resource. ✔                                                     11-2017
-# TODO: edit resource. ✔                                                    11-2017
-# TODO: availabilities. ✔                                                   11-2017
-# TODO: multiple prices. ✔                                                  11-2017
-# TODO: delete resource. ✔                                                  11-2017
-# TODO: photos and cover. ✔                                                 11-2017
-# TODO: resources listings. ✔                                               14-11-2017
-# TODO: resources show page. ✔                                              14-11-2017
-# TODO: featured resources dashboard. ✔                                     15-11-2017
-# TODO: middleware for resources CRUD. ✔                                    14-12-2017
-# TODO: validate seasonal availabilities backend.
-# TODO: write custome arabic validation messages.
-# TODO: JQuery validate for resources/create and set availabilities.
-# TODO: add full functionality for dashboard resources, then update validation rules.
-# TODO: set max chars to inputs for title.
+# resources. ✔                                                        11-2017
+# add resource. ✔                                                     11-2017
+# edit resource. ✔                                                    11-2017
+# availabilities. ✔                                                   11-2017
+# multiple prices. ✔                                                  11-2017
+# delete resource. ✔                                                  11-2017
+# photos and cover. ✔                                                 11-2017
+# resources listings. ✔                                               14-11-2017
+# resources show page. ✔                                              14-11-2017
+# featured resources dashboard. ✔                                     15-11-2017
+# middleware for resources CRUD. ✔                                    14-12-2017
+# validate seasonal availabilities backend.
+# write custome arabic validation messages.
+# JQuery validate for resources/create and set availabilities.
+# add full functionality for dashboard resources, then update validation rules.
+# set max chars to inputs for title.
 
 class Listings 
-# TODO: middleware to prevent search for parent categories. ✔               14-12-2017
-# TODO: listings list view from events-list-right-sidebar.html demo page.
-# TODO: paginate with JS to load more in the same page not to load with php.
+# middleware to prevent search for parent categories. ✔               14-12-2017
+# listings list view from events-list-right-sidebar.html demo page.
+# paginate with JS to load more in the same page not to load with php.
 
 class Feature 
 #
@@ -69,10 +70,10 @@ class Price
 #
 
 class Availability
-# TODO: require seasonal fields.
+# require seasonal fields.
 
 class Country
-# TODO: add arabic names.
+# add arabic names.
 
 class City
 #
@@ -81,4 +82,5 @@ class Unit
 #
 
 class Photo
-# TODO: optimize database columns.
+# optimize database columns.
+# maximize photo file size.
