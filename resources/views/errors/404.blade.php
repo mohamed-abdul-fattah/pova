@@ -4,7 +4,7 @@
     <!-- start main-content -->
     <div class="main-content">
       <!-- Section: home -->
-      <section id="home" class="fullscreen parallax text-center layer-overlay" data-bg-img="images/bg/bg1.jpg">
+      <section id="home" class="fullscreen parallax text-center layer-overlay" data-bg-img="/images/bg/bg1.jpg">
         <div class="display-table text-center">
           <div class="display-table-cell">
             <div class="container pt-0 pb-0">
