@@ -77,9 +77,10 @@ class RegisterController extends Controller
 
         // Provider details.
         if ($data['type'] === 'provider') {
+            $company = (isset($data['company'])) ? $data['company'] : '';
             $user->provider()->create([
                 'entity'       => $data['entity'],
-                'company_name' => $data['company']
+                'company_name' => $company
             ]);
         }
 

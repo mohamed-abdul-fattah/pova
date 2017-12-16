@@ -41,9 +41,11 @@
                       <li class="{{app()->getLocale()}}"><span class="{{app()->getLocale()}}">
                           {{__('Entity')}}</span>{{__(ucwords($user->provider->entity))}}
                       </li>
-                      <li class="{{app()->getLocale()}}"><span class="{{app()->getLocale()}}">
-                          {{__('Company Name')}}</span>{{$user->provider->company_name}}
-                      </li>
+                      @if($user->provider->entity === 'company')
+                        <li class="{{app()->getLocale()}}"><span class="{{app()->getLocale()}}">
+                            {{__('Company Name')}}</span>{{$user->provider->company_name}}
+                        </li>
+                      @endif
                   @endif
                   <li>
                       <a href="/settings" class="btn btn-warning">
