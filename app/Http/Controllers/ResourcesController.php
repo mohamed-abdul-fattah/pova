@@ -98,7 +98,7 @@ class ResourcesController extends Controller
      */
     public function addCover($resource, $file)
     {
-        $resource->uploadPhoto($file, 0, 'images/resources', 1, "$resource->title Cover Photo");
+        $resource->uploadPhoto($file, 0, 'images/resources', 1, 395, 200, "$resource->title Cover Photo");
     }
 
     /**
