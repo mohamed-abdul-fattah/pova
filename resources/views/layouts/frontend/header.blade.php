@@ -4,7 +4,7 @@
 <div id="side-panel" class="bg-black-111">
   <div class="side-panel-wrap">
     <div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="icon_close font-30"></i></a></div>
-    <a class="menuzord-brand pull-left flip font-playball text-white font-24 pt-30 pb-30" href="/">Happy <i class="fa fa-heart-o font-25"></i> Wedding</a>
+    <a class="menuzord-brand pull-left flip font-playball text-white font-24 pt-30 pb-30" href="/">EGY <i class="fa fa-heart-o font-25"></i> POVA</a>
     <div class="side-panel-nav mt-30">
       <div class="widget no-border">
         <nav>
@@ -57,7 +57,7 @@
   <div class="header-nav navbar-fixed-top header-dark navbar-white navbar-transparent transparent-dark navbar-sticky-animated animated-active">
     <div class="header-nav-wrapper">
       <div class="container">
-        <div class="text-center"><a class="font-playball text-theme-colored font-32" href="/">Happy <i class="fa fa-heart-o font-25"></i> Wedding</a>
+        <div class="text-center"><a class="font-playball text-theme-colored font-32" href="/">EGY <i class="fa fa-heart-o font-25"></i> POVA</a>
         <nav>
             {{-- <div id="side-panel-trigger" class="side-panel-trigger"><a href="#"><i class="fa fa-bars font-24 text-gray-silver"></i></a></div> --}}
             <div id="menuzord" class="menuzord red menuzord-center">
